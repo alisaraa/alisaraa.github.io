@@ -1,8 +1,8 @@
 body { margin: auto; width: 50%; padding: 10px;}
 
 #intro {
-    color: pink;
-    font-weight: bold;
+    background-color: #ccc;
+    padding: 20px
 }
 
 
