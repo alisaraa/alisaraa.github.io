@@ -9,10 +9,9 @@ body { margin: auto; width: 50%; padding: 10px;}
 a { text-decoration: none; color: #999; }
 a:hover { text-decoration: underline; }
 
-p { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
+p, ul li { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
 
-ul li { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
-ul li  { font-size: 1em; line-height: 1.2em; color: #333; }
+
 
 h1, h2, h3, h4 { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
 h1 {
@@ -23,7 +22,7 @@ h2 {
     font-size: 30px;
 }
 
-p {
+p, ul li {
     font-size: 14px;
 }
 
