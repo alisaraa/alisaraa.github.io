@@ -34,9 +34,8 @@ p, ul li {
     font-size: 14px;
 }
 figure figcaption {
-    font-size: 9px;
+    font-size: 8px;
     text-align: left;
-    font-style: italic;
 }
 
 nav ul, footer ul { font-size: 1em; font-family: 'Helvetica', 'Arial', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold; }
@@ -47,7 +46,7 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 .row {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 4px;
+  padding: 10px;
 }
 
 /* Create four equal columns that sits next to each other */
@@ -60,5 +59,6 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 .column img {
   margin-top: 8px;
   vertical-align: middle;
+  height: 300px;
 }
 
