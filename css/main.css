@@ -33,7 +33,7 @@ h4 {
 p, ul li {
     font-size: 14px;
 }
-figure{
+figure figcaption {
     font-size: 10px;
     text-align: center;
     font-style: italic;
