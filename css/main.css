@@ -54,7 +54,7 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 .column {
   flex: 25%;
   max-width: 45%;
-  padding: 25px;
+  padding: 10px;
 }
 
 .column img {
