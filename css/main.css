@@ -16,14 +16,15 @@ ul li  { font-size: 1em; line-height: 1.2em; color: #333; }
 
 h1, h2, h3, h4 { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
 h1 {
-    font-size: 2.5em; /* 40px/16=2.5em */
+    font-size: 40px;
 }
+
 h2 {
-    font-size: 1.875em; /* 30px/16=1.875em */
- }
+    font-size: 30px;
+}
 
 p {
-    font-size: 0.875em; /* 14px/16=0.875em */
+    font-size: 14px;
 }
 
 nav ul, footer ul { font-size: 1em; font-family: 'Helvetica', 'Arial', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold; }
