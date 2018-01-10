@@ -2,20 +2,24 @@ body { margin: auto; width: 50%; padding: 10px;}
 
 .intro {
     background-color: #ccc;
-    padding: 20px
+    padding: 30px
+}
+p.intro{
+    font-size: 10px;
+    font-style: italic;
 }
 
 
 a { text-decoration: none; color: #999; }
 a:hover { text-decoration: underline; }
 
-p, ul li { font-family: "Bookman Old Style"; }
+p, ul li { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
 
 
 
 h1, h2, h3, h4 { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
 h1 {
-    font-size: 40px;
+    font-size: 35px;
 }
 
 h2 {
