@@ -44,15 +44,12 @@ nav ul li, footer ul li { display: inline; margin-right: 20px; }
 footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
   padding: 5px;
 }
 
 /* Create four equal columns that sits next to each other */
 .column {
-  flex: 5%;
-  max-width: 21%;
+  max-width: 20%;
   padding: 5px;
 }
 
