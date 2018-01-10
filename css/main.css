@@ -46,14 +46,14 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 .row {
   display: flex;
   flex-wrap: wrap;
-  padding: 8px;
+  padding: 10px;
 }
 
 /* Create four equal columns that sits next to each other */
 .column {
   flex: 15%;
   max-width: 30%;
-  padding: 8px;
+  padding: 10px;
 }
 
 .column img {
