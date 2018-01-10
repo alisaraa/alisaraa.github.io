@@ -53,8 +53,8 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 /* Create four equal columns that sits next to each other */
 .column {
   flex: 25%;
-  max-width: 25%;
-  padding: 50px;
+  max-width: 45%;
+  padding: 25px;
 }
 
 .column img {
