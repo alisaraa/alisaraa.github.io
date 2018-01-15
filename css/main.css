@@ -47,6 +47,7 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
   display: flex;   
   flex-wrap: wrap;
   padding: 5px;
+  border: 15px solid red;
 }
 
 /* Create four equal columns that sits next to each other */
