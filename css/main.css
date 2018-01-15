@@ -7,7 +7,7 @@ body { margin: auto; width: 70%; padding: 10px;     background-color:  	#ffe6ee;
 
 
 
-a { text-decoration: none; color: #999; }
+a { text-decoration: none; color: LightGray; }
 a:hover { text-decoration: underline; }
 
 p, ul li, figure { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; 
