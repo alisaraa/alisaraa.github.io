@@ -2,6 +2,7 @@ body { margin: auto; width: 70%; padding: 10px;     background-color:  #F5FFFA;}
 
 .intro {
     text-align: center;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 
@@ -15,10 +16,9 @@ p, ul li, figure { font-family: Arial, Helvetica, sans-serif;
 
 
 
-h1 { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+h1 { 
 font-size: 45px;}
-
-h2, h3, h4 { font-family: Arial, Helvetica, sans-serif;}
+h1, h2, h3, h4 { font-family: Arial, Helvetica, sans-serif;}
 
 
 h2 {
