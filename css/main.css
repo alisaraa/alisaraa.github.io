@@ -10,12 +10,12 @@ body { margin: auto; width: 70%; padding: 10px;     background-color:  #d5d5d5;}
 a { text-decoration: none; color: #ff99c2; }
 a:hover { text-decoration: underline; }
 
-p, ul li, figure { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif";
+p, ul li, figure { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 
 
-h1, h2, h3, h4 { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif"; }
+h1, h2, h3, h4 { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; }
 h1 {
     font-size: 35px;
 }
