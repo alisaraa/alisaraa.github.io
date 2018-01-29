@@ -1,4 +1,4 @@
-body { margin: auto; width: 70%; padding: 10px;     background-color:  	#ffe6ee;}
+body { margin: auto; width: 70%; padding: 10px;     background-color:  #d5d5d5;}
 
 .intro {
     text-align: center;
@@ -41,7 +41,7 @@ figure figcaption {
 nav ul, footer ul { font-size: 1em; font-family: 'Helvetica', 'Arial', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold; }
 nav ul li, footer ul li { display: inline; margin-right: 20px; }
 
-footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
+footer { border-top: 1px solid #ffe6ee; font-size: .8em; }
 
 .grid { 
   display: grid;
