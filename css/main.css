@@ -62,16 +62,14 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 	margin: 0px auto;
 	padding: 0px;
 	border:0;
-	width: 600px;
+	width: 500px;
 }
 .item-1 {
 	float: left;
-	width: 300px;
-	background-color:Red;
+	width: 240px;
 }
 .item-2 { 
-	margin: 0;
+	margin: 5px;
 	float: left;
-	width: 300px;
-	background-color:Blue;
+	width: 240px;
 }
