@@ -15,7 +15,7 @@ p, ul li, figure { font-family: 'Helvetica', 'Arial', 'Sans-Serif';
 
 
 
-h1, h2, h3, h4 { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
+h1, h2, h3, h4 { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter" }
 h1 {
     font-size: 35px;
 }
