@@ -43,19 +43,15 @@ nav ul li, footer ul li { display: inline; margin-right: 20px; }
 
 footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 
-.row {
-  display: flex;   
-  flex-wrap: wrap;
-  padding: 10px;
+.grid { 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  align-items: start;
+  justify-items: start;
+  }
+.grid img {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  max-width: 100%;
 }
-
-/* Create four equal columns that sits next to each other */
-.column {
-    width: 350px;
-    padding: 10px;
-}
-
-.column img {
-  vertical-align: middle;
-}
-
