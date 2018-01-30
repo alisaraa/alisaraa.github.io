@@ -22,17 +22,15 @@ title: Running in Tech
       function drawChart() {
         // Create the data table.
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
+        data.addColumn('date', 'Race Date');
+        data.addColumn('number', 'Time');
         data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
+          [new Date(2000, 8, 5), new Date(2001, 1, 5), 3],
+          [new Date(2001, 8, 5), new Date(2002, 1, 5), 1],
+
         ]);
         // Set chart options
-        var options = {'title':'5ks times',
+        var options = {'title':'5ks Times 2017-',
                        backgroundColor: { fill:'transparent' },
                        'width':800,
                        'height':500};
