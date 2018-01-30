@@ -33,7 +33,11 @@ title: Running in Tech
         var options = {'title':'5K Times',titleFontSize:30,  legend: {position: "none"},
                        backgroundColor: { fill:'transparent' },
                        'width':800,
-                       'height':500};
+                       'height':500,
+                            vAxis: {                            
+                            gridlines: {
+                            color: 'transparent'
+                            }}};
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
         chart.draw(data, options);
