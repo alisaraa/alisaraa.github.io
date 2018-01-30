@@ -34,10 +34,15 @@ title: Running in Tech
                        backgroundColor: { fill:'transparent' },
                        'width':800,
                        'height':500,
+                           hAxis: {                            
+                            gridlines: {
+                            color: 'transparent'
+                            }},
                             vAxis: {                            
                             gridlines: {
                             color: 'transparent'
-                            }}};
+                            }}
+                      };
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
         chart.draw(data, options);
