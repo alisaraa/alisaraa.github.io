@@ -24,10 +24,10 @@ title: Running in Tech
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Race Date');
-        data.addColumn('number', 'Time');
+        data.addColumn('datetime', 'Time');
         data.addRows([
-          [new Date(2000, 8, 5),  3],
-          [new Date(2001, 8, 5),  1]
+          [new Date(2017, 3, 12),  Date(0, 0 ,0, 0, 27, 18)],
+          [new Date(2017, 4, 12),  Date(0, 0 ,0, 0, 27, 18)]
 
         ]);
         // Set chart options
