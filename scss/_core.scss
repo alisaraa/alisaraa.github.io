@@ -1,0 +1,287 @@
+/********************************************************************
+	ZYPOP - HTTPS://ZYPOPWEBTEMPLATES.COM
+	FREE WEB TEMPLATES
+********************************************************************/
+
+
+/**
+This file contains the core CSS for this template.
+Set the variable values in _variables.scss 
+**/
+
+
+/** 
+Page structure and elements 
+**/
+body { 
+    background-color: $primary;	
+    font-family: $font-family;
+    color: $body-color;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+.wrapper {
+    margin-right: $image-width;
+    padding: $padding;
+}
+
+.left .wrapper {
+    margin-right: 0;
+    margin-left: $image-width;
+}
+
+
+a, .page-link {
+    color: $secondary;
+    font-weight: bold;
+    &:hover,
+    &:focus,
+    &:active {
+        color: lighten($secondary, 15%);
+    }
+}
+
+fieldset { 
+    margin-bottom: $spacer; 
+    display: block;
+    border-top: 1px solid #ccc;
+}
+fieldset legend { 
+    width: auto;
+    padding-right: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+table th { 
+    background-color: $secondary;
+    color: #fff;
+	border-color:darken($secondary, 15%) !important;
+	border-bottom: 1px solid darken($secondary, 15%);
+}
+
+blockquote {
+    display: block;
+    border-left: 5px solid lighten($primary, 20%);
+    padding: 0.5rem;
+	color: $body-color;
+    margin-bottom: $spacer;
+
+}
+pre code {
+}
+
+p { 
+    margin: 0 0 $spacer;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    color: lighten($body-color, 30%);
+    font-weight: bold;
+    margin: 0 0 $spacer;
+}
+
+h3 { 
+    color: lighten($secondary, 10%);
+}
+.text-center {
+    text-align: center;
+}
+.no-spacer {
+    margin-bottom: 0 !important;
+}
+
+/**
+Header 
+**/
+#main-profile-image img {
+    max-width: $image-width;
+    height: auto;
+    float: right;
+    position: fixed;
+    right: 0;
+}
+
+.left #main-profile-image img {
+    float: left;
+    right: auto;
+    left: 0;
+}
+
+header {
+    padding: ($padding / 6) 0;
+}
+header h1 {
+	color: #666;
+    font-size: $font-size * 2.5;
+	letter-spacing: -0.3rem;
+    line-height: $font-size * 2.5;
+}
+header h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: darken($body-color, 5%);
+}
+
+
+/**
+Footer
+**/
+footer { 
+	background-color: $primary;
+	border-top: 1px solid $border-color;
+    color: darken($primary, 15%);
+	font-size: 0.9rem;
+    text-align: center;
+    margin-top: 0;
+    padding-top: $padding / 4;
+}
+footer p { 
+    margin-bottom: 0;
+}
+footer a {
+    color: darken($primary, 20%);
+    font-weight: normal;
+    &:hover,
+    &:focus,
+    &:active {
+        color: darken($primary, 30%);
+    }
+}
+
+/** 
+Social Icons
+**/
+.social-icons {
+    text-align: center;
+    font-size: $font-size - 1.2;
+}
+.social-icons a {
+    margin: 0 20px; 
+    color: lighten($body-color, 20%);
+    font-weight: normal;
+    &:hover,
+    &:focus,
+    &:active {
+        color: lighten($secondary, 5%);
+    }
+}
+
+/** 
+Button
+**/
+a.button {
+    color: #fff;
+    font-weight: bold;
+    background-color: $secondary;
+    padding: 5px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken($secondary, 5%);
+    }
+}
+a.button.button-large {
+    font-size: 1.4em;
+    padding: 15px 45px;
+    border-radius: 30px;
+}
+
+/** 
+Articles
+**/
+article {
+	margin-bottom: $padding / 4;
+	border-bottom: 1px solid $border-color;
+	padding-bottom: $padding / 4;
+	font-size: 1.4rem;
+}
+
+article h2.article-title {
+	font-size: 3rem;
+	letter-spacing: -1px;
+    font-weight: 400;
+}
+
+article p.article-meta {
+	color: #ccc;
+	font-size: 1rem;
+}
+
+
+/**
+Responsive TO DO
+**/
+@media screen and (max-width: 1080px) {
+    body {
+         font-size: $font-size - 0.3;
+    }
+    header h1 {
+        font-size: $font-size * 1.8;
+        line-height: $font-size * 1.5;
+    }  
+    .wrapper {
+        padding: ($padding / 1.5);
+    }
+    .social-icons {
+        font-size: $font-size - 0.8;
+    }
+    main {
+        line-height: 1.4em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+         font-size: $font-size - 0.8;
+    }
+    article {
+        font-size: 0.9em;
+    }
+    header {
+        padding: ($padding / 4) 0;
+    }
+    header h1 {
+        font-size: $font-size * 1.3;
+        line-height: $font-size;
+        letter-spacing: -0.1rem;
+    }
+    #main-profile-image {
+        height: 400px;
+        overflow: hidden;
+    }
+    #main-profile-image img {
+        height: auto;
+        max-width: 100%;
+        position: relative;
+        float: none;
+        right: auto;
+    }
+    .wrapper, .left .wrapper  {
+        margin-right: 0;
+        margin-left: 0;
+        padding: ($padding / 2);
+    }
+    .social-icons {
+        font-size: $font-size - 1.2;
+    }
+    main {
+        line-height: 1.6em;
+    }
+}
+@media screen and (max-width: 500px) {
+    #main-profile-image {
+        height: 250px;
+    }
+}
+
+
+
+
+
+
