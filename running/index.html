@@ -47,13 +47,14 @@
       function drawChart() {
         // Create the data table.
         var data = new google.visualization.DataTable();
-        data.addColumn('date', 'Race Date');
-        data.addColumn('number', 'Time');
-        data.addRows([
-          [new Date(2017, 3, 12),  7],
-          [new Date(2017, 4, 12),  7]
-
-        ]);
+	    data.addColumn('timeofday', 'Time');
+	    data.addColumn('number', 'A');
+	    data.addColumn('number', 'B');
+	    data.addRows([
+	      [[0,0,0,1],0,1],
+	      [[0,0,1,10],1,1],
+	      [[0,0,2,15],2,1]
+	    ]);
         // Set chart options
         var options = {'title':'5K Times',titleFontSize:30,  legend: {position: "none"},
                        backgroundColor: { fill:'transparent' },
