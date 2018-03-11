@@ -650,3 +650,18 @@ Responsive TO DO
 @media screen and (max-width: 500px) {
   #main-profile-image {
     height: 250px; } }
+
+    
+// Float aligned elements
+.float
+  // These are aesthetic styles. Red = bad
+  background: lightgreen
+  border: solid green 1px
+  // Floated for positioning
+  float: left
+    
+// These elements are intended to be half the width of their 
+// parents
+.half
+  width: 50%
+    
