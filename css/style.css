@@ -437,12 +437,12 @@ body {
   line-height: 1.2em; }
 
 .wrapper {
-  margin-right: 65%;
+  margin-right: 35%;
   padding: 5rem; }
 
 .left .wrapper {
   margin-right: 0;
-  margin-left: 65%; }
+  margin-left: 35%; }
 
 a, .page-link {
   color: #4d7ea8;
