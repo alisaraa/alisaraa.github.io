@@ -582,8 +582,8 @@ Articles
 **/
 article {
   margin-bottom: 1.25rem;
-  margin-right: 5rem;
-  margin-left: 5rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
   border-bottom: 1px solid transparent;
   padding-bottom: 1.25rem;
   font-size: 1.2rem; }
