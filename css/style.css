@@ -439,11 +439,11 @@ body {
   font-size: 1.5rem;
   line-height: 1.2em; }
 
+/** 
 .wrapper {
   margin-right: 35%;
   padding: 5rem; }
 
-/** 
 .left .wrapper {
   margin-right: 0;
   margin-left: 35%; }
@@ -495,7 +495,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /**
 Header 
-**/
+
 #main-profile-image img {
   max-width: 65%;
   height: auto;
@@ -507,6 +507,7 @@ Header
   float: left;
   right: auto;
   left: 0; }
+**/
 
 header {
   padding: 0.8333333333rem 0; }
