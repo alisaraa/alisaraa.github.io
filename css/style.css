@@ -87,6 +87,9 @@ main {
  */
 figure {
   margin: 1em 40px; }
+figcaption {
+  font-size: 1em;
+}
 
 /**
  * 1. Add the correct box sizing in Firefox.
