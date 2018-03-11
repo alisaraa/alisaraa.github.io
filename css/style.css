@@ -481,12 +481,9 @@ p {
   margin: 0 0 30px; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #e6e6e6;
+  color: #B8B8B8;
   font-weight: bold;
   margin: 0 0 30px; }
-
-h3 {
-  color: #6c97bc; }
 
 .text-center {
   text-align: center; }
