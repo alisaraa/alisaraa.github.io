@@ -71,17 +71,17 @@
 			    minValue: 0,
                             gridlines: {
                             color: 'transparent'
-                            }}
+                            }},
 		       seriesType: 'bars',
 		       series: {5: {type: 'line'}}
                       };
         // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
       }
     </script>
   </head>
  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
+    <!--Div that will hold the combo chart-->
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
   </body
