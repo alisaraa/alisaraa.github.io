@@ -1,11 +1,10 @@
 {{ content }}
 
-<h2> My Posts </h2>
+<h2> My Posts </h2> {text-align: center;"}
 <ul>
   {% for post in site.posts %}
     <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ post.url }}">{{ post.title }}</a> {text-align: center;"}
     </li>
   {% endfor %}
 </ul>
-{text-align: center;"}
