@@ -52,13 +52,6 @@ layout: default
                     <h3>I am Alisa and I am primarily a data engineer. I have other hobbies too.</h3>
                     
                     <p>My interests include data warehousing, data modeling, ETL, process improvement, Python, SQL, and database query performance. I formerly worked at Fitbit and Chewy, currently at ezCater</p>
-                    <ul class="myposts">
-                        <h3> My Posts </h3>
-                    {% for post in site.posts %}
-                        <li><a href="{{ post.url }}">{{ post.title}}</a>
-                        <span class="postDate">{{ post.date | date: "%b %-d, %Y" }}</span>
-                        </li>
-                    {% endfor %}
                     </ul>
             
                 </article>                  
