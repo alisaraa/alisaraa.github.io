@@ -47,8 +47,9 @@
       function drawChart() {
         // Create the data table.
         var data = new google.visualization.DataTable();
-	    data.addColumn('date', 'Race Date', 'Goal');
-	    data.addColumn('timeofday', 'Time', 'Time');
+	    data.addColumn('date', 'Race Date');
+	    data.addColumn('timeofday', 'Time');
+	    data.addColumn('timeofday', 'Goal');
 	     data.addRows([
 	      [new Date(2017, 2, 12), [0,27,20,0], [0,24,0,0]],
 	      [new Date(2017, 3, 23), [0,27,45,0], [0,24,0,0]],
