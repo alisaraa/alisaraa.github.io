@@ -74,7 +74,8 @@
                             gridlines: {
                             color: 'transparent'
                             }},
-		       seriesType: 'bars'
+		       seriesType: 'bars',
+		        series: {3: {type: 'line'}}
                       };
         // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
