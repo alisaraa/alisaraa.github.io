@@ -81,6 +81,7 @@ layout: post
 {% assign comment = c_hash[1] %}
   <li>
       Name: {{ comment.name }} 
+      | 
       <time datetime="{{ comment.date | date: "%Y-%m-%d" }}">{{ comment.date | date_to_long_string }}</time>
       <br>
       Message: {{ comment.message }}
