@@ -55,7 +55,7 @@ layout: post
 	  <label><textarea name="fields[message]"></textarea>Message</label>
 	<button type="submit">Go!</button>
         <h3> Older content <h3>
-		      {% for post in site.posts limit:1 %}
+	{% for post in site.posts%}
   <article>
     <h2>
       <a href="{{ post.url }}">
