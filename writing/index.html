@@ -74,11 +74,6 @@ layout: post
 <br><br>
 {% endfor %} 
 		
-		<p> comments... {{data.comments}} </p>
+		<p> comments... {{data.comments.name}} </p>
 		
-{% for comment in data.comments%}
-		<p> Read others comments...{{ comment.name }} </p>
-{% endfor %} 
-		
-    </body>
 
