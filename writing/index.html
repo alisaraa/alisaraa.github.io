@@ -52,8 +52,10 @@ layout: post
 	  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
 	  <label><input name="fields[name]" type="text">Name</label>
 	  <label><input name="fields[email]" type="email">E-mail</label>
-	  <label><textarea name="fields[message]"></textarea>Message</label>
-	<button type="submit">Go!</button>
+	 <br>
+	  <label><textarea name="fields[message]" rows="5"></textarea>Message</label>
+ 	 <br>
+	<button type="submit">Submit Comment</button>
         <h3> Older content <h3>
 	{% for post in site.posts%}
   <article>
