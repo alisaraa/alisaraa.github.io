@@ -50,8 +50,12 @@ layout: post
 	   <form method="POST" action="https://api.staticman.net/v2/entry/alisaraa/alisaraa.github.io/static-man/comments">
 	  <input name="options[redirect]" type="hidden" value="https://alisa-in.tech">
 	  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-	  <label><input name="fields[name]" type="text">Name</label>
-	  <label><input name="fields[email]" type="email">E-mail</label>
+	<label for="name">Name:</label>
+    	<input name="fields[name]" type="text"/>
+
+	<label for="name">Email:</label>
+    	<input name="fields[email]" type="email"/>
+
 	 <br>
 	  <label><textarea name="fields[message]" rows="5"></textarea>Message</label>
  	 <br>
