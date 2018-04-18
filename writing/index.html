@@ -74,14 +74,14 @@ layout: post
 <br><br>
 {% endfor %} 
 		
-<section class="post-comments">
-  <h3>Commentssss</h3>
+<h3>Comments</h3>
 	
 <ul>
 {% for c_hash in site.data.comments %}
 {% assign comment = c_hash[1] %}
   <li>
-      {{ comment.name }}
+      Name: {{ comment.name }}
+      Message: {{ comment.message }}
   </li>
 {% endfor %}
 </ul>
