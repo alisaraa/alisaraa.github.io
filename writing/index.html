@@ -74,6 +74,7 @@ layout: post
 <br><br>
 {% endfor %} 
 		
-{% include data.comments[page.slug] %}
+{% assign comments = data.comments[page.slug] %}
+{{ comments }}
 		
 
