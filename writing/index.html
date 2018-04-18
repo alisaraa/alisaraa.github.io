@@ -76,8 +76,9 @@ layout: post
 <!--  taken from http://idiologos.netlify.com/2017/03/20/jekyll-and-staticman.html -->
 
   {% assign comments = site.data.comments[page.slug] | sort %}
-
+	
   {% for comment in comments %}
+		{{ comment }}
     <br>
     <legend><strong>{{ comment[1].name }}</strong><legend>
     <em>{{ comment[1].date | date: "%B %d, %Y" }}</em>
