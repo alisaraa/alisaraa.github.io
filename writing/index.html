@@ -35,7 +35,7 @@ layout: post
     <body>
         <h1> Writing in Tech </h1>
             <br/>
-      {% for post in site.posts %}
+      {% for post in site.posts limit:1 %}
   <article>
     <h2>
       <a href="{{ post.url }}">
@@ -54,5 +54,16 @@ layout: post
 	  <label><input name="fields[email]" type="email">E-mail</label>
 	  <label><textarea name="fields[message]"></textarea>Message</label>
 	<button type="submit">Go!</button>
+        <h3> Older content <h3>
+		      {% for post in site.posts limit:1 %}
+  <article>
+    <h2>
+      <a href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h2>
+    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+  </article>
+{% endfor %}  
     </body>
 
