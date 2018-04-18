@@ -2,45 +2,68 @@
 ---
 <!doctype html>
 <html lang="en">
-	<head>
-        <title>Running in Tech</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112486152-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-112486152-1');
-        </script>
-                
-        <nav>
-        <ul><a href="/">home</a>
-            <a href="/running">running</a>
-            <a href="/reading">reading</a>
-            <a href="/writing">writing</a>
-        </ul>
-        </nav>
+<head>
+  <title>Running in Tech</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112486152-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-112486152-1');
+  </script>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <nav>
+    <ul><a href="/">home</a>
+      <a href="/running">running</a>
+      <a href="/reading">reading</a>
+      <a href="/writing">writing</a>
+    </ul>
+  </nav>
 
-        <!-- Main CSS --> 
-        <link rel="stylesheet" href="../assets/css/style.css">
-        <!-- Font Awesome -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    </head>
-  
-    <body>
-            <header>
-                <h1 class="text-center">Running in Tech</h1>
-            </header>
-	    <h2> Upcoming Races </h2>
+  <!-- Main CSS --> 
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Font Awesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-	    
-	    
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+</head>
+
+<body>
+  <header>
+    <h1 align="center">Running in Tech</h1>
+  </header>
+  <h2 align="center" > Upcoming Races </h2>
+  <hr>
+  <h4>Steps for Life 5K</h4>
+  <p>2018-04-29</p>
+  <a href="https://stepsforlife.donordrive.com/participant/3351">Fundraising Page<a>
+   <p> I will be running the Steps for Life relay to raise money for the Gift of Life Marrow Registry.
+   I am registered with the Bone Marrow Registry although I have never been asked to give </p>
+   <hr>
+
+   <h4>Redhook 5K</h4>
+   <p>2018-05-27</p>
+   <p>This is a fun Memorial day 5K! Benefits go to the Krempels Center, which treats patients
+   with traumatic brain injury</p>
+   <hr>
+
+   <h4>York Hospital 5K</h4>
+   <p>2018-06-02</p>
+   <a href="http://www.yorkhospital.com/about-york-hospital/5k-road-race.aspx">About Race Page<a>
+   <p>This is a local 5K, benefitting the York Hospital in Maine</p>
+   <hr>
+
+   <h4>Summer Classic 5K</h4>
+   <p>2018-07-12</p>
+   <p>This is a local 5K at night, benefitting local charities</p>
+   <hr>
+
+
+   <!--Load the AJAX API-->
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
       // Load the Visualization API and the corechart package.
       google.charts.load('current', {'packages':['corechart']});
       // Set a callback to run when the Google Visualization API is loaded.
@@ -51,47 +74,47 @@
       function drawChart() {
         // Create the data table.
         var data = new google.visualization.DataTable();
-	    data.addColumn('date', 'Race Date');
-	    data.addColumn('timeofday', 'Time');
-	    data.addColumn('timeofday', 'Goal');
-	     data.addRows([
-	      [new Date(2017, 2, 12), [0,27,20,0], [0,24,0,0]],
-	      [new Date(2017, 3, 23), [0,27,45,0], [0,24,0,0]],
-	      [new Date(2017, 4, 28), [0,27,4,0], [0,24,0,0]],
-	      [new Date(2017, 5, 17), [0,26,35,0], [0,24,0,0]],
-	      [new Date(2017, 6, 12), [0,29,29,0], [0,24,0,0]],
-	      [new Date(2017, 8, 10), [0,25,58,0], [0,24,0,0]],
-	      [new Date(2017, 9, 1), [0,25,42,0], [0,24,0,0]],
-	      [new Date(2017, 10, 5), [0,25,09,0], [0,24,0,0]],
-	      [new Date(2017, 11, 3), [0,24,14,0], [0,24,0,0]],
-	      [new Date(2018, 2, 11), [0,25,42,0], [0,24,0,0]],
-	    ]);
+        data.addColumn('date', 'Race Date');
+        data.addColumn('timeofday', 'Time');
+        data.addColumn('timeofday', 'Goal');
+        data.addRows([
+         [new Date(2017, 2, 12), [0,27,20,0], [0,24,0,0]],
+         [new Date(2017, 3, 23), [0,27,45,0], [0,24,0,0]],
+         [new Date(2017, 4, 28), [0,27,4,0], [0,24,0,0]],
+         [new Date(2017, 5, 17), [0,26,35,0], [0,24,0,0]],
+         [new Date(2017, 6, 12), [0,29,29,0], [0,24,0,0]],
+         [new Date(2017, 8, 10), [0,25,58,0], [0,24,0,0]],
+         [new Date(2017, 9, 1), [0,25,42,0], [0,24,0,0]],
+         [new Date(2017, 10, 5), [0,25,09,0], [0,24,0,0]],
+         [new Date(2017, 11, 3), [0,24,14,0], [0,24,0,0]],
+         [new Date(2018, 2, 11), [0,25,42,0], [0,24,0,0]],
+         ]);
         // Set chart options
         var options = {'title':'5K Times',titleFontSize:30,  legend: {position: 'top', textStyle: {fontSize: 16}},
-                       backgroundColor: { fill:'transparent' },
-                       'width':1200,
-                       'height':700,
-                           hAxis: {    
-			    count: 10,
-			     format: 'M/yy',
-                            gridlines: {
-                            color: 'transparent'
-                            }},
-                            vAxis: {
-			    minValue: 0,
-                            gridlines: {
-                            color: 'transparent'
-                            }},
-		       seriesType: 'bars',
-		        series: {1: {type: 'line'}}
-                      };
+        backgroundColor: { fill:'transparent' },
+        'width':1200,
+        'height':700,
+        hAxis: {    
+         count: 10,
+         format: 'M/yy',
+         gridlines: {
+          color: 'transparent'
+        }},
+        vAxis: {
+         minValue: 0,
+         gridlines: {
+          color: 'transparent'
+        }},
+        seriesType: 'bars',
+        series: {1: {type: 'line'}}
+      };
         // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
       }
     </script>
   </head>
- <body>
+  <body>
     <!--Div that will hold the combo chart-->
     <div id="chart_div" style="width: 1000px; height: 500px;"></div>
-  </body
+    </body
