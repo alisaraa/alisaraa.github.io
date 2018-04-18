@@ -76,6 +76,12 @@ layout: post
 		
 <section class="post-comments">
   <h3>Comments</h3>
-
-		
+	
+<ul>
+{% for member in site.data.comments %}
+  <li>
+      {{ member.name }}
+  </li>
+{% endfor %}
+</ul>
 
