@@ -72,7 +72,11 @@ layout: post
     <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
   </article>
 <br><br>
-{% endfor %}  
-
+{% endfor %} 
+		
+{% for comment in data.comments%}
+		{{ comment }}
+{% endfor %} 
+		
     </body>
 
