@@ -63,8 +63,9 @@
         <br>
         <button type="submit">Submit Comment</button>
         <hr>
-        <br>
-        <h3> Archive <h3>
+    </form>
+    <br>
+    <h3> Archive <h3>
 	{% for post in site.posts%}
   <article>
     <h4>
@@ -79,13 +80,13 @@
 
 <h3>Comments</h3>
 
-        <ul>
-            {% for c_hash in site.data.comments %} {% assign comment = c_hash[1] %}
-            <li>
-                Name: {{ comment.name }} |
-                <time datetime="{{ comment.date | date: " %Y-%m-%d " }}">{{ comment.date | date_to_long_string }}</time>
-                <br> Message: {{ comment.message }}
-                <hr>
-            </li>
-            {% endfor %}
-        </ul>
+    <ul>
+        {% for c_hash in site.data.comments %} {% assign comment = c_hash[1] %}
+        <li>
+            Name: {{ comment.name }} |
+            <time datetime="{{ comment.date | date: " %Y-%m-%d " }}">{{ comment.date | date_to_long_string }}</time>
+            <br> Message: {{ comment.message }}
+            <hr>
+        </li>
+        {% endfor %}
+    </ul>
