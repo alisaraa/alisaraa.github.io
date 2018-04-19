@@ -47,18 +47,6 @@ layout: post
   </article>
 {% endfor %}  
 	    
-<h2> Comments </h2>
-<form method="POST" action="https://api.staticman.net/v2/entry/alisaraa/alisaraa.github.io/master/comments">
-  <input name="options[redirect]" type="hidden" value="https://alisa-in.tech">
-  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-  <label><input name="fields[name]" type="text">Name</label>
-  <label><input name="fields[email]" type="email">E-mail</label>
-  <label><textarea name="fields[message]"></textarea>Message</label>
-  
-  <button type="submit">Go!</button>
-</form>
-	    
-<hr><br>
 	    
 <h3> Archive <h3>
 {% for post in site.posts%}
@@ -74,7 +62,18 @@ layout: post
 {% endfor %}
 		
 <h3>Comments</h3>
-	
+
+<form method="POST" action="https://api.staticman.net/v2/entry/alisaraa/alisaraa.github.io/master/comments">
+  <input name="options[redirect]" type="hidden" value="https://alisa-in.tech/writing">
+  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
+  <label><input name="fields[name]" type="text">Name</label>
+  <label><input name="fields[email]" type="email">E-mail</label>
+  <label><textarea name="fields[message]" rows=5></textarea>Message</label>
+  
+  <button type="submit">Go!</button>
+</form>
+	    
+<hr><br>
 <ul>
 {% for c_hash in site.data.comments %}
 {% assign comment = c_hash[1] %}
