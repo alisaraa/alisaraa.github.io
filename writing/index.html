@@ -56,36 +56,3 @@ layout: post
       <label><textarea name="fields[message]"></textarea>Message</label>
       <button type="submit">Submit Comment</button>
     </form>
-	
-
-	
-<hr><br>
-	    
-        <h3> Archive <h3>
-{% for post in site.posts%}
-  <article>
-    <h4>
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h4>
-    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
-  </article>
-<br><br>
-{% endfor %}
-		
-<h3>Comments</h3>
-	
-<ul>
-{% for c_hash in site.data.comments %}
-{% assign comment = c_hash[1] %}
-  <li>
-      Name: {{ comment.name }} 
-      | 
-      <time datetime="{{ comment.date | date: "%Y-%m-%d" }}">{{ comment.date | date_to_long_string }}</time>
-      <br>
-      Message: {{ comment.message }}
-      <hr>
-  </li>
-{% endfor %}
-</ul>
