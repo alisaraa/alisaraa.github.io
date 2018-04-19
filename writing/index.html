@@ -49,15 +49,17 @@ layout: post
 	    
 <h2> Comments </h2>
 <form method="POST" action="https://api.staticman.net/v2/entry/alisaraa/alisaraa.github.io/master/comments">
-	<input name="options[redirect]" type="hidden" value="https://alisa-in.tech">
+	<input name="options[redirect]" type="hidden" value="https://www.alisa-in.tech/writing">
       <input name="options[slug]" type="hidden" value="{{ page.slug }}">
       <label>Name: <input name="fields[name]" type="text"></label>
       <label>Email: <input name="fields[email]" type="email"></label>
-      <label>Comment: <textarea name="fields[message]"></textarea></label>
+      <label>Comment: <input name="fields[message]" type="text"></label>
       <button type="submit">Submit Comment</button>
     </form>
 	
 </form>
+
+	
 <hr><br>
 	    
         <h3> Archive <h3>
