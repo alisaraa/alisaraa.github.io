@@ -1,71 +1,68 @@
---- layout: post ---
+---
+layout: post
+---
 <!doctype html>
 <html lang="en">
+	<head>
+        <title>Writing in Tech</title>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112486152-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-<head>
-    <title>Writing in Tech</title>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112486152-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-112486152-1');
-    </script>
-
-    <nav>
+          gtag('config', 'UA-112486152-1');
+        </script>
+                
+        <nav>
         <ul><a href="/">home</a>
             <a href="/running">running</a>
             <a href="/reading">reading</a>
             <a href="/writing">writing</a>
         </ul>
-    </nav>
+        </nav>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- Font Awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Main CSS --> 
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <!-- Font Awesome -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-</head>
-
-<body>
-    <h1> Writing in Tech </h1>
-    <br/> {% for post in site.posts limit:1 %}
-    <article>
-        <h2>
+    </head>
+  
+    <body>
+        <h1> Writing in Tech </h1>
+            <br/>
+      {% for post in site.posts limit:1 %}
+  <article>
+    <h2>
       <a href="{{ post.url }}">
         {{ post.title }}
       </a>
     </h2>
-        <time datetime="{{ post.date | date: " %Y-%m-%d " }}">{{ post.date | date_to_long_string }}</time>
-        {{ post.content }}
-    </article>
-    {% endfor %}
-    <h2> Comments </h2>
-    <form method="POST" action="https://api.staticman.net/v2/entry/alisaraa/alisaraa.github.io/master/comments">
-        <input name="options[redirect]" type="hidden" value="https://alisa-in.tech">
-        <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-        <label for="name">Name:</label>
-        <input name="fields[name]" type="text" />
+    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+    {{ post.content }}
+  </article>
+{% endfor %}   
+	   <h2> Comments </h2>
+	   <form method="POST" action="https://api.staticman.net/v2/entry/alisaraa/alisaraa.github.io/master/comments">
+	  <input name="options[redirect]" type="hidden" value="https://alisa-in.tech">
+	  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
+	<label for="name">Name:</label>
+    	<input name="fields[name]" type="text"/>
 
-        <label for="name">Email:</label>
-        <input name="fields[email]" type="email" />
+	<label for="name">Email:</label>
+    	<input name="fields[email]" type="email"/>
 
-        <br>
-        <label>
-            <textarea name="fields[message]"></textarea>Message</label>
-        <br>
-        <button type="submit">Submit Comment</button>
-        <hr>
-    </form>
-    <br>
-    <h3> Archive <h3>
+	 <br>
+	  <label><textarea name="fields[message]"></textarea>Message</label>
+ 	 <br>
+	<button type="submit">Submit Comment</button>
+	    </form>
+	<hr><br>
+        <h3> Archive <h3>
 	{% for post in site.posts%}
   <article>
     <h4>
@@ -77,16 +74,19 @@
   </article>
 <br><br>
 {% endfor %} 
-
+		
 <h3>Comments</h3>
-
-    <ul>
-        {% for c_hash in site.data.comments %} {% assign comment = c_hash[1] %}
-        <li>
-            Name: {{ comment.name }} |
-            <time datetime="{{ comment.date | date: " %Y-%m-%d " }}">{{ comment.date | date_to_long_string }}</time>
-            <br> Message: {{ comment.message }}
-            <hr>
-        </li>
-        {% endfor %}
-    </ul>
+	
+<ul>
+{% for c_hash in site.data.comments %}
+{% assign comment = c_hash[1] %}
+  <li>
+      Name: {{ comment.name }} 
+      | 
+      <time datetime="{{ comment.date | date: "%Y-%m-%d" }}">{{ comment.date | date_to_long_string }}</time>
+      <br>
+      Message: {{ comment.message }}
+      <hr>
+  </li>
+{% endfor %}
+</ul>
