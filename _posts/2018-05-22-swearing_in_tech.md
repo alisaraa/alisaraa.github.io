@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Swearing in Tech
-date: '2019-04-22 15:12:11 -0400'
+date: '2018-04-22 15:12:11 -0400'
 categories: Women in Tech
 ---
 Ideally, we shouldn’t swear at work. If we lived in an ideal world though, I may not have a blog. And I do have a blog.
