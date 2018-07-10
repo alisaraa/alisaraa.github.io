@@ -6,8 +6,8 @@ Here it goes:
 
 *I don't like your little games* <br>
 *Don't like your tilted stage* <br>
-**The role you made me play* <br>
-*Of the fool**, no, I don't like you* <br>
+***The role you made me play* <br>
+***Of the fool**, no, I don't like you* <br>
 
 I do not like looking foolish, but duplicated data can be a silent killer. Most database systems stopped enforcing referential integrity constraints (primary keys and foreign keys), leaving us data engineers to our own devices. 
 When we set it up the data’s pipeline, we may QA it and declare its accuracy and perfection. But data can change in the source, and if we don’t notice, we may report metrics that make us look like a fool. 
