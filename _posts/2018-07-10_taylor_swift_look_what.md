@@ -1,3 +1,10 @@
+---
+layout: post
+title: Taylor Swift in Tech
+date: '2018-07-10 15:12:11 -0400'
+categories: Taylor Swift
+---
+
 This is a silly post I wrote to make my friend James laugh. It is about relating a Taylor Swift song to duplicates in a database. You shouldn’t read too much into it. 
 
 But if you were to analyze it, and you shouldn’t, you may realize that Taylor Swift, the pop icon, is in sharp contrast with the engineering profession, which we usually associate with men. You may recognize that the song I chose, Look What You Made Me Do, is popularly considered to be written about Kanye West, who stole Swift’s microphone during her award acceptance speech. You may even overthink my choice of Taylor Swift as the artist, considering that she is a female in a male dominated industry whose accomplishments are constantly belittled by focusing on her romantic relationships and therefore her sexuality and femininity. But this tendency to disparage women, no matter how ubiquitous, is not relevant here. 
