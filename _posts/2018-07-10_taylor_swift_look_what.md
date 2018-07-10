@@ -6,42 +6,51 @@ Here it goes:
 
 *I don't like your little games* <br>
 *Don't like your tilted stage* <br>
-***The role you made me play** <br>
-***Of the fool**, no, I don't like you* <br>
+**The role you made me play** <br>
+**Of the fool**, *no, I don't like you* <br>
 
 I do not like looking foolish, but duplicated data can be a silent killer. Most database systems stopped enforcing referential integrity constraints (primary keys and foreign keys), leaving us data engineers to our own devices. 
 When we set it up the data’s pipeline, we may QA it and declare its accuracy and perfection. But data can change in the source, and if we don’t notice, we may report metrics that make us look like a fool. 
 
-I don't like your perfect crime
-How you laugh when you lie
-You said the gun was mine
-Isn't cool, no, I don't like you (oh!)
+I don't like your perfect crime  <br>
+How you laugh when you lie  <br>
+You said the gun was mine  <br>
+Isn't cool, no, I don't like you (oh!)  <br>
+
 In some ways, duplicates are the perfect crime. If a field has a data type change, it is likely that the database will not insert the data and throw an error. If there’s a wrong number of fields, the insert statement will likely fail and throw an error. But the database doesn’t care what your data looks like as long as it fits the DDL, so duplicates can come right in. And thus, the perfect crime.
-In most cases, the entire set isn’t duplicated because that may be too obvious. If a table doubles in size in a day, intuition alone can detect that error. Usually, a handful of records are duplicated because of a change that is limited to them, so the row counts and metrics can look reasonable, but reasonable is not accurate. So without an alert or a failure, and without an obvious change in the data, duplicated data gets away with its crime.
-But I got smarter, I got harder in the nick of time
-Honey, I rose up from the dead, I do it all the time
-I've got a list of names and yours is in red, underlined
-I check it once, then I check it twice, oh!
+In most cases, the entire set isn’t duplicated because that may be too obvious. If a table doubles in size in a day, intuition alone can detect that error. Usually, a handful of records are duplicated because of a change that is limited to them, so the row counts and metrics can look reasonable, but reasonable is not accurate. So without an alert or a failure, and without an obvious change in the data, duplicated data gets away with its crime. 
+
+But I got smarter, I got harder in the nick of time  <br>
+Honey, I rose up from the dead, I do it all the time  <br>
+I've got a list of names and yours is in red, underlined  <br>
+I check it once, then I check it twice, oh!  <br>
+
 Once you find a duplicate in a dataset and its cause, it’s time to get smarter. Every error that makes you look (or feel) like a fool should lead to action (and I don’t ust mean deduplicating them). If the duplicates were caused by a change in the source data, find a way to automate checking the source database for changes. If it came from a change in the primary key, create an automated primary key checker.
 So make a list of all the ways data has tricked you, and for every table, automate a test that ensures you’ll know immediately if they play the trick again. 
-I don't like your kingdom keys
-They once belonged to me
-You ask me for a place to sleep
-Locked me out and threw a feast (what!?)
+
+I don't like your kingdom keys <br>
+They once belonged to me  <br>
+You ask me for a place to sleep  <br>
+Locked me out and threw a feast (what!?)  <br>
+
 It’s tempting to feel that we give data life only to have it sometimes turn on us; we give it a home, we clean it up, we aggregate it, and we even may put a pretty reporting tool on it.  So when data misleads us, we may be tempted to feel unappreciated. We may feel duped (ha), but we have to remember that part of giving data life is helping it grow up and mature, even though changes. So we may feel betrayed, we may feel like data begged us to be let in only to make us look foolish, but we should have done more for the data: giving it a place to sleep is not enough.
 The world moves on, another day, another drama, drama
 But not for me, not for me, all I think about is karma
 And then the world moves on, but one thing's for sure (sure)
 Maybe I got mine, but you'll all get yours
 Even if you fix the data by manually deduping it, you cannot just move on. The analysts will move on with their fixed data because they have reports to make, but you need to ensure it does not happen again-- for this or any dataset. 
-I don't trust nobody and nobody trusts me
-I'll be the actress starring in your bad dreams
-I don't trust nobody and nobody trusts me
-I'll be the actress starring in your bad dreams
+
+I don't trust nobody and nobody trusts me  <br>
+I'll be the actress starring in your bad dreams  <br>
+I don't trust nobody and nobody trusts me  <br>
+I'll be the actress starring in your bad dreams  <br>
+
 Here is why you can’t just move on: the stakeholders trust you as the owner of the data. Mistakes happen, but a repeated violation of that trust can undermine how your organization interacts with the data. For every one wrong data set you provide, you have to provide a thousand perfectly correct ones just to maintain trust.
-So automate your data quality checks. Know your data before and better than your analysts. Make sure people trust you. 
-Ooh, look what you made me do
-Look what you made me do
-Look what you just made me do
-Look what you just made me do
+So automate your data quality checks. Know your data before and better than your analysts. Make sure people trust you.
+
+Ooh, look what you made me do  <br>
+Look what you made me do  <br>
+Look what you just made me do  <br>
+Look what you just made me do  <br>
+
 In this case, duplicated data makes us make a high quality, automated data quality checker that can anticipate any problem we have encountered before and that we can add new checks to. That is what duplicated data makes us do.
