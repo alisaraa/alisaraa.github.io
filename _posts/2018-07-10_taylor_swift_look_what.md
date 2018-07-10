@@ -6,7 +6,7 @@ Here it goes:
 
 *I don't like your little games* <br>
 *Don't like your tilted stage* <br>
-***The role you made me play* <br>
+***The role you made me play** <br>
 ***Of the fool**, no, I don't like you* <br>
 
 I do not like looking foolish, but duplicated data can be a silent killer. Most database systems stopped enforcing referential integrity constraints (primary keys and foreign keys), leaving us data engineers to our own devices. 
