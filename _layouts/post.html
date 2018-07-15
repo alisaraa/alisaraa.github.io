@@ -23,14 +23,13 @@ layout: default
 	<link rel="stylesheet" type="text/css" href="https://www.alisaraa.github.io/assets/css/style.scss">
 		
     </head>
-      <body style="font-family:verdana">
-        
-        <div class="wrapper">
-		      <main>
-                <article>
-	<h1>{{ page.title | escape }}</h1>    
-{{ content }}
-			      </article>
-		</main>
-  </body>
+	
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+  <article class="post-content">
+    {{ content }}
+  </article>
 </div>
+
