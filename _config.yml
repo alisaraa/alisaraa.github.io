@@ -1,5 +1,8 @@
  github: [metadata]
  encoding: UTF-8
+ name: Alisa in Tech
+ description: I write about being in tech
+ url: https://www.alisa-in.tech/
  kramdown:
    input: GFM
    hard_wrap: false
