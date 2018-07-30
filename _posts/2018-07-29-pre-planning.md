@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pre, Pre-Plannning
+title: Pre, Pre-Planning
 date: '2018-07-29 15:12:11 -0400'
 categories: Lyrics
 ---
@@ -14,7 +14,7 @@ This re-write of Free Falling was inspired by a particular pre-planning meeting 
 The storm was underwhelming by the way, but the cloud was menacing. 
 
 <hr>
-Pre-Plannning
+Pre-Planning
 
 It’s a good story,<br>
 Has acceptance,<br>
