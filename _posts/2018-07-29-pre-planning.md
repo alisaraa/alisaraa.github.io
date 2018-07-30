@@ -13,32 +13,33 @@ This re-write of Free Falling was inspired by a particular pre-planning meeting 
 
 The storm was underwhelming by the way, but the cloud was menacing. 
 
+<hr>
 Pre-Plannning
 
-It’s a good story,
-Has acceptance criteria,
-A good title,
-And a description too
+It’s a good story,<br>
+Has acceptance,<br>
+A good title,<br>
+And a description too<br>
 
-It’s a good story,
-Has a high ROI,
-It’s in an epic
-That we like too
+It’s a good story,<br>
+Has a high ROI,<br>
+It’s in an epic<br>
+That we like too<br>
 
-It’s a long hour, sitting in Baklava
-There’s a storm cloud, about to pour
-And I’m a bad engineer
-Cause I can’t guess correctly
-I’m a bad engineer
-For throwing an eight
+It’s a long hour, sitting in Baklava<br>
+There’s a storm cloud, about to pour<br>
+And I’m a bad engineer<br>
+Cause I can’t guess correctly<br>
+I’m a bad engineer<br>
+For throwing an eight<br>
 
-And I’m pre, pre-planning
-And I’m pre, pre-planning
+And I’m pre, pre-planning<br>
+And I’m pre, pre-planning<br>
 
-All my teammates, throwing their cards down
-Shut down and move to the door
-All the bad tickets are sittin in the backlog
-And the good tickets are going in the sprint
+All my teammates, throwing their cards down<br>
+Shut down and move to the door<br>
+All the bad tickets are sittin in the backlog<br>
+And the good tickets are going in the sprint<br>
 
-And I’m pre, pre-planning
-And I’m pre, pre-planning
+And I’m pre, pre-planning<br>
+And I’m pre, pre-planning<br>
