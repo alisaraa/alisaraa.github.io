@@ -37,6 +37,6 @@ What resources do women need in a company? Well, as a reminder, not all women ar
 
 These are some of the resources that some women may feel could change the narrative of the company from “you can work here” to “you are invited here and we want to do whatever we can to ensure you feel safe as anyone else and comfortable staying for as long as you want.” And those are two completely different things.
 
-<sup>1</sup>. https://www.boston.gov/sites/default/files/go_boston_2030_-_full_report_to_download.pdf
-<sup>2</sup>. https://www.boston.gov/departments/boston-bikes/bike-data)
-<sup>3</sup>. https://www.simplemost.com/scientists-figured-out-why-womens-restroom-line-longer-mens/
+<sup>1</sup>. https://www.boston.gov/sites/default/files/go_boston_2030_-_full_report_to_download.pdf <br>
+<sup>2</sup>. https://www.boston.gov/departments/boston-bikes/bike-data <br>
+<sup>3</sup>. https://www.simplemost.com/scientists-figured-out-why-womens-restroom-line-longer-mens/ <br>
