@@ -8,7 +8,7 @@ categories: WiT
 I never really rode bikes, especially not on city streets. I prefer walking or running or watching TV in my pajamas while binge eating oreos. We all have hobbies.
 But I was in D.C recently and I rode a Bird, an electric scooter used with a sharing app. And I was cruising and definitely not terrified. 
 
-![not_terrified](../images/not_terrified.jpg){:class="img-responsive"}{:height="300px"}
+![not_terrified](../images/not_terrified.jpg){:class="img-responsive"}{:height="250px"}
 
 If I were terrified, I felt better as soon as I found a bike lane; I felt safe and no longer like I was doing something foolish. 
 
