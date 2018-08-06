@@ -25,7 +25,7 @@ What resources do women need in a company? Well, as a reminder, not all women ar
     * I’m not sure if people know that even those mothers who go back to work breastfeed; they pump for later or they pump just because it’s painful not to
     * Women who have experienced a stillborn or a terminated pregnancy may still need to pump, so it’s not safe to assume that if someone needed a maternity they would ask; there may be subjects people aren’t comfortable talking about so a maternity room should not wait for a pregnant employee. Furthermore, maternity rooms are an important resource to communicate to potential employees
 * More bathroom stalls for women than men if there aren’t enough already
-    * Now, if there are no bathroom lines in your office, then there’s no need to gut a conference room and add a toilet, but have you ever noticed there are usually longer lines outside women’s rooms? Even if you have equal stalls in the two bathrooms, there will be a line for the women’s room. According to research at Ghent University found that this is because: (source https://www.simplemost.com/scientists-figured-out-why-womens-restroom-line-longer-mens/)
+    * Now, if there are no bathroom lines in your office, then there’s no need to gut a conference room and add a toilet, but have you ever noticed there are usually longer lines outside women’s rooms? Even if you have equal stalls in the two bathrooms, there will be a line for the women’s room. According to research at Ghent University<sup>3</sup> found that this is because: 
       * Urinals allow for more occupants than the stall only style of women’s rooms
       * Women spend more time per bathroom trip, partially because urinals are easier to use or because of additional menstrual needs (the study didn’t mention that last part but I think it’s obvious)
       * In non-work environments, the women’s room also functions as a family room which increases attendance
@@ -37,3 +37,4 @@ These are some of the resources that some women may feel could change the narrat
 
 <sup>1</sup>. https://www.boston.gov/sites/default/files/go_boston_2030_-_full_report_to_download.pdf
 <sup>2</sup>. https://www.boston.gov/departments/boston-bikes/bike-data)
+<sup>3</sup>. https://www.simplemost.com/scientists-figured-out-why-womens-restroom-line-longer-mens/
