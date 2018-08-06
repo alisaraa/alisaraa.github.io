@@ -8,8 +8,11 @@ categories: WiT
 I never really rode bikes, especially not on city streets. I prefer walking or running or watching TV in my pajamas while binge eating oreos. We all have hobbies.
 But I was in D.C recently and I rode a Bird, an electric scooter used with a sharing app. And I was cruising and definitely not terrified. 
 
+<figure>
 ![not_terrified](../images/not_terrified.jpg){:class="img-responsive"}{:height="350px"}
-
+<figcaption>Me, not terrified, and Lizzie, not terrified.</figcaption>
+</figure>
+   
 If I were terrified (I wasn't), I felt better as soon as I found a bike lane; I felt safe and no longer like I was doing something foolish. 
 
 This made me think about how welcome bikes are in Boston. In Boston, bikes are vehicles so they’re allowed anywhere cars can, and they must follow the same traffic laws. The subject of bicyclists who are cars when its convenient for them and then suddenly pedestrians when it’s time to blow through a red light is a topic for another post (working title: Things I Hate, Part 572). 
