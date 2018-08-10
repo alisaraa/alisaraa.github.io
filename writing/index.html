@@ -25,7 +25,7 @@ layout: default
 	    
 	    
 <h3> Archive <h3>
-{% for post in site.posts%}
+{% for post in site.posts% limit:5}
   <article>
     <h4>
       <a href="{{ post.url }}">
