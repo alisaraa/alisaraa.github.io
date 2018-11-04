@@ -4,7 +4,6 @@ title: ELI5 - Data Marts
 date: '2018-11-03 15:12:11 -0400'
 categories: ELI5
 ---
-
 In this post, I will explain the concept of data marts with approachable language, but I won't be talking to my 5 year old nephew Rhys. This time, I will be speaking to anyone who has ever interacted with children before. 
 
 Data marts are an important part of a data warehouse, the details of which you need to erase from your mind before you read this post so we can start fresh. A data mart is a subset of all stakeholder-facing data available (stakeholders are internal users of the warehouse). Why we choose to create a subset and how we decide what goes into each set will be the content of this post.
