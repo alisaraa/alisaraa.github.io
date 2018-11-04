@@ -54,7 +54,7 @@ layout: default
 <hr>
 <h4> Other Posts <h4>
 {% for post in site.posts  %}
-{% if post.categories not contains "WiT" %}
+{% if post.categories contains "Engineering" %}
   <article>
     <h5>
       <a href="{{ post.url }}">
