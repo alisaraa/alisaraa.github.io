@@ -11,6 +11,7 @@ layout: default
     <body>
         <h1> Writing in Tech </h1>
             <br/>
+ <h2> Most Recent Post </h2>
       {% for post in site.posts limit:1 %}
   <article>
     <h2>
@@ -24,43 +25,43 @@ layout: default
 {% endfor %}  
 	    
 	    
-<h3> Archive <h3>
-{% for post in site.posts limit:5 %}
+<h3> Posts by Category <h3>
+<h4> Explain Like I'm 5 Blog Posts <h4>
+{% for post in site.posts  %}
+{% if post.categories contains "ELI5" %}
   <article>
-    <h4>
+    <h5>
       <a href="{{ post.url }}">
-        {{ post.title }}
+	{{ post.title }}
       </a>
-    </h4>
-    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+    </h5>
   </article>
-<br><br>
+{% endif %}
 {% endfor %}
-		
-<h3>Comments</h3>
-
-<form method="POST" action="https://api.staticman.net/v2/entry/alisaraa/alisaraa.github.io/master/comments">
-  <input name="options[redirect]" type="hidden" value="https://www.alisa-in.tech/writing">
-  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-  <label>Name*</label><input name="fields[name]" type="text">
-  <label>E-mail*</label><input name="fields[email]" type="email">
-   <br>
-  <label>Comment*</label><textarea name="fields[message]" rows=5></textarea>
-  
-  <button type="submit">Submit Comments!</button>
-</form>
-	    
-<hr><br>
-<ul>
-{% for c_hash in site.data.comments %}
-{% assign comment = c_hash[1] %}
-  <li>
-      Name: {{ comment.name }} 
-      | 
-      <time datetime="{{ comment.date | date: "%Y-%m-%d" }}">{{ comment.date | date_to_long_string }}</time>
-      <br>
-      Message: {{ comment.message }}
-      <hr>
-  </li>
+<hr>
+<h4> Posts about Women in Tech <h4>
+{% for post in site.posts  %}
+{% if post.categories contains "WiT" %}
+  <article>
+    <h5>
+      <a href="{{ post.url }}">
+	{{ post.title }}
+      </a>
+    </h5>
+  </article>
+{% endif %}
 {% endfor %}
-</ul>
+<hr>
+<h4> Other Posts <h4>
+{% for post in site.posts  %}
+{% if post.categories contains "WiT" %}
+  <article>
+    <h5>
+      <a href="{{ post.url }}">
+	{{ post.title }}
+      </a>
+    </h5>
+  </article>
+{% endif %}
+{% endfor %}
+	
