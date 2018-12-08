@@ -33,7 +33,7 @@ It’s great that you have six options Winnie, but those are just options. Let�
 
 It is in assuming that the results of a cross product can all be simultaneously true that mistakes are made. Let’s say you know Sales Company did $1000 in sales in March, and there are two sales agents, Agent B and Agent C. You don’t know who made which sales, but you join the sales and agent tables anyway. As a result, you get Agent B made $1000 in sales, and Agent C made $1000 in sales. If you select one or the other, you are attributing sales to one person, but your total will be correct. However, if you leave the data as is, you change the total sales of Sales Company from $1000 to $2000, incorrectly stating sales by 100%.
 
-If Winnie tells people she has six outfit options, that’s okay. But if Winnie tells people she has six outfits, that’s wrong. We cannot clothe six flower girls.
+If we tell people you have six outfit options, that’s okay. But if we tell people you have six outfits, that’s wrong. We cannot clothe six flower girls.
 
 **What kind of joins do we do instead?**
 
