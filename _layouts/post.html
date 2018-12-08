@@ -23,7 +23,7 @@ layout: default
 <hr><br>
 <h2>More Posts like This<h2>
 {% for post in site.posts  %}
-{% if post.categories contains page.category %}
+{% if post.categories contains page.categories %}
   <article>
     <h5>
       <a href="{{ post.url }}">
