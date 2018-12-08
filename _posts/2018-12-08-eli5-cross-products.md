@@ -1,3 +1,10 @@
+---
+layout: post
+title: ELI5 - Cross Products
+date: '2018-12-08 15:12:11 -0400'
+categories: ELI5
+---
+
 In order to understand cross products, you have to understand joins since cross products are a type of join. Also, in order to understand joins, you need to understand cross products since all joins are just cross products. It’s a horrible world we live in.
 
 A cross product is also called a [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) by people who trust their ability to spell when a spell checker isn’t available. That particular group of people isn’t inviting me out to lunch any time soon, so I usually stick with cross product. This time, I will be explaining the concept of joins and cross products to my niece, Winnie. Winnie is three and adorable and a terrible flower girl. She didn’t drop the petals until the end of the aisle, and then she tried to pick them up before sitting down because “my mess, my mess.” She’s cute as anything though. I will be explaining to Winnie:
