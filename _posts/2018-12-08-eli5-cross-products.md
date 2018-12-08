@@ -13,7 +13,7 @@ Why is that potentially bad?
 What kind of joins do we do instead?
 	<figure >
 	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/winnie_wedding.jpg?raw=true" alt="Winnie and Alisa at the Wedding" height="300">
-	<figcaption>Winnie and Alisa at the wedding <br>Source https://www.momentsphotographyvt.com</figcaption>
+Winnie and Alisa at the wedding <br>Source https://www.momentsphotographyvt.com
 	</figure>
 
 **What is a cross product join?**
@@ -49,6 +49,6 @@ So let’s say, for matching purposes, gold can only go with ivory and silver ca
 So now, we have your two outfits! But of course, you can only wear one. Which one do you pick?
 <figure >
 		<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/winnie_shoes.jpg?raw=true" alt="Winnie and her Shoes"  height="300">
-		<figcaption>Winnie and her shoes <br>Source https://www.momentsphotographyvt.com</figcaption>
+Winnie and her shoes <br>Source https://www.momentsphotographyvt.com
 	</figure>
 
