@@ -23,7 +23,7 @@ layout: default
 <hr><br>
 <h2>More Posts like This<h2>
 {% for post in site.posts  %}
-{% if post.categories contains page.categories %}
+<!-- {% if post.categories contains page.categories %} -->
   <article>
     <h5>
       <a href="{{ post.url }}">
@@ -31,5 +31,5 @@ layout: default
       </a>
     </h5>
   </article>
-{% endif %}
+ <!--  {% endif %} -->
 {% endfor %}
