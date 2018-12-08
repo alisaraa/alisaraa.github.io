@@ -12,7 +12,7 @@ What is a cross product join?
 Why is that potentially bad?
 What kind of joins do we do instead?<br>
 	<figure >
-	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/winnie_wedding.jpg?raw=true" alt="Winnie and Alisa at the Wedding" height="300">
+	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/winnie_wedding.jpg?raw=true" alt="Winnie and Alisa at the Wedding" height="300"><br>
 Winnie and Alisa at the wedding <br>Source https://www.momentsphotographyvt.com
 	</figure>
 
