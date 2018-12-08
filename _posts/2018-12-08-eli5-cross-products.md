@@ -10,7 +10,7 @@ In order to understand cross products, you have to understand joins since cross 
 A cross product is also called a [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product) by people who trust their ability to spell when a spell checker isn’t available. That particular group of people isn’t inviting me out to lunch any time soon, so I usually stick with cross product. This time, I will be explaining the concept of joins and cross products to my niece, Winnie. Winnie is three and adorable and a terrible flower girl. She didn’t drop the petals until the end of the aisle, and then she tried to pick them up before sitting down because “my mess, my mess.” She’s cute as anything though. I will be explaining to Winnie:
 What is a cross product join?
 Why is that potentially bad?
-What kind of joins do we do instead?
+What kind of joins do we do instead?<br>
 	<figure >
 	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/winnie_wedding.jpg?raw=true" alt="Winnie and Alisa at the Wedding" height="300">
 Winnie and Alisa at the wedding <br>Source https://www.momentsphotographyvt.com
