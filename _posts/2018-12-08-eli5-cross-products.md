@@ -49,6 +49,6 @@ So let’s say, for matching purposes, gold can only go with ivory and silver ca
 So now, we have your two outfits! But of course, you can only wear one. Which one do you pick?
 <figure >
 		<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/winnie_shoes.jpg?raw=true" alt="Winnie and her Shoes"  height="300">
-Winnie and her shoes <br>Source https://www.momentsphotographyvt.com
+<br>Winnie and her shoes <br>Source https://www.momentsphotographyvt.com
 	</figure>
 
