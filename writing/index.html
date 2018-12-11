@@ -10,20 +10,14 @@ layout: default
   
     <body>
         <h1> Writing in Tech </h1>
-            <br/>
- <h2> Most Recent Post </h2>
-      {% for post in site.posts limit:1 %}
-  <article>
-    <h2>
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
-    {{ post.content }}
-  </article>
-{% endfor %}  
-	    
+	<h3> I write in three main categories:
+	<ul>
+		<li><b>Explain Like I'm Five</b></li> I pretend to explain data engineering concepts to my five year old nephew to challenge myself
+		<li><b>Women in Tech</b></li> I write about concerns or thoughts I have that pertain to being a woman in tech
+		<li><b>Engineering</b></li> I write about generals engineering concepts or trends
+	</ul> 
+     <br/>
+	
 	    
 <h3> Posts by Category <h3>
 <h4> Explain Like I'm 5 Blog Posts <h4>
