@@ -37,7 +37,7 @@ layout: default
 {% endif %}
 {% endfor %}
 	</div>
-<hr>
+<div style = float: left; margin-right: 200px>
 <h4> Posts about Women in Tech <h4>
 {% for post in site.posts  %}
 {% if post.categories contains "WiT" %}
@@ -50,7 +50,8 @@ layout: default
   </article>
 {% endif %}
 {% endfor %}
-<hr>
+	</div>
+	
 <h4> Other Posts <h4>
 {% for post in site.posts  %}
 {% if post.categories contains "Engineering" %}
