@@ -4,7 +4,7 @@ layout: default
 <!doctype html>
 <html lang="en">
 	<head>
-        <title>{{ page.title}}</title>
+        <title>{{ page.title page.categories}}</title>
 
     </head>
 	
@@ -24,5 +24,7 @@ layout: default
 <br>
 <h3> See more posts like this </h3>
 {% for post in site.posts %}
+	{% if post.categories == page.categories %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+	   {% endif %}
 {% endfor %}
