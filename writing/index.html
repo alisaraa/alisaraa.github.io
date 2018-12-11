@@ -23,6 +23,7 @@ layout: default
 	
 	    
 <h3> Posts by Category <h3>
+	<div style = "float: left; width: 200px;">
 <h4> Explain Like I'm 5 Blog Posts <h4>
 {% for post in site.posts  %}
 {% if post.categories contains "ELI5" %}
@@ -35,6 +36,7 @@ layout: default
   </article>
 {% endif %}
 {% endfor %}
+	</div>
 <hr>
 <h4> Posts about Women in Tech <h4>
 {% for post in site.posts  %}
