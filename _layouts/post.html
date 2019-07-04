@@ -24,7 +24,7 @@ layout: default
 <br>
 <h3> See more posts like this </h3>
 {% for post in site.posts %}
-	{% if post.categories == page.categories %}
+	{% if post.categories == page.categories and page.title != post.title %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 	   {% endif %}
 {% endfor %}
