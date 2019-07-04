@@ -2,3 +2,4 @@
 ---
 
 @import "{{ site.theme }}";
+header { max-width: 100%; float: left; position: fixed; -webkit-font-smoothing: subpixel-antialiased; }
