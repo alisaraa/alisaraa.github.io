@@ -27,16 +27,16 @@ An example from the website linked above on how to use it:
 
 The file name will appear as the full path of the file after the bucket name. So if your stage points to s3://kittens/ and your file is s3://kittens/cats.csv, the filename will be cats.csv. But if your stage is  s3://kittens/cats/macandcheese.csv, then the query will show cats/macandcheese.csv. Keep this in mind for parsing.
 
-This is beneficial for: <br>
-**Debugging** <br>
- * Which file did this bad row come from? <br>
- * How many distinct files are impacted by X? <br>
-**QA** <br>
- * How many distinct files did we load over time? <br>
- * What file did we most recently load? <br>
- * How many files have we loaded? <br>
-**Data** <br>
- * Metadata is data. If your file names have important information in them, such as the name of the customer or the datetime the file was sent, this can be parsed into a field in the table.
+This is beneficial for: <br><br>
+**Debugging**
+* Which file did this bad row come from? <br>
+* How many distinct files are impacted by X? <br>
+**QA**
+* How many distinct files did we load over time? <br>
+* What file did we most recently load? <br>
+* How many files have we loaded? <br>
+**Data**
+* Metadata is data. If your file names have important information in them, such as the name of the customer or the datetime the file was sent, this can be parsed into a field in the table.
 
 To be honest, I never use the row number feature. I don’t usually care what row number a record was in its original file. I can see no business use for it, but email me your use cases if you have them!
 
