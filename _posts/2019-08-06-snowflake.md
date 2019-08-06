@@ -17,9 +17,9 @@ Below are the helpful features for efficient and scalable ETL and ad-hoc queryin
 
 COPY is a great way to get data from an external location (AWS S3 or Microsoft Azure or the newly added feature of Google Cloud). However, Snowflake didn’t invent the COPY command; that feature alone would not make it to this list. It is the metadata feature that differentiates it.
 
-When you copy into a Snowflake table, you can optionally add two fields of metadata:
-File name- add METADATA$FILENAME to your SELECT statement
-Row number- add METADATA$file_row_number to your SELECT statement
+When you copy into a Snowflake table, you can optionally add two fields of metadata: <br>
+File name- add METADATA$FILENAME to your SELECT statement <br>
+Row number- add METADATA$file_row_number to your SELECT statement <br>
 
 An example from the website linked above on how to use it: 
 
