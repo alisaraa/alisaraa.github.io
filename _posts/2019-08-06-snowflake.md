@@ -154,7 +154,7 @@ As long as you remember that nothing equals null, including null, then you shoul
 
 I know what you’re thinking: Snowflake doesn’t enforce constraints, next. Not so fast. Whenever I think about declaring constraints in a database that does not enforce them (looking at you too, Redshift), I think about the Baz Luhrmann quote from Everybody’s Free: “Read the directions, even if you don’t follow them.” (https://genius.com/Baz-luhrmann-everybodys-free-to-wear-sunscreen-lyrics)
  
-I know Snowflake doesn’t do the work for you, but the primary key of a table is still metadata, and Snowflake store metadata. If you declare a primary key in the DDL, you can find the primary key from a table by querying:
+I know Snowflake doesn’t do the work for you, but the primary key of a table is still metadata, and Snowflake stores metadata. If you declare a primary key in the DDL, you can find the primary key from a table by querying:
 
 ``` DESC TABLE cats ```
 
