@@ -7,7 +7,7 @@ categories: Engineering
 
 The title of this post would be “10 Things I Like to Use in Snowflake That You Could Google but First You’d Have to Know They Exist. So Here, They Exist”, but I’m not that good at HTML and CSS so I can’t fit such a wide title on my blog post page. 
 
-Snowflake is a cloud-based data warehouse similar to Redshift. It stores data in a columnar fashion, [see my post on types of data warehouse storage](http://www.alisa-in.tech/eli5/2018/07/03/rowbased.html). I’ve used Snowflake off and on for about four years, starting with a transition from Redshift to Snowflake at $job-3. At $job-2 I went to Vertica. At $job-1, I worked on another transition from Redshift to Snowflake. At $job, I came in to team already using Snowflake. This allowed me to shift my focus from setting up Snowflake to optimizing it. 
+Snowflake is a cloud-based data warehouse similar to Redshift. It stores data in a columnar fashion, [see my post on types of data warehouse storage](http://www.alisa-in.tech/eli5/2018/07/03/rowbased.html). I’ve used Snowflake off and on for about four years, starting with a transition from Redshift to Snowflake at $job-3. At $job-2 I went to Vertica. At $job-1, I worked on another transition from Redshift to Snowflake. At $job, I came in to a team already using Snowflake. This allowed me to shift my focus from setting up Snowflake to optimizing it. 
 
 Below are the helpful features for efficient and scalable ETL and ad-hoc querying.
 
