@@ -60,6 +60,7 @@ The merges enforce the primary key since duplicated data causes the merge to fai
 ## 3. Clone a development environment
 
 [Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/sql/create-clone.html)
+
 There’s not much to say about cloning, except that it’s fast and efficient and cheap. You can clone any object (database, schema, table, etc). Cloning uses the metadata of the object so it’s fast and takes no new storage. The clone is independent of the source so it can be altered, although once it’s altered it does take up storage but only as much as it needs. So there is very little cost to making a clone of the production database every so often as a development database; the benefit is an up to date sandbox to develop new changes in as accurately as possible. 
 
 ## 4. Use ZEROIFNULL to get rid of some ugly case whens 
