@@ -124,7 +124,7 @@ You always have to be careful with nulls. As you may have heard, null is not equ
 
 There are other cases when the null does not equal null thing gets in your way, and this isn’t specific to Snowflake. In fact, I remember having this issue with Vertica and having to do something like
 
-COALESCE(src.cat_field, ‘mac’) = COALESCE(targ.cat_field, ‘mac’)
+```COALESCE(src.cat_field, ‘mac’) = COALESCE(targ.cat_field, ‘mac’)```
 
 
 This is a workaround, yes, but not a good one. Why?
@@ -143,13 +143,13 @@ But you notice-- the cats without colors yet are gone! That was not your intenti
 
 ```
 SELECT * from cats
-EQUAL_NULL( cat_color,  ‘Black’)  = false 
+WHERE EQUAL_NULL( cat_color,  ‘Black’)  = false 
 ```
 (or NOT EQUAL_NULL(cat_color, ‘Black’))
 
 As long as you remember that nothing equals null, including null, then you should be able to use EQUAL_NULL() to write clean code.
 
-## 9 Primary Keys (and other constraints)
+## 9. Primary Keys (and other constraints)
 [Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/constraints-overview.html)
 
 I know what you’re thinking: Snowflake doesn’t enforce constraints, next. Not so fast. Whenever I think about declaring constraints in a database that does not enforce them (looking at you too, Redshift), I think about the Baz Luhrmann quote from Everybody’s Free: “Read the directions, even if you don’t follow them.” (https://genius.com/Baz-luhrmann-everybodys-free-to-wear-sunscreen-lyrics)
@@ -162,7 +162,7 @@ Which will show you a list of each of the fields in the table cats, and which ar
 
 Note that the NOT NULL constraint is enforced and should be used for columns that aren’t ever supposed to be null.
 
-## 10 On that note, use RESULTS SCAN to get non-table results into a table
+## 10. On that note, use RESULTS SCAN to get non-table results into a table
 [Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/functions/result_scan.html)
 
 I know what you are thinking: DESC TABLE doesn’t return a real table. I can’t do a WHERE clause or select only a subset of columns. I’d have to ingest it into a Python or an R dataframe in order to manipulate it. 
