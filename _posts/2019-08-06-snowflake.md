@@ -13,8 +13,7 @@ Below are the helpful features for efficient and scalable ETL and ad-hoc queryin
 
 ## 1. Ingest metadata when you copy
 
-
-https://docs.snowflake.net/manuals/user-guide/querying-metadata.html
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/user-guide/querying-metadata.html)
 
 COPY is a great way to get data from an external location (AWS S3 or Microsoft Azure or the newly added feature of Google Cloud). However, Snowflake didn’t invent the COPY command; that feature alone would not make it to this list. It is the metadata feature that differentiates it.
 
@@ -41,9 +40,9 @@ Metadata is data. If your file names have important information in them, such as
 
 To be honest, I never use the row number feature. I don’t usually care what row number a record was in its original file. I can see no business use for it, but email me your use cases if you have them!
 
-## 2. Merge, if you don’t already
+## 2. Merge to ensure no data unavailability 
 
-https://docs.snowflake.net/manuals/sql-reference/sql/merge.html
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/sql/merge.html)
 
 A MERGE is the combination of an update and an insert, sometimes called an upsert. This isn’t a totally new concept (other databases implement the feature differently), but it deserves a mention.
 
@@ -60,17 +59,18 @@ The merges enforce the primary key since duplicated data causes the merge to fai
 
 ## 3. Clone a development environment
 
-https://docs.snowflake.net/manuals/sql-reference/sql/create-clone.html
-
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/sql/create-clone.html)
 There’s not much to say about cloning, except that it’s fast and efficient and cheap. You can clone any object (database, schema, table, etc). Cloning uses the metadata of the object so it’s fast and takes no new storage. The clone is independent of the source so it can be altered, although once it’s altered it does take up storage but only as much as it needs. So there is very little cost to making a clone of the production database every so often as a development database; the benefit is an up to date sandbox to develop new changes in as accurately as possible. 
 
-## 4. ZEROIFNULL
-https://docs.snowflake.net/manuals/sql-reference/functions/zeroifnull.html
+## 4. Use ZEROIFNULL to get rid of some ugly case whens 
 
-I don’t know why I love this function so much, I think it may be because it’s so common and ugly to see  ``` CASE WHEN field == 0 THEN NULL ELSE field END ```  in ETL. ```ZEROIFNULL(field)``` is not faster than the  ``` CASE WHEN ``` statement, but it cuts down on syntactic noise. More readable code is easier to debug code. 
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/functions/zeroifnull.html)
+
+I don’t know why I love this function so much; I think it may be because it’s so common and ugly to see  ``` CASE WHEN field == 0 THEN NULL ELSE field END ```  in ETL. ```ZEROIFNULL(field)``` is not faster than the  ``` CASE WHEN ``` statement, but it cuts down on syntactic noise. More readable code is easier to debug code. 
 
 ## 5. Unload a dataset to S3 if you need to
-https://docs.snowflake.net/manuals/user-guide/data-unload-s3.html
+
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/user-guide/data-unload-s3.html)
 
 If you have a table you want to backup to S3 (or wherever your cloud storage is), you can write what looks like a COPY statement and run it like any other SQL statement within your ETL. There is no need to write a special Python script to extract and save to S3. 
 
@@ -82,11 +82,11 @@ FILE_FORMAT = (TYPE = CSV)
 
 This will create s3://mybucket/unload/cats.csv. Actually it won’t, it will create as many cat files as it wants. In order to create cats.csv and only cats.csv, use the parameter SINGLE=true. In order to refresh the cats every time the COPY runs, use the parameter OVERWRITE=true. 
 
-But CSV isn’t always ideal; datasets change shape and you may want to ingest historic data which does not contain all the same columns. In this case, you can unload a table as JSON object, but you have to convert it to an object using the OBEJCT_CONSTRUCT function: https://docs.snowflake.net/manuals/sql-reference/functions/object_construct.html 
+But CSV isn’t always ideal; datasets change shape and you may want to ingest historic data which does not contain all the same columns. In this case, you can unload a table as JSON object, but you have to convert it to an object using the  [object construct function](https://docs.snowflake.net/manuals/sql-reference/functions/object_construct.html)
  
-
 ## 6. Use ANY_VALUE when any value will do
-https://docs.snowflake.net/manuals/sql-reference/functions/any_value.html
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/functions/any_value.html)
+
 
 There are times in our lives, of which we are not proud, that we must aggregate a field that we truly don’t want to aggregate. For instance, let’s say you have a dataset that looks like this:
 
@@ -108,12 +108,12 @@ FROM  cat_city_table GROUP BY city
 This is computationally faster than a MAX(). Note though that is non deterministic, which means it will reproduce different results throughout time. Be careful with this. Speaking of which...
 
 ## 7. Be careful with ROW_NUMBER
-https://docs.snowflake.net/manuals/sql-reference/functions/row_number.html
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/functions/row_number.html)
 
 ROW_NUMBER() is a powerful analytical function which will break ties for you so to speak. RANK() will number the groupings of rows by the partitioned by fields for you; ROW_NUMBER() will number them but ensure there’s no duplicates. This means it will randomly (not really randomly but randomly) pick between two rows with the same field values for all the partitioned fields and the order by field. This can help you deduplicate cleanly, but the results will be non deterministic, meaning each time you run the same query you may get a different result. Since you’re letting Snowflake effectively pick your data, it’s unwise to use this feature in your ETL.
 
 ## 8. Be careful with NULLs but use them to your advantage
-https://docs.snowflake.net/manuals/sql-reference/functions/equal_null.html
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/functions/equal_null.html)
 
 You always have to be careful with nulls. As you may have heard, null is not equal to null. This means you can’t do X = Y and get TRUE when both X and Y are null. This is specifically troubling in a MERGE statement. If one of your primary keys can be null, a merge comparing the source and target values of the primary key will always be false if they’re both null. This means it will always trigger the WHEN NOT MATCHED CLAUSE. This means, dupes.
 
@@ -145,7 +145,7 @@ EQUAL_NULL( cat_color,  ‘Black’)  = false
 As long as you remember that nothing equals null, including null, then you should be able to use EQUAL_NULL() to write clean code.
 
 ## 9 Primary Keys (and other constraints)
-https://docs.snowflake.net/manuals/sql-reference/constraints-overview.html
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/constraints-overview.html)
 
 I know what you’re thinking: Snowflake doesn’t enforce constraints, next. Not so fast. Whenever I think about declaring constraints in a database that does not enforce them (looking at you too, Redshift), I think about the Baz Luhrmann quote from Everybody’s Free: “Read the directions, even if you don’t follow them.” (https://genius.com/Baz-luhrmann-everybodys-free-to-wear-sunscreen-lyrics)
  
@@ -158,8 +158,7 @@ Which will show you a list of each of the fields in the table cats, and which ar
 Note that the NOT NULL constraint is enforced and should be used for columns that aren’t ever supposed to be null.
 
 ## 10 On that note, use RESULTS SCAN to get non-table results into a table
-
-https://docs.snowflake.net/manuals/sql-reference/functions/result_scan.html
+[Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/functions/result_scan.html)
 
 I know what you are thinking: DESC TABLE doesn’t return a real table. I can’t do a WHERE clause or select only a subset of columns. I’d have to ingest it into a Python or an R dataframe in order to manipulate it. 
 
