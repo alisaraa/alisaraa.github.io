@@ -85,7 +85,7 @@ This will create s3://mybucket/unload/cats.csv. Actually it won’t, it will cre
 But CSV isn’t always ideal; datasets change shape and you may want to ingest historic data which does not contain all the same columns. In this case, you can unload a table as JSON object, but you have to convert it to an object using the OBEJCT_CONSTRUCT function: https://docs.snowflake.net/manuals/sql-reference/functions/object_construct.html 
  
 
-## 6. ANY_VALUE
+## 6. Use ANY_VALUE when any value will do
 https://docs.snowflake.net/manuals/sql-reference/functions/any_value.html
 
 There are times in our lives, of which we are not proud, that we must aggregate a field that we truly don’t want to aggregate. For instance, let’s say you have a dataset that looks like this:
