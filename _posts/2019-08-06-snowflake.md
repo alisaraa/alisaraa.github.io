@@ -11,7 +11,7 @@ Snowflake is a cloud-based data warehouse similar to Redshift. It stores data in
 
 Below are the helpful features for efficient and scalable ETL and ad-hoc querying.
 
-# 1. Ingest metadata when you copy
+## 1. Ingest metadata when you copy
 
 
 https://docs.snowflake.net/manuals/user-guide/querying-metadata.html
@@ -41,7 +41,7 @@ Metadata is data. If your file names have important information in them, such as
 
 To be honest, I never use the row number feature. I don’t usually care what row number a record was in its original file. I can see no business use for it, but email me your use cases if you have them!
 
-# 2. Merge, if you don’t already
+## 2. Merge, if you don’t already
 
 https://docs.snowflake.net/manuals/sql-reference/sql/merge.html
 
@@ -58,33 +58,34 @@ You do not lose any time travel, as you do in a create and replace
 The data will never be removed from the table as in a TRUNCATE; so to the end user, the data will always be available
 The merges enforce the primary key since duplicated data causes the merge to fail
 
-# 3. Clone a development environment
+## 3. Clone a development environment
 
 https://docs.snowflake.net/manuals/sql-reference/sql/create-clone.html
 
 There’s not much to say about cloning, except that it’s fast and efficient and cheap. You can clone any object (database, schema, table, etc). Cloning uses the metadata of the object so it’s fast and takes no new storage. The clone is independent of the source so it can be altered, although once it’s altered it does take up storage but only as much as it needs. So there is very little cost to making a clone of the production database every so often as a development database; the benefit is an up to date sandbox to develop new changes in as accurately as possible. 
 
-# 4. ZEROIFNULL
+## 4. ZEROIFNULL
 https://docs.snowflake.net/manuals/sql-reference/functions/zeroifnull.html
 
 I don’t know why I love this function so much, I think it may be because it’s so common and ugly to see  ``` CASE WHEN field == 0 THEN NULL ELSE field END ```  in ETL. ```ZEROIFNULL(field)``` is not faster than the  ``` CASE WHEN ``` statement, but it cuts down on syntactic noise. More readable code is easier to debug code. 
 
-# 5. Unload a dataset to S3 if you need to
+## 5. Unload a dataset to S3 if you need to
 https://docs.snowflake.net/manuals/user-guide/data-unload-s3.html
 
 If you have a table you want to backup to S3 (or wherever your cloud storage is), you can write what looks like a COPY statement and run it like any other SQL statement within your ETL. There is no need to write a special Python script to extract and save to S3. 
 
 It is easy to save a file to a location in S3 as CSV, as in the following:
-<code>copy into s3://mybucket/unload/cats from cats
+```
+copy into s3://mybucket/unload/cats from cats
 FILE_FORMAT = (TYPE = CSV)
-<code>
+```
 
 This will create s3://mybucket/unload/cats.csv. Actually it won’t, it will create as many cat files as it wants. In order to create cats.csv and only cats.csv, use the parameter SINGLE=true. In order to refresh the cats every time the COPY runs, use the parameter OVERWRITE=true. 
 
 But CSV isn’t always ideal; datasets change shape and you may want to ingest historic data which does not contain all the same columns. In this case, you can unload a table as JSON object, but you have to convert it to an object using the OBEJCT_CONSTRUCT function: https://docs.snowflake.net/manuals/sql-reference/functions/object_construct.html 
  
 
-# 6. ANY_VALUE
+## 6. ANY_VALUE
 https://docs.snowflake.net/manuals/sql-reference/functions/any_value.html
 
 There are times in our lives, of which we are not proud, that we must aggregate a field that we truly don’t want to aggregate. For instance, let’s say you have a dataset that looks like this:
@@ -98,15 +99,20 @@ There are times in our lives, of which we are not proud, that we must aggregate 
 | Worcester | 01606     |    6 |
 
 Now let’s say you want to display the sum of cats by city, but you still want to display a zip code for reference. You know that you have to either aggregate or group by every field, but you don’t want to aggregate zip code or group by it, since that would not give you the total cats per city. In this case, you may be tempted to do a MAX() on zip code but you do not truly want the max zip code and that requires a calculation. So what do you do?
-```SELECT city, ANY_VALUE(zip_code) as some_zip, SUM(Number_of_cats) AS total_city_cats
-FROM  cat_city_table GROUP BY city ```
+
+```
+SELECT city, ANY_VALUE(zip_code) as some_zip, SUM(Number_of_cats) AS total_city_cats
+FROM  cat_city_table GROUP BY city
+```
+
 This is computationally faster than a MAX(). Note though that is non deterministic, which means it will reproduce different results throughout time. Be careful with this. Speaking of which...
-# 7. Be careful with ROW_NUMBER
+
+## 7. Be careful with ROW_NUMBER
 https://docs.snowflake.net/manuals/sql-reference/functions/row_number.html
 
 ROW_NUMBER() is a powerful analytical function which will break ties for you so to speak. RANK() will number the groupings of rows by the partitioned by fields for you; ROW_NUMBER() will number them but ensure there’s no duplicates. This means it will randomly (not really randomly but randomly) pick between two rows with the same field values for all the partitioned fields and the order by field. This can help you deduplicate cleanly, but the results will be non deterministic, meaning each time you run the same query you may get a different result. Since you’re letting Snowflake effectively pick your data, it’s unwise to use this feature in your ETL.
 
-# 8 Be careful with NULLs but use them to your advantage
+## 8. Be careful with NULLs but use them to your advantage
 https://docs.snowflake.net/manuals/sql-reference/functions/equal_null.html
 
 You always have to be careful with nulls. As you may have heard, null is not equal to null. This means you can’t do X = Y and get TRUE when both X and Y are null. This is specifically troubling in a MERGE statement. If one of your primary keys can be null, a merge comparing the source and target values of the primary key will always be false if they’re both null. This means it will always trigger the WHEN NOT MATCHED CLAUSE. This means, dupes.
@@ -123,22 +129,22 @@ On the off chance that src.cat_field is null but targ.cat_field = ‘mac’, you
 Snowflake provides you with a function EQUAL_NULL() which will return True if the fields are equal or if they are both null. This is safer and cleaner than the workaround.
 
 How can we use this to our advantage? Let’s say you have some values for cat color, most of which are black, white, torty, orange, but some are null. You want to find all of those who are not black so you do
-<code>
+```
 SELECT * from cats
 WHERE cat_color != ‘Black’
-<code>
+```
 
 But you notice-- the cats without colors yet are gone! That was not your intention. This is because null != ‘Black’ because null is not equal to anything and therefore cannot be not equal to anything. To get all colors including nulls except black, you can do:
 
-<code>
+```
 SELECT * from cats
 EQUAL_NULL( cat_color,  ‘Black’)  = false 
-<code>
+```
 (or NOT EQUAL_NULL(cat_color, ‘Black’))
 
 As long as you remember that nothing equals null, including null, then you should be able to use EQUAL_NULL() to write clean code.
 
-# 9 Primary Keys (and other constraints)
+## 9 Primary Keys (and other constraints)
 https://docs.snowflake.net/manuals/sql-reference/constraints-overview.html
 
 I know what you’re thinking: Snowflake doesn’t enforce constraints, next. Not so fast. Whenever I think about declaring constraints in a database that does not enforce them (looking at you too, Redshift), I think about the Baz Luhrmann quote from Everybody’s Free: “Read the directions, even if you don’t follow them.” (https://genius.com/Baz-luhrmann-everybodys-free-to-wear-sunscreen-lyrics)
@@ -151,7 +157,7 @@ Which will show you a list of each of the fields in the table cats, and which ar
 
 Note that the NOT NULL constraint is enforced and should be used for columns that aren’t ever supposed to be null.
 
-# 10 On that note, use RESULTS SCAN to get non-table results into a table
+## 10 On that note, use RESULTS SCAN to get non-table results into a table
 
 https://docs.snowflake.net/manuals/sql-reference/functions/result_scan.html
 
@@ -164,3 +170,5 @@ Not so fast. Snowflake has a workaround for this. Immediately after doing a DESC
 and you will receive the results of your last query as a table, which means you can limit your columns or add a WHERE clause.
 
 I admit that it feels janky and it’s per user name, not session, which means you can get in trouble with getting the results of your query.
+
+### Email me to let me know what you think, if you have any other tricks you'e picked up, or if you have any questions!
