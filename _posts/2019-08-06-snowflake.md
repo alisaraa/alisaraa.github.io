@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cool Things to Do in Snowflake
+title: Cool Things in Snowflake
 date: '2019-08-06 15:12:11 -0400'
 categories: Engineering
 ---
