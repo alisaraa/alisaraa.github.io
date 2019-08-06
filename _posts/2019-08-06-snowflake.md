@@ -49,13 +49,14 @@ A MERGE is the combination of an update and an insert, sometimes called an upser
 A MERGE allows you to add new records and update existing records without any part of the table being unavailable to end users. If you want to have a production schema that is up 24 hours a day (and you do), use this. 
 
 Be careful:
-You need to know the primary key; that will define what it means for a record to be new or existing
-You can delete in a merge, but only if the source data does soft deletes, not in the case of hard deletes. This is a bit of a complicated concept, but just know, you may have to do a separate DELETE statement after the MERGE.
+* You need to know the primary key; that will define what it means for a record to be new or existing
+* You can delete in a merge, but only if the source data does soft deletes, not in the case of hard deletes. This is a bit of a complicated concept, but just know, you may have to do a separate DELETE statement after the MERGE.
+
 Benefits:
-You do not have to re-run permissions after a MERGE, as you do in a create and replace
-You do not lose any time travel, as you do in a create and replace
-The data will never be removed from the table as in a TRUNCATE; so to the end user, the data will always be available
-The merges enforce the primary key since duplicated data causes the merge to fail
+* You do not have to re-run permissions after a MERGE, as you do in a create and replace
+* You do not lose any time travel, as you do in a create and replace
+* The data will never be removed from the table as in a TRUNCATE; so to the end user, the data will always be available
+* The merges enforce the primary key since duplicated data causes the merge to fail
 
 ## 3. Clone a development environment
 
@@ -83,7 +84,7 @@ FILE_FORMAT = (TYPE = CSV)
 
 This will create s3://mybucket/unload/cats.csv. Actually it won’t, it will create as many cat files as it wants. In order to create cats.csv and only cats.csv, use the parameter SINGLE=true. In order to refresh the cats every time the COPY runs, use the parameter OVERWRITE=true. 
 
-But CSV isn’t always ideal; datasets change shape and you may want to ingest historic data which does not contain all the same columns. In this case, you can unload a table as JSON object, but you have to convert it to an object using the  [object construct function](https://docs.snowflake.net/manuals/sql-reference/functions/object_construct.html)
+But CSV isn’t always ideal; datasets change shape and you may want to ingest historic data which does not contain all the same columns. In this case, you can unload a table as JSON object, but you have to convert it to an object using the  [object construct function](https://docs.snowflake.net/mnuals/sql-reference/functions/object_construct.html)
  
 ## 6. Use ANY_VALUE when any value will do
 [Snowflake Reference Page](https://docs.snowflake.net/manuals/sql-reference/functions/any_value.html)
