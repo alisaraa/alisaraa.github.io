@@ -28,6 +28,7 @@ An example from the website linked above on how to use it:
 The file name will appear as the full path of the file after the bucket name. So if your stage points to s3://kittens/ and your file is s3://kittens/cats.csv, the filename will be cats.csv. But if your stage is  s3://kittens/cats/macandcheese.csv, then the query will show cats/macandcheese.csv. Keep this in mind for parsing.
 
 This is beneficial for: <br><br>
+
 **Debugging**
 * Which file did this bad row come from? <br>
 * How many distinct files are impacted by X? <br>
