@@ -29,14 +29,14 @@ The file name will appear as the full path of the file after the bucket name. So
 
 This is beneficial for: <br>
 * Debugging <br>
-** Which file did this bad row come from? <br>
-** How many distinct files are impacted by X? <br>
+ * Which file did this bad row come from? <br>
+ * How many distinct files are impacted by X? <br>
 * QA <br>
-** How many distinct files did we load over time? <br>
-** What file did we most recently load? <br>
-** How many files have we loaded? <br>
+ * How many distinct files did we load over time? <br>
+ * What file did we most recently load? <br>
+ * How many files have we loaded? <br>
 * Data <br>
-** Metadata is data. If your file names have important information in them, such as the name of the customer or the datetime the file was sent, this can be parsed into a field in the table.
+ * Metadata is data. If your file names have important information in them, such as the name of the customer or the datetime the file was sent, this can be parsed into a field in the table.
 
 To be honest, I never use the row number feature. I don’t usually care what row number a record was in its original file. I can see no business use for it, but email me your use cases if you have them!
 
