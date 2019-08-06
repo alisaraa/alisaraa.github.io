@@ -30,12 +30,12 @@ The file name will appear as the full path of the file after the bucket name. So
 This is beneficial for: <br><br>
 
 **Debugging**
-* Which file did this bad row come from? <br>
-* How many distinct files are impacted by X? <br>
+* Which file did this bad row come from?
+* How many distinct files are impacted by X?
 **QA**
-* How many distinct files did we load over time? <br>
-* What file did we most recently load? <br>
-* How many files have we loaded? <br>
+* How many distinct files did we load over time?
+* What file did we most recently load?
+* How many files have we loaded?
 **Data**
 * Metadata is data. If your file names have important information in them, such as the name of the customer or the datetime the file was sent, this can be parsed into a field in the table.
 
