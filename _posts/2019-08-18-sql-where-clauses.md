@@ -21,7 +21,7 @@ Out of 1,033,397,442 rows in kitten_data, the results show only 932,385 were ado
 
 You may think that this a great performance improvement since you decreased the table to 9% of its original size. But what did you really do?
 
-The truth is, your database does not know which rows to throw away or keep until they’ve made this comparison, and it can’t make this comparison until it has completed the calculation on every single row. So when you asked it to cut down Y% of the data, first it did the following on all the data:
+The truth is, your database does not know which rows to throw away or keep until it has made this comparison, and it can’t make this comparison until it has completed the calculation on every single row. So when you asked it to cut down to 9% of the data, first it did the following on all the data:
 	<figure >
 	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/kittens_new_field.png?raw=true" height="300"><br>
 	</figure>
