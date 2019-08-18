@@ -4,7 +4,7 @@ title: Functions in Where Clauses
 date: '2019-08-18 15:12:11 -0400'
 categories: SQL
 ---
-This post is part of a new series of mini-blogs I’m doing on SQL performance tuning tips. They aren’t in any particular order. This tip is borne out of help I gave my teammate Conor. He did not really ask me for help on this question, so much as I grabbed a piece of paper from his desk and began drawing it out. 
+This post is part of a new series of mini-blogs I’m doing on SQL performance tuning tips. They aren’t in any particular order. This tip comes from help I gave my teammate Conor. He did not really ask me for help on this question, so much as I grabbed a piece of paper from his desk and began drawing it out. 
 Anyways, you may have woken up this morning wondering “how does my database deal with functions in WHERE statements?” and that’s a really good question. Let’s say you have a table of kitten data, and you want to filter down for kittens adopted in the past 30 days:
 
 You might write the following:
