@@ -17,14 +17,14 @@ and adoption_date < current_date
 
 Out of 1,033,397,442 rows in kitten_Data, the results show only 932385 were adopted in the past 30 days. Results:
 	<figure >
-	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/kittens_results.jpg?raw=true" height="300"><br>
+	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/kittens_results.png?raw=true" height="300"><br>
 	</figure>
 
 You may think that this a great performance improvement since you decreased the table by 9%. But what did you really do?
 
 The truth is, your database does not know which rows to throw away or keep until they’ve made this comparison, and it can’t make this comparison until it has completed the calculation on every single row. So when you asked it to cut down Y% of the data, first it did the following on all the data:
 	<figure >
-	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/kittens_new_field.jpg?raw=true" height="300"><br>
+	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/kittens_new_field.png?raw=true" height="300"><br>
 	</figure>
 
 
