@@ -14,7 +14,7 @@ WHERE DATEADD(days, 30, adoption_date) > current_date
 and adoption_date < current_date
 ```
 
-Out of 1,033,397,442 rows in kitten_Data, the results show only 932385 were adopted in the past 30 days. Results:
+Out of 1,033,397,442 rows in kitten_data, the results show only 932385 were adopted in the past 30 days. Results:
 	<figure >
 	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/kittens_results.png?raw=true" height="300"><br>
 	</figure>
