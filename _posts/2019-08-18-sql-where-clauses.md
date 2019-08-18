@@ -36,7 +36,7 @@ SELECT * FROM kitten_data
 WHERE adoption_date > DATEADD(days, -30, current_date)
 and adoption_date < current_date
 ```
-I ran both queries (avoiding cached results) and found that the latter took less time than the former, although it was such a fast query it’s hard to quanify how big the impact is.
+I ran both queries (avoiding cached results) and found that the latter took less time than the former, although it was such a fast query it’s hard to quantify how big the impact is.
 
 If you can’t find a way to change your code in this way, try to filter before the function filter. So if I really couldn’t avoid using my function I could first cut the table down with:
 
