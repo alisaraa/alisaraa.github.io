@@ -14,12 +14,12 @@ WHERE DATEADD(days, 30, adoption_date) > current_date
 and adoption_date < current_date
 ```
 
-Out of 1,033,397,442 rows in kitten_data, the results show only 932,385 were adopted in the past 30 days. Results:
+Out of 1,033,397,442 rows in kitten_data, the results show only 932,385 were adopted in the past 30 days. The results look like this:
 	<figure >
 	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/kittens_results.png?raw=true" height="300"><br>
 	</figure>
 
-You may think that this a great performance improvement since you decreased the table by 9%. But what did you really do?
+You may think that this a great performance improvement since you decreased the table to 9% of its original size. But what did you really do?
 
 The truth is, your database does not know which rows to throw away or keep until they’ve made this comparison, and it can’t make this comparison until it has completed the calculation on every single row. So when you asked it to cut down Y% of the data, first it did the following on all the data:
 	<figure >
