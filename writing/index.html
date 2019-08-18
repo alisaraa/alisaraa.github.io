@@ -11,18 +11,19 @@ layout: default
     <body>
         <h1> Writing in Tech </h1>
 	    <br> <br>
-	    <h3> I write in three main categories: </h3>
+	    <h3> I write in four main categories: </h3>
 	    <p>
 	<ul>
 		<li><b>Explain Like I'm Five</b></li> 	I pretend to explain data engineering concepts to my five year old nephew to challenge myself
 		<li><b>Women in Tech</b></li> 	I write about concerns or thoughts I have that pertain to being a woman in tech
 		<li><b>Engineering</b></li> 	I write about general engineering concepts or trends
+		<li><b>SQL Tuning</b></li> 	I write small posts on SQL Performance tuning techniques
 	</ul> 
 	    </p>
      <br/>
 	
 	<div style = "margin-right: 150px; float: left; width: 250px;">
-<h4> Explain Like I'm 5 Blog Posts <h4>
+<h4> Explain Like I'm 5 <h4>
 {% for post in site.posts  %}
 {% if post.categories contains "ELI5" %}
   <article>
@@ -36,7 +37,7 @@ layout: default
 {% endfor %}
 	</div>
 <div style = "float: left; margin-right: 100px">
-<h4> Posts about Women in Tech <h4>
+<h4> Women in Tech <h4>
 {% for post in site.posts  %}
 {% if post.categories contains "WiT" %}
   <article>
@@ -49,7 +50,20 @@ layout: default
 {% endif %}
 {% endfor %}
 	</div>
-	
+<div style = "float: left; margin-right: 100px">
+<h4> SQL Tuning <h4>
+{% for post in site.posts  %}
+{% if post.categories contains "SQL" %}
+  <article>
+    <h5>
+      <a href="{{ post.url }}">
+	{{ post.title }}
+      </a>
+    </h5>
+  </article>
+{% endif %}
+{% endfor %}
+	</div>
 <div style = "float: left; margin-right: 100px">
 <h4> Other Posts <h4>
 {% for post in site.posts  %}
