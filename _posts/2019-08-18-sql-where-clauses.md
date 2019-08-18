@@ -9,8 +9,8 @@ This post is part of a new series of mini-blogs I’m doing on SQL performance t
 You might write the following:
 
 ```
-SELECT * FROM KITTEN_DATA
-WHERE dateadd(days, 30, adoption_date) > current_date
+SELECT * FROM kitten_data
+WHERE DATEADD(days, 30, adoption_date) > current_date
 and adoption_date < current_date
 ```
 
@@ -32,8 +32,8 @@ Then, once it had this new third field, it filtered and only returned 9% of the 
 What you should do instead is put the function on the other side of the filter:
 
 ```
-SELECT * FROM KITTEN_DATA
-WHERE adoption_date > dateadd(days, -30, current_date)
+SELECT * FROM kitten_data
+WHERE adoption_date > DATEADD(days, -30, current_date)
 and adoption_date < current_date
 ```
 I ran both queries (avoiding cached results) and found that the latter took less time than the former, although it was such a fast query it’s hard to quanify how big the impact is.
@@ -42,10 +42,10 @@ If you can’t find a way to change your code in this way, try to filter before 
 
 ```
 SELECT * FROM (
-SELECT * FROM KITTEN_DATA
+SELECT * FROM kitten_data
 WHERE adoption_date > ‘2019-01-01
 and adoption_date < current_date
-) WHERE  dateadd(days, 30, adoption_date) > current_date
+) WHERE  DATEADD(days, 30, adoption_date) > current_date
 ```
 This would at least decrease the number of records on which I performed that operation. 
 
