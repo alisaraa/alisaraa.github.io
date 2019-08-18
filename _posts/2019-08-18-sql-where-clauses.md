@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SQL Performance Tuning: Functions in Where Clauses
+title: SQL Performance Tuning- Functions in Where Clauses
 date: '2019-08-18 15:12:11 -0400'
 categories: SQL
 ---
