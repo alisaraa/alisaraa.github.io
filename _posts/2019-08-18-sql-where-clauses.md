@@ -55,8 +55,8 @@ But, as the MS SQL Tip site says, there is another reason to be wary of function
 
 TL;DR - Functions in WHERE clauses are applied to all records in a table and can therefore be expensive. Although in most databases, a function on an indexed field in the WHERE clause would prevent use of the index, Snowflake may be the exception to this for some functions.
 
-**update** Snowflake help got back to me about my question:
+**update** Snowflake help got back to me about my question.
 I asked "If I use a function on the clustered key in a where clause, will the query not utilize the clustering?"
-They responded "Regarding a query, a function on the clustered key in a where clause will utilise the clustering key. However, there are some occurences/scenarios where it will not be used effective/not used."
+They responded "Regarding a query, a function on the clustered key in a where clause will utilise the clustering key. However, there are some occurrences/scenarios where it will not be used effective/not used."
 
 So basically, you don't know if your expression will negate or lessen the impact of a clustering key, so be very careful when using it in a where clause!
