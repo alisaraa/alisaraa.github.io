@@ -54,3 +54,9 @@ However, this is a pretty well-known concept; other sites such as [MS SQL Tips](
 But, as the MS SQL Tip site says, there is another reason to be wary of functions in WHERE clauses: it prevents your ability to capitalize on indexing which is so important in performance. But I could not find in Snowflake’s [documentation](https://docs.snowflake.net/manuals/user-guide/tables-clustering-keys.html) if this is true of clustering too. I set a cluster key on adoption_date, reclustered fully, and ran both queries from this post and honestly...they both said they only scanned 2 out of 279 (7%) of the partitions. What does this mean? This means that Snowflake **might** be smart enough to use the clustering key for certain functions in the where clause. Barring official documentation from them though, I can’t say that’s consistently true. Stay tuned because I'm going to try to find this out from Snowflake support.
 
 TL;DR - Functions in WHERE clauses are applied to all records in a table and can therefore be expensive. Although in most databases, a function on an indexed field in the WHERE clause would prevent use of the index, Snowflake may be the exception to this for some functions.
+
+**update** Snowflake help got back to me about my question:
+I asked "If I use a function on the clustered key in a where clause, will the query not utilize the clustering?"
+They responded "Regarding a query, a function on the clustered key in a where clause will utilise the clustering key. However, there are some occurences/scenarios where it will not be used effective/not used."
+
+So basically, you don't know if your expression will negate or lessen the impact of a clustering key, so be very careful when using it in a where clause!
