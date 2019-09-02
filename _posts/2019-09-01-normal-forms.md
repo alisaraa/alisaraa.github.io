@@ -31,8 +31,8 @@ If you need to brush up on primary keys, please see the post [here](http://www.a
 
 ## First Normal Form
 ### What is 1NF?
-"[Every] non-key [attribute] must provide a fact about the key”; this means the table must have a key, all other fields must depend on that key, and each value must be atomic.
-The concept of fields depending on the primary key may be a little vague, but Wikipedia has a great [page](https://en.wikipedia.org/wiki/Functional_dependency) on functionality dependency, but I think it’s sufficient to say for now that the table has a primary key and this primary key is unique.
+"[Every] non-key [attribute] must provide a fact about the key”; this means the table must have a key, all other fields must depend on that key, and each field value must be atomic.
+The concept of fields depending on the primary key may be a little vague, but Wikipedia has a great [page](https://en.wikipedia.org/wiki/Functional_dependency) on functionality dependency. For now, I think it’s sufficient to say that the table has a primary key and this primary key is unique.
 
 ### What does violating 1NF look like?
 A table in first normal form will look like a table with a primary key that each of the non-primary key fields depend on in some way, meaning they will describe the primary key field and contain one value each. A *violation* of first normal form looks like this:
