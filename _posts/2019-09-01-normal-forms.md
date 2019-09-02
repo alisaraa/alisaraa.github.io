@@ -52,19 +52,19 @@ The day we adopted Mac and Cheese
  
 ### Are there any benefits of violating 1NF?
 The cat table above has an obvious drawback: it’s extremely hard to filter for the cats that Alisa owns. For instance, you can’t get the right results from:
-<br>
+
 ```
 SELECT cat_name FROM not_first_normal_form_cat_table
 WHERE parents = 'Alisa'
 ```
-<br>
+
 This will actually result in 1 row returned. In order to get the correct answer, you will have to do something like this:
-<br>
+
 ```
 SELECT cat_name FROM not_first_normal_form_cat_table
 WHERE parents ilike 'Alisa'
 ```
-<br>
+
 Which is less performant and less intuitive. Stakeholders may forget to use this syntax and incorrectly report metrics.
 
 If you go back to the original reasoning for why we normalize our databases, you’ll see our concern was redundancy and data integrity.  How is that impacted by first normal form?
