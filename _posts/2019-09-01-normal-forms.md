@@ -163,8 +163,8 @@ Bad_3nf_cat_favorite_food
 | 1  | Snack |  Pill Pockets Treats Chicken Flavor | Greenies | Chicken |
 | 2  | Snack |  Treats Tuna & Cheese Flavor | Greenies | Tuna |
 
-Technically, every non-key attribute in this table depends on both parts of the primary key {Cat ID, Meal}, but are those two fields combined the only way we can determine each field? What I mean is-  can we only determine that Mac’s favorite dinner food brand is Blue Buffalo from knowing that those two fields? Or could we determine that from the fact that his favorite food is Blue Buffalo Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food? The latter; that canned food is only made from one brand, Blue Buffalo. So we have a transitive dependency.
-The solution would be, once again, making two tables (normalization tends to create more tables and denormalization tends to collapse or combine tables):<br>
+Technically, every non-key attribute in this table depends on both parts of the primary key {Cat ID, Meal}, but are those two fields combined the only way we can determine each field? What I mean is-  can we only determine that Mac’s favorite dinner food brand is Blue Buffalo from knowing that those two fields? Or could we determine that from the fact that his favorite food is Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food, which is only produced by Blue Buffalo? The latter, so we have a transitive dependency.<br>
+The solution would be, once again, to make two tables (normalization tends to create more tables and denormalization tends to collapse or combine tables):<br>
 
 cat_favorite_food
 
