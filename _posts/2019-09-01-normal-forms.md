@@ -47,7 +47,7 @@ An additional violation would be if the table simply did not have a primary key 
 
 <figure >
 <img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/adoption_day.png?raw=true" alt="When we got Mac and Cheese"  height="300">
-The day we adopted Mac and Cheese
+<br>The day we adopted Mac and Cheese
 </figure>
  
 ### What happens if I violate 1NF?
@@ -192,7 +192,7 @@ Once again, we’re asking the stakeholders to join these two tables if they wan
 
 <figure>
 <img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/cat_pizza.png?raw=true" alt="Mac on oven"  height="300">
-Actually, Mac's favorite food is pizza
+<br>Actually, Mac's favorite food is pizza
 </figure>
 
 ### What happens if I violate 3NF?
@@ -206,6 +206,6 @@ And Mac and Cheese love food:
 
 <figure>
 <img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/cat_fridge.png?raw=true" alt="Cats in Fridge"  height="300">
-Always checking to see if there is better food for them
+<br>Always checking to see if there is better food for them
 </figure>
 
