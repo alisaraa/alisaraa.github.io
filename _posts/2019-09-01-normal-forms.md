@@ -31,7 +31,7 @@ If you need to brush up on primary keys, please see the post [here](http://www.a
 
 ## First Normal Form
 ### What is 1NF?
-"[Every] non-key [attribute] must provide a fact about the key”; this means the table must have a key, all other fields must depend on that key, and each field value must be atomic.
+The key. The table must have a key, all other fields must depend on that key, and each field value must be atomic.
 The concept of fields depending on the primary key may be a little vague, but Wikipedia has a great [page](https://en.wikipedia.org/wiki/Functional_dependency) on functionality dependency. For now, I think it’s sufficient to say that the table has a primary key and this primary key is unique.
 
 ### What does violating 1NF look like?
@@ -100,7 +100,7 @@ Is this a good idea for every data source? No. This can cause havoc and JSON blo
 
 ## Second Normal Form
 ### What is 2NF?
-The whole key. This means that every non-key attribute (every field that isn’t the primary key) depends on all the parts of the key. If a table has only one primary key and satisfies 1NF then the table automatically satisfies 2NF. This is the best case scenario for a test question. It saves so much time when you’re taking the test. 
+The whole key. This means that every non-key attribute (every field that isn’t the primary key) depends on all the parts of the key. If a table has only one primary key and satisfies 1NF then the table automatically satisfies 2NF. This is the best case scenario for a test question. It saves so much time for that answer. <br>
 But let’s say we have a composite [primary key](https://en.wikipedia.org/wiki/Compound_key) which, despite what a candidate once told me during an interview, is possible. 2NF says we should be sure that no non-key field depends on only part of our composite key.
 ### What does violating 2NF look like?
 Without loss of generality, let’s assume our composite key has two fields in our table that tracks cat weights: bad_2nf_cat_weight
@@ -137,16 +137,15 @@ cat_dim
 |  2 | Cheese |
 |  3 | Sleepy |
 
-And we would expect the stakeholder to join cat_weight_fact to cat_dim on cat_id in order to find the name.
-Why is this different? Well, let’s say we want to change Mac’s name to Macaroni (that is his full name, by the way, Macaroni In-Tech). 
-To update the violation of 2NF, we would need to update 2 records, while in the 2NF example, we would only need to update one record in cat_dim.
+We would expect the stakeholder to join cat_weight_fact to cat_dim on cat_id in order to find the name. <br>
+Why are two tables better than one? Well, let’s say we want to change Mac’s name to Macaroni (that is his full name, by the way, Macaroni In-Tech). To update the violation of 2NF, we would need to update 2 records, while in the 2NF example, we would only need to update one record in cat_dim. <br>
 Updating two records versus one is not that big of a deal, but data tends to grow, with fact tables growing much faster than dimension tables. So do you want to continue to update larger and larger tables with table scans? Or do you want to update one record and put the onus on stakeholders to do the join?
 
 ### Are there any benefits of violating 2NF?
-So when we do we make a calculated to disregard 2NF? There’s no hard and fast rule but in general, the following may make you consider violating 2NF:
-When you know the stakeholders will virtually always make this join 
-When the join to get the additional information will be expensive for stakeholders (post on expensive joins it forthcoming)
-When the cat's name (the denormalized field) will rarely if ever be updated 
+So when we do we make a calculated decision to disregard 2NF? There’s no hard and fast rule but in general, the following may make you consider violating 2NF: <br>
+* When you know the stakeholders will virtually always make this join 
+* When the join to get the additional information will be expensive for stakeholders (post on expensive joins it forthcoming)
+* When the cat's name (the denormalized field) will rarely if ever be updated 
 
 ## Third Normal Form
 ### What is 3NF?
