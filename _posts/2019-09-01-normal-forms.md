@@ -188,11 +188,13 @@ cat_food_dim
 
 Note that in reality, we may use a surrogate key for Food Name since it’s so long, but I didn’t want to add additional numbers to this example lest I take away from the point.
 
-Once again, we’re asking the stakeholders to join these two tables if they want to know the brand of Mac’s favorite dinner food. 
-<figure >
+Once again, we’re asking the stakeholders to join these two tables if they want to know the brand of Mac’s favorite dinner food.
+
+<figure>
 <img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/cat_pizza.png?raw=true" alt="Mac on oven"  height="300">
 Actually, Mac's favorite food is pizza
 </figure>
+
 ### What happens if I violate 3NF?
 Let’s say you go with the first version of the table: bad_3nf_cat_favorite_food. This will get 2x bigger for every cat we get (assuming cats only eat dinner and snacks). So if a brand updated its brand name, it would take two times the compute to update bad_3nf_cat_favorite_food rather than cat_food_dim.
  ### Are there any benefits of violating 3NF?
