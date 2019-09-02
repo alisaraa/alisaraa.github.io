@@ -106,8 +106,8 @@ Without loss of generality, let’s assume our composite key has two fields in o
 |---------------|---------------|---------------|---------------|
 | 1  | 2019-01-01  | 10 pounds  | Mac |
 | 2 | 2019-01-01  | 8 pounds | Cheese |
-|  1 | 2019-01-02  | 11 pounds  | Mac |
-|  2 | 2019-01-05  | 8 pounds  | Cheese |
+| 1 | 2019-01-02  | 11 pounds  | Mac |
+| 2 | 2019-01-05  | 8 pounds  | Cheese |
 
 Technically, the names Mac and Cheese can be determined by (depend on) the primary key {Cat ID, Weigh in Date}. However, Mac and Cheese can also be unique determined by Cat ID (see not_first_normal_form_cat_table). So this is partial dependency; it violates 2NF.
 
@@ -116,22 +116,23 @@ Note: In this case, we would say that the cat's name is “denormalized” on to
 ### What happens if I violate 2NF?
 
 So is this really bad? Don’t people who want who use the cat table want to know which cat we are weighing? The true 2NF form would be two tables:
+
 cat_weight_fact
 
-| Cat ID (PK)  | Weigh in Date (PK)  |  Cat Weight |
-|---------------|---------------|---------------|
-| 1  | 2019-01-01  | 10 pounds |
-| 2 | 2019-01-01  | 8 pounds |
-|  1 | 2019-01-02  | 11 pounds |
-|  2 | 2019-01-05  | 8 pounds  |
+| Cat ID (PK)  | Weigh in Date (PK)  |  Cat Weight | Cat Name |
+|---------------|---------------|---------------|---------------|
+| 1  | 2019-01-01  | 10 pounds  | Mac |
+| 2 | 2019-01-01  | 8 pounds | Cheese |
+| 1 | 2019-01-02  | 11 pounds  | Mac |
+| 2 | 2019-01-05  | 8 pounds  | Cheese |
 
 cat_dim
 
 | Cat ID (PK)  | Cat Name  |
 |---------------|---------------|
 | 1  | Mac  | 
-|  2 | Cheese  |
-|  3 | Sleepy  |
+|  2 | Cheese |
+|  3 | Sleepy |
 
 And we would expect the stakeholder to join cat_weight_fact to cat_dim on cat_id in order to find the name.
 Why is this different? Well, let’s say we want to change Mac’s name to Macaroni (that is his full name, by the way, Macaroni In-Tech). 
@@ -161,15 +162,15 @@ Bad_3nf_cat_favorite_food
 | 2  | Snack |  Treats Tuna & Cheese Flavor | Greenies | Tuna |
 
 Technically, every non-key attribute in this table depends on both parts of the primary key {Cat ID, Meal}, but are those two fields combined the only way we can determine each field? What I mean is-  can we only determine that Mac’s favorite dinner food brand is Blue Buffalo from knowing that those two fields? Or could we determine that from the fact that his favorite food is Blue Buffalo Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food? The latter; that canned food is only made from one brand, Blue Buffalo. So we have a transitive dependency.
-The solution would be, once again, making two tables (normalization tends to create more tables and denormalization tends to collapse or combine tables):
+The solution would be, once again, making two tables (normalization tends to create more tables and denormalization tends to collapse or combine tables):<br>
 
 cat_favorite_food
 
 | Cat ID (PK)  | Meal Name (PK) | Favorite Food |
 |---------------|---------------|---------------|
 | 1  | Dinner  |  Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food |
-|  2 | Dinner | Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food |
-|  3 | Dinner | Gourmet Naturals Beef Canned Cat Food | 
+| 2 | Dinner | Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food |
+| 3 | Dinner | Gourmet Naturals Beef Canned Cat Food | 
 | 1  | Snack |  Pill Pockets Treats Chicken Flavor | 
 | 2  | Snack |  Treats Tuna & Cheese Flavor | 
 
