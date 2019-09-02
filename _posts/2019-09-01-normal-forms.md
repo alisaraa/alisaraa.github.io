@@ -55,14 +55,14 @@ The cat table above has an obvious drawback: it’s extremely hard to filter for
 <br>
 ```
 SELECT cat_name FROM not_first_normal_form_cat_table
-WHERE parents = ‘Alisa’
+WHERE parents = 'Alisa'
 ```
 <br>
-This will actually result in 1 row returned, not the right answer of Mac, Cheese, and Sleepy. In order to get the correct answer, you will have to do something like this:
+This will actually result in 1 row returned. In order to get the correct answer, you will have to do something like this:
 <br>
 ```
 SELECT cat_name FROM not_first_normal_form_cat_table
-WHERE parents ilike ‘%Alisa%’
+WHERE parents ilike '%Alisa%'
 ```
 <br>
 Which is less performant and less intuitive. Stakeholders may forget to use this syntax and incorrectly report metrics.
