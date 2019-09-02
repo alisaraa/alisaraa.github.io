@@ -197,5 +197,15 @@ Actually, Mac's favorite food is pizza
 
 ### What happens if I violate 3NF?
 Let’s say you go with the first version of the table: bad_3nf_cat_favorite_food. This will get 2x bigger for every cat we get (assuming cats only eat dinner and snacks). So if a brand updated its brand name, it would take two times the compute to update bad_3nf_cat_favorite_food rather than cat_food_dim.
- ### Are there any benefits of violating 3NF?
+### Are there any benefits of violating 3NF?
 The benefit of violating 3NF if similar to that of 3NF: fewer joins for stakeholders. So if the join would be common, expensive, or the only way someone would view the data, consider denormalizing.
+
+## So what did I learn?
+The normal forms have a very real business purposes, to make updates to and maintenance of a data schema easier. But there are trade offs involved. We want to use our knowledge of the data changes and stakeholder uses to make efficient decisions on when and how to normalize data.<br>
+And Mac and Cheese love food:
+
+<figure>
+<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/cat_fridge.png?raw=true" alt="Cats in Fridge"  height="300">
+Always checking to see if there is better food for them
+</figure>
+
