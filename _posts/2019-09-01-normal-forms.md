@@ -119,12 +119,12 @@ So is this really bad? Don’t people who want who use the cat table want to kno
 
 cat_weight_fact
 
-| Cat ID (PK)  | Weigh in Date (PK)  |  Cat Weight | Cat Name |
-|---------------|---------------|---------------|---------------|
-| 1  | 2019-01-01  | 10 pounds  | Mac |
-| 2 | 2019-01-01  | 8 pounds | Cheese |
-| 1 | 2019-01-02  | 11 pounds  | Mac |
-| 2 | 2019-01-05  | 8 pounds  | Cheese |
+| Cat ID (PK)  | Weigh in Date (PK)  |  Cat Weight |
+|---------------|---------------|---------------|
+| 1  | 2019-01-01  | 10 pounds  |
+| 2 | 2019-01-01  | 8 pounds |
+| 1 | 2019-01-02  | 11 pounds |
+| 2 | 2019-01-05  | 8 pounds  |
 
 cat_dim
 
