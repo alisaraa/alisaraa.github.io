@@ -117,7 +117,7 @@ Note: In this case, we would say that the cat's name is “denormalized” on to
 
 So is this really bad? Don’t people who want who use the cat table want to know which cat we are weighing? The true 2NF form would be two tables:
 cat_weight_fact
-<br>
+
 | Cat ID (PK)  | Weigh in Date (PK)  |  Cat Weight |
 |---------------|---------------|---------------|
 | 1  | 2019-01-01  | 10 pounds |
@@ -126,7 +126,7 @@ cat_weight_fact
 |  2 | 2019-01-05  | 8 pounds  |
 
 cat_dim
-<br>
+
 | Cat ID (PK)  | Cat Name  |
 |---------------|---------------|
 | 1  | Mac  | 
@@ -162,8 +162,9 @@ Bad_3nf_cat_favorite_food
 
 Technically, every non-key attribute in this table depends on both parts of the primary key {Cat ID, Meal}, but are those two fields combined the only way we can determine each field? What I mean is-  can we only determine that Mac’s favorite dinner food brand is Blue Buffalo from knowing that those two fields? Or could we determine that from the fact that his favorite food is Blue Buffalo Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food? The latter; that canned food is only made from one brand, Blue Buffalo. So we have a transitive dependency.
 The solution would be, once again, making two tables (normalization tends to create more tables and denormalization tends to collapse or combine tables):
-<br>
+
 cat_favorite_food
+
 | Cat ID (PK)  | Meal Name (PK) | Favorite Food |
 |---------------|---------------|---------------|
 | 1  | Dinner  |  Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food |
@@ -171,8 +172,9 @@ cat_favorite_food
 |  3 | Dinner | Gourmet Naturals Beef Canned Cat Food | 
 | 1  | Snack |  Pill Pockets Treats Chicken Flavor | 
 | 2  | Snack |  Treats Tuna & Cheese Flavor | 
-<br>
+
 cat_food_dim
+
 | Food Name (PK) | Food Brand | Food Flavor |
 |---------------|---------------|---------------|
 | Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food | Blue Buffalo | Chicken |
