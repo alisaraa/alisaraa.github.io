@@ -7,9 +7,9 @@ categories: SQL
 This post is for my friend Mitch, who, despite his persistent belief that he annoys me with his questions, has reminded me why it’s important that we stay hungry for theoretical knowledge even as we get caught up in our day-to-day work.
 
 ## What are normal forms?
-Normal forms are properties one can apply to a database to normalize it. Does that not help? I felt like it helped but then I re-read it and I realized it was meaningless. Okay, Wikipedia said database normalization “is the process of structuring a relational database [. . .] in order to reduce data redundancy and improve data integrity.” ([source](https://en.wikipedia.org/wiki/Database_normalization)). This process is a collection of steps you can take. These steps are called normal forms. They each have a name. This is a significantly better definition. Basically, you want the design of your database to allow for easy inserts and updates that don’t cause duplicates and break everything over time, and, to do this, you walk through the normal forms and apply them to your database.
+Normal forms are properties one can apply to a database to normalize it. Does that not help? I felt like it helped but then I re-read it and I realized it was meaningless. Okay, Wikipedia said database normalization “is the process of structuring a relational database [. . .] in order to reduce data redundancy and improve data integrity.” ([source](https://en.wikipedia.org/wiki/Database_normalization)). This process is a collection of steps you can take. These steps are called normal forms. They go in order. This is a significantly better definition. Basically, you want the design of your database to allow for easy inserts and updates that don’t cause duplicates and break everything over time, and, to do this, you walk through the normal forms and apply them to your database.
 
-There are ten normal forms; each time a database adheres to an increasingly normalized form, it is said to “satisfy” that form. So, in the process of normalizing your database, you satisfy first normal form (1NF), second normal form (2NF), third normal form (3NF), then Boyce–Codd normal form. Yeah, that is where it gets weird. We are going to focus on only the first three normal forms, as those are by far the most commonly satisfied because, as we will see, the forms get increasingly hard to satisfy and they correct for increasingly rare potential bugs. 
+There are ten normal forms; each time a database adheres to an increasingly normalized form, it is said to “satisfy” that form. So, in the process of normalizing your database, you satisfy first normal form (1NF), second normal form (2NF), third normal form (3NF), then Boyce–Codd normal form. Yeah, that is where it gets weird. The forms are in order in the sense that if a database schema satisfies 3NF, that means it satisifies 2NF and 1NF. We are going to focus on only the first three normal forms, as those are by far the most commonly satisfied because, as we will see, the forms get increasingly hard to satisfy and they correct for increasingly rare potential bugs. 
 
 ## Are normal forms still relevant?
 Normal forms hold a special part in my heart; like others who have taken a database class, I lived and died by them for an entire semester. I read Kimball’s book. I memorized the definition and an example and counterexample for each form. I learned then and I still believe now that Kimball’s work on data warehouses, including normalization, revolutionized data warehousing and paved the way for the rise of big data and data science.
@@ -149,7 +149,7 @@ So when we do we make a calculated decision to disregard 2NF? There’s no hard 
 
 ## Third Normal Form
 ### What is 3NF?
-And nothing but the key. If we know all non-key fields already depend on the whole key, so how could the fields depend on anything other than the key? Well, there’s such a concept of [transitive dependency](https://en.wikipedia.org/wiki/Transitive_dependency) which we want to eliminate in this step of normalization. A transitive dependency is when a non-key field does depend on all parts of the key, but it could also be determined by another non-key field.
+And nothing but the key. We know all non-key fields already depend on the whole key, so how could the fields depend on anything other than the key? Well, we want to eliminate any instances of [transitive dependency](https://en.wikipedia.org/wiki/Transitive_dependency). A transitive dependency is when a non-key field depends on all parts of the key, but it could also be determined by another non-key field.
 ### What does violating 3NF look like?
 Let’s say we wanted to keep track of what the cats like:
 <br>
@@ -189,6 +189,10 @@ cat_food_dim
 Note that in reality, we may use a surrogate key for Food Name since it’s so long, but I didn’t want to add additional numbers to this example lest I take away from the point.
 
 Once again, we’re asking the stakeholders to join these two tables if they want to know the brand of Mac’s favorite dinner food. 
+<figure >
+<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/cat_pizza.png?raw=true" alt="Mac on oven"  height="300">
+Actually, Mac's favorite food is pizza
+</figure>
 ### What happens if I violate 3NF?
 Let’s say you go with the first version of the table: bad_3nf_cat_favorite_food. This will get 2x bigger for every cat we get (assuming cats only eat dinner and snacks). So if a brand updated its brand name, it would take two times the compute to update bad_3nf_cat_favorite_food rather than cat_food_dim.
  ### Are there any benefits of violating 3NF?
