@@ -117,7 +117,7 @@ Note: In this case, we would say that the cat's name is “denormalized” on to
 
 So is this really bad? Don’t people who want who use the cat table want to know which cat we are weighing? The true 2NF form would be two tables:
 cat_weight_fact
-
+<br>
 | Cat ID (PK)  | Weigh in Date (PK)  |  Cat Weight |
 |---------------|---------------|---------------|
 | 1  | 2019-01-01  | 10 pounds |
@@ -126,7 +126,7 @@ cat_weight_fact
 |  2 | 2019-01-05  | 8 pounds  |
 
 cat_dim
-
+<br>
 | Cat ID (PK)  | Cat Name  |
 |---------------|---------------|
 | 1  | Mac  | 
