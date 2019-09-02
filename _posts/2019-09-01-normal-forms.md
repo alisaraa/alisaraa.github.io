@@ -157,9 +157,9 @@ Bad_3nf_cat_favorite_food
 
 | Cat ID (PK)  | Meal Name (PK) | Favorite Food | Favorite Food Brand | Favorite Food Flavor |
 |---------------|---------------|---------------|---------------|---------------|
-| 1  | Dinner  |  Blue Buffalo Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food | Blue Buffalo | Chicken |
-|  2 | Dinner | Blue Buffalo Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food | Blue Buffalo | Chicken |
-|  3 | Dinner | Fancy Feast Gourmet Naturals Beef Canned Cat Food | Fancy Feast | Beef |
+| 1  | Dinner  | Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food | Blue Buffalo | Chicken |
+|  2 | Dinner | Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food | Blue Buffalo | Chicken |
+|  3 | Dinner |  Gourmet Naturals Beef Canned Cat Food | Fancy Feast | Beef |
 | 1  | Snack |  Pill Pockets Treats Chicken Flavor | Greenies | Chicken |
 | 2  | Snack |  Treats Tuna & Cheese Flavor | Greenies | Tuna |
 
