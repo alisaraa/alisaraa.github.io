@@ -47,7 +47,7 @@ An additional violation would be if the table simply did not have a primary key 
 
 <figure >
 	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/adoption_day.png?raw=true" alt="When we got Mac and Cheese"  height="300">
-<br>The day we adopted Mac and Cheese
+The day we adopted Mac and Cheese
 	</figure>
  
 ### Are there any benefits of violating 1NF?
