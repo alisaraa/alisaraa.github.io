@@ -46,7 +46,7 @@ A table in first normal form will look like a table with a primary key that each
 An additional violation would be if the table simply did not have a primary key or it had a bunch of unrelated fields, but that is harder to represent visually, and, in my opinion, less likely to happen.
 
 <figure >
-	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/adoption_day.ong?raw=true" alt="When we got Mac and Cheese"  height="300">
+	<img src="https://github.com/alisaraa/alisaraa.github.io/blob/master/images/adoption_day.png?raw=true" alt="When we got Mac and Cheese"  height="300">
 <br>The day we adopted Mac and Cheese
 	</figure>
  
