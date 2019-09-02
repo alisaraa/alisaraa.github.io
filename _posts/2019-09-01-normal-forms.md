@@ -82,12 +82,12 @@ But in this case, that would not work; this would only change the parent of Slee
 ```
 DELETE FROM not_first_normal_form_cat_table
 WHERE parents ilike ‘%Alisa%’;
+
 INSERT INTO not_first_normal_form_cat_table
 SELECT  * FROM source_data
 WHERE parents ilike ‘%Alisa In-Tech%’;
 ```
 <br>
-
 This works for the sample data I provided, but what if I had a sister named Analisa? I don’t, but I could if my parents were weird. All the Analisa owned cats would be deleted in the DELETE statement, then not inserted in the INSERT statement. So we have killed off Analisa’s cats. Great job. Hope you feel good about what you did, cat killer.
 
 ### Benefits of violating 1NF:
