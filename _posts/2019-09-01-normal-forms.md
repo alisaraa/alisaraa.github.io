@@ -96,9 +96,7 @@ Now that database systems including [Snowflake](https://docs.snowflake.net/manua
 Is this a good idea for every data source? No. This can cause havoc and JSON blobs are large, making returning results take even longer. I only recommend it when:<br>
 * You know you will never do an update, insert, or delete based on the values in the JSON field
 * You have a data set that does not change shape much between the source and the production data (so it’s easy to just tack on the JSON field to the end of each record without doing much transformation on it)
-* The underlying data set has frequently changing field and keys values and types that stakeholders want to access shortly after a change
-* The key names and field data types don’t change often, why not just parse them?
-* The stakeholders can wait a while to see any new keys or changed key names, then why not just wait until they ask?
+* The underlying data set has frequently changing field and keys values and types that stakeholders want to access shortly after a change. If the key names and field data types don’t change often, why not just parse them?
 
 ## Second Normal Form
 ### What is 2NF?
