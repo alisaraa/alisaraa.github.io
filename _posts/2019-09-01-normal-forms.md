@@ -19,7 +19,7 @@ However, I treat the topic differently in a professional setting. Who has time t
 It is a contradiction that I firmly hold the following two beliefs: normal forms are one of the most important concepts of data warehousing and that normal forms are interview questions unrelated to our “real” job. I have to reconcile these two beliefs.
 
 ## What can I add to the conversation about normal forms?
-I have to sort out my contradictory feelings on normal forms. To do this, I’m going to walk through the normal forms, not for a five year old (Rhys is six now, by the way), but for normal people; for people who talk to stakeholders every day; for people who don’t have infinite time to consider the impact of database design; for people who read the blog posts on this site. So, in short, very, very few people.
+I have to sort out my contradictory feelings on normal forms. To do this, I’m going to walk through the normal forms, not for a five year old (Rhys is six now, by the way, he didn't get a gift from you), but for normal people; for people who talk to stakeholders every day; for people who don’t have infinite time to consider the impact of database design; for people who read the blog posts on this site. So, in short, very, very few people.
 
 My fear in writing a post on formal forms is that I will simply rewrite the Wikipedia page in a lower grade level. I don’t want to do that. I know you can read Wikipedia. But can I write a post for Mitch who wants to know the theory but only as he can apply it to his job?
 
