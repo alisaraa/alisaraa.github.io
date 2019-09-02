@@ -4,7 +4,6 @@ title: Normal Forms for Normal People
 date: '2019-09-01 15:12:11 -0400'
 categories: SQL
 ---
-
 This post is for my friend Mitch, who, despite his persistent belief that he annoys me with his questions, has reminded me why it’s important that we stay hungry for theoretical knowledge even as we get caught up in our day-to-day work.
 
 ## What are normal forms?
@@ -119,7 +118,8 @@ Note: In this case, we would say that the cat's name is “denormalized” on to
 So is this really bad? Don’t people who want who use the cat table want to know which cat we are weighing? The true 2NF form would be two tables:
 
 cat_weight_fact
-| Cat ID (PK)  | Weigh in Date (PK)  |  Cat Weight | |---------------|---------------|---------------|---------------|
+| Cat ID (PK)  | Weigh in Date (PK)  |  Cat Weight |
+|---------------|---------------|---------------|
 | 1  | 2019-01-01  | 10 pounds  |
 | 2 | 2019-01-01  | 8 pounds |
 |  1 | 2019-01-02  | 11 pounds  |
@@ -149,7 +149,8 @@ And nothing but the key. If we know all non-key fields already depend on the who
 ### What does violating 3NF look like?
 Let’s say we wanted to keep track of what the cats like:
 <br>
-bad_3nf_cat_favorite_food
+Bad_3nf_cat_favorite_food
+
 | Cat ID (PK)  | Meal Name (PK) | Favorite Food | Favorite Food Brand | Favorite Food Flavor |
 |---------------|---------------|---------------|---------------|---------------|
 | 1  | Dinner  |  Blue Buffalo Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food | Blue Buffalo | Chicken |
