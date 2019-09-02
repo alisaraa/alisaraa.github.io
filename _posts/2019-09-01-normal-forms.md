@@ -90,7 +90,7 @@ WHERE parents ilike ‘%Alisa In-Tech%’;
 <br>
 This works for the sample data I provided, but what if I had a sister named Analisa? I don’t, but I could if my parents were weird. All the Analisa owned cats would be deleted in the DELETE statement, then not inserted in the INSERT statement. So we have killed off Analisa’s cats. Great job. Hope you feel good about what you did, cat killer.
 
-### Benefits of violating 1NF:
+### Are there any benefits of violating 1NF?
 The last section was to bring awareness about the dangers of violating first normal form, but once you know the risks of making a choice, you are then prepared to know when to make that choice. One common violation I see a lot is putting the entire semi-structured source data into a field.<br>
 Now that database systems including [Snowflake](https://docs.snowflake.net/manuals/user-guide/semistructured-concepts.html) have gotten better at ingesting semi-structured data such as JSON and Parquet, it has become trivial to store the entire record in one field. Unlike CSV ingestion, JSON ingestion will not break if there are missing keys, a key name change, or field values that change types. With less sensitive ingestion into the write schema, it becomes tempting to just provide this record of the complete data set in the read schema. Since Snowflake also makes it easy for end users to parse JSON (if you know what you are looking for), this cuts down on column add requests when a new key is set to the source.
 Is this a good idea for every data source? No. This can cause havoc and JSON blobs are large, making returning results take even longer. I only recommend it when:<br>
