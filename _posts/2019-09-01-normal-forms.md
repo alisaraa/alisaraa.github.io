@@ -1,3 +1,10 @@
+---
+layout: post
+title: Normal Forms for Normal People
+date: '2019-09-01 15:12:11 -0400'
+categories: SQL
+---
+
 This post is for my friend Mitch, who, despite his persistent belief that he annoys me with his questions, has reminded me why it’s important that we stay hungry for theoretical knowledge even as we get caught up in our day-to-day work.
 
 ## What are normal forms?
