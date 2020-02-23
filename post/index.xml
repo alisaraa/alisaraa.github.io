@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Alisa in Techland</title>
+    <link>https://alisa-in.tech/post/</link>
+    <description>Recent content in Posts on Alisa in Techland</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Oct 2019 15:12:11 -0400</lastBuildDate>
+    
+	<atom:link href="https://alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Good Day to Delete Hard</title>
+      <link>https://alisa-in.tech/post/2019-12-20-deletes/</link>
+      <pubDate>Sat, 12 Oct 2019 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-12-20-deletes/</guid>
+      <description>Deletion method is an important data warehousing concept, one you’d ideally master before an interview.</description>
+    </item>
+    
+    <item>
+      <title>Much Ado About NULL Things</title>
+      <link>https://alisa-in.tech/post/2019-10-12-nulls/</link>
+      <pubDate>Sat, 12 Oct 2019 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-10-12-nulls/</guid>
+      <description>We have to talk about NULLs.
+This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&#39;t, and why they are important in data warehousing.</description>
+    </item>
+    
+    <item>
+      <title>CTEs versus Subqueries</title>
+      <link>https://alisa-in.tech/post/2019-10-02-ctes/</link>
+      <pubDate>Wed, 02 Oct 2019 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-10-02-ctes/</guid>
+      <description>I get this question a lot: Is a subquery more performant than a CTE?</description>
+    </item>
+    
+    <item>
+      <title>Normal Forms for Normal People</title>
+      <link>https://alisa-in.tech/post/2019-09-01-normal-forms/</link>
+      <pubDate>Sun, 01 Sep 2019 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-09-01-normal-forms/</guid>
+      <description>This post is for my friend Mitch, who, despite his persistent belief that he annoys me with his questions, has reminded me why it’s important that we stay hungry for theoretical knowledge even as we get caught up in our day-to-day work.</description>
+    </item>
+    
+    <item>
+      <title>Functions in Where Clauses</title>
+      <link>https://alisa-in.tech/post/2019-08-18-sql-where-clauses/</link>
+      <pubDate>Sun, 18 Aug 2019 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-08-18-sql-where-clauses/</guid>
+      <description>This post is part of a new series of mini-blogs I’m doing on SQL performance tuning tips.</description>
+    </item>
+    
+    <item>
+      <title>How to Say It for Data Engineers</title>
+      <link>https://alisa-in.tech/post/2019-08-12-say-it/</link>
+      <pubDate>Mon, 12 Aug 2019 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-08-12-say-it/</guid>
+      <description>I used to think people who made a big deal out of small syntactical or idiomatic differences were just being pedantic and condescending.</description>
+    </item>
+    
+    <item>
+      <title>Cool Things in Snowflake</title>
+      <link>https://alisa-in.tech/post/2019-08-06-snowflake/</link>
+      <pubDate>Tue, 06 Aug 2019 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-08-06-snowflake/</guid>
+      <description>The title of this post would be “10 Things I Like to Use in Snowflake That You Could Google but First You’d Have to Know They Exist.</description>
+    </item>
+    
+    <item>
+      <title>Genius in Tech</title>
+      <link>https://alisa-in.tech/post/2019-06-05-genius/</link>
+      <pubDate>Wed, 05 Jun 2019 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-06-05-genius/</guid>
+      <description>I just finished How Not to Be Wrong: The Power of Mathematical Thinking by Jordan Ellenberg and one particular section made me think of tech.</description>
+    </item>
+    
+    <item>
+      <title>ELI5 - Cross Products</title>
+      <link>https://alisa-in.tech/post/2018-12-08-eli5-cross-products/</link>
+      <pubDate>Sat, 08 Dec 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-12-08-eli5-cross-products/</guid>
+      <description>In order to understand cross products, you have to understand joins since cross products are a type of join.</description>
+    </item>
+    
+    <item>
+      <title>ELI5 - Data Marts</title>
+      <link>https://alisa-in.tech/post/2018-11-03-data-marts/</link>
+      <pubDate>Sat, 03 Nov 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-11-03-data-marts/</guid>
+      <description>In this post, I will explain the concept of data marts with approachable language, but I won&#39;t be talking to my 5 year old nephew Rhys.</description>
+    </item>
+    
+    <item>
+      <title>ELI5 - Primary Keys</title>
+      <link>https://alisa-in.tech/post/2018-08-15-pks/</link>
+      <pubDate>Wed, 15 Aug 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-08-15-pks/</guid>
+      <description>When I get requests to ingest or extract data as tables or reports, I often ask the requestor for the primary key.</description>
+    </item>
+    
+    <item>
+      <title>ELI5 - Clustering</title>
+      <link>https://alisa-in.tech/post/2018-08-10-clustering/</link>
+      <pubDate>Fri, 10 Aug 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-08-10-clustering/</guid>
+      <description>This Explain Like I’m 5 will be about clustering, a technique used by Snowflake, a cloud based data warehouse, to improve query performance.</description>
+    </item>
+    
+    <item>
+      <title>A Memory in Tech</title>
+      <link>https://alisa-in.tech/post/2018-08-02-memory/</link>
+      <pubDate>Thu, 02 Aug 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-08-02-memory/</guid>
+      <description>This is a real memory from when I was in first grade, so I was 6 to 7.</description>
+    </item>
+    
+    <item>
+      <title>ELI5- Slowly Changing Dimensions</title>
+      <link>https://alisa-in.tech/post/2018-07-18-eli5-scd/</link>
+      <pubDate>Wed, 18 Jul 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-07-18-eli5-scd/</guid>
+      <description>Explain like I’m 5 (ELI5) comes from the popular concept that if you really know something well, you can explain it simply, so a five year old can understand.</description>
+    </item>
+    
+    <item>
+      <title>Database Storage</title>
+      <link>https://alisa-in.tech/post/2019-07-03-rowbased/</link>
+      <pubDate>Tue, 03 Jul 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2019-07-03-rowbased/</guid>
+      <description>There are two types of relational database management systems: columnar and row-based, also called: column-wise and row-wise, column store and row store, column-based and row-based, and column-oriented and row-oriented.</description>
+    </item>
+    
+    <item>
+      <title>Swearing in Tech</title>
+      <link>https://alisa-in.tech/post/2018-05-22-swearing_in_tech/</link>
+      <pubDate>Sun, 22 Apr 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-05-22-swearing_in_tech/</guid>
+      <description>Ideally, we shouldn’t swear at work. If we lived in an ideal world though, I may not have a blog.</description>
+    </item>
+    
+    <item>
+      <title>Beer in Tech</title>
+      <link>https://alisa-in.tech/post/2018-04-09-beer/</link>
+      <pubDate>Mon, 09 Apr 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-04-09-beer/</guid>
+      <description>I’m wondering if beer in tech has reached its expiration date.</description>
+    </item>
+    
+    <item>
+      <title>Names in Tech</title>
+      <link>https://alisa-in.tech/post/2018-04-05-name/</link>
+      <pubDate>Thu, 05 Apr 2018 15:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2018-04-05-name/</guid>
+      <description>Let me start by saying that I love my name. I love the way it sounds.</description>
+    </item>
+    
+  </channel>
+</rss>

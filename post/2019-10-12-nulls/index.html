@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <title>Much Ado About NULL Things &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="Much Ado About NULL Things"/>
+  <meta property="og:description" content="We have to talk about NULLs.
+This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&#39;t, and why they are important in data warehousing."/>
+  <meta property="og:url" content="https://alisa-in.tech/post/2019-10-12-nulls/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2019-10-12T15:12:11-0400"/>
+  <meta property="article:modified_time" content="2019-10-12T15:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://alisa-in.tech/",
+    "image": "https://alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Much Ado About NULL Things",
+    "headline": "Much Ado About NULL Things",
+    "datePublished": "2019-10-12T15:12:11-0400",
+    "dateModified": "2019-10-12T15:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://alisa-in.tech/"
+    },
+    "image": "https://alisa-in.tech/images/profile.png",
+    "url": "https://alisa-in.tech/post/2019-10-12-nulls/",
+    "description": "We have to talk about NULLs.\nThis post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren\x27t, and why they are important in data warehousing."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Much Ado About NULL Things</h1>
+
+  <div class="post-date">
+    <time datetime="2019-10-12T15:12:11-0400">Oct 12, 2019</time> · 6 min read
+  </div>
+
+  <p>We have to talk about NULLs.</p>
+<p>This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren't, and why they are important in data warehousing. It’s based on my own experience, not anything academic.</p>
+<h2 id="what-is-null">What is NULL?</h2>
+<p>NULL means nothing, but NULL is not “Nothing.” NULL means that “a data value does not exist in the database” (<a href="https://en.wikipedia.org/wiki/Null_(SQL)">Source</a>). The value simply isn't there; the value is <strong>not</strong> 0,  N/A, or False. N/A, for all its ambiguity, is a value. Resisting the temptation to create a default value for a field may be counter-intuitive, but using NULL correctly can benefit both the end user and you.</p>
+<h2 id="why-does-using-null-help-the-end-users">Why does using NULL help the end users?</h2>
+<h3 id="correct-aggregated-results">Correct Aggregated Results</h3>
+<p>Let’s say you have a table that includes both dates and names, like the following:</p>
+<table>
+<thead>
+<tr>
+<th>Cat_id</th>
+<th>Cat_name</th>
+<th>Adopted_Date</th>
+<th>Cat_color_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mac</td>
+<td>2017-10-01</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cheese</td>
+<td>2017-10-01</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>If we want to add a future cat but we don’t use NULL, we may put in an entry such as the following to communicate that I don’t yet have a cat:</p>
+<table>
+<thead>
+<tr>
+<th>Cat_id</th>
+<th>Cat_name</th>
+<th>Adopted_Date</th>
+<th>Cat_color_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mac</td>
+<td>2017-10-01</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cheese</td>
+<td>2017-10-01</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>No Name</td>
+<td>2099-12-31</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>If you use intuition, the results of a <code>select *</code> will make it clear that I adopted two cats. However, this is a small table; in bigger tables we are unable to view all records at once. As a result, users often use aggregates such as:</p>
+<pre><code>SELECT COUNT(*) FROM cat_adoption_fact;
+</code></pre><p>or</p>
+<pre><code>SELECT 
+	MONTH(adopted_date) AS adopted_month, 
+	COUNT(*)  AS cat_count
+FROM cat_adoption_fact
+GROUP BY adopted_month
+</code></pre><p>The former query gives 3 results,  which may indicate to the stakeholders that I have three cats when, unfortunately, I do not. The latter query is more of an issue though. The results are:</p>
+<table>
+<thead>
+<tr>
+<th>adopted_month</th>
+<th>cat_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>This table clearly tells the end user that I adopted two cats in October and one in December. I wish.</p>
+<h3 id="easier-querying">Easier Querying</h3>
+<p>Since a default is automatically different depending on the data type, using NULL is the only way to gain consistency across fields and data sets.</p>
+<p>For instance, from the above cat_adoption_fact table, in order to correctly get the results expected from the above query, a user would have to write:</p>
+<pre><code>SELECT 
+	MONTH(adopted_date) AS adopted_month, 
+	SUM(CASE WHEN cat_name = 'No Name' then 0 ELSE 1 END) as count_cat
+FROM cat_adoption_fact
+WHERE adopted_date != ‘2099-12-31’
+GROUP BY adopted_month
+</code></pre><p>This would tell the user I only have two cats (sigh), both adopted in October, but notice how much more domain knowledge the user has to have. Not only does this require more functions (more about that below), but it also requires the user to know that the default value for cat_name is “No Name”, while the default value for adopted_date is 2099-12-31.
+These choices were not totally mine; since the adopted_date field has data type Date, it can only contain a Date value or a NULL. So we cannot fill both fields with “Not Applicable.” This would also be true of a Boolean, which can only be True, False or Null. “Unknown” or “Not Applicable” are not valid Boolean fields.
+<!-- raw HTML omitted -->Since a table (not to mention a data mart) are likely to have multiple data types, the onus will always be on the user to know the value of the default for each type. Additionally, since these default values look the same to the database as any other value, there is nothing ensuring that the default value is consistent across fields with the same data type. So we may see the following in the data warehouse, in addition to the cat_adoption_fact table we may have a cat_color_dim table:</p>
+<table>
+<thead>
+<tr>
+<th>Cat_color_id</th>
+<th>Cat_color_name</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Black</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Torty</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Unknown</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The end user, who may now feel that they have the hang of “No Name”, will now have to manually inspect this table in order to write this query in order to find the count of cats for each color:</p>
+<pre><code>SELECT 
+	cat_color_name,
+	SUM(CASE WHEN cat_name = ‘No Name' then 0 ELSE 1 END) as count_cat
+FROM cat_adoption_fact
+WHERE cat_color_name != ‘Unknown’
+GROUP BY cat_color_name
+</code></pre><p>Notice that, within this one query, the user has to know two distinct default values. This is asking a lot of the user and setting them up for potential incorrect results.</p>
+<h3 id="cleaner-code">Cleaner Code</h3>
+<p>Database management systems have built in functions and default behavior that only apply to NULL. Leveraging out of the box functions keep your code cleaner for easier understanding and incrementing.</p>
+<p>I will be focusing on Snowflake to keep the explanations concise, but know that another RDMS may have an equivalent function.</p>
+<h4 id="default-behavior">Default Behavior</h4>
+<p>Assume our table was contained NULLs, like this:</p>
+<table>
+<thead>
+<tr>
+<th>Cat_id</th>
+<th>Cat_name</th>
+<th>Adopted_Date</th>
+<th>Cat_color_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mac</td>
+<td>2017-10-01</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cheese</td>
+<td>2017-10-01</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>If we rerun our first two queries, they get different results.</p>
+<pre><code>SELECT COUNT(*) FROM cat_adoption_fact;
+</code></pre><p>By default, Snowflake will not count any NULL values (<a href="https://docs.snowflake.net/manuals/sql-reference/functions/count.html">source</a>), so this will return 2. I only have 2 cats. Stop rubbing it in.</p>
+<pre><code>SELECT 
+	MONTH(adopted_date) AS adopted_month, 
+	COUNT(*)  AS cat_count
+FROM cat_adoption_fact
+GROUP BY adopted_month
+</code></pre><p>This query results actually will include NULLs, but as its own line:</p>
+<table>
+<thead>
+<tr>
+<th>adopted_month</th>
+<th>cat_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>This makes it clear to the user that the third cat has not been adopted.
+<!-- raw HTML omitted -->The following functions also only aggregate non-NULL values:</p>
+<ul>
+<li>AVG</li>
+<li>STTDEV</li>
+<li>SUM</li>
+</ul>
+<p>Using 0, -1, or any other numeric value to indicate NULL will impact these functions.</p>
+<p><strong>Note</strong>: You can combine the default behavior of COUNT with the grouping to create the following query:</p>
+<pre><code>SELECT 
+	MONTH(adopted_date) AS adopted_month, 
+	COUNT(cat_name)  AS cat_count
+FROM cat_adoption_fact
+GROUP BY adopted_month
+</code></pre><p>This would result in the following:</p>
+<table>
+<thead>
+<tr>
+<th>adopted_month</th>
+<th>cat_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Some may prefer that result set to indicate that there is no third cat.</p>
+<!-- raw HTML omitted -->
+<h4 id="built-in-functions">Built in Functions</h4>
+<p>Snowflake’s built in functions that handle NULLs are:</p>
+<ul>
+<li><a href="https://docs.snowflake.net/manuals/sql-reference/functions/coalesce.html">COALESCE</a></li>
+<li><a href="https://docs.snowflake.net/manuals/sql-reference/functions/nullif.html">NULLIF</a></li>
+<li><a href="https://docs.snowflake.net/manuals/sql-reference/functions/zeroifnull.html">ZEROIFNULL</a></li>
+<li><a href="https://docs.snowflake.net/manuals/sql-reference/functions/ifnull.html">IFNULL</a></li>
+</ul>
+<p>Without these built in functions, a query as simple as:</p>
+<pre><code>SELECT 
+	COALESCE(cat_nickname, cat_name) AS cat_name
+FROM cat_dim;
+</code></pre><p>May have to be written as:</p>
+<pre><code>SELECT 
+	CASE WHEN cat_nickname = 'No Nickname'  THEN  cat_name ELSE cat_nickname END AS cat_name
+FROM cat_dim;
+</code></pre><p>Notice how less concise the second query is despite the fact that this is simple logic. In more complicated queries, functions such as COALESCE can help readability and therefore productivity.</p>
+<h4 id="but-what-about-order-by">But what about ORDER BY?</h4>
+<p>An argument for default values such as 2099-12-31 is that this would allow adopted cats to always precede not-yet-adopted cats in an order by. However, by default, NULLs come last in an ordering of dates anyways, but if you wanted the default date to come first in this case you could do:</p>
+<pre><code>SELECT 
+*
+FROM cat_adoption_fact
+ORDER BY adopted_date DESC
+</code></pre><p>This is actually easy to replicate with NULLs and the query is more explicit:</p>
+<pre><code>SELECT 
+*
+FROM cat_adoption_fact
+ORDER BY adopted_date NULLS FIRST
+</code></pre><p>Using NULL actually gives you more control over <a href="https://docs.snowflake.net/manuals/sql-reference/constructs/order-by.html">ORDER BY</a>. Window functions even have a feature to IGNORE NULLs (<a href="https://docs.snowflake.net/manuals/sql-reference/functions/lag.html">See an example here</a>).</p>
+<h2 id="but-are-there-gotchas">But are there gotchas?</h2>
+<p>Yes. NULL does not equal NULL. So if you try to join two tables, if both values in your join are NULL, those two record will not be considered a match. However, the workaround to this is the built in <a href="https://docs.snowflake.net/manuals/sql-reference/functions/equal_null.html">EQUAL_NULL</a> function in Snowflake.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>NULL has its own meaning; it cannot be replaced with a default value. It may feel counterintuitive, but using NULL will actually create cleaner, more explicit code and data sets that are easier for end users to consume.</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <title>ELI5 - Clustering &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="ELI5 - Clustering"/>
+  <meta property="og:description" content="This Explain Like I’m 5 will be about clustering, a technique used by Snowflake, a cloud based data warehouse, to improve query performance."/>
+  <meta property="og:url" content="https://alisa-in.tech/post/2018-08-10-clustering/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2018-08-10T15:12:11-0400"/>
+  <meta property="article:modified_time" content="2018-08-10T15:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://alisa-in.tech/",
+    "image": "https://alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "ELI5 - Clustering",
+    "headline": "ELI5 - Clustering",
+    "datePublished": "2018-08-10T15:12:11-0400",
+    "dateModified": "2018-08-10T15:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://alisa-in.tech/"
+    },
+    "image": "https://alisa-in.tech/images/profile.png",
+    "url": "https://alisa-in.tech/post/2018-08-10-clustering/",
+    "description": "This Explain Like I’m 5 will be about clustering, a technique used by Snowflake, a cloud based data warehouse, to improve query performance."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>ELI5 - Clustering</h1>
+
+  <div class="post-date">
+    <time datetime="2018-08-10T15:12:11-0400">Aug 10, 2018</time> · 3 min read
+  </div>
+
+  <p>This Explain Like I’m 5 will be about clustering, a technique used by Snowflake, a cloud based data warehouse, to improve query performance.  As always, I will be explaining this to nephew Rhys (pronounced Reese) In-tech, who is five and a big fan of toys. The notes in parentheses will be for those of us over 5 who want to know the actual terms.</p>
+<p>Okay Rhysie, today we’re going to learn about clustering and micro-partitioning. When a word starts with “micro” it means small, like microscope or a microsecond. A microsecond is even faster than a second! Yes, faster than you can say the alphabet. Yes, faster than you can blink. Yes, okay, stop, it’s fast, we’re moving on.
+Before we dive into clustering, we have to talk about micro-partitioning first.</p>
+<p>Let’s think about a stack of Monopoly money that you’ve put away after a game (<em>the data</em>); because of the way Monopoly is played, there should be no ordering to the dollar bills. Before we put it away, let’s divide the bills into groups, but we won’t sort them (<em>this is a micro-partition; Snowflake does that automatically</em>).</p>
+<p>So our money is in groups- several groups may have $500 bills and some groups may not have any $5 bills, but all our money is there. Let’s say we want to count how many $500 bills we have, a useful metric. Even though our data is in groups, we don’t know anything about them, so we have to look at each bill. We have to check 100% of our bills. That would leave very little time for playing or destroying something in the living room.
+What if, after we grouped them, we put a sticky note on top, on which we store some information about each group (<em>metadata; Snowflake stores this automatically about micro-partitions</em>). We may want to know what the range of dollars we have in this group are; does it include $1s, $5s, and $10s? Or just $500s?</p>
+<p>Now, if we want to grab all the $500s all we have to do is look at each sticky note, rather than through each bill, and grab the piles in which $500 is in range (<em>this is equivalent to filtering, sometimes called a  WHERE caluse</em>). There’s a chance each group has at least one $500, so we have to count 100% of our bills again, but hopefully there are some groups we can omit entirely by looking at their sticky notes.</p>
+<p>If the game of Monopoly were played such that larger bills were used later in the game, our pile may have some organization to it (<em>natural data clustering</em>). This will help our little groups have more organization; more of the large bills will be together and the small bills together. With natural clustering, we may have only have to search through a few groups and all the sticky notes.</p>
+<p>But what if we could organize the bills (<em>clustering</em>); we could manually reorder the bills (even after they’re grouped!) to get more of the same kind of bill together, so we can check fewer groups when we want a $500 bill. Ideally, we could only have to go through one group, and the rest of the sticky notes tell us there are no $500’s. If there are 10 groups, we could go from searching 100% of the bills to 10% of the bills just by adding the sticky notes and groups. There is some work to be done to make the sticky notes, but if we continue to use them it pays off.
+Wow.</p>
+<p>Here is a <!-- raw HTML omitted -->hyperlink<!-- raw HTML omitted -->, Steve.</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
