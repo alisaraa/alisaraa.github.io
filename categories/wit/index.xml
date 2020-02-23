@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WiT on Alisa in Techland</title>
-    <link>http://alisa-in.tech/categories/wit/</link>
+    <link>https://alisa-in.tech/categories/wit/</link>
     <description>Recent content in WiT on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 02 Aug 2018 15:12:11 -0400</lastBuildDate>
     
-	<atom:link href="http://alisa-in.tech/categories/wit/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://alisa-in.tech/categories/wit/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Memory in Tech</title>
-      <link>http://alisa-in.tech/post/2018-08-02-memory/</link>
+      <link>https://alisa-in.tech/post/2018-08-02-memory/</link>
       <pubDate>Thu, 02 Aug 2018 15:12:11 -0400</pubDate>
       
-      <guid>http://alisa-in.tech/post/2018-08-02-memory/</guid>
+      <guid>https://alisa-in.tech/post/2018-08-02-memory/</guid>
       <description>This is a real memory from when I was in first grade, so I was 6 to 7.</description>
     </item>
     
     <item>
       <title>Swearing in Tech</title>
-      <link>http://alisa-in.tech/post/2018-05-22-swearing_in_tech/</link>
+      <link>https://alisa-in.tech/post/2018-05-22-swearing_in_tech/</link>
       <pubDate>Sun, 22 Apr 2018 15:12:11 -0400</pubDate>
       
-      <guid>http://alisa-in.tech/post/2018-05-22-swearing_in_tech/</guid>
+      <guid>https://alisa-in.tech/post/2018-05-22-swearing_in_tech/</guid>
       <description>Ideally, we shouldn’t swear at work. If we lived in an ideal world though, I may not have a blog.</description>
     </item>
     
     <item>
       <title>Beer in Tech</title>
-      <link>http://alisa-in.tech/post/2018-04-09-beer/</link>
+      <link>https://alisa-in.tech/post/2018-04-09-beer/</link>
       <pubDate>Mon, 09 Apr 2018 15:12:11 -0400</pubDate>
       
-      <guid>http://alisa-in.tech/post/2018-04-09-beer/</guid>
+      <guid>https://alisa-in.tech/post/2018-04-09-beer/</guid>
       <description>I’m wondering if beer in tech has reached its expiration date.</description>
     </item>
     
     <item>
       <title>Names in Tech</title>
-      <link>http://alisa-in.tech/post/2018-04-05-name/</link>
+      <link>https://alisa-in.tech/post/2018-04-05-name/</link>
       <pubDate>Thu, 05 Apr 2018 15:12:11 -0400</pubDate>
       
-      <guid>http://alisa-in.tech/post/2018-04-05-name/</guid>
+      <guid>https://alisa-in.tech/post/2018-04-05-name/</guid>
       <description>Let me start by saying that I love my name. I love the way it sounds.</description>
     </item>
     
