@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ELI5 on Alisa in Techland</title>
-    <link>https://alisa-in.tech/categories/eli5/</link>
+    <link>http://alisa-in.tech/categories/eli5/</link>
     <description>Recent content in ELI5 on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Dec 2018 15:12:11 -0400</lastBuildDate>
     
-	<atom:link href="https://alisa-in.tech/categories/eli5/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://alisa-in.tech/categories/eli5/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ELI5 - Cross Products</title>
-      <link>https://alisa-in.tech/post/2018-12-08-eli5-cross-products/</link>
+      <link>http://alisa-in.tech/post/2018-12-08-eli5-cross-products/</link>
       <pubDate>Sat, 08 Dec 2018 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2018-12-08-eli5-cross-products/</guid>
+      <guid>http://alisa-in.tech/post/2018-12-08-eli5-cross-products/</guid>
       <description>In order to understand cross products, you have to understand joins since cross products are a type of join.</description>
     </item>
     
     <item>
       <title>ELI5 - Data Marts</title>
-      <link>https://alisa-in.tech/post/2018-11-03-data-marts/</link>
+      <link>http://alisa-in.tech/post/2018-11-03-data-marts/</link>
       <pubDate>Sat, 03 Nov 2018 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2018-11-03-data-marts/</guid>
+      <guid>http://alisa-in.tech/post/2018-11-03-data-marts/</guid>
       <description>In this post, I will explain the concept of data marts with approachable language, but I won&#39;t be talking to my 5 year old nephew Rhys.</description>
     </item>
     
     <item>
       <title>ELI5 - Primary Keys</title>
-      <link>https://alisa-in.tech/post/2018-08-15-pks/</link>
+      <link>http://alisa-in.tech/post/2018-08-15-pks/</link>
       <pubDate>Wed, 15 Aug 2018 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2018-08-15-pks/</guid>
+      <guid>http://alisa-in.tech/post/2018-08-15-pks/</guid>
       <description>When I get requests to ingest or extract data as tables or reports, I often ask the requestor for the primary key.</description>
     </item>
     
     <item>
       <title>ELI5 - Clustering</title>
-      <link>https://alisa-in.tech/post/2018-08-10-clustering/</link>
+      <link>http://alisa-in.tech/post/2018-08-10-clustering/</link>
       <pubDate>Fri, 10 Aug 2018 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2018-08-10-clustering/</guid>
+      <guid>http://alisa-in.tech/post/2018-08-10-clustering/</guid>
       <description>This Explain Like I’m 5 will be about clustering, a technique used by Snowflake, a cloud based data warehouse, to improve query performance.</description>
     </item>
     
     <item>
       <title>ELI5- Slowly Changing Dimensions</title>
-      <link>https://alisa-in.tech/post/2018-07-18-eli5-scd/</link>
+      <link>http://alisa-in.tech/post/2018-07-18-eli5-scd/</link>
       <pubDate>Wed, 18 Jul 2018 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2018-07-18-eli5-scd/</guid>
+      <guid>http://alisa-in.tech/post/2018-07-18-eli5-scd/</guid>
       <description>Explain like I’m 5 (ELI5) comes from the popular concept that if you really know something well, you can explain it simply, so a five year old can understand.</description>
     </item>
     
     <item>
       <title>Database Storage</title>
-      <link>https://alisa-in.tech/post/2019-07-03-rowbased/</link>
+      <link>http://alisa-in.tech/post/2019-07-03-rowbased/</link>
       <pubDate>Tue, 03 Jul 2018 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-07-03-rowbased/</guid>
+      <guid>http://alisa-in.tech/post/2019-07-03-rowbased/</guid>
       <description>There are two types of relational database management systems: columnar and row-based, also called: column-wise and row-wise, column store and row store, column-based and row-based, and column-oriented and row-oriented.</description>
     </item>
     
