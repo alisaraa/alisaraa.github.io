@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <title>Functions in Where Clauses &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="Functions in Where Clauses"/>
+  <meta property="og:description" content="This post is part of a new series of mini-blogs I’m doing on SQL performance tuning tips."/>
+  <meta property="og:url" content="https://alisa-in.tech/post/2019-08-18-sql-where-clauses/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2019-08-18T15:12:11-0400"/>
+  <meta property="article:modified_time" content="2019-08-18T15:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://alisa-in.tech/",
+    "image": "https://alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Functions in Where Clauses",
+    "headline": "Functions in Where Clauses",
+    "datePublished": "2019-08-18T15:12:11-0400",
+    "dateModified": "2019-08-18T15:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://alisa-in.tech/"
+    },
+    "image": "https://alisa-in.tech/images/profile.png",
+    "url": "https://alisa-in.tech/post/2019-08-18-sql-where-clauses/",
+    "description": "This post is part of a new series of mini-blogs I’m doing on SQL performance tuning tips."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Functions in Where Clauses</h1>
+
+  <div class="post-date">
+    <time datetime="2019-08-18T15:12:11-0400">Aug 18, 2019</time> · 4 min read
+  </div>
+
+  <p>This post is part of a new series of mini-blogs I’m doing on SQL performance tuning tips. They aren’t in any particular order. You may have woken up this morning wondering “how does my database deal with functions in WHERE statements?” and that’s a really good question. Let’s say you have a table of kitten data, and you want to filter down for kittens adopted in the past 30 days:</p>
+<p>You might write the following:</p>
+<pre><code>SELECT * FROM kitten_data
+WHERE DATEADD(days, 30, adoption_date) &gt; current_date
+and adoption_date &lt; current_date
+</code></pre><p>Out of 1,033,397,442 rows in kitten_data, the results show only 932,385 were adopted in the past 30 days. The results look like this:
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<p>You may think that this a great performance improvement since you decreased the table to 9% of its original size. But what did you really do?</p>
+<p>The truth is, your database does not know which rows to throw away or keep until it has made this comparison, and it can’t make this comparison until it has completed the calculation on every single row. So when you asked it to cut down to 9% of the data, first it did the following on all the data:
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<p>Then, once it had this new third field, it filtered and only returned 9% of the data. So, although you thought you were cutting down the data, you were first calculating over all the data, even the fields you were going to throw out!</p>
+<p>What you should do instead is put the function on the other side of the filter:</p>
+<pre><code>SELECT * FROM kitten_data
+WHERE adoption_date &gt; DATEADD(days, -30, current_date)
+and adoption_date &lt; current_date
+</code></pre><p>I ran both queries (avoiding cached results) and found that the latter took less time than the former, although it was such a fast query it’s hard to quantify how big the impact is.</p>
+<p>If you can’t find a way to change your code in this way, try to filter before the function filter. So if I really couldn’t avoid using my function I could first cut the table down with:</p>
+<pre><code>SELECT * FROM (
+SELECT * FROM kitten_data
+WHERE adoption_date &gt; ‘2019-01-01
+and adoption_date &lt; current_date
+) WHERE  DATEADD(days, 30, adoption_date) &gt; current_date
+</code></pre><p>This would at least decrease the number of records on which I performed that operation.</p>
+<p>However, this is a pretty well-known concept; other sites such as <a href="https://www.mssqltips.com/sqlservertutorial/3204/avoid-using-functions-in-where-clause/">MS SQL Tips</a> will tell you the same thing. In fact, I learned it five years ago from a textbook that was probably written twenty years ago.</p>
+<p>But, as the MS SQL Tip site says, there is another reason to be wary of functions in WHERE clauses: it prevents your ability to capitalize on indexing which is so important in performance. But I could not find in Snowflake’s <a href="https://docs.snowflake.net/manuals/user-guide/tables-clustering-keys.html">documentation</a> if this is true of clustering too. I set a cluster key on adoption_date, reclustered fully, and ran both queries from this post and honestly&hellip;they both said they only scanned 2 out of 279 (7%) of the partitions. What does this mean? This means that Snowflake <strong>might</strong> be smart enough to use the clustering key for certain functions in the where clause. Barring official documentation from them though, I can’t say that’s consistently true. Stay tuned because I'm going to try to find this out from Snowflake support.</p>
+<p>TL;DR - Functions in WHERE clauses are applied to all records in a table and can therefore be expensive. Although in most databases, a function on an indexed field in the WHERE clause would prevent use of the index, Snowflake may be the exception to this for some functions.</p>
+<p><strong>update</strong> Snowflake help got back to me about my question.
+I asked &ldquo;If I use a function on the clustered key in a where clause, will the query not utilize the clustering?&rdquo;
+They responded &ldquo;Regarding a query, a function on the clustered key in a where clause will utilise the clustering key. However, there are some occurrences/scenarios where it will not be used effective/not used.&rdquo;</p>
+<p>So basically, you don't know if your expression will negate or lessen the impact of a clustering key, so be very careful when using it in a where clause!</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
