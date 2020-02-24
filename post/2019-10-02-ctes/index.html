@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,37 +9,37 @@
 
   <meta name="description" content="" />
 
+  
+  <meta property="og:locale" content="en-us"/>
 
-  <meta property="og:locale" content="en-us" />
+  
+  <meta property="og:image" content="https://alisa-in.tech/images/profile.png">
 
-
-  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
-
-
-  <meta property="og:site_name" content="Alisa in Techland" />
-  <meta property="og:title" content="CTEs versus Subqueries" />
-  <meta property="og:description" content="I get this question a lot: Is a subquery more performant than a CTE?" />
-  <meta property="og:url" content="https://www.alisa-in.tech/post/2019-10-02-ctes/" />
-  <meta property="og:type" content="article" />
-  <meta property="article:published_time" content="2019-10-02T15:12:11-0400" />
-  <meta property="article:modified_time" content="2019-10-02T15:12:11-0400" />
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="CTEs versus Subqueries"/>
+  <meta property="og:description" content="I get this question a lot: Is a subquery more performant than a CTE?"/>
+  <meta property="og:url" content="https://alisa-in.tech/post/2019-10-02-ctes/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2019-10-02T15:12:11-0400"/>
+  <meta property="article:modified_time" content="2019-10-02T15:12:11-0400"/>
   <meta property="article:author" content="Alisa">
-
-
-
+  
+  
+  
 
   <script type="application/ld+json">
   {
     "@context" : "http://schema.org",
     "@type" : "Blog",
     "name": "Alisa in Techland",
-    "url" : "https://www.alisa-in.tech/",
-    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url" : "https://alisa-in.tech/",
+    "image": "https://alisa-in.tech/images/profile.png",
     "description": ""
   }
   </script>
 
-
+  
   <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -52,107 +51,109 @@
     "author": {
       "@type": "Person",
       "name": "Alisa",
-      "url": "https://www.alisa-in.tech/"
+      "url": "https://alisa-in.tech/"
     },
-    "image": "https://www.alisa-in.tech/images/profile.png",
-    "url": "https://www.alisa-in.tech/post/2019-10-02-ctes/",
+    "image": "https://alisa-in.tech/images/profile.png",
+    "url": "https://alisa-in.tech/post/2019-10-02-ctes/",
     "description": "I get this question a lot: Is a subquery more performant than a CTE?"
   }
   </script>
+  
 
 
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/print.css"
+        media="print">
 
-  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/print.css" media="print">
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/poole.css">
 
-  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/poole.css">
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://alisa-in.tech/css/hyde.css">
 
-  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/hyde.css">
+  
 
 
+  <link type="text/css" rel="stylesheet" href="https://alisa-in.tech/css/blog.css">
 
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-    integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
 
   <link rel="shortcut icon" href="/favicon.png">
 
-
-</head>
-
+  
+  </head>
 <body>
   <aside class="sidebar">
-    <div class="container">
-      <div class="sidebar-about">
-
-
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
         <div class="author-image">
-          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center"
-            alt="Profile Picture">
+          <img src="https://alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
         </div>
+        
+      
 
+      <h1>Alisa in Techland</h1>
 
-
-        <h1>Alisa in Techland</h1>
-
-
-      </div>
-
-      <nav>
-        <ul class="sidebar-nav">
-          <li>
-            <a href="https://www.alisa-in.tech/">Home</a>
-          </li>
-          <li>
-            <a href="/post/"> Posts </a>
-          </li>
-          <li>
-            <a href="/about/"> About </a>
-          </li>
-        </ul>
-      </nav>
-
-      <section class="social-icons">
-
-        <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
-          <i class="fab fa-linkedin" aria-hidden="true"></i>
-        </a>
-
-        <a href="https://github.com/alisaraa" rel="me" title="GitHub">
-          <i class="fab fa-github" aria-hidden="true"></i>
-        </a>
-
-      </section>
+      
     </div>
-  </aside>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
 
 
   <main class="content container">
-    <div class="post">
-      <h1>CTEs versus Subqueries</h1>
+  <div class="post">
+  <h1>CTEs versus Subqueries</h1>
 
-      <div class="post-date">
-        <time datetime="2019-10-02T15:12:11-0400">Oct 2, 2019</time> · 4 min read
-      </div>
+  <div class="post-date">
+    <time datetime="2019-10-02T15:12:11-0400">Oct 2, 2019</time> · 4 min read
+  </div>
 
-      <p>I get this question a lot: Is a subquery more performant than a CTE?
-        (I will be testing in <a href="https://docs.snowflake.net/manuals/user-guide/queries-cte.html">Snowflake</a>).
-        <!-- raw HTML omitted -->
-        It’s a good question. First, let’s go over what each of these looks like when we query them. A Common Table
-        Expression (aka CTE, aka WITH statement) is a temporary data set to be used as part of a query. It only exists
-        during the execution of that query; it cannot be used in other queries even within the same session (<a
-          href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL#Common_table_expression">from
-          Wikipedia</a>).</p>
-      <p>A subquery is a nested query; it’s a query within a query (<a
-          href="https://en.wikipedia.org/wiki/SQL_syntax#Subqueries">more Wikipedia</a>). This means it gives a result
-        from a query as a temporary data set which can be used again within that query. Does that sound familiar?</p>
-      <p>The syntax is slightly different. Here is a query to find the latest date a cat was pet using a CTE:</p>
-      <pre><code>WITH avg_pet_count_over_time AS (
+  <p>I get this question a lot: Is a subquery more performant than a CTE?
+(I will be testing in <a href="https://docs.snowflake.net/manuals/user-guide/queries-cte.html">Snowflake</a>). <!-- raw HTML omitted -->
+It’s a good question. First, let’s go over what each of these looks like when we query them. A Common Table Expression  (aka CTE, aka WITH statement) is a temporary data set to be used as part of a query. It only exists during the execution of that query; it cannot be used in other queries even within the same session (<a href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL#Common_table_expression">from Wikipedia</a>).</p>
+<p>A subquery is a nested query; it’s a query within a query (<a href="https://en.wikipedia.org/wiki/SQL_syntax#Subqueries">more Wikipedia</a>). This means it gives a result from a query as a temporary data set which can be used again within that query. Does that sound familiar?</p>
+<p>The syntax is slightly different. Here is a query to find the latest date a cat was pet using a CTE:</p>
+<pre><code>WITH avg_pet_count_over_time AS (
   SELECT
   	cat_id, 
   	MAX(timestamp)::DATE AS max_pet_date,
@@ -166,9 +167,8 @@ SELECT
 FROM cat_dim
 LEFT JOIN avg_pet_count_over_time
 ON cat_dim.cat_id = avg_pet_count_over_time.cat_id;
-</code></pre>
-      <p>Here is the same query using a subquery:</p>
-      <pre><code>SELECT 
+</code></pre><p>Here is the same query using a subquery:</p>
+<pre><code>SELECT 
   cat_name, 
   max_pet_date 
 FROM cat_dim
@@ -181,20 +181,12 @@ LEFT JOIN  (
   GROUP BY cat_id
 ) AS avg_pet_count_over_time
 ON cat_dim.cat_id = avg_pet_count_over_time.cat_id;
-</code></pre>
-      <p>Notice how similar these two queries are. The only difference is where the <code>avg_pet_count_over_time</code>
-        is located.</p>
-      <p><code>cat_dim</code> is 33 rows, while <code>cat_pet_fact</code> is 1,531,905 rows. I ran both queries in
-        Snowflake (I successfully avoided the cache by adding a current_timestamp to the query). They both scanned
-        1.3MB.</p>
-      <p>So there you have it&ndash; CTEs and subqueries are the exact same in terms of performance. Since in the CTE
-        the query is on its own and not embedded within another FROM or JOIN statement, it can help logically separate
-        parts of your query.</p>
-      <p>So it’s all just syntactic sugar? Not quite. What happens if we join to the avg_pet_count_over_time twice. Can
-        the compiler tell that it’s the same data set?</p>
-      <p>Let’s say we want to find both the minimum and maximum date that a cat was pet (I know I didn’t need to do it
-        like this but creating examples like this is hard). This will look like this:</p>
-      <pre><code>WITH avg_pet_count_over_time AS 
+</code></pre><p>Notice how similar these two queries are. The only difference is where the <code>avg_pet_count_over_time</code> is located.</p>
+<p><code>cat_dim</code> is 33 rows, while <code>cat_pet_fact</code> is 1,531,905 rows. I ran both queries in Snowflake (I successfully avoided the cache by adding a current_timestamp to the query). They both scanned 1.3MB.</p>
+<p>So there you have it&ndash; CTEs and subqueries are the exact same in terms of performance. Since in the CTE the query is on its own and not embedded within another FROM or JOIN statement, it can help logically separate parts of your query.</p>
+<p>So it’s all just syntactic sugar? Not quite. What happens if we join to the avg_pet_count_over_time twice. Can the compiler tell that it’s the same data set?</p>
+<p>Let’s say we want to find both the minimum and maximum date that a cat was pet (I know I didn’t need to do it like this but creating examples like this is hard). This will look like this:</p>
+<pre><code>WITH avg_pet_count_over_time AS 
 (
   SELECT 
     cat_id, 
@@ -212,8 +204,7 @@ LEFT JOIN avg_pet_count_over_time as t1
 ON cat_dim.cat_id = t1.cat_id
 LEFT JOIN avg_pet_count_over_time as t2
 ON cat_dim.cat_id = t2.cat_id;
-</code></pre>
-      <pre><code>SELECT 
+</code></pre><pre><code>SELECT 
   cat_name,
   t1.max_pet_date,
   t2.min_pet_date 
@@ -234,52 +225,39 @@ LEFT JOIN
   FROM cat_pet_fact
   GROUP BY 1) as t2
 ON cat_dim.cat_id = t2.cat_id;
-</code></pre>
-      <p>Notice right away that the query with the CTE is easier to read and has less redundancy. When I ran this, the
-        CTE statement scanned 1.3MB while the subquery one scanned 2.7MB, doubling the amount of bytes. Why is this? In
-        the CTE query, the compiler knows you’re querying the same data set since it has saved it (albeit temporarily)
-        as avg_pet_count_over_time. In the second query, even though the SQL is the exact same, the compiler does not
-        realize they’re the same query until it runs them. Notice that we have to call the same query by the two
-        distinct aliases: t1 and t2. Not only does this query take more compute and contain redundancy, it also forces
-        us to call the same query two different names. This is misleading; life is much better when both the SQL
-        compiler and your coworkers know when you’re using the same data set rather than creating a new one.</p>
-      <p>My general advice would be to only use subqueries in adhoc queries when you need results quickly. If the query
-        is going to be read by others, run every day, or reused, try to use a CTE for readability and performance.
-        Performance may not kick in until the CTE is used twice, but if the second JOIN has to be built in, your syntax
-        will allow for that development more easily.</p>
-      <p>When I talked about this with my team, someone reminded me that I only tested this in Snowflake; other database
-        compilers may handle subqueries differently and that may impact performance. Please keep in mind that I tested
-        this only on Snowflake.</p>
+</code></pre><p>Notice right away that the query with the CTE is easier to read and has less redundancy. When I ran this, the CTE statement scanned 1.3MB while the subquery one scanned 2.7MB, doubling the amount of bytes.  Why is this? In the CTE query, the compiler knows you’re querying the same data set since it has saved it (albeit temporarily) as avg_pet_count_over_time. In the second query, even though the SQL is the exact same, the compiler does not realize they’re the same query until it runs them. Notice that we have to call the same query by the two distinct aliases: t1 and t2. Not only does this query take more compute and contain redundancy, it also forces us to call the same query two different names. This is misleading; life is much better when both the SQL compiler and your coworkers know when you’re using the same data set rather than creating a new one.</p>
+<p>My general advice would be to only use subqueries in adhoc queries when you need results quickly. If the query is going to be read by others, run every day, or reused, try to use a CTE for readability and performance. Performance may not kick in until the CTE is used twice, but if the second JOIN has to be built in, your syntax will allow for that development more easily.</p>
+<p>When I talked about this with my team, someone reminded me that I only tested this in Snowflake; other database compilers may handle subqueries differently and that may impact performance. Please keep in mind that I tested this only on Snowflake.</p>
 
-    </div>
+</div>
 
 
   </main>
 
   <footer>
-    <div class="copyright">
-      &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
-    </div>
-  </footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-    integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
 
-  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+  <script src="https://alisa-in.tech/js/blog.js"></script>
 
-
-  <script type="application/javascript">
-    var doNotTrack = false;
-    if (!doNotTrack) {
-      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
-      ga('create', 'UA-112486152-1', 'auto');
-
-      ga('send', 'pageview');
-    }
-  </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </body>
-
 </html>
