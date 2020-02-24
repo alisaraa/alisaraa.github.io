@@ -183,7 +183,7 @@ This will work, but you can also just write:</p>
 <p>I believe that NULL is a valid value here, but, if that bothers you, you could do something like: <code>NOT name NOT IN ('Mac', 'Cheese') and name is not null</code>, but we're getting wordy again and may as well stick with the original.</p>
 </li>
 </ul>
-<p>#2 Hash to see if two tables are exactly equal</p>
+<h2 id="2-hash-to-see-if-two-tables-are-exactly-equal">2 Hash to see if two tables are exactly equal</h2>
 <p>Snowflake has two hash functions: <a href="https://docs.snowflake.net/manuals/sql-reference/functions/hash.html">HASH</a> and <a href="https://docs.snowflake.net/manuals/sql-reference/functions/hash_agg.html">HASH_AGG</a></p>
 <p>These aren't hashes in the cryptographic sense, as the Snowflake reference pages warn, but rather a way to group similar and compare exact values.</p>
 <p>I cloned my <code>cats</code> table to create <code>cats2</code> so for now it's an exact copy. As a result, the following queries give the same result:
@@ -207,7 +207,7 @@ union
 select hash_agg(*) from cats2;
 </code></pre><p>Now returns:</p>
 <p>This tells me one thing: they're not equal. But it doesn't tell me how off they are. If you're comparing two tables (or columns) and you want to know if they're exactly equal, HASH_AGG is a fast way to do it. But if there you want to quantify the degree of difference, you will have to compare them using set functions or JOINs or both.</p>
-<p>#3 Don't always respect your nulls</p>
+<h2 id="3-dont-always-respect-your-nulls">3 Don't always respect your nulls</h2>
 <p><a href="https://docs.snowflake.net/manuals/sql-reference/functions/first_value.html">Snowflake reference</a></p>
 <p>Let's say we had this table of cat appointments to the doctor. As we know, cats go to the doctors for annual checkups but also when they eat things that they shouldn't. On annual checks they get weighed, but during an emergency, the vet forgoes that step in order to get to the life saving surgery faster.</p>
 <table>
@@ -307,8 +307,7 @@ FROM cat_appointment_fact;
 </tbody>
 </table>
 <p>Mac appreciates the accuracy.</p>
-<p>Definitely not NULL</p>
-<p>#4 Carefully balance REPLACE, REGEX and TRY_TO_NUMBER</p>
+<h2 id="4-carefully-balance-replace-regex-and-trytonumber">4 Carefully balance REPLACE, REGEX and TRY_TO_NUMBER</h2>
 <p>Let's say you get a number but it's not really a number. This happens often because user entered data can take the form of:
 93428-01
 100,00
@@ -320,29 +319,30 @@ In order to use this as numbers (let's say, perform a mathematical operation on 
 <p><code>REPLACE(REPLACE(REPLACE(cat_currency, ‘,', ‘'), ‘+', ‘', ‘,')</code></p>
 <p>Parenthesis. Oy. As a general rule, I only use REPLACE if there are one of two characters to clean up. After that, the parentheses become unmanageable and it becomes unreadable.</p>
 <p>At a certain point, especially when your data is user entered and there are no limit to the different non-numeric character you'll see you may want to consider using <a href="https://docs.snowflake.net/manuals/sql-reference/functions/regexp_replace.html">REGEX_REPLACE</a>.</p>
-<p>This function allows you to use a regex to remove the types of characters you want to remove. In the case of getting numeric results, I suggest &lsquo;[^0-9_.]&rsquo; which means: remove everything except characters that are 0-9 or .:
-<code>select REGEXP_REPLACE('1,2', '[^0-9_]') from dual;</code> returns 12
-<code>select REGEXP_REPLACE('100,200', '[^0-9_]') from dual;</code> returns 100200
-<code>select REGEXP_REPLACE('1.2', '[^0-9_.]') from dual;</code> returns 1.2
-<code>select REGEXP_REPLACE('cats12', '[^0-9_]') from dual;</code> returns 12</p>
+<p>This function allows you to use a regex to remove the types of characters you want to remove. In the case of getting numeric results, I suggest &lsquo;[^0-9_.]&rsquo; which means: remove everything except characters that are 0-9 or .:</p>
+<p><code>select REGEXP_REPLACE('1,2', '[^0-9_]') from dual;</code> returns 12</p>
+<p><code>select REGEXP_REPLACE('100,200', '[^0-9_]') from dual;</code> returns 100200</p>
+<p><code>select REGEXP_REPLACE('1.2', '[^0-9_.]') from dual;</code> returns 1.2</p>
+<p><code>select REGEXP_REPLACE('cats12', '[^0-9_]') from dual;</code>
+returns 12</p>
 <p>The last function <a href="https://docs.snowflake.net/manuals/sql-reference/functions/try_to_decimal.html">TRY_TO_NUMBER</a> will convert things to number, but will return NULL on failure:</p>
 <p><code>select try_to_number('1.2');</code> gives 1 while
-select try_to_numeric(&lsquo;1.2&rsquo;, 3,2); gives 1.2</p>
-<p>However,
-<code>select try_to_number('cats12')</code> gives null
-<code>select try_to_number('100,200');</code> gives null
-<code>select try_to_number('1,2');</code> gives null</p>
+<code>select try_to_numeric('1.2', 3,2);</code> gives 1.2</p>
+<p>However,</p>
+<p><code>select try_to_number('cats12')</code> gives null</p>
+<p><code>select try_to_number('100,200');</code> gives null</p>
+<p><code>select try_to_number('1,2');</code> gives null</p>
 <p>Notice that 100,200, a value that a lot of can read as a number, becomes null. Since TRY_TO_NUMBER doesn't throw an error, this can lead to a lot of data silently disappearing.</p>
 <p>So in conclusion, using REPLACE when you know you're going to want to remove only a few characters which will not grow over time, use REGEX when you will want to handle all characters that can come in the future, and use TRY_TO_NUMBER when you want to discard (turn NULL) any value that cannot easily be converted to a number.</p>
 <p>PS to perform a similar REGEX function for getting non-alpha characters removed, you would do:
-<code>select REGEXP_REPLACE('cats12', '[^a-zA-Z]') from dual;</code> which returns cats</p>
-<p>#5 Prefer WHERE to HAVING when either will do
-<a href="https://www.java67.com/2019/06/difference-between-where-and-having-in-sql.html">Some sources</a>
+<code>SELECT REGEXP_REPLACE('cats12', '[^a-zA-Z]') FROM dual;</code> which returns &ldquo;cats&rdquo;</p>
+<h2 id="5-prefer-where-to-having-when-either-will-do">5 Prefer WHERE to HAVING when either will do</h2>
+<p><a href="https://www.java67.com/2019/06/difference-between-where-and-having-in-sql.html">Some sources</a>
 <a href="https://www.geeksforgeeks.org/having-vs-where-clause-in-sql/">More sources</a></p>
 <p>There is nothing in the Snowflake compiler that will prevent you from doing something like:</p>
 <pre><code>SELECT * from cats
 HAVING type = ‘Cat'
-</code></pre><p>The compiler may convert this to</p>
+</code></pre><p>The compiler may convert this to:</p>
 <pre><code>SELECT * from cats
 WHERE type = Cat
 </code></pre><p>To be honest the first query isn't going to tip the scales of your account usage, but as you write more and more complicated queries, you want to ensure that you are only using HAVING when you need to.
@@ -351,7 +351,6 @@ Why? Because HAVING is done after the GROUP BY. It is used to filter aggregated 
 GROUP BY name
 HAVING count(*)&gt;1
 </code></pre><p>Note the aggregate there. A WHERE clause is applied to the rows themselves, so the lowest grain that can be applied. This is done before the grouping. So if you do a WHERE clause before you group, it can lower the number of records you need to group and therefore save compute. If you filter in the HAVING clause, it computes it once the data is aggregated. Since you need the data to be aggregated to find something like count(*), sometimes you have no choice. But if you have a choice, you want to filter before you aggregate, saving you time and money.</p>
-<p>'</p>
 
 </div>
 
