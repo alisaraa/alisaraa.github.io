@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Engineering on Alisa in Techland</title>
-    <link>https://alisa-in.tech/categories/engineering/</link>
+    <link>https://www.alisa-in.tech/categories/engineering/</link>
     <description>Recent content in Engineering on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Aug 2019 15:12:11 -0400</lastBuildDate>
     
-	<atom:link href="https://alisa-in.tech/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.alisa-in.tech/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to Say It for Data Engineers</title>
-      <link>https://alisa-in.tech/post/2019-08-12-say-it/</link>
+      <link>https://www.alisa-in.tech/post/2019-08-12-say-it/</link>
       <pubDate>Mon, 12 Aug 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-08-12-say-it/</guid>
+      <guid>https://www.alisa-in.tech/post/2019-08-12-say-it/</guid>
       <description>I used to think people who made a big deal out of small syntactical or idiomatic differences were just being pedantic and condescending.</description>
     </item>
     
     <item>
       <title>Cool Things in Snowflake</title>
-      <link>https://alisa-in.tech/post/2019-08-06-snowflake/</link>
+      <link>https://www.alisa-in.tech/post/2019-08-06-snowflake/</link>
       <pubDate>Tue, 06 Aug 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-08-06-snowflake/</guid>
+      <guid>https://www.alisa-in.tech/post/2019-08-06-snowflake/</guid>
       <description>The title of this post would be “10 Things I Like to Use in Snowflake That You Could Google but First You’d Have to Know They Exist.</description>
     </item>
     
     <item>
       <title>Genius in Tech</title>
-      <link>https://alisa-in.tech/post/2019-06-05-genius/</link>
+      <link>https://www.alisa-in.tech/post/2019-06-05-genius/</link>
       <pubDate>Wed, 05 Jun 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-06-05-genius/</guid>
+      <guid>https://www.alisa-in.tech/post/2019-06-05-genius/</guid>
       <description>I just finished How Not to Be Wrong: The Power of Mathematical Thinking by Jordan Ellenberg and one particular section made me think of tech.</description>
     </item>
     
