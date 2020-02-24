@@ -13,13 +13,13 @@
   <meta property="og:locale" content="en-us"/>
 
   
-  <meta property="og:image" content="https://alisa-in.tech/images/profile.png">
+  <meta property="og:image" content="https://wwww.alisa-in.tech/images/profile.png">
 
   
   <meta property="og:site_name" content="Alisa in Techland"/>
   <meta property="og:title" content="Advanced Cool Things in Snowflake"/>
   <meta property="og:description" content="This is part 2 to my blog post Cool Things in Snowflake as requested by one of my many fans."/>
-  <meta property="og:url" content="https://alisa-in.tech/post/2020-02-21-advanced-snowflake/"/>
+  <meta property="og:url" content="https://wwww.alisa-in.tech/post/2020-02-21-advanced-snowflake/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2020-02-21T15:12:11-0400"/>
   <meta property="article:modified_time" content="2020-02-21T15:12:11-0400"/>
@@ -33,8 +33,8 @@
     "@context" : "http://schema.org",
     "@type" : "Blog",
     "name": "Alisa in Techland",
-    "url" : "https://alisa-in.tech/",
-    "image": "https://alisa-in.tech/images/profile.png",
+    "url" : "https://wwww.alisa-in.tech/",
+    "image": "https://wwww.alisa-in.tech/images/profile.png",
     "description": ""
   }
   </script>
@@ -51,10 +51,10 @@
     "author": {
       "@type": "Person",
       "name": "Alisa",
-      "url": "https://alisa-in.tech/"
+      "url": "https://wwww.alisa-in.tech/"
     },
-    "image": "https://alisa-in.tech/images/profile.png",
-    "url": "https://alisa-in.tech/post/2020-02-21-advanced-snowflake/",
+    "image": "https://wwww.alisa-in.tech/images/profile.png",
+    "url": "https://wwww.alisa-in.tech/post/2020-02-21-advanced-snowflake/",
     "description": "This is part 2 to my blog post Cool Things in Snowflake as requested by one of my many fans."
   }
   </script>
@@ -63,21 +63,21 @@
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://alisa-in.tech/css/print.css"
+        href="https://wwww.alisa-in.tech/css/print.css"
         media="print">
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://alisa-in.tech/css/poole.css">
+        href="https://wwww.alisa-in.tech/css/poole.css">
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://alisa-in.tech/css/hyde.css">
+        href="https://wwww.alisa-in.tech/css/hyde.css">
 
   
 
 
-  <link type="text/css" rel="stylesheet" href="https://alisa-in.tech/css/blog.css">
+  <link type="text/css" rel="stylesheet" href="https://wwww.alisa-in.tech/css/blog.css">
 
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
@@ -102,7 +102,7 @@
       
         
         <div class="author-image">
-          <img src="https://alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+          <img src="https://wwww.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
         </div>
         
       
@@ -115,7 +115,7 @@
     <nav>
       <ul class="sidebar-nav">
         <li>
-          <a href="https://alisa-in.tech/">Home</a>
+          <a href="https://wwww.alisa-in.tech/">Home</a>
         </li>
         <li>
           <a href="/post/"> Posts </a>
@@ -148,36 +148,45 @@
     <time datetime="2020-02-21T15:12:11-0400">Feb 21, 2020</time> · 8 min read
   </div>
 
-  <p>This is part 2 to my blog post <a href="http://www.alisa-in.tech/engineering/2019/08/06/snowflake.html">Cool Things in Snowflake</a> as requested by one of my many fans. These tips are equally as cool but you may be in situations where they are useful less often.</p>
-<p>#1 Don’t write a CASE WHEN when a Boolean will do</p>
-<p>Often I see fields being defined as:
-<code>CASE WHEN name IN (‘Mac’, ‘Cheese’) THEN True ELSE False END AS is_mac_and_cheese</code>
-This is totally valid, but it can be a bit wordy, especially when there is more than one condition:
-<code>CASE WHEN name IN (‘Mac’, ‘Cheese’) AND type = ‘Cat’ THEN True ELSE False END AS is_mac_and_cheese</code></p>
-<p><code>CASE WHEN (name IN (‘Mac’, ‘Cheese’) AND type = ‘Cat’) OR (is_mac = True or is_cheese = True) THEN True ELSE False END AS is_mac_and_cheese</code></p>
+  <p>This is part 2 to my blog post <a href="https://www.alisa-in.tech/post/2019-08-06-snowflake/">Cool Things in Snowflake</a> as requested by one of my many fans. These tips are equally as cool but you may be in situations where they are useful less often.</p>
+<h2 id="1-dont-write-a-case-when-when-a-boolean-will-do">1 Don't write a CASE WHEN when a Boolean will do</h2>
+<p>Often I see fields being defined as:</p>
+<p><code>CASE WHEN name IN ('Mac', ‘Cheese') THEN True ELSE False END AS is_mac_and_cheese</code></p>
+<p>This is totally valid, but it can be a bit wordy, especially when there is more than one condition:</p>
+<p><code>CASE WHEN name IN (‘Mac', ‘Cheese') AND type = ‘Cat' THEN True ELSE False END AS is_mac_and_cheese</code></p>
+<p>OR</p>
+<p><code>CASE WHEN (name IN (‘Mac', ‘Cheese') AND type = ‘Cat') OR (is_mac = True or is_cheese = True) THEN True ELSE False END AS is_mac_and_cheese</code></p>
 <p>Clearly, things get out of control quickly here.</p>
-<p>What these have in common is that they are asking Snowflake to evaluate Booleans and then mapping the Boolean result to the same Boolean value. Since Snowflake can already evaluate Booleans as fields, we don’t need to tell the compiler “THEN True ELSE False”.  It would be just as efficient but less wordy to write:
-<code>name IN (‘Mac’, ‘Cheese’) AS is_mac_and_cheese</code>
-<code>name IN (‘Mac’, ‘Cheese’) AND type = ‘Cat’ AS is_mac_and_cheese</code>
-<code>(name IN (‘Mac’, ‘Cheese’) AND type = ‘Cat’) OR (is_mac = True or is_cheese = True) AS is_mac_and_cheese</code></p>
-<p>Some notes:
-IFF Statements
-You could make the case that this code could be cleaned up with an <a href="https://docs.snowflake.net/manuals/sql-reference/functions/iff.html">IFF statement</a>. IFF statements do use fewer letters, but they’re not getting at the root of the problem: you are still evaluating a Boolean and then mapping it to a Boolean . Use IFF statements for something closer to this, where you are mapping to a string from a Boolean: <code>IFF(cats&gt;2, ‘enough cats’, ‘not enough cats’)</code>.
-Additionally, Be careful with IFF statements; if one more condition has to be added, the entire statement has to be rewritten since IFF is for one condition only. Generally I use only CASE WHENs.
-NOT statements
-If you are returning Booleans but want to map to the opposite Boolean, you may be tempted to write:
-<code>CASE WHEN name IN (‘Mac’, ‘Cheese’)  THEN False ELSE True END AS not_mac_and_cheese</code>
-This will work, but you can also just write:
-NOT name IN (‘Mac’, ‘Cheese’)
-or
-NOT name NOT IN (‘Mac’, ‘Cheese’)</p>
-<p>There is one slight gotcha here: NULLs. Let’s say we have a cat without a name (concerning, but possible). The CASE WHEN would evaluate the condition (name IN (‘Mac’, ‘Cheese’)) as NULL, so it would map it to True, since NULL != False.
-<code>NOT name NOT IN (‘Mac’, ‘Cheese’) </code> will simply return NULL, since that’s a valid Boolean value:</p>
-<p>I believe that NULL is a valid value here, but, if that bothers you, you could do something like: <code>NOT name NOT IN ('Mac', 'Cheese') and name is not null</code>, but we’re getting wordy again and may as well stick with the original.</p>
+<p>What these have in common is that they are asking Snowflake to evaluate Booleans and then mapping the Boolean result to the same Boolean value. Since Snowflake can already evaluate Booleans as fields, we don't need to tell the compiler “THEN True ELSE False”.  It would be just as efficient but less wordy to write:</p>
+<p><code>name IN (‘Mac', ‘Cheese') AS is_mac_and_cheese</code></p>
+<p>OR</p>
+<p><code>name IN (‘Mac', ‘Cheese') AND type = ‘Cat' AS is_mac_and_cheese</code></p>
+<p>OR</p>
+<p><code>(name IN (‘Mac', ‘Cheese') AND type = ‘Cat') OR (is_mac = True or is_cheese = True) AS is_mac_and_cheese</code></p>
+<p><em>Some notes:</em></p>
+<ul>
+<li>
+<p>IFF Statements
+You could make the case that this code could be cleaned up with an <a href="https://docs.snowflake.net/manuals/sql-reference/functions/iff.html">IFF statement</a>. IFF statements do use fewer letters, but they're not getting at the root of the problem: you are still evaluating a Boolean and then mapping it to a Boolean . Use IFF statements for something closer to this, where you are mapping to a string from a Boolean: <code>IFF(cats&gt;2, ‘enough cats', ‘not enough cats')</code>.
+Additionally, Be careful with IFF statements; if one more condition has to be added, the entire statement has to be rewritten since IFF is for one condition only. Generally I use only CASE WHENs.</p>
+</li>
+<li>
+<p>NOT statements
+If you are returning Booleans but want to map to the opposite Boolean, you may be tempted to write:</p>
+<p><code>CASE WHEN name IN (‘Mac', ‘Cheese')  THEN False ELSE True END AS not_mac_and_cheese</code>
+This will work, but you can also just write:</p>
+<p><code>NOT name IN (‘Mac', ‘Cheese')</code></p>
+<p>OR</p>
+<p><code>NOT name NOT IN (‘Mac', ‘Cheese')</code></p>
+<p>There is one slight gotcha here: NULLs. Let's say we have a cat without a name (concerning, but possible). The CASE WHEN would evaluate the condition (name IN (‘Mac&rsquo;, ‘Cheese&rsquo;)) as NULL, so it would map it to True, since NULL != False.
+<code>NOT name NOT IN (‘Mac', ‘Cheese') </code> will simply return NULL, since that's a valid Boolean value:</p>
+<p>I believe that NULL is a valid value here, but, if that bothers you, you could do something like: <code>NOT name NOT IN ('Mac', 'Cheese') and name is not null</code>, but we're getting wordy again and may as well stick with the original.</p>
+</li>
+</ul>
 <p>#2 Hash to see if two tables are exactly equal</p>
 <p>Snowflake has two hash functions: <a href="https://docs.snowflake.net/manuals/sql-reference/functions/hash.html">HASH</a> and <a href="https://docs.snowflake.net/manuals/sql-reference/functions/hash_agg.html">HASH_AGG</a></p>
-<p>These aren’t hashes in the cryptographic sense, as the Snowflake reference pages warn, but rather a way to group similar and compare exact values.</p>
-<p>I cloned my <code>cats</code> table to create <code>cats2</code> so for now it’s an exact copy. As a result, the following queries give the same result:
+<p>These aren't hashes in the cryptographic sense, as the Snowflake reference pages warn, but rather a way to group similar and compare exact values.</p>
+<p>I cloned my <code>cats</code> table to create <code>cats2</code> so for now it's an exact copy. As a result, the following queries give the same result:
 <code>select hash_agg(*) from cats</code>
 <code>select hash_agg(*) from cats2</code></p>
 <p>This is evident when I run:</p>
@@ -192,15 +201,15 @@ select hash_agg(*) from cats2;
   from cats;
 
 </code></pre><p>which returns True.</p>
-<p>In this case, I got the result I wanted, but let’s say I insert one additional row to cats. What happens?</p>
+<p>In this case, I got the result I wanted, but let's say I insert one additional row to cats. What happens?</p>
 <pre><code>select hash_agg(*) from cats
 union
 select hash_agg(*) from cats2;
 </code></pre><p>Now returns:</p>
-<p>This tells me one thing: they’re not equal. But it doesn’t tell me how off they are. If you’re comparing two tables (or columns) and you want to know if they’re exactly equal, HASH_AGG is a fast way to do it. But if there you want to quantify the degree of difference, you will have to compare them using set functions or JOINs or both.</p>
-<p>#3 Don’t always respect your nulls</p>
+<p>This tells me one thing: they're not equal. But it doesn't tell me how off they are. If you're comparing two tables (or columns) and you want to know if they're exactly equal, HASH_AGG is a fast way to do it. But if there you want to quantify the degree of difference, you will have to compare them using set functions or JOINs or both.</p>
+<p>#3 Don't always respect your nulls</p>
 <p><a href="https://docs.snowflake.net/manuals/sql-reference/functions/first_value.html">Snowflake reference</a></p>
-<p>Let’s say we had this table of cat appointments to the doctor. As we know, cats go to the doctors for annual checkups but also when they eat things that they shouldn’t. On annual checks they get weighed, but during an emergency, the vet forgoes that step in order to get to the life saving surgery faster.</p>
+<p>Let's say we had this table of cat appointments to the doctor. As we know, cats go to the doctors for annual checkups but also when they eat things that they shouldn't. On annual checks they get weighed, but during an emergency, the vet forgoes that step in order to get to the life saving surgery faster.</p>
 <table>
 <thead>
 <tr>
@@ -272,8 +281,8 @@ FROM cat_appointment_fact
 </tr>
 </tbody>
 </table>
-<p>As you can see, Mac’s most recent weight value is null, which is wrong because he is very 11 pounds of annoying cat.</p>
-<p>Instead of getting the most recent record, let’s focus on getting the most recent non-null value:</p>
+<p>As you can see, Mac's most recent weight value is null, which is wrong because he is very 11 pounds of annoying cat.</p>
+<p>Instead of getting the most recent record, let's focus on getting the most recent non-null value:</p>
 <pre><code>SELECT DISTINCT
 cat_name, 
 LAST_VALUE(weight) IGNORE NULLS OVER (PARTITION BY cat_name ORDER BY appointment_date DESC) AS most_recent_weight
@@ -300,17 +309,17 @@ FROM cat_appointment_fact;
 <p>Mac appreciates the accuracy.</p>
 <p>Definitely not NULL</p>
 <p>#4 Carefully balance REPLACE, REGEX and TRY_TO_NUMBER</p>
-<p>Let’s say you get a number but it’s not really a number. This happens often because user entered data can take the form of:
+<p>Let's say you get a number but it's not really a number. This happens often because user entered data can take the form of:
 93428-01
 100,00
 100+
-In order to use this as numbers (let’s say, perform a mathematical operation on them) we have to clean them up a bit.</p>
-<p>My go to is <a href="https://docs.snowflake.net/manuals/sql-reference/functions/replace.html">REPLACE</a>. I think it’s clear to understand:</p>
-<p><code>REPLACE(cat_currency, ‘,’, ‘’)</code></p>
+In order to use this as numbers (let's say, perform a mathematical operation on them) we have to clean them up a bit.</p>
+<p>My go to is <a href="https://docs.snowflake.net/manuals/sql-reference/functions/replace.html">REPLACE</a>. I think it's clear to understand:</p>
+<p><code>REPLACE(cat_currency, ‘,', ‘')</code></p>
 <p>The problem is it gets a bit wordy: in order to replace multiple characters, you need to nest the function:</p>
-<p><code>REPLACE(REPLACE(REPLACE(cat_currency, ‘,’, ‘’), ‘+’, ‘’, ‘,’)</code></p>
+<p><code>REPLACE(REPLACE(REPLACE(cat_currency, ‘,', ‘'), ‘+', ‘', ‘,')</code></p>
 <p>Parenthesis. Oy. As a general rule, I only use REPLACE if there are one of two characters to clean up. After that, the parentheses become unmanageable and it becomes unreadable.</p>
-<p>At a certain point, especially when your data is user entered and there are no limit to the different non-numeric character you’ll see you may want to consider using <a href="https://docs.snowflake.net/manuals/sql-reference/functions/regexp_replace.html">REGEX_REPLACE</a>.</p>
+<p>At a certain point, especially when your data is user entered and there are no limit to the different non-numeric character you'll see you may want to consider using <a href="https://docs.snowflake.net/manuals/sql-reference/functions/regexp_replace.html">REGEX_REPLACE</a>.</p>
 <p>This function allows you to use a regex to remove the types of characters you want to remove. In the case of getting numeric results, I suggest &lsquo;[^0-9_.]&rsquo; which means: remove everything except characters that are 0-9 or .:
 <code>select REGEXP_REPLACE('1,2', '[^0-9_]') from dual;</code> returns 12
 <code>select REGEXP_REPLACE('100,200', '[^0-9_]') from dual;</code> returns 100200
@@ -323,8 +332,8 @@ select try_to_numeric(&lsquo;1.2&rsquo;, 3,2); gives 1.2</p>
 <code>select try_to_number('cats12')</code> gives null
 <code>select try_to_number('100,200');</code> gives null
 <code>select try_to_number('1,2');</code> gives null</p>
-<p>Notice that 100,200, a value that a lot of can read as a number, becomes null. Since TRY_TO_NUMBER doesn’t throw an error, this can lead to a lot of data silently disappearing.</p>
-<p>So in conclusion, using REPLACE when you know you’re going to want to remove only a few characters which will not grow over time, use REGEX when you will want to handle all characters that can come in the future, and use TRY_TO_NUMBER when you want to discard (turn NULL) any value that cannot easily be converted to a number.</p>
+<p>Notice that 100,200, a value that a lot of can read as a number, becomes null. Since TRY_TO_NUMBER doesn't throw an error, this can lead to a lot of data silently disappearing.</p>
+<p>So in conclusion, using REPLACE when you know you're going to want to remove only a few characters which will not grow over time, use REGEX when you will want to handle all characters that can come in the future, and use TRY_TO_NUMBER when you want to discard (turn NULL) any value that cannot easily be converted to a number.</p>
 <p>PS to perform a similar REGEX function for getting non-alpha characters removed, you would do:
 <code>select REGEXP_REPLACE('cats12', '[^a-zA-Z]') from dual;</code> which returns cats</p>
 <p>#5 Prefer WHERE to HAVING when either will do
@@ -332,17 +341,17 @@ select try_to_numeric(&lsquo;1.2&rsquo;, 3,2); gives 1.2</p>
 <a href="https://www.geeksforgeeks.org/having-vs-where-clause-in-sql/">More sources</a></p>
 <p>There is nothing in the Snowflake compiler that will prevent you from doing something like:</p>
 <pre><code>SELECT * from cats
-HAVING type = ‘Cat’
+HAVING type = ‘Cat'
 </code></pre><p>The compiler may convert this to</p>
 <pre><code>SELECT * from cats
 WHERE type = Cat
-</code></pre><p>To be honest the first query isn’t going to tip the scales of your account usage, but as you write more and more complicated queries, you want to ensure that you are only using HAVING when you need to.
-Why? Because HAVING is done after the GROUP BY. It is used to filter aggregated data, so it’s more appropriate to do:</p>
+</code></pre><p>To be honest the first query isn't going to tip the scales of your account usage, but as you write more and more complicated queries, you want to ensure that you are only using HAVING when you need to.
+Why? Because HAVING is done after the GROUP BY. It is used to filter aggregated data, so it's more appropriate to do:</p>
 <pre><code>SELECT name, count(*) from cats
 GROUP BY name
 HAVING count(*)&gt;1
 </code></pre><p>Note the aggregate there. A WHERE clause is applied to the rows themselves, so the lowest grain that can be applied. This is done before the grouping. So if you do a WHERE clause before you group, it can lower the number of records you need to group and therefore save compute. If you filter in the HAVING clause, it computes it once the data is aggregated. Since you need the data to be aggregated to find something like count(*), sometimes you have no choice. But if you have a choice, you want to filter before you aggregate, saving you time and money.</p>
-<p>’</p>
+<p>'</p>
 
 </div>
 
@@ -360,7 +369,7 @@ HAVING count(*)&gt;1
           integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
           crossorigin="anonymous"></script>
 
-  <script src="https://alisa-in.tech/js/blog.js"></script>
+  <script src="https://wwww.alisa-in.tech/js/blog.js"></script>
 
   
 <script type="application/javascript">
