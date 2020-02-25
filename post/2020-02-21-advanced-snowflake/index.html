@@ -149,65 +149,66 @@
   </div>
 
   <p>This is part 2 to my blog post <a href="https://www.alisa-in.tech/post/2019-08-06-snowflake/">Cool Things in Snowflake</a> as requested by one of my many fans. These tips are equally as cool but you may be in situations where they are useful less often.</p>
-<h2 id="1-dont-write-a-case-when-when-a-boolean-will-do">1 Don't write a CASE WHEN when a Boolean will do</h2>
+<h3 id="1-dont-write-a-case-when-when-a-boolean-will-do">1. Don't write a CASE WHEN when a Boolean will do</h3>
 <p>Often I see fields being defined as:</p>
 <p><code>CASE WHEN name IN ('Mac', ‘Cheese') THEN True ELSE False END AS is_mac_and_cheese</code></p>
-<p>This is totally valid, but it can be a bit wordy, especially when there is more than one condition:</p>
+<p>This is totally valid, but it can be a bit verbose, especially when there is more than one condition:</p>
 <p><code>CASE WHEN name IN (‘Mac', ‘Cheese') AND type = ‘Cat' THEN True ELSE False END AS is_mac_and_cheese</code></p>
 <p>OR</p>
 <p><code>CASE WHEN (name IN (‘Mac', ‘Cheese') AND type = ‘Cat') OR (is_mac = True or is_cheese = True) THEN True ELSE False END AS is_mac_and_cheese</code></p>
-<p>Clearly, things get out of control quickly here.</p>
-<p>What these have in common is that they are asking Snowflake to evaluate Booleans and then mapping the Boolean result to the same Boolean value. Since Snowflake can already evaluate Booleans as fields, we don't need to tell the compiler “THEN True ELSE False”.  It would be just as efficient but less wordy to write:</p>
+<p>Clearly, things get out of control quickly.</p>
+<p>What these statements have in common is that they are asking Snowflake to evaluate a Boolean and then map the Boolean result to the same Boolean value. Since Snowflake can already evaluate Booleans as fields, we don't need to tell the compiler “THEN True ELSE False”.  It would be just as efficient but less verbose to write:</p>
 <p><code>name IN (‘Mac', ‘Cheese') AS is_mac_and_cheese</code></p>
 <p>OR</p>
 <p><code>name IN (‘Mac', ‘Cheese') AND type = ‘Cat' AS is_mac_and_cheese</code></p>
 <p>OR</p>
 <p><code>(name IN (‘Mac', ‘Cheese') AND type = ‘Cat') OR (is_mac = True or is_cheese = True) AS is_mac_and_cheese</code></p>
-<p><em>Some notes:</em></p>
+<p>Notice that the statements are easier to read. This can be helpful in avoiding nested CASE WHENs statements, which can be hard to manage.
+<em>Some notes:</em></p>
 <ul>
 <li>
-<p>IFF Statements
-You could make the case that this code could be cleaned up with an <a href="https://docs.snowflake.net/manuals/sql-reference/functions/iff.html">IFF statement</a>. IFF statements do use fewer letters, but they're not getting at the root of the problem: you are still evaluating a Boolean and then mapping it to a Boolean . Use IFF statements for something closer to this, where you are mapping to a string from a Boolean: <code>IFF(cats&gt;2, ‘enough cats', ‘not enough cats')</code>.
-Additionally, Be careful with IFF statements; if one more condition has to be added, the entire statement has to be rewritten since IFF is for one condition only. Generally I use only CASE WHENs.</p>
+<p>IFF Statements</p>
+<p>You could make the case that this code could be cleaned up with an <a href="https://docs.snowflake.net/manuals/sql-reference/functions/iff.html">IFF statement</a>. IFF statements do use fewer letters, but they're not getting at the root of the problem: if you are still evaluating a Boolean to map to a Boolean, then you are wasting words. Use IFF statements when you are mapping to a string from a Boolean: <code>IFF(cats&gt;2, ‘enough cats', ‘not enough cats')</code>.
+Additionally, Be careful with IFF statements; if one more condition has to be added, the entire statement has to be rewritten since IFF is for one condition only. Generally I use only CASE WHENs when I can't use Boolean.</p>
 </li>
 <li>
-<p>NOT statements
-If you are returning Booleans but want to map to the opposite Boolean, you may be tempted to write:</p>
-<p><code>CASE WHEN name IN (‘Mac', ‘Cheese')  THEN False ELSE True END AS not_mac_and_cheese</code>
-This will work, but you can also just write:</p>
+<p>NOT statements</p>
+<p>If you are returning Booleans but want to map to the opposite Boolean, you may be tempted to write:</p>
+<p><code>CASE WHEN name IN (‘Mac', ‘Cheese')  THEN False ELSE True END AS not_mac_and_cheese</code></p>
+<p>This will work, but you could also write:</p>
 <p><code>NOT name IN (‘Mac', ‘Cheese')</code></p>
 <p>OR</p>
-<p><code>NOT name NOT IN (‘Mac', ‘Cheese')</code></p>
-<p>There is one slight gotcha here: NULLs. Let's say we have a cat without a name (concerning, but possible). The CASE WHEN would evaluate the condition (name IN (‘Mac&rsquo;, ‘Cheese&rsquo;)) as NULL, so it would map it to True, since NULL != False.
-<code>NOT name NOT IN (‘Mac', ‘Cheese') </code> will simply return NULL, since that's a valid Boolean value:</p>
-<p>I believe that NULL is a valid value here, but, if that bothers you, you could do something like: <code>NOT name NOT IN ('Mac', 'Cheese') and name is not null</code>, but we're getting wordy again and may as well stick with the original.</p>
+<p><code>name NOT IN (‘Mac', ‘Cheese')</code></p>
+<p>There is one slight gotcha here: NULLs. Let's say we have a cat without a name (concerning, but possible). The CASE WHEN would evaluate the condition (<code>name IN (‘Mac', ‘Cheese')</code>) as NULL, so it would map it to True, since <code>NULL != False</code>.</p>
+<p>On the other hand, <code>NOT name NOT IN (‘Mac', ‘Cheese') </code> will simply return NULL, since NULL is valid Boolean value.</p>
+<p>I believe that NULL is a valid value here, but, if that bothers you, you could do something like: <code>NOT name NOT IN ('Mac', 'Cheese') and name is not NULL</code>, but we're getting verbose again and may as well stick with the original.</p>
 </li>
 </ul>
-<h2 id="2-hash-to-see-if-two-tables-are-exactly-equal">2 Hash to see if two tables are exactly equal</h2>
+<h3 id="2-hash-to-see-if-two-tables-are-exactly-equal">2. Hash to see if two tables are exactly equal</h3>
 <p>Snowflake has two hash functions: <a href="https://docs.snowflake.net/manuals/sql-reference/functions/hash.html">HASH</a> and <a href="https://docs.snowflake.net/manuals/sql-reference/functions/hash_agg.html">HASH_AGG</a></p>
-<p>These aren't hashes in the cryptographic sense, as the Snowflake reference pages warn, but rather a way to group similar and compare exact values.</p>
-<p>I cloned my <code>cats</code> table to create <code>cats2</code> so for now it's an exact copy. As a result, the following queries give the same result:
-<code>select hash_agg(*) from cats</code>
-<code>select hash_agg(*) from cats2</code></p>
+<p>These aren't hashes in the cryptographic sense, as the Snowflake reference pages warn, but rather ways to group similar and compare exact values.</p>
+<p>I cloned my <code>cats</code> table to create <code>cats2</code> so for now it's an exact copy. As a result, the following queries give the same result:</p>
+<p><code>select hash_agg(*) from cats</code></p>
+<p><code>select hash_agg(*) from cats2</code></p>
 <p>This is evident when I run:</p>
-<pre><code>select hash_agg(*) from cats
-union
-select hash_agg(*) from cats2;
+<pre><code>SELECT HASH_AGG(*) FROM cats
+UNION
+SELECT HASH_AGG(*) FROM cats2;
 
 
-</code></pre><p>Which gives a value of  -823639142845967473.</p>
-<p>What does this value mean? To me, nothing. The only thing I use it for is to see if cats and cats2 are exactly equal, which I do by:</p>
-<pre><code>  select hash_agg(*) = (select hash_agg(*) from cats2)
-  from cats;
+</code></pre><p>Which gives a value of -823639142845967473.</p>
+<p>What does this value mean? To me, nothing. The only thing I use it for is to see if <code>cats</code> and <code>cats2</code> are exactly equal, which I do by running:</p>
+<pre><code>SELECT HASH_AGG(*) = (SELECT HASH_AGG(*) FROM cats2)
+FROM cats;
 
 </code></pre><p>which returns True.</p>
 <p>In this case, I got the result I wanted, but let's say I insert one additional row to cats. What happens?</p>
-<pre><code>select hash_agg(*) from cats
-union
-select hash_agg(*) from cats2;
-</code></pre><p>Now returns:</p>
+<pre><code>SELECT HASH_AGG(*) FROM cats
+UNION
+SELECT HASH_AGG(*) FROM cats2;
+</code></pre><p>Now returns two rows: -823639142845967473 and 342525326256346.</p>
 <p>This tells me one thing: they're not equal. But it doesn't tell me how off they are. If you're comparing two tables (or columns) and you want to know if they're exactly equal, HASH_AGG is a fast way to do it. But if there you want to quantify the degree of difference, you will have to compare them using set functions or JOINs or both.</p>
-<h2 id="3-dont-always-respect-your-nulls">3 Don't always respect your nulls</h2>
+<h3 id="3-dont-always-respect-your-nulls">3. Don't always respect your NULLs</h3>
 <p><a href="https://docs.snowflake.net/manuals/sql-reference/functions/first_value.html">Snowflake reference</a></p>
 <p>Let's say we had this table of cat appointments to the doctor. As we know, cats go to the doctors for annual checkups but also when they eat things that they shouldn't. On annual checks they get weighed, but during an emergency, the vet forgoes that step in order to get to the life saving surgery faster.</p>
 <table>
@@ -252,16 +253,16 @@ select hash_agg(*) from cats2;
 </tr>
 </tbody>
 </table>
-<p>If we know the weights always existed, we may be able to write something like this:
-&ndash; get the most recent row for each cat</p>
+<p>If we know the weights always existed, we may be able to write something like this:</p>
+<p>&ndash; get the most recent row for each cat</p>
 <pre><code>SELECT cat_name, weight FROM 
 (
-SELECT 
-cat_name, 
-weight,
-RANK() OVER (PARTITION BY cat_name ORDER BY appointment_date DESC) AS rank
-FROM cat_appointment_fact
-) where rank = 1;
+    SELECT 
+        cat_name, 
+        weight,
+        RANK() OVER (PARTITION BY cat_name ORDER BY appointment_date DESC) AS rank
+    FROM cat_appointment_fact
+) WHERE rank = 1;
 </code></pre><p>However, this would give you:</p>
 <table>
 <thead>
@@ -281,13 +282,13 @@ FROM cat_appointment_fact
 </tr>
 </tbody>
 </table>
-<p>As you can see, Mac's most recent weight value is null, which is wrong because he is very 11 pounds of annoying cat.</p>
-<p>Instead of getting the most recent record, let's focus on getting the most recent non-null value:</p>
+<p>As you can see, Mac's most recent weight value is NULL, which is wrong because he is very 11 pounds of annoying cat.</p>
+<p>Instead of getting the most recent record, let's focus on getting the most recent non-NULL value:</p>
 <pre><code>SELECT DISTINCT
-cat_name, 
-LAST_VALUE(weight) IGNORE NULLS OVER (PARTITION BY cat_name ORDER BY appointment_date DESC) AS most_recent_weight
+    cat_name, 
+    LAST_VALUE(weight) IGNORE NULLS OVER (PARTITION BY cat_name ORDER BY appointment_date DESC) AS most_recent_weight
 FROM cat_appointment_fact;
-</code></pre><p>Notice that we are explicitly finding the most recent weight value, instead of focusing on the most recent row. We are also using the optional “ignore nulls” clause, as opposed to the default “respect nulls”. This prevents NULLs from being counted as the most recent value, giving us:</p>
+</code></pre><p>Notice that we are explicitly finding the most recent weight value, instead of focusing on the most recent row. We are also using the optional “ignore NULLs” clause, as opposed to the default “respect NULLs”. This prevents NULLs from being counted as the most recent value, giving us:</p>
 <table>
 <thead>
 <tr>
@@ -307,18 +308,26 @@ FROM cat_appointment_fact;
 </tbody>
 </table>
 <p>Mac appreciates the accuracy.</p>
-<h2 id="4-carefully-balance-replace-regex-and-trytonumber">4 Carefully balance REPLACE, REGEX and TRY_TO_NUMBER</h2>
-<p>Let's say you get a number but it's not really a number. This happens often because user entered data can take the form of:
-93428-01
-100,00
-100+
-In order to use this as numbers (let's say, perform a mathematical operation on them) we have to clean them up a bit.</p>
-<p>My go to is <a href="https://docs.snowflake.net/manuals/sql-reference/functions/replace.html">REPLACE</a>. I think it's clear to understand:</p>
+<h3 id="4-carefully-balance-replace-regex-and-trytonumber">4. Carefully balance REPLACE, REGEX and TRY_TO_NUMBER</h3>
+<p>Let's say you get a number but it's not really a number. This happens often because user entered data can take the form of:</p>
+<ul>
+<li>
+<p>93428-01</p>
+</li>
+<li>
+<p>100,00</p>
+</li>
+<li>
+<p>100+</p>
+</li>
+</ul>
+<p>In order to use this as numbers (let's say, perform a mathematical operation on them) we have to clean them up a bit.</p>
+<p>My go to is <a href="https://docs.snowflake.net/manuals/sql-reference/functions/replace.html">REPLACE</a>. I think it's clear to read and write:</p>
 <p><code>REPLACE(cat_currency, ‘,', ‘')</code></p>
-<p>The problem is it gets a bit wordy: in order to replace multiple characters, you need to nest the function:</p>
+<p>The problem is that REPLACE does not take multiple characters; in order to clean up all the fields listed, you need to nest the function:</p>
 <p><code>REPLACE(REPLACE(REPLACE(cat_currency, ‘,', ‘'), ‘+', ‘', ‘,')</code></p>
-<p>Parenthesis. Oy. As a general rule, I only use REPLACE if there are one of two characters to clean up. After that, the parentheses become unmanageable and it becomes unreadable.</p>
-<p>At a certain point, especially when your data is user entered and there are no limit to the different non-numeric character you'll see you may want to consider using <a href="https://docs.snowflake.net/manuals/sql-reference/functions/regexp_replace.html">REGEX_REPLACE</a>.</p>
+<p>Parenthesis. Oy. As a general rule, I only use REPLACE if there are one or two characters to clean up. After that, the parentheses become unmanageable and it becomes unreadable.</p>
+<p>At this point, especially when your data is user entered and there are no limit to the different non-numeric character you'll see, you may want to consider using <a href="https://docs.snowflake.net/manuals/sql-reference/functions/regexp_replace.html">REGEX_REPLACE</a>.</p>
 <p>This function allows you to use a regex to remove the types of characters you want to remove. In the case of getting numeric results, I suggest &lsquo;[^0-9_.]&rsquo; which means: remove everything except characters that are 0-9 or .:</p>
 <p><code>select REGEXP_REPLACE('1,2', '[^0-9_]') from dual;</code> returns 12</p>
 <p><code>select REGEXP_REPLACE('100,200', '[^0-9_]') from dual;</code> returns 100200</p>
@@ -326,17 +335,18 @@ In order to use this as numbers (let's say, perform a mathematical operation on 
 <p><code>select REGEXP_REPLACE('cats12', '[^0-9_]') from dual;</code>
 returns 12</p>
 <p>The last function <a href="https://docs.snowflake.net/manuals/sql-reference/functions/try_to_decimal.html">TRY_TO_NUMBER</a> will convert things to number, but will return NULL on failure:</p>
-<p><code>select try_to_number('1.2');</code> gives 1 while
-<code>select try_to_numeric('1.2', 3,2);</code> gives 1.2</p>
+<p><code>select try_to_number('1.2');</code> gives 1 while</p>
+<p><code>select try_to_numeric('1.2', 3,2);</code> gives 1.2</p>
 <p>However,</p>
-<p><code>select try_to_number('cats12')</code> gives null</p>
-<p><code>select try_to_number('100,200');</code> gives null</p>
-<p><code>select try_to_number('1,2');</code> gives null</p>
-<p>Notice that 100,200, a value that a lot of can read as a number, becomes null. Since TRY_TO_NUMBER doesn't throw an error, this can lead to a lot of data silently disappearing.</p>
-<p>So in conclusion, using REPLACE when you know you're going to want to remove only a few characters which will not grow over time, use REGEX when you will want to handle all characters that can come in the future, and use TRY_TO_NUMBER when you want to discard (turn NULL) any value that cannot easily be converted to a number.</p>
-<p>PS to perform a similar REGEX function for getting non-alpha characters removed, you would do:
-<code>SELECT REGEXP_REPLACE('cats12', '[^a-zA-Z]') FROM dual;</code> which returns &ldquo;cats&rdquo;</p>
-<h2 id="5-prefer-where-to-having-when-either-will-do">5 Prefer WHERE to HAVING when either will do</h2>
+<p><code>select try_to_number('cats12')</code> gives NULL</p>
+<p><code>select try_to_number('100,200');</code> gives NULL</p>
+<p><code>select try_to_number('1,2');</code> gives NULL</p>
+<p>Notice that 100,200, a value that a lot of can read as a number, becomes NULL. Since TRY_TO_NUMBER doesn't throw an error, this can lead to a lot of data silently disappearing.</p>
+<p>Use REPLACE when you know you're going to want to remove only a few characters which will not grow over time; use REGEX when you will want to handle all characters that can come in the future; and use TRY_TO_NUMBER when you want to discard (turn to NULL) any value that cannot easily be converted to a number.</p>
+<p>PS to perform a similar REGEX function for getting non-alpha characters removed, you would do:</p>
+<p><code>SELECT REGEXP_REPLACE('cats12', '[^a-zA-Z]') FROM dual;</code>
+which returns &ldquo;cats&rdquo;</p>
+<h3 id="5-prefer-where-to-having-when-either-will-do">5. Prefer WHERE to HAVING when either will do</h3>
 <p><a href="https://www.java67.com/2019/06/difference-between-where-and-having-in-sql.html">Some sources</a>
 <a href="https://www.geeksforgeeks.org/having-vs-where-clause-in-sql/">More sources</a></p>
 <p>There is nothing in the Snowflake compiler that will prevent you from doing something like:</p>
