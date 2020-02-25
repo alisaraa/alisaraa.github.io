@@ -329,18 +329,18 @@ FROM cat_appointment_fact;
 <p>Parenthesis. Oy. As a general rule, I only use REPLACE if there are one or two characters to clean up. After that, the parentheses become unmanageable and it becomes unreadable.</p>
 <p>At this point, especially when your data is user entered and there are no limit to the different non-numeric character you'll see, you may want to consider using <a href="https://docs.snowflake.net/manuals/sql-reference/functions/regexp_replace.html">REGEX_REPLACE</a>.</p>
 <p>This function allows you to use a regex to remove the types of characters you want to remove. In the case of getting numeric results, I suggest &lsquo;[^0-9_.]&rsquo; which means: remove everything except characters that are 0-9 or .:</p>
-<p><code>select REGEXP_REPLACE('1,2', '[^0-9_]') from dual;</code> returns 12</p>
-<p><code>select REGEXP_REPLACE('100,200', '[^0-9_]') from dual;</code> returns 100200</p>
-<p><code>select REGEXP_REPLACE('1.2', '[^0-9_.]') from dual;</code> returns 1.2</p>
-<p><code>select REGEXP_REPLACE('cats12', '[^0-9_]') from dual;</code>
+<p><code>SELECT REGEXP_REPLACE('1,2', '[^0-9_]') from dual;</code> returns 12</p>
+<p><code>SELECT REGEXP_REPLACE('100,200', '[^0-9_]') from dual;</code> returns 100200</p>
+<p><code>SELECT REGEXP_REPLACE('1.2', '[^0-9_.]') from dual;</code> returns 1.2</p>
+<p><code>SELECT REGEXP_REPLACE('cats12', '[^0-9_]') from dual;</code>
 returns 12</p>
 <p>The last function <a href="https://docs.snowflake.net/manuals/sql-reference/functions/try_to_decimal.html">TRY_TO_NUMBER</a> will convert things to number, but will return NULL on failure:</p>
-<p><code>select try_to_number('1.2');</code> gives 1 while</p>
-<p><code>select try_to_numeric('1.2', 3,2);</code> gives 1.2</p>
+<p><code>SELECT TRY_TO_NUMBER('1.2');</code> gives 1 while</p>
+<p><code>SELECT TRY_TO_NUMERIC('1.2', 3,2);</code> gives 1.2</p>
 <p>However,</p>
-<p><code>select try_to_number('cats12')</code> gives NULL</p>
-<p><code>select try_to_number('100,200');</code> gives NULL</p>
-<p><code>select try_to_number('1,2');</code> gives NULL</p>
+<p><code>SELECT TRY_TO_NUMBER('cats12')</code> gives NULL</p>
+<p><code>SELECT TRY_TO_NUMBER('100,200');</code> gives NULL</p>
+<p><code>SELECT TRY_TO_NUMBER('1,2');</code> gives NULL</p>
 <p>Notice that 100,200, a value that a lot of can read as a number, becomes NULL. Since TRY_TO_NUMBER doesn't throw an error, this can lead to a lot of data silently disappearing.</p>
 <p>Use REPLACE when you know you're going to want to remove only a few characters which will not grow over time; use REGEX when you will want to handle all characters that can come in the future; and use TRY_TO_NUMBER when you want to discard (turn to NULL) any value that cannot easily be converted to a number.</p>
 <p>PS to perform a similar REGEX function for getting non-alpha characters removed, you would do:</p>
