@@ -153,19 +153,31 @@
 <p>Snowflake has plenty of out-of-the-box date functions: <code>dayname</code>, <code>datediff</code>, and <code>date_trunc</code> to name just three. You can read more about the functions <a href="https://docs.snowflake.net/manuals/sql-reference/functions-date-time.html">here</a>. Using a built-in function on a native date object gives you a lot of control, but you give up all this power as soon as you turn a date to not a date.
 Let’s say you have a perfectly good date, such as 2017-07-31, which is my best estimate of Mac and Cheese’s birthdate.</p>
 <p>Let’s say you want year and month; you may be tempted to do:</p>
-<p><code>SELECT LEFT(REPLACE('2017-07-31', '-'), 6) AS birth_year_month FROM cat_birthdates</code></p>
-<p>And you would get 201707.  But now let’s say you want to add 60 days to that.</p>
-<p><code>SELECT LEFT(REPLACE('2017-07-31', '-'), 6) + 60 AS birth_year_month FROM cat_birthdates</code>
-Gives you 201767, which is not a date.</p>
-<p>While
-<code>SELECT DATEADD('day', 60, LEFT(REPLACE('2017-07-31', '-'), 6)) AS birth_year_month FROM cat_birthdates</code></p>
-<p>gives you 1970-03-04 08:01:47.000. That is somehow worse.</p>
-<p>So how would we approach this? <strong>Always keep a date a date</strong></p>
+<pre><code>SELECT 
+    LEFT(REPLACE('2017-07-31', '-'), 6) AS birth_year_month
+FROM cat_birthdates
+</code></pre><p>And you would get 201707.  But now let’s say you want to add 60 days to that.</p>
+<pre><code>SELECT 
+    LEFT(REPLACE('2017-07-31', '-'), 6) + 60 AS birth_year_month
+FROM cat_birthdates
+</code></pre><p>Gives you 201767, which is not a date.</p>
+<p>While</p>
+<pre><code>SELECT 
+    DATEADD('day', 60, LEFT(REPLACE('2017-07-31', '-'), 6)) AS birth_year_month
+FROM cat_birthdates
+</code></pre><p>gives you 1970-03-04 08:01:47.000. That is somehow worse.</p>
+<p>So how would we handle this? <strong>Always keep a date a date</strong></p>
 <p>Whenever I have to list a month, I like to use the first of the month:</p>
-<p><code>SELECT DATE_TRUNC('month', '2017-07-31'::Date) AS birth_year_month FROM cat_birthdates</code> which gives:</p>
+<pre><code>SELECT 
+    DATE_TRUNC('month', '2017-07-31'::Date) AS birth_year_month 
+FROM cat_birthdates
+</code></pre><p>which gives:</p>
 <p>2017-07-01</p>
-<p>You can then add 60 days by:</p>
-<p><code>SELECT DATEADD(‘day’, 60, DATE_TRUNC('month', '2017-07-31'::Date)) AS birth_year_month FROM cat_birthdates</code> which gives:</p>
+<p>You can then add 60 days by doing:</p>
+<pre><code>SELECT 
+    DATEADD(‘day’, 60, DATE_TRUNC('month', '2017-07-31'::Date)) AS birth_year_month
+FROM cat_birthdates
+</code></pre><p>which gives:</p>
 <p>2017-08-30</p>
 <p>Much more accurate than anything the other queries gave us.</p>
 <h3 id="2-use-where-not-in-subquery-on-anything-other-than-a-primary-key">2. Use <code>WHERE NOT IN &lt;subquery&gt;</code> on anything other than a primary key</h3>
@@ -177,16 +189,18 @@ WHERE animal_id IN (SELECT animal_id FROM cats);
 <pre><code>DELETE 
 FROM animal_name	
 WHERE animal_id NOT IN (SELECT animal_id FROM cats);
-</code></pre><p>I think this is readable, but you may get an unexpected error if animal_id has any NULLS (it’s always NULLs). If <code>animal_id</code> is ever NULL, the statement will stop and only delete what records it’s seensince. This is not a bug and it’s not unique to Snowflake; it has to do with how all databases treat NULL. The question and answers <a href="https://support.snowflake.net/s/question/0D50Z00007CaMMmSAN/problem-with-not-in-subquery">here</a> will show you the frustration this can cause. There is also a RDMS agnostic write up <a href="https://dzone.com/articles/consider-using-not-exists-instead-of-not-in-subque">here</a>.</p>
+</code></pre><p>I think this is readable, but you may get an unexpected error if <code>animal_id</code> has any NULLS (it’s always NULLs). If <code>animal_id</code> is ever NULL, the statement will stop and only delete what records it’s seensince. This is not a bug and it’s not unique to Snowflake; it has to do with how all databases treat NULL. The question and answers <a href="https://support.snowflake.net/s/question/0D50Z00007CaMMmSAN/problem-with-not-in-subquery">here</a> will show you the frustration this can cause. There is also a RDMS agnostic write up <a href="https://dzone.com/articles/consider-using-not-exists-instead-of-not-in-subque">here</a>.</p>
 <p>My general rules:
 Use JOINS in a <code>SELECT</code> because you can
 In <code>DELETE</code>s or <code>UPDATE</code>s, use <code>NOT IN</code> when both sides of the <code>NOT IN</code> cannot be NULL (I only trust when they’re the primary keys because then I know they’ll be not NULL)
 If you are not sure if the fields can be NULL, use <code>NOT EXISTS</code> since it’s safer</p>
 <pre><code>DELETE 
-FROM animal_name	AS a
+FROM animal_name AS a
 WHERE NOT EXISTS
-(SELECT animal_id FROM cats AS c
-WHERE c.animal_id =  a.animal_id)
+    (SELECT 
+        animal_id 
+    FROM cats AS c
+    WHERE c.animal_id =  a.animal_id)
 </code></pre><p>Read more about <a href="https://docs.snowflake.net/manuals/sql-reference/operators-subquery.html">Subquery Operators</a>, including ANY and ALL in the Snowflake docs.</p>
 <h3 id="3-select--when-you-dont-mean-it">3. <code>SELECT *</code> when you don’t mean it</h3>
 <p>Snowflake is a columnar database; this means you pay (in compute and time) for each column you ask Snowflake to return to you. I wrote about database storage in <a href="https://www.alisa-in.tech/post/2019-07-03-rowbased/">this post</a>.</p>
@@ -194,28 +208,32 @@ WHERE c.animal_id =  a.animal_id)
 <p>The bytes scanned increase isn’t linear by column because there is overhead to querying a table, but if you are only planning on using one column, only select that column.</p>
 <p>This expense is magnified when we use SELECT * in CTEs or subqueries:</p>
 <pre><code>WITH cats_are_cute AS (
-SELECT * FROM animals
-WHERE cat = True
-AND breed != ‘Sphynx’
+    SELECT * 
+    FROM animals
+    WHERE cat = True
+    AND breed != ‘Sphynx’
 ),
 uncute_animals AS (
-SELECT * FROM animals
-WHERE dog = True
-OR bread = ‘Sphynx’
+    SELECT * 
+    FROM animals
+    WHERE dog = True
+    OR bread = ‘Sphynx’
 )
 SELECT animal_name, ‘meow’ FROM cats_are_cute
 UNION ALL
 SELECT animal_name, ‘bark’ FROM uncute_animals;
 </code></pre><p>A few things happened here: I selected all columns from <code>animals</code> twice and, excluding my filters, I only used one of them: animal_name. It would be more efficient to write:</p>
 <pre><code>WITH cats_are_cute AS (
-SELECT animal_name FROM animals
-WHERE cat = True
-AND breed != ‘Sphynx’
+    SELECT animal_name 
+    FROM animals
+    WHERE cat = True
+    AND breed != ‘Sphynx’
 ),
 uncute_animals AS (
-SELECT animal_name FROM animals
-WHERE dog = True
-OR bread = ‘Sphynx’
+    SELECT animal_name 
+    FROM animals
+    WHERE dog = True
+    OR bread = ‘Sphynx’
 )
 SELECT animal_name, ‘meow’ FROM cats_are_cute
 UNION ALL
@@ -224,14 +242,16 @@ SELECT animal_name, ‘bark’ FROM uncute_animals;
 <h3 id="4-order-by-in-any-statement-except-for-the-one-returning-data">4. <code>ORDER BY</code> in any statement except for the one returning data</h3>
 <p>Similar to #3, if you write the following query:</p>
 <pre><code>WITH dates AS 
-(SELECT * 
-FROM dates
-ORDER BY dt DESC),
+    (SELECT * 
+    FROM dates
+    ORDER BY dt DESC),
 dogs AS 
-(SELECT * FROM adoption_fact)
+    (SELECT * 
+    FROM adoption_fact)
 SELECT * 
 FROM dogs
-INNER JOIN dates ON dates.dt = dogs.adopted_date
+INNER JOIN dates
+ON dates.dt = dogs.adopted_date
 </code></pre><p>you will pay for the ORDER BY (you could check the Profile tab to see the <code>SORT</code>)</p>
 <p><img src="/images/sort2.png" alt="This is my image"></p>
 <p>But Snowflake only cares about an ORDER BY in the last SELECT, so this query won’t order your final results. You’ll pay for the time and compute of the ORDER BY, but you will get nothing back.</p>
