@@ -6,10 +6,19 @@
     <description>Recent content on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Feb 2020 15:12:11 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2020 15:12:11 -0400</lastBuildDate>
     
 	<atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Uncool Things in Snowflake</title>
+      <link>https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/</link>
+      <pubDate>Tue, 25 Feb 2020 15:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/</guid>
+      <description>This is the third post in a series of Cool Things to do in Snowflake, but these are things that are really cool when you don’t do them; they’re Uncool Things to Do in Snowflake.</description>
+    </item>
     
     <item>
       <title>Advanced Cool Things in Snowflake</title>

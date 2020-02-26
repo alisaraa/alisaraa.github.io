@@ -188,8 +188,8 @@ Additionally, Be careful with IFF statements; if one more condition has to be ad
 <p>Snowflake has two hash functions: <a href="https://docs.snowflake.net/manuals/sql-reference/functions/hash.html">HASH</a> and <a href="https://docs.snowflake.net/manuals/sql-reference/functions/hash_agg.html">HASH_AGG</a></p>
 <p>These aren't hashes in the cryptographic sense, as the Snowflake reference pages warn, but rather ways to group similar and compare exact values.</p>
 <p>I cloned my <code>cats</code> table to create <code>cats2</code> so for now it's an exact copy. As a result, the following queries give the same result:</p>
-<p><code>select hash_agg(*) from cats</code></p>
-<p><code>select hash_agg(*) from cats2</code></p>
+<p><code>SELECT HASH_AGG(*) FROM cats</code></p>
+<p><code>SELECT HASH_AGG(*) FROM cats2</code></p>
 <p>This is evident when I run:</p>
 <pre><code>SELECT HASH_AGG(*) FROM cats
 UNION
