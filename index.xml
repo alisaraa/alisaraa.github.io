@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>How many times does cat appear in the cat Wikipage page?</title>
+      <title>How many times does cat appear in the cat Wikipedia page?</title>
       <link>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</link>
       <pubDate>Sun, 12 Apr 2020 15:12:11 -0400</pubDate>
       
       <guid>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</guid>
-      <description>In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data.</description>
+      <description>In this post, I’m going to hit the Wikipedia API to get data into a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data.</description>
     </item>
     
     <item>

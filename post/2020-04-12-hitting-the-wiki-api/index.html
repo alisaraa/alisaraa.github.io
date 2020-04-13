@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Hugo 0.60.1" />
 
-  <title>How many times does cat appear in the cat Wikipage page? &middot; Alisa in Techland</title>
+  <title>How many times does cat appear in the cat Wikipedia page? &middot; Alisa in Techland</title>
 
   <meta name="description" content="" />
 
@@ -17,8 +17,8 @@
 
   
   <meta property="og:site_name" content="Alisa in Techland"/>
-  <meta property="og:title" content="How many times does cat appear in the cat Wikipage page?"/>
-  <meta property="og:description" content="In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data."/>
+  <meta property="og:title" content="How many times does cat appear in the cat Wikipedia page?"/>
+  <meta property="og:description" content="In this post, I’m going to hit the Wikipedia API to get data into a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data."/>
   <meta property="og:url" content="https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2020-04-12T15:12:11-0400"/>
@@ -44,8 +44,8 @@
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "name": "How many times does cat appear in the cat Wikipage page?",
-    "headline": "How many times does cat appear in the cat Wikipage page?",
+    "name": "How many times does cat appear in the cat Wikipedia page?",
+    "headline": "How many times does cat appear in the cat Wikipedia page?",
     "datePublished": "2020-04-12T15:12:11-0400",
     "dateModified": "2020-04-12T15:12:11-0400",
     "author": {
@@ -55,7 +55,7 @@
     },
     "image": "https://www.alisa-in.tech/images/profile.png",
     "url": "https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/",
-    "description": "In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data."
+    "description": "In this post, I’m going to hit the Wikipedia API to get data into a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data."
   }
   </script>
   
@@ -142,16 +142,16 @@
 
   <main class="content container">
   <div class="post">
-  <h1>How many times does cat appear in the cat Wikipage page?</h1>
+  <h1>How many times does cat appear in the cat Wikipedia page?</h1>
 
   <div class="post-date">
     <time datetime="2020-04-12T15:12:11-0400">Apr 12, 2020</time> · 8 min read
   </div>
 
-  <p>In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data. The point of this post is not to showcase the best Python or software engineering skills ever. The point of this post is to talk through some common themes you may see in data engineering projects and to distract myself from my growing desire to cut my own hair. Pleasehelpitkeepsgrowing.</p>
-<p>The theoretical business ask is to record every day the number of instances of the word “Cat” and the most common word in the Wikipedia page on <a href="https://en.wikipedia.org/wiki/Cat">cats</a>.</p>
+  <p>In this post, I’m going to hit the Wikipedia API to get data into a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data. The point of this post is not to showcase the best Python or software engineering skills ever. The point of this post is to talk through some common themes you may see in data engineering projects and to distract myself from my growing desire to cut my own hair. pleasehelpitkeepsgrowing.</p>
+<p>The theoretical business ask is to record the number of instances of the word “Cat” and the most common word in the Wikipedia page on <a href="https://en.wikipedia.org/wiki/Cat">cats</a> every day.</p>
 <p>Okay first lesson: the art of good engineering is good Googling. I’m not promoting plagiarism; if you use someone’s code you should always credit them, but don’t reinvent the wheel. Your boss does not care if you wrote the code from scratch, your boss cares if it works.</p>
-<p>So our first step is go to the Wikipedia page on their <a href="https://www.mediawiki.org/wiki/API:Parsing_wikitext#GET_request">API</a>. There we find the sample code for getting the content of a page, which we can slightly alter for our case:</p>
+<p>So our first step is go to the Wikipedia page on their <a href="https://www.mediawiki.org/wiki/API:Parsing_wikitext#GET_request">API</a>. There we find the sample code for getting the content of a page, which we can slightly alter for our use case:</p>
 <pre><code>#!/usr/bin/python3
 
 &quot;&quot;&quot;
@@ -180,8 +180,9 @@ DATA = R.json()
 
 print(DATA[&quot;parse&quot;][&quot;text&quot;][&quot;*&quot;])
 </code></pre><p>Now we get a bunch of HTML. It’s so ugly and long that we can’t tell what part we are on.</p>
+<p><img src="https://www.alisa-in.tech/images/bad_html.png" alt="Bad HTML"></p>
 <p>This isn’t going to work. We want to clean this text up a bit. There actually are libraries for parsing XML/HTML such as <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">beautifulsoup</a>. However, since we don’t need info from a specific tag (what is the header? What is the title?), but rather just to count instances of “cat”, I figured we could just brute force it.</p>
-<p>This is what  I ended up doing</p>
+<p>This is what I ended up doing</p>
 <pre><code>## from https://stackoverflow.com/questions/9942594/unicodeencodeerror-ascii-codec-cant-encode-character-u-xa0-in-position-20 
 ## strip and encode to UTF-8
 
@@ -201,42 +202,57 @@ convert_to_string = re.sub(' +', ' ', convert_to_string)
 ## convert to lower
 convert_to_string = convert_to_string.lower()
 </code></pre><p>That was the extent of my brute force clean up. This gives us:</p>
+<p><img src="https://www.alisa-in.tech/images/slightly_cleaned_up.png" alt="Slightly Cleaned Up"></p>
 <p>Because Wikipedia has citations and links at the bottom of the page, I decided to cut off the string as soon as we see the last “See also”:</p>
 <pre><code>end = convert_to_string.rfind(&quot;See also&quot;)
 convert_to_string = convert_to_string[:end]
-</code></pre><p>So once we’ve cleaned up the string that is the whole page, you may be tempted to do something like “how many times does the string contain cat?” but that would give us false positives for words like domesticated. To get around this, we’ll change the string into an array, splitting on any space (notice before the in code we replaced all punctuation with a space and any number of spaces with one space).</p>
+</code></pre><p>So once we’ve cleaned up the string of the whole page, you may be tempted to do something like “how many times does the string contain cat?” but that would give us false positives for words like domestiCATed. To get around this, we’ll change the string into an array, splitting on any space (notice before the in code we replaced all punctuation with a space and any number of spaces with one space).</p>
 <pre><code>word_list = []
 word_list = convert_to_string.split(' ')
 </code></pre><p>Now we have an array of words.</p>
-<p>Your instinct may be to loop through and increment cat_counter every time you see a cat. Good instinct. But what about getting the most common word used? How would we do that?</p>
+<p><img src="https://www.alisa-in.tech/images/array.png" alt="Array"></p>
+<p>Your instinct may be to loop through and increment a variable named cat_counter every time you see a cat. Good instinct. But what about getting the most common word used? How would we do that?</p>
 <p>Whenever I’m tempted to do a for loop and a counter, I ask myself if I can create a dictionary instead. I did this by:</p>
 <pre><code>word_dict = {}
 for word in word_list:
-word_dict[word] = word_dict.get(word, 0) + 1
-</code></pre><p>This allows us to, every time we see a distinct word in the list, create a new entry. If the word has already been seen, just increment that entry by 1. This works because when accessing a value associated with a key in a dictionary, you can do either:</p>
+    word_dict[word] = word_dict.get(word, 0) + 1
+</code></pre><p>This allows us to, every time we see a distinct word in the list, create a new entry for it in the dictionary. If the word has already been seen, we just increment that entry by 1. This works because when accessing a value associated with a key in a dictionary, you can do either:</p>
 <ul>
 <li>word_dict[“cat”] - this will return the value associated with cat but error out if cat is not a key in the dictionary</li>
 <li>word_dict.get(“cat”) - this will return the value associated with cat if it exists, if not it’ll return None</li>
 <li>word_dict.get(“cat”, 0) - this will return the value associated with cat if it exists, if not it’ll return the default, which, in this case, is 0</li>
 </ul>
-<p>So the first time we see a word, we get 0+1 = 1. Then every time after that, we increment by 1. We then get this dictionary:</p>
-<p>I actually sorted this dictionary so it would look good in the picture. To do this, I wrote one line:</p>
+<p>So the first time we see a word, we get 0 + 1 = 1. Then every time after that, we increment by 1. We then get this dictionary:</p>
+<p><img src="https://www.alisa-in.tech/images/dictionary.png" alt="Dictionary"></p>
+<p>I actually sorted this dictionary to help us find the most common word.</p>
 <pre><code>sorted_word_dict = sorted(word_dict.items(), key=lambda x: x[1], reverse=True)
 </code></pre><p>We passed a lambda function (an anonymous function) that tells the <code>sorted</code> function to sort by x[1], where x is the dictionary and x[1] is the value (as opposed to the key). reverse=True will make the most popular (biggest) value go first, so that way we can easily do the following:</p>
-<pre><code>most_popular_word = sorted_word_dict[0][0]
-cat_count = word_dict[&quot;cat&quot;]
-</code></pre><p>Which gives us 264 and “the”.</p>
+<pre><code>cat_count = word_dict[&quot;cat&quot;]
+most_popular_word = sorted_word_dict[0][0]
+</code></pre><p>Which gives us 264 times and the word “the”.</p>
 <p>The only thing left to do is to write to our database, either directly via the Python connector or through a library such as SQLAlchemy. I am just going to create the <code>INSERT</code> statement:</p>
 <pre><code>EPOCH = str(time.time()).split('.')[0]
 INSERT_STATEMENT = &quot;&quot;&quot; INSERT INTO cat_wiki_count (datetime_checked, cat_count, most_popular_word) VALUES ('{datetime_checked}', {cat_count}, '{most_popular_word}'); &quot;&quot;&quot;.format(datetime_checked=EPOCH, cat_count=cat_count, most_popular_word=most_popular_word) 
-</code></pre><p>Things to note here:
-I’m recording the date and time that we found these results so there will never be dupes
-Datetimes as well as strings must be inserted with an additional straight quote around the parameter.</p>
-<p>Let’s say your boss for whatever reason wants you to only record the most recent and never history. This is a bad idea; storage in databases is cheap and there is no reason why you can’t record all of history in this table and then get the most recent with SQL. But if it has to be done, just remember: <em>don’t delete until you successfully insert.</em></p>
+</code></pre><p>Things to note here:</p>
+<ul>
+<li>I’m recording the date and time that we found these results so there will never be dupes</li>
+<li>Datetimes as well as strings must be inserted with an additional straight quote around the parameter.</li>
+</ul>
+<p>Let’s say your boss for wants you to only record the most recent data you find from the page and never the history. This is a bad idea; storage in databases is typically cheap and there is no reason why you can’t record all of history in this table and then get the most recent with SQL. But if it has to be done, just remember: <em>never delete until you successfully insert.</em></p>
 <p>So let’s say you did this:</p>
-<pre><code>DELETE_STATEMENT = &quot;DELETE FROM cat_wiki_count;&quot; INSERT_STATEMENT = &quot;&quot;&quot; INSERT INTO cat_wiki_count (datetime_checked, cat_count, most_popular_word) VALUES ('{datetime_checked}', {cat_count}, '{most_popular_word}'); &quot;&quot;&quot;.format(datetime_checked=EPOCH, cat_count=cat_count, most_popular_word=most_popular_word) snowflake.execute(DELETE_STATEMENT) snowflake.execute(INSERT_STATEMENT)
+<pre><code>DELETE_STATEMENT = &quot;DELETE FROM cat_wiki_count;&quot;
+
+INSERT_STATEMENT = &quot;&quot;&quot;
+    INSERT INTO cat_wiki_count (datetime_checked, cat_count, most_popular_word) VALUES ('{datetime_checked}', {cat_count}, '{most_popular_word}'); 
+    &quot;&quot;&quot;.format(
+            datetime_checked=EPOCH,
+            cat_count=cat_count,
+            most_popular_word=most_popular_word
+        )
+snowflake.execute(DELETE_STATEMENT)
+snowflake.execute(INSERT_STATEMENT)
 </code></pre><p>Now let’s say your insert statement failed.  What are you left with? An empty table. Your boss wants the most recent, so if an insert failed, the truncate never should have happened. So how do we handle this?</p>
-<p>We create a transaction using sqlalchemy and we rollback if our truncate failed</p>
+<p>We create a transaction using sqlalchemy and we rollback if our truncate failed:</p>
 <pre><code>engine = snowflake.engine
 connection = snowflake.connect_engine() 
 transaction = connection.begin() 
@@ -250,15 +266,19 @@ else:
     transaction.commit() 
 finally: 
     connection.close()
-</code></pre><p>This leverages:
-A transaction without autocommit, so actions can be rolled back. Usually, in our UI or IDEs we use autocommit so we don’t even think about it, but technically transactions such as DELETE and INSERT need to be committed. Read more about sqlalchemy transactions <a href="https://docs.sqlalchemy.org/en/13/orm/session_transaction.html">here</a>. Basically, if either the DELETE or the INSERT fails, we rollback the transaction and the table goes to its state before the transaction started.
-All 4 parts of a try: try, except, else and finally. We leverage the <code>except</code> to rollback the transaction if something bad happened, the <code>else</code> to commit the transaction if it worked, and the <code>finally</code> to close the connection because, no matter what, we want to do that.</p>
+</code></pre><p>This leverages:</p>
+<ul>
+<li>A transaction without autocommit, so actions can be rolled back. Usually, in our UI or IDEs we use autocommit so we don’t even think about it, but technically transactions such as DELETE and INSERT need to be committed. Read more about sqlalchemy transactions <a href="https://docs.sqlalchemy.org/en/13/orm/session_transaction.html">here</a>. Basically, if either the DELETE or the INSERT fails, we rollback the transaction and the table goes to its state before the transaction started.</li>
+<li>All 4 parts of a try/except: try, except, else and finally. We leverage the <code>except</code> to rollback the transaction if something bad happened, the <code>else</code> to commit the transaction if it worked, and the <code>finally</code> to close the connection because, no matter what, we want to do that.</li>
+</ul>
 <p>Again, I find it easier to just write from Python into Snowflake or any database with a timestamp and then deduplicate later in the SQL, but if you must delete records, be careful about it.</p>
 <p>In this case, I fulfilled the requirement but let’s take a step back and think about scalability, validation, and flexibility.</p>
-<p>Since Snowflake is great at storing semi-structured data and storage is cheap, is there any reason not to just store the entire dictionary as a variant that can be parsed as JSON? The benefits are:
-Keeps historic data - let’s say next week your boss wants to know the second most common word, how can you go back in time? If it’s not more effort or cost to store the entire dataset, consider doing that and parsing out what you need.
-Flexibility - what happens when your boss wants to check the dog page for the instances of the word dog? Do you make a dog_counter?
-The most scalable version is a Python script that takes the name of a page, checks to ensure it found that page, and stores the count of each word:</p>
+<p>Since Snowflake is great at storing semi-structured data and storage is cheap, is there any reason not to just store the entire dictionary of word usage as a variant? The benefits are:</p>
+<ul>
+<li>Keeps historic data - let’s say next week your boss wants to know the second most common word, how can you go back in time? If it’s not more effort or cost to store the entire dataset, consider doing that and parsing out what you need.</li>
+<li>Flexibility - what happens when your boss wants to check the dog page for the instances of the word dog? Do you make a dog_counter? This involves editing the Python code rather than just creating additional SQL.
+The most scalable version is a Python script that takes the name of a page, checks to ensure it found that page, and stores the count of each word:</li>
+</ul>
 <pre><code>#!/usr/bin/python3
  
 import requests
@@ -322,7 +342,7 @@ for page in PAGES_TO_SEARCH:
    )
  
 </code></pre><p>The table looks like this:</p>
-<p><a href="https://www.alisa-in.tech/images/raw_results.png">https://www.alisa-in.tech/images/raw_results.png</a></p>
+<p><img src="https://www.alisa-in.tech/images/raw_results.png" alt="Raw Results"></p>
 <p>We can get the count of instances of the page name and the most common word with this query:</p>
 <pre><code>SELECT DISTINCT
    datetime_checked,
@@ -331,8 +351,8 @@ for page in PAGES_TO_SEARCH:
    LAST_VALUE(f.key) OVER (PARTITION BY page_name, datetime_checked ORDER BY f.value asc)
 FROM wiki_word_count,
 LATERAL FLATTEN(input =&gt; word_count_json) f
-</code></pre><p><a href="https://www.alisa-in.tech/images/most_common_word.png">https://www.alisa-in.tech/images/most_common_word.png</a></p>
-<p>And there we have it. &ldquo;The&rdquo; is a pretty common word. If you learned anythign from this post, I hope it was not that.</p>
+</code></pre><p><img src="https://www.alisa-in.tech/images/most_common_word.png" alt="Most Common Word"></p>
+<p>And there we have it&ndash; &ldquo;the&rdquo; is a pretty common word. If you learned anythign from this post, I hope it was not that.</p>
 
 </div>
 
