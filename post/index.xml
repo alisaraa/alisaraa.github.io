@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Apr 2020 15:12:11 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2020 15:12:11 -0400</lastBuildDate>
     
 	<atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How many times does cat appear in the cat Wikipage page?</title>
+      <link>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</link>
+      <pubDate>Sun, 12 Apr 2020 15:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</guid>
+      <description>In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data.</description>
+    </item>
     
     <item>
       <title>How to practice data engineering when you&#39;re not data engineering</title>

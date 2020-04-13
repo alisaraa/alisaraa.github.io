@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <title>How many times does cat appear in the cat Wikipage page? &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="How many times does cat appear in the cat Wikipage page?"/>
+  <meta property="og:description" content="In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data."/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-04-12T15:12:11-0400"/>
+  <meta property="article:modified_time" content="2020-04-12T15:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "How many times does cat appear in the cat Wikipage page?",
+    "headline": "How many times does cat appear in the cat Wikipage page?",
+    "datePublished": "2020-04-12T15:12:11-0400",
+    "dateModified": "2020-04-12T15:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://www.alisa-in.tech/"
+    },
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/",
+    "description": "In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://www.alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>How many times does cat appear in the cat Wikipage page?</h1>
+
+  <div class="post-date">
+    <time datetime="2020-04-12T15:12:11-0400">Apr 12, 2020</time> · 8 min read
+  </div>
+
+  <p>In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data. The point of this post is not to showcase the best Python or software engineering skills ever. The point of this post is to talk through some common themes you may see in data engineering projects and to distract myself from my growing desire to cut my own hair. Pleasehelpitkeepsgrowing.</p>
+<p>The theoretical business ask is to record every day the number of instances of the word “Cat” and the most common word in the Wikipedia page on <a href="https://en.wikipedia.org/wiki/Cat">cats</a>.</p>
+<p>Okay first lesson: the art of good engineering is good Googling. I’m not promoting plagiarism; if you use someone’s code you should always credit them, but don’t reinvent the wheel. Your boss does not care if you wrote the code from scratch, your boss cares if it works.</p>
+<p>So our first step is go to the Wikipedia page on their <a href="https://www.mediawiki.org/wiki/API:Parsing_wikitext#GET_request">API</a>. There we find the sample code for getting the content of a page, which we can slightly alter for our case:</p>
+<pre><code>#!/usr/bin/python3
+
+&quot;&quot;&quot;
+    parse.py
+
+    MediaWiki API Demos
+    Demo of `Parse` module: Parse content of a page
+
+    MIT License
+&quot;&quot;&quot;
+
+import requests
+
+S = requests.Session()
+
+URL = &quot;https://en.wikipedia.org/w/api.php&quot;
+
+PARAMS = {
+    &quot;action&quot;: &quot;parse&quot;,
+    &quot;page&quot;: &quot;Cat&quot;,
+    &quot;format&quot;: &quot;json&quot;
+}
+
+R = S.get(url=URL, params=PARAMS)
+DATA = R.json()
+
+print(DATA[&quot;parse&quot;][&quot;text&quot;][&quot;*&quot;])
+</code></pre><p>Now we get a bunch of HTML. It’s so ugly and long that we can’t tell what part we are on.</p>
+<p>This isn’t going to work. We want to clean this text up a bit. There actually are libraries for parsing XML/HTML such as <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">beautifulsoup</a>. However, since we don’t need info from a specific tag (what is the header? What is the title?), but rather just to count instances of “cat”, I figured we could just brute force it.</p>
+<p>This is what  I ended up doing</p>
+<pre><code>## from https://stackoverflow.com/questions/9942594/unicodeencodeerror-ascii-codec-cant-encode-character-u-xa0-in-position-20 
+## strip and encode to UTF-8
+
+convert_to_string = str(DATA[&quot;parse&quot;][&quot;text&quot;][&quot;*&quot;].encode('utf-8').strip()) 
+
+## from https://stackoverflow.com/questions/753052/strip-html-from-strings-in-python
+## remove anything within an html tag
+convert_to_string = re.sub('&lt;[^&lt;]+?&gt;', '', convert_to_string) convert_to_string = re.sub('&amp;#[^&lt;]+?;[^&lt;]+?;', '', convert_to_string) 
+## split on punctionality 
+## https://stackoverflow.com/questions/9797357/dividing-a-string-at-various-punctuation-marks-using-split
+convert_to_string = re.sub('[?., %-()&quot;^;:/]', ' ', convert_to_string) 
+## https://stackoverflow.com/questions/1546226/what-is-a-simple-way-to-remove-multiple-spaces-in-a-string 
+
+convert_to_string = re.sub('\\n', ' ', convert_to_string) 
+convert_to_string = re.sub(' +', ' ', convert_to_string) 
+
+## convert to lower
+convert_to_string = convert_to_string.lower()
+</code></pre><p>That was the extent of my brute force clean up. This gives us:</p>
+<p>Because Wikipedia has citations and links at the bottom of the page, I decided to cut off the string as soon as we see the last “See also”:</p>
+<pre><code>end = convert_to_string.rfind(&quot;See also&quot;)
+convert_to_string = convert_to_string[:end]
+</code></pre><p>So once we’ve cleaned up the string that is the whole page, you may be tempted to do something like “how many times does the string contain cat?” but that would give us false positives for words like domesticated. To get around this, we’ll change the string into an array, splitting on any space (notice before the in code we replaced all punctuation with a space and any number of spaces with one space).</p>
+<pre><code>word_list = []
+word_list = convert_to_string.split(' ')
+</code></pre><p>Now we have an array of words.</p>
+<p>Your instinct may be to loop through and increment cat_counter every time you see a cat. Good instinct. But what about getting the most common word used? How would we do that?</p>
+<p>Whenever I’m tempted to do a for loop and a counter, I ask myself if I can create a dictionary instead. I did this by:</p>
+<pre><code>word_dict = {}
+for word in word_list:
+word_dict[word] = word_dict.get(word, 0) + 1
+</code></pre><p>This allows us to, every time we see a distinct word in the list, create a new entry. If the word has already been seen, just increment that entry by 1. This works because when accessing a value associated with a key in a dictionary, you can do either:</p>
+<ul>
+<li>word_dict[“cat”] - this will return the value associated with cat but error out if cat is not a key in the dictionary</li>
+<li>word_dict.get(“cat”) - this will return the value associated with cat if it exists, if not it’ll return None</li>
+<li>word_dict.get(“cat”, 0) - this will return the value associated with cat if it exists, if not it’ll return the default, which, in this case, is 0</li>
+</ul>
+<p>So the first time we see a word, we get 0+1 = 1. Then every time after that, we increment by 1. We then get this dictionary:</p>
+<p>I actually sorted this dictionary so it would look good in the picture. To do this, I wrote one line:</p>
+<pre><code>sorted_word_dict = sorted(word_dict.items(), key=lambda x: x[1], reverse=True)
+</code></pre><p>We passed a lambda function (an anonymous function) that tells the <code>sorted</code> function to sort by x[1], where x is the dictionary and x[1] is the value (as opposed to the key). reverse=True will make the most popular (biggest) value go first, so that way we can easily do the following:</p>
+<pre><code>most_popular_word = sorted_word_dict[0][0]
+cat_count = word_dict[&quot;cat&quot;]
+</code></pre><p>Which gives us 264 and “the”.</p>
+<p>The only thing left to do is to write to our database, either directly via the Python connector or through a library such as SQLAlchemy. I am just going to create the <code>INSERT</code> statement:</p>
+<pre><code>EPOCH = str(time.time()).split('.')[0]
+INSERT_STATEMENT = &quot;&quot;&quot; INSERT INTO cat_wiki_count (datetime_checked, cat_count, most_popular_word) VALUES ('{datetime_checked}', {cat_count}, '{most_popular_word}'); &quot;&quot;&quot;.format(datetime_checked=EPOCH, cat_count=cat_count, most_popular_word=most_popular_word) 
+</code></pre><p>Things to note here:
+I’m recording the date and time that we found these results so there will never be dupes
+Datetimes as well as strings must be inserted with an additional straight quote around the parameter.</p>
+<p>Let’s say your boss for whatever reason wants you to only record the most recent and never history. This is a bad idea; storage in databases is cheap and there is no reason why you can’t record all of history in this table and then get the most recent with SQL. But if it has to be done, just remember: <em>don’t delete until you successfully insert.</em></p>
+<p>So let’s say you did this:</p>
+<pre><code>DELETE_STATEMENT = &quot;DELETE FROM cat_wiki_count;&quot; INSERT_STATEMENT = &quot;&quot;&quot; INSERT INTO cat_wiki_count (datetime_checked, cat_count, most_popular_word) VALUES ('{datetime_checked}', {cat_count}, '{most_popular_word}'); &quot;&quot;&quot;.format(datetime_checked=EPOCH, cat_count=cat_count, most_popular_word=most_popular_word) snowflake.execute(DELETE_STATEMENT) snowflake.execute(INSERT_STATEMENT)
+</code></pre><p>Now let’s say your insert statement failed.  What are you left with? An empty table. Your boss wants the most recent, so if an insert failed, the truncate never should have happened. So how do we handle this?</p>
+<p>We create a transaction using sqlalchemy and we rollback if our truncate failed</p>
+<pre><code>engine = snowflake.engine
+connection = snowflake.connect_engine() 
+transaction = connection.begin() 
+try: 
+    connection.execute(DELETE_STATEMENT)
+    connection.execute(INSERT_STATEMENT)
+except Exception as e:
+    transaction.rollback() 
+    raise ValueError(e) 
+else:
+    transaction.commit() 
+finally: 
+    connection.close()
+</code></pre><p>This leverages:
+A transaction without autocommit, so actions can be rolled back. Usually, in our UI or IDEs we use autocommit so we don’t even think about it, but technically transactions such as DELETE and INSERT need to be committed. Read more about sqlalchemy transactions <a href="https://docs.sqlalchemy.org/en/13/orm/session_transaction.html">here</a>. Basically, if either the DELETE or the INSERT fails, we rollback the transaction and the table goes to its state before the transaction started.
+All 4 parts of a try: try, except, else and finally. We leverage the <code>except</code> to rollback the transaction if something bad happened, the <code>else</code> to commit the transaction if it worked, and the <code>finally</code> to close the connection because, no matter what, we want to do that.</p>
+<p>Again, I find it easier to just write from Python into Snowflake or any database with a timestamp and then deduplicate later in the SQL, but if you must delete records, be careful about it.</p>
+<p>In this case, I fulfilled the requirement but let’s take a step back and think about scalability, validation, and flexibility.</p>
+<p>Since Snowflake is great at storing semi-structured data and storage is cheap, is there any reason not to just store the entire dictionary as a variant that can be parsed as JSON? The benefits are:
+Keeps historic data - let’s say next week your boss wants to know the second most common word, how can you go back in time? If it’s not more effort or cost to store the entire dataset, consider doing that and parsing out what you need.
+Flexibility - what happens when your boss wants to check the dog page for the instances of the word dog? Do you make a dog_counter?
+The most scalable version is a Python script that takes the name of a page, checks to ensure it found that page, and stores the count of each word:</p>
+<pre><code>#!/usr/bin/python3
+ 
+import requests
+import logging
+import re
+import time
+import sys
+import json
+ 
+PAGES_TO_SEARCH = [&quot;Cat&quot;, &quot;Dog&quot;]
+URL = &quot;https://en.wikipedia.org/w/api.php&quot;
+for page in PAGES_TO_SEARCH:
+   EPOCH = str(time.time()).split(&quot;.&quot;)[0]
+   word_list = []
+   word_dict = {}
+   sorted_word_dict = {}
+ 
+   ## from https://www.mediawiki.org/wiki/API:Parsing_wikitext#GET_request
+   S = requests.Session()
+ 
+   PARAMS = {&quot;action&quot;: &quot;parse&quot;, &quot;page&quot;: page, &quot;format&quot;: &quot;json&quot;}
+ 
+   R = S.get(url=URL, params=PARAMS)
+   DATA = R.json()
+ 
+   ## ensure the title page we're on is Cat
+   if DATA[&quot;parse&quot;][&quot;title&quot;] != page:
+       print(&quot;something very bad happened&quot;)
+       sys.exit(-1)
+ 
+   ## from https://stackoverflow.com/questions/9942594/unicodeencodeerror-ascii-codec-cant-encode-character-u-xa0-in-position-20
+   convert_to_string = str(DATA[&quot;parse&quot;][&quot;text&quot;][&quot;*&quot;].encode(&quot;utf-8&quot;).strip())
+   ## from https://stackoverflow.com/questions/753052/strip-html-from-strings-in-python
+   convert_to_string = re.sub(&quot;&lt;[^&lt;]+?&gt;&quot;, &quot;&quot;, convert_to_string)
+   convert_to_string = re.sub(&quot;&amp;#[^&lt;]+?;[^&lt;]+?;&quot;, &quot;&quot;, convert_to_string)
+   ## split on punctionality
+   ## https://stackoverflow.com/questions/9797357/dividing-a-string-at-various-punctuation-marks-using-split
+   convert_to_string = re.sub('[?., %-()&quot;^;:/]', &quot; &quot;, convert_to_string)
+   ##https://stackoverflow.com/questions/1546226/what-is-a-simple-way-to-remove-multiple-spaces-in-a-string
+   convert_to_string = re.sub(&quot;\\n&quot;, &quot; &quot;, convert_to_string)
+   convert_to_string = re.sub(&quot; +&quot;, &quot; &quot;, convert_to_string)
+   convert_to_string = convert_to_string.lower()
+ 
+   end = convert_to_string.rfind(&quot;See also&quot;)
+   convert_to_string = convert_to_string[:end]
+   convert_to_string = convert_to_string.replace(r&quot;\\u&quot;, &quot;&quot;)
+ 
+   word_list = convert_to_string.split(&quot; &quot;)
+ 
+   for word in word_list:
+       if word.isalpha():
+           word_dict[word] = word_dict.get(word, 0) + 1
+ 
+   word_dict = json.dumps(word_dict)
+ 
+   INSERT_STATEMENT = &quot;&quot;&quot;
+   INSERT INTO wiki_word_count (datetime_checked, page_name, word_count_json)
+   (SELECT '{datetime_checked}', '{page}', PARSE_JSON('{word_count}'));
+   &quot;&quot;&quot;.format(
+       datetime_checked=EPOCH, page=page.lower(), word_count=word_dict
+   )
+ 
+</code></pre><p>The table looks like this:</p>
+<p><a href="https://www.alisa-in.tech/images/raw_results.png">https://www.alisa-in.tech/images/raw_results.png</a></p>
+<p>We can get the count of instances of the page name and the most common word with this query:</p>
+<pre><code>SELECT DISTINCT
+   datetime_checked,
+   page_name,
+   word_count_json[page_name] AS page_name_count,
+   LAST_VALUE(f.key) OVER (PARTITION BY page_name, datetime_checked ORDER BY f.value asc)
+FROM wiki_word_count,
+LATERAL FLATTEN(input =&gt; word_count_json) f
+</code></pre><p><a href="https://www.alisa-in.tech/images/most_common_word.png">https://www.alisa-in.tech/images/most_common_word.png</a></p>
+<p>And there we have it. &ldquo;The&rdquo; is a pretty common word. If you learned anythign from this post, I hope it was not that.</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
