@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <title>Uncool Things in Snowflake &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="Uncool Things in Snowflake"/>
+  <meta property="og:description" content="This is the third post in a series of Cool Things to do in Snowflake, but these are things that are really cool when you don’t do them; they’re Uncool Things to Do in Snowflake."/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-02-25T15:12:11-0400"/>
+  <meta property="article:modified_time" content="2020-02-25T15:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Uncool Things in Snowflake",
+    "headline": "Uncool Things in Snowflake",
+    "datePublished": "2020-02-25T15:12:11-0400",
+    "dateModified": "2020-02-25T15:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://www.alisa-in.tech/"
+    },
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/",
+    "description": "This is the third post in a series of Cool Things to do in Snowflake, but these are things that are really cool when you don’t do them; they’re Uncool Things to Do in Snowflake."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://www.alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Uncool Things in Snowflake</h1>
+
+  <div class="post-date">
+    <time datetime="2020-02-25T15:12:11-0400">Feb 25, 2020</time> · 5 min read
+  </div>
+
+  <p>This is the third post in a series of Cool Things to do in Snowflake, but these are things that are really cool when you don’t do them; they’re Uncool Things to Do in Snowflake.</p>
+<h3 id="1-make-a-date-not-a-date">1. Make a date not a date</h3>
+<p>Snowflake has plenty of out-of-the-box date functions: <code>dayname</code>, <code>datediff</code>, and <code>date_trunc</code> to name just three. You can read more about the functions <a href="https://docs.snowflake.net/manuals/sql-reference/functions-date-time.html">here</a>. Using a built-in function on a native date object gives you a lot of control, but you give up all this power as soon as you turn a date to not a date.
+Let’s say you have a perfectly good date, such as 2017-07-31, which is my best estimate of Mac and Cheese’s birthdate.</p>
+<p>Let’s say you want year and month; you may be tempted to do:</p>
+<pre><code>SELECT 
+    LEFT(REPLACE('2017-07-31', '-'), 6) AS birth_year_month
+FROM cat_birthdates
+</code></pre><p>And you would get 201707.  But now let’s say you want to add 60 days to that.</p>
+<pre><code>SELECT 
+    LEFT(REPLACE('2017-07-31', '-'), 6) + 60 AS birth_year_month
+FROM cat_birthdates
+</code></pre><p>Gives you 201767, which is not a date.</p>
+<p>While</p>
+<pre><code>SELECT 
+    DATEADD('day', 60, LEFT(REPLACE('2017-07-31', '-'), 6)) AS birth_year_month
+FROM cat_birthdates
+</code></pre><p>gives you 1970-03-04 08:01:47.000. That is somehow worse.</p>
+<p>So how would we handle this? <strong>Always keep a date a date</strong></p>
+<p>Whenever I have to list a month, I like to use the first of the month:</p>
+<pre><code>SELECT 
+    DATE_TRUNC('month', '2017-07-31'::Date) AS birth_year_month 
+FROM cat_birthdates
+</code></pre><p>which gives:</p>
+<p>2017-07-01</p>
+<p>You can then add 60 days by doing:</p>
+<pre><code>SELECT 
+    DATEADD(‘day’, 60, DATE_TRUNC('month', '2017-07-31'::Date)) AS birth_year_month
+FROM cat_birthdates
+</code></pre><p>which gives:</p>
+<p>2017-08-30</p>
+<p>Much more accurate than anything the other queries gave us.</p>
+<h3 id="2-use-where-not-in-subquery-on-anything-other-than-a-primary-key">2. Use <code>WHERE NOT IN &lt;subquery&gt;</code> on anything other than a primary key</h3>
+<p>I am a big fan of <code>WHERE IN &lt;subquery&gt;</code> because it looks so clean:</p>
+<pre><code>SELECT animal_name 
+FROM animals
+WHERE animal_id IN (SELECT animal_id FROM cats);
+</code></pre><p>In this case, you could just do an inner join, but let’s say you didn’t want to do that because you’re doing a DELETE statement to get rid of all non-cats:</p>
+<pre><code>DELETE 
+FROM animal_name	
+WHERE animal_id NOT IN (SELECT animal_id FROM cats);
+</code></pre><p>I think this is readable, but you may get an unexpected error if <code>animal_id</code> has any NULLS (it’s always NULLs). If <code>animal_id</code> is ever NULL, the statement will stop and only delete what records it’s seensince. This is not a bug and it’s not unique to Snowflake; it has to do with how all databases treat NULL. The question and answers <a href="https://support.snowflake.net/s/question/0D50Z00007CaMMmSAN/problem-with-not-in-subquery">here</a> will show you the frustration this can cause. There is also a RDMS agnostic write up <a href="https://dzone.com/articles/consider-using-not-exists-instead-of-not-in-subque">here</a>.</p>
+<p>My general rules:
+Use JOINS in a <code>SELECT</code> because you can
+In <code>DELETE</code>s or <code>UPDATE</code>s, use <code>NOT IN</code> when both sides of the <code>NOT IN</code> cannot be NULL (I only trust when they’re the primary keys because then I know they’ll be not NULL)
+If you are not sure if the fields can be NULL, use <code>NOT EXISTS</code> since it’s safer</p>
+<pre><code>DELETE 
+FROM animal_name AS a
+WHERE NOT EXISTS
+    (SELECT 
+        animal_id 
+    FROM cats AS c
+    WHERE c.animal_id =  a.animal_id)
+</code></pre><p>Read more about <a href="https://docs.snowflake.net/manuals/sql-reference/operators-subquery.html">Subquery Operators</a>, including ANY and ALL in the Snowflake docs.</p>
+<h3 id="3-select--when-you-dont-mean-it">3. <code>SELECT *</code> when you don’t mean it</h3>
+<p>Snowflake is a columnar database; this means you pay (in compute and time) for each column you ask Snowflake to return to you. I wrote about database storage in <a href="https://www.alisa-in.tech/post/2019-07-03-rowbased/">this post</a>.</p>
+<p>I did a <code>SELECT *</code> from a table with 17 columns and a more specific <code>SELECT id</code> from the same table. The bytes scanned went from 142.5KB to 28.0KB, despite that it returned the same numbers of rows.</p>
+<p>The bytes scanned increase isn’t linear by column because there is overhead to querying a table, but if you are only planning on using one column, only select that column.</p>
+<p>This expense is magnified when we use SELECT * in CTEs or subqueries:</p>
+<pre><code>WITH cats_are_cute AS (
+    SELECT * 
+    FROM animals
+    WHERE cat = True
+    AND breed != ‘Sphynx’
+),
+uncute_animals AS (
+    SELECT * 
+    FROM animals
+    WHERE dog = True
+    OR bread = ‘Sphynx’
+)
+SELECT animal_name, ‘meow’ FROM cats_are_cute
+UNION ALL
+SELECT animal_name, ‘bark’ FROM uncute_animals;
+</code></pre><p>A few things happened here: I selected all columns from <code>animals</code> twice and, excluding my filters, I only used one of them: animal_name. It would be more efficient to write:</p>
+<pre><code>WITH cats_are_cute AS (
+    SELECT animal_name 
+    FROM animals
+    WHERE cat = True
+    AND breed != ‘Sphynx’
+),
+uncute_animals AS (
+    SELECT animal_name 
+    FROM animals
+    WHERE dog = True
+    OR bread = ‘Sphynx’
+)
+SELECT animal_name, ‘meow’ FROM cats_are_cute
+UNION ALL
+SELECT animal_name, ‘bark’ FROM uncute_animals;
+</code></pre><p>Whether or not you see the results of the <code>SELECT *</code>, the database does the work. If you are getting no benefit from it, you should not pay for it.</p>
+<h3 id="4-order-by-in-any-statement-except-for-the-one-returning-data">4. <code>ORDER BY</code> in any statement except for the one returning data</h3>
+<p>Similar to #3, if you write the following query:</p>
+<pre><code>WITH dates AS 
+    (SELECT * 
+    FROM dates
+    ORDER BY dt DESC),
+dogs AS 
+    (SELECT * 
+    FROM adoption_fact)
+SELECT * 
+FROM dogs
+INNER JOIN dates
+ON dates.dt = dogs.adopted_date
+</code></pre><p>you will pay for the ORDER BY (you could check the Profile tab to see the <code>SORT</code>)</p>
+<p><img src="/images/sort2.png" alt="This is my image"></p>
+<p>But Snowflake only cares about an ORDER BY in the last SELECT, so this query won’t order your final results. You’ll pay for the time and compute of the ORDER BY, but you will get nothing back.</p>
+<p>Note: depending on your query, there may be some ordering that gets to the final SELECT, but this isn’t guaranteed, so it’s useless in most cases.</p>
+<h3 id="5-manually-comment-out-sql">5. Manually comment out SQL</h3>
+<p>When using the Snowflake website, you can bulk comment by using COMMAND + /. This then makes it easier to bulk uncomment out. If you manually put in &ndash; or //, especially if you mix and match them, you have to then go through and manually uncomment each line. You also prevent someone else from bulk uncommenting if you use &ndash;.</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

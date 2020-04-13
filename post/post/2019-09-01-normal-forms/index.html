@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <title>Normal Forms for Normal People &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="Normal Forms for Normal People"/>
+  <meta property="og:description" content="This post is for my friend Mitch, who, despite his persistent belief that he annoys me with his questions, has reminded me why it’s important that we stay hungry for theoretical knowledge even as we get caught up in our day-to-day work."/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2019-09-01-normal-forms/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2019-09-01T15:12:11-0400"/>
+  <meta property="article:modified_time" content="2019-09-01T15:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Normal Forms for Normal People",
+    "headline": "Normal Forms for Normal People",
+    "datePublished": "2019-09-01T15:12:11-0400",
+    "dateModified": "2019-09-01T15:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://www.alisa-in.tech/"
+    },
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2019-09-01-normal-forms/",
+    "description": "This post is for my friend Mitch, who, despite his persistent belief that he annoys me with his questions, has reminded me why it’s important that we stay hungry for theoretical knowledge even as we get caught up in our day-to-day work."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://www.alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Normal Forms for Normal People</h1>
+
+  <div class="post-date">
+    <time datetime="2019-09-01T15:12:11-0400">Sep 1, 2019</time> · 12 min read
+  </div>
+
+  <p>This post is for my friend Mitch, who, despite his persistent belief that he annoys me with his questions, has reminded me why it’s important that we stay hungry for theoretical knowledge even as we get caught up in our day-to-day work.</p>
+<h2 id="what-are-normal-forms">What are normal forms?</h2>
+<p>Normal forms are properties one can apply to a database to normalize it. Does that not help? I felt like it helped but then I re-read it and I realized it was meaningless. Okay, Wikipedia said database normalization “is the process of structuring a relational database [. . .] in order to reduce data redundancy and improve data integrity.” (<a href="https://en.wikipedia.org/wiki/Database_normalization">source</a>). This process is a collection of steps you can take. These steps are called normal forms. They go in order. This is a significantly better definition. Basically, you want the design of your database to allow for easy inserts and updates that don’t cause duplicates and break everything over time, and, to do this, you walk through the normal forms and apply them to your database.</p>
+<p>There are ten normal forms; each time a database adheres to an increasingly normalized form, it is said to “satisfy” that form. So, in the process of normalizing your database, you satisfy first normal form (1NF), second normal form (2NF), third normal form (3NF), then Boyce–Codd normal form. Yeah, that is where it gets weird. The forms are in order in the sense that if a database schema satisfies 3NF, that means it satisifies 2NF and 1NF. We are going to focus on only the first three normal forms, as those are by far the most commonly satisfied because, as we will see, the forms get increasingly hard to satisfy and they correct for increasingly rare potential bugs.</p>
+<h2 id="are-normal-forms-still-relevant">Are normal forms still relevant?</h2>
+<p>Normal forms hold a special part in my heart; like others who have taken a database class, I lived and died by them for an entire semester. I read Kimball’s book. I memorized the definition and an example and counterexample for each form. I learned then and I still believe now that Kimball’s work on data warehouses, including normalization, revolutionized data warehousing and paved the way for the rise of big data and data science.</p>
+<p>However, I treat the topic differently in a professional setting. Who has time to talk about normal forms when things are breaking? Who has time to explain a normal form to a stakeholder who doesn’t want to do 10 joins? Just add the column to the table!</p>
+<p>It is a contradiction that I firmly hold the following two beliefs: normal forms are one of the most important concepts of data warehousing and that normal forms are interview questions unrelated to our “real” job. I have to reconcile these two beliefs.</p>
+<h2 id="what-can-i-add-to-the-conversation-about-normal-forms">What can I add to the conversation about normal forms?</h2>
+<p>I have to sort out my contradictory feelings on normal forms. To do this, I’m going to walk through the normal forms, not for a five year old (Rhys is six now, by the way, he didn't get a gift from you), but for normal people; for people who talk to stakeholders every day; for people who don’t have infinite time to consider the impact of database design; for people who read the blog posts on this site. So, in short, very, very few people.</p>
+<p>My fear in writing a post is that I will simply rewrite the Wikipedia page in a lower grade level. I don’t want to do that. I know you can read Wikipedia. But can I write a post for Mitch who wants to know the theory but only as he can apply it to his job?</p>
+<h2 id="how-can-i-memorize-the-forms">How can I memorize the forms?</h2>
+<p>You can’t, that’s crazy. Lower your ambitions in life, jeez. I can only help you remember the first three.
+I’ve heard this phrase in a few different ways but Wikipedia attributes the following to William Kent:  &ldquo;[every] non-key [attribute] must provide a fact about the key, the whole key, and nothing but the key&rdquo;. (<a href="https://en.wikipedia.org/wiki/Third_normal_form#cite_note-Kent-7">source</a>). You say this in the same cadence as “the truth, the whole truth, and nothing but the truth.” This has helped me keep the forms straight in stressful situations like interviews or tests (“the key, the whole key, and nothing but the key”). We will walk through what this means.</p>
+<p>If you need to brush up on primary keys, please see the post <a href="http://www.alisa-in.tech/eli5/2018/08/15/pks.html">here</a> before continuing.</p>
+<h2 id="first-normal-form">First Normal Form</h2>
+<h3 id="what-is-1nf">What is 1NF?</h3>
+<p>The key. The table must have a key, all other fields must depend on that key, and each field value must be atomic.
+The concept of fields depending on the primary key may be a little vague, but Wikipedia has a great <a href="https://en.wikipedia.org/wiki/Functional_dependency">page</a> on functionality dependency. For now, I think it’s sufficient to say that the table has a primary key and this primary key is unique.</p>
+<h3 id="what-does-violating-1nf-look-like">What does violating 1NF look like?</h3>
+<p>A table in first normal form will look like a table with a primary key that each of the non-primary key fields depend on in some way, meaning they will describe the primary key field and contain one value each. A <em>violation</em> of first normal form looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>Cat ID (PK)</th>
+<th>Cat Name</th>
+<th>Parents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mac</td>
+<td>Alisa, Adam</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cheese</td>
+<td>Alisa, Adam</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sleepy</td>
+<td>Alisa</td>
+</tr>
+</tbody>
+</table>
+<p>An additional violation would be if the table simply did not have a primary key or it had a bunch of unrelated fields, but that is harder to represent visually, and, in my opinion, less likely to happen.</p>
+<!-- raw HTML omitted -->
+<h3 id="what-happens-if-i-violate-1nf">What happens if I violate 1NF?</h3>
+<p>The cat table above has an obvious drawback: it’s extremely hard to filter for the cats that Alisa owns. For instance, you can’t get the right results from:</p>
+<pre><code>SELECT cat_name FROM not_first_normal_form_cat_table
+WHERE parents = 'Alisa'
+</code></pre><p>This will actually result in 1 row returned. In order to get the correct answer, you will have to do something like this:</p>
+<pre><code>SELECT cat_name FROM not_first_normal_form_cat_table
+WHERE parents ilike 'Alisa'
+</code></pre><p>Which is less performant and less intuitive. Stakeholders may forget to use this syntax and incorrectly report metrics.</p>
+<p>If you go back to the original reasoning for why we normalize our databases, you’ll see our concern was redundancy and data integrity.  How is that impacted by first normal form?</p>
+<p>Well, let’s try to make an update to not_first_normal_form_cat_table. Let’s say I changed my name to Alisa In-Tech. If this table satisfied 1NF we could do:
+<!-- raw HTML omitted --></p>
+<pre><code>UPDATE not_first_normal_form_cat_table
+SET parents = ‘Alisa In-Tech’’
+WHERE parents = ‘Alisa’
+</code></pre><p>But in this case, that would not work; this would only change the parent of Sleepy. We would have to do something like:
+<!-- raw HTML omitted --></p>
+<pre><code>DELETE FROM not_first_normal_form_cat_table
+WHERE parents ilike ‘%Alisa%’;
+
+INSERT INTO not_first_normal_form_cat_table
+SELECT  * FROM source_data
+WHERE parents ilike ‘%Alisa In-Tech%’;
+</code></pre><!-- raw HTML omitted -->
+<h3 id="are-there-any-benefits-of-violating-1nf">Are there any benefits of violating 1NF?</h3>
+<p>The last section was to bring awareness about the dangers of violating first normal form, but once you know the risks of making a choice, you are then prepared to know when to make that choice. One common violation I see a lot is putting the entire semi-structured source data into a field.<!-- raw HTML omitted -->
+Now that database systems including <a href="https://docs.snowflake.net/manuals/user-guide/semistructured-concepts.html">Snowflake</a> have gotten better at ingesting semi-structured data such as JSON and Parquet, it has become trivial to store the entire record in one field. Unlike CSV ingestion, JSON ingestion will not break if there are missing keys, a key name change, or field values that change types. With less sensitive ingestion into the write schema, it becomes tempting to just provide this record of the complete data set in the read schema. Since Snowflake also makes it easy for end users to parse JSON (if you know what you are looking for), this cuts down on column add requests when a new key is set to the source.
+Is this a good idea for every data source? No. This can cause havoc and JSON blobs are large, making returning results take even longer. I only recommend it when:<!-- raw HTML omitted --></p>
+<ul>
+<li>You know you will never do an update, insert, or delete based on the values in the JSON field</li>
+<li>You have a data set that does not change shape much between the source and the production data (so it’s easy to just tack on the JSON field to the end of each record without doing much transformation on it)</li>
+<li>The underlying data set has frequently changing field and keys values and types that stakeholders want to access shortly after a change. If the key names and field data types don’t change often, why not just parse them?</li>
+</ul>
+<h2 id="second-normal-form">Second Normal Form</h2>
+<h3 id="what-is-2nf">What is 2NF?</h3>
+<p>The whole key. This means that every non-key attribute (every field that isn’t the primary key) depends on all the parts of the key. If a table has only one primary key and satisfies 1NF then the table automatically satisfies 2NF. This is the best case scenario for a test question. It saves so much time for that answer. <!-- raw HTML omitted -->
+But let’s say we have a composite <a href="https://en.wikipedia.org/wiki/Compound_key">primary key</a> which, despite what a candidate once told me during an interview, is possible. 2NF says we should be sure that no non-key field depends on only part of our composite key.</p>
+<h3 id="what-does-violating-2nf-look-like">What does violating 2NF look like?</h3>
+<p>Without loss of generality, let’s assume our composite key has two fields in our table that tracks cat weights: bad_2nf_cat_weight</p>
+<table>
+<thead>
+<tr>
+<th>Cat ID (PK)</th>
+<th>Weigh in Date (PK)</th>
+<th>Cat Weight</th>
+<th>Cat Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2019-01-01</td>
+<td>10 pounds</td>
+<td>Mac</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2019-01-01</td>
+<td>8 pounds</td>
+<td>Cheese</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2019-01-02</td>
+<td>11 pounds</td>
+<td>Mac</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2019-01-05</td>
+<td>8 pounds</td>
+<td>Cheese</td>
+</tr>
+</tbody>
+</table>
+<p>Technically, the names Mac and Cheese can be determined by (depend on) the primary key {Cat ID, Weigh in Date}. However, Mac and Cheese can also be unique determined by Cat ID (see not_first_normal_form_cat_table). So this is partial dependency; it violates 2NF.</p>
+<p>Note: In this case, we would say that the cat's name is “denormalized” on to the weight table. If there is a lot of instances of this, we may say that the database schema is “heavily denormalized.”</p>
+<h3 id="what-happens-if-i-violate-2nf">What happens if I violate 2NF?</h3>
+<p>So is this really bad? Don’t people who want who use the cat table want to know which cat we are weighing? The true 2NF form would be two tables:</p>
+<p>cat_weight_fact</p>
+<table>
+<thead>
+<tr>
+<th>Cat ID (PK)</th>
+<th>Weigh in Date (PK)</th>
+<th>Cat Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2019-01-01</td>
+<td>10 pounds</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2019-01-01</td>
+<td>8 pounds</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2019-01-02</td>
+<td>11 pounds</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2019-01-05</td>
+<td>8 pounds</td>
+</tr>
+</tbody>
+</table>
+<p>cat_dim</p>
+<table>
+<thead>
+<tr>
+<th>Cat ID (PK)</th>
+<th>Cat Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mac</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cheese</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sleepy</td>
+</tr>
+</tbody>
+</table>
+<p>We would expect the stakeholder to join cat_weight_fact to cat_dim on cat_id in order to find the name. <!-- raw HTML omitted -->
+Why are two tables better than one? Well, let’s say we want to change Mac’s name to Macaroni (that is his full name, by the way, Macaroni In-Tech). To update the violation of 2NF, we would need to update 2 records, while in the 2NF example, we would only need to update one record in cat_dim. <!-- raw HTML omitted -->
+Updating two records versus one is not that big of a deal, but data tends to grow, with fact tables growing much faster than dimension tables. So do you want to continue to update larger and larger tables with table scans? Or do you want to update one record and put the onus on stakeholders to do the join?</p>
+<h3 id="are-there-any-benefits-of-violating-2nf">Are there any benefits of violating 2NF?</h3>
+<p>So when we do we make a calculated decision to disregard 2NF? There’s no hard and fast rule but in general, the following may make you consider violating 2NF: <!-- raw HTML omitted --></p>
+<ul>
+<li>When you know the stakeholders will virtually always make this join</li>
+<li>When the join to get the additional information will be expensive for stakeholders (post on expensive joins it forthcoming)</li>
+<li>When the cat's name (the denormalized field) will rarely if ever be updated</li>
+</ul>
+<h2 id="third-normal-form">Third Normal Form</h2>
+<h3 id="what-is-3nf">What is 3NF?</h3>
+<p>And nothing but the key. We know all non-key fields already depend on the whole key, so how could the fields depend on anything other than the key? Well, we want to eliminate any instances of <a href="https://en.wikipedia.org/wiki/Transitive_dependency">transitive dependency</a>. A transitive dependency is when a non-key field depends on all parts of the key, but it could also be determined by another non-key field.</p>
+<h3 id="what-does-violating-3nf-look-like">What does violating 3NF look like?</h3>
+<p>Let’s say we wanted to keep track of what the cats like:
+<!-- raw HTML omitted -->
+Bad_3nf_cat_favorite_food</p>
+<table>
+<thead>
+<tr>
+<th>Cat ID (PK)</th>
+<th>Meal Name (PK)</th>
+<th>Favorite Food</th>
+<th>Favorite Food Brand</th>
+<th>Favorite Food Flavor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dinner</td>
+<td>Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food</td>
+<td>Blue Buffalo</td>
+<td>Chicken</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dinner</td>
+<td>Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food</td>
+<td>Blue Buffalo</td>
+<td>Chicken</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Dinner</td>
+<td>Gourmet Naturals Beef Canned Cat Food</td>
+<td>Fancy Feast</td>
+<td>Beef</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Snack</td>
+<td>Pill Pockets Treats Chicken Flavor</td>
+<td>Greenies</td>
+<td>Chicken</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Snack</td>
+<td>Treats Tuna &amp; Cheese Flavor</td>
+<td>Greenies</td>
+<td>Tuna</td>
+</tr>
+</tbody>
+</table>
+<p>Technically, every non-key attribute in this table depends on both parts of the primary key {Cat ID, Meal}, but are those two fields combined the only way we can determine each field? What I mean is-  can we only determine that Mac’s favorite dinner food brand is Blue Buffalo from knowing that those two fields? Or could we determine that from the fact that his favorite food is Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food, which is only produced by Blue Buffalo? The latter, so we have a transitive dependency.<!-- raw HTML omitted -->
+The solution would be, once again, to make two tables (normalization tends to create more tables and denormalization tends to collapse or combine tables):<!-- raw HTML omitted --></p>
+<p>cat_favorite_food</p>
+<table>
+<thead>
+<tr>
+<th>Cat ID (PK)</th>
+<th>Meal Name (PK)</th>
+<th>Favorite Food</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dinner</td>
+<td>Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dinner</td>
+<td>Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Dinner</td>
+<td>Gourmet Naturals Beef Canned Cat Food</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Snack</td>
+<td>Pill Pockets Treats Chicken Flavor</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Snack</td>
+<td>Treats Tuna &amp; Cheese Flavor</td>
+</tr>
+</tbody>
+</table>
+<p>cat_food_dim</p>
+<table>
+<thead>
+<tr>
+<th>Food Name (PK)</th>
+<th>Food Brand</th>
+<th>Food Flavor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food</td>
+<td>Blue Buffalo</td>
+<td>Chicken</td>
+</tr>
+<tr>
+<td>Wilderness Indoor Chicken Recipe Grain-Free Dry Cat Food</td>
+<td>Blue Buffalo</td>
+<td>Chicken</td>
+</tr>
+<tr>
+<td>Gourmet Naturals Beef Canned Cat Food</td>
+<td>Fancy Feast</td>
+<td>Beef</td>
+</tr>
+<tr>
+<td>Pill Pockets Treats Chicken Flavor</td>
+<td>Greenies</td>
+<td>Chicken</td>
+</tr>
+<tr>
+<td>Treats Tuna &amp; Cheese Flavor</td>
+<td>Greenies</td>
+<td>Tuna</td>
+</tr>
+</tbody>
+</table>
+<p>Note that in reality, we may use a surrogate key for Food Name since it’s so long, but I didn’t want to add additional numbers to this example lest I take away from the point.</p>
+<p>Once again, we’re asking the stakeholders to join these two tables if they want to know the brand of Mac’s favorite dinner food.</p>
+<!-- raw HTML omitted -->
+<h3 id="what-happens-if-i-violate-3nf">What happens if I violate 3NF?</h3>
+<p>Let’s say you go with the first version of the table: bad_3nf_cat_favorite_food. This will get 2x bigger for every cat we get (assuming cats only eat dinner and snacks). So if a brand updated its brand name, it would take two times the compute to update bad_3nf_cat_favorite_food rather than cat_food_dim.</p>
+<h3 id="are-there-any-benefits-of-violating-3nf">Are there any benefits of violating 3NF?</h3>
+<p>The benefit of violating 3NF if similar to that of 3NF: fewer joins for stakeholders. So if the join would be common, expensive, or the only way someone would view the data, consider denormalizing.</p>
+<h2 id="so-what-did-i-learn">So what did I learn?</h2>
+<p>The normal forms have a very real business purposes, to make updates to and maintenance of a data schema easier. But there are trade offs involved. We want to use our knowledge of the data changes and stakeholder uses to make efficient decisions on when and how to normalize data.<!-- raw HTML omitted -->
+And Mac and Cheese love food:</p>
+<!-- raw HTML omitted -->
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

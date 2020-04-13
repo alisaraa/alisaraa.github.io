@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alisa in Techland</title>
-    <link>https://www.alisa-in.tech/</link>
-    <description>Recent content on Alisa in Techland</description>
+    <title>Posts on Alisa in Techland</title>
+    <link>https://www.alisa-in.tech/post/</link>
+    <description>Recent content in Posts on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Apr 2020 15:12:11 -0400</lastBuildDate>
     
-	<atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -208,15 +208,6 @@ This post won’t include anything revolutionary, but rather just a summary of w
       
       <guid>https://www.alisa-in.tech/post/2018-04-05-name/</guid>
       <description>Let me start by saying that I love my name. I love the way it sounds.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://www.alisa-in.tech/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.alisa-in.tech/about/</guid>
-      <description>I am Alisa (uh-lee-suh) and I am a data engineer. I have other hobbies too.</description>
     </item>
     
   </channel>
