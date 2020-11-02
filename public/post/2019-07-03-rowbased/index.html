@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.77.0" />
 
   <title>Database Storage &middot; Alisa in Techland</title>
 
@@ -13,13 +13,13 @@
   <meta property="og:locale" content="en-us"/>
 
   
-  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+  <meta property="og:image" content="https://alisa-in.tech/images/profile.png">
 
   
   <meta property="og:site_name" content="Alisa in Techland"/>
   <meta property="og:title" content="Database Storage"/>
   <meta property="og:description" content="There are two types of relational database management systems: columnar and row-based, also called: column-wise and row-wise, column store and row store, column-based and row-based, and column-oriented and row-oriented."/>
-  <meta property="og:url" content="https://www.alisa-in.tech/post/2019-07-03-rowbased/"/>
+  <meta property="og:url" content="https://alisa-in.tech/post/2019-07-03-rowbased/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2018-07-03T15:12:11-0400"/>
   <meta property="article:modified_time" content="2018-07-03T15:12:11-0400"/>
@@ -33,8 +33,8 @@
     "@context" : "http://schema.org",
     "@type" : "Blog",
     "name": "Alisa in Techland",
-    "url" : "https://www.alisa-in.tech/",
-    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url" : "https://alisa-in.tech/",
+    "image": "https://alisa-in.tech/images/profile.png",
     "description": ""
   }
   </script>
@@ -51,10 +51,10 @@
     "author": {
       "@type": "Person",
       "name": "Alisa",
-      "url": "https://www.alisa-in.tech/"
+      "url": "https://alisa-in.tech/"
     },
-    "image": "https://www.alisa-in.tech/images/profile.png",
-    "url": "https://www.alisa-in.tech/post/2019-07-03-rowbased/",
+    "image": "https://alisa-in.tech/images/profile.png",
+    "url": "https://alisa-in.tech/post/2019-07-03-rowbased/",
     "description": "There are two types of relational database management systems: columnar and row-based, also called: column-wise and row-wise, column store and row store, column-based and row-based, and column-oriented and row-oriented."
   }
   </script>
@@ -63,21 +63,21 @@
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://www.alisa-in.tech/css/print.css"
+        href="https://alisa-in.tech/css/print.css"
         media="print">
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://www.alisa-in.tech/css/poole.css">
+        href="https://alisa-in.tech/css/poole.css">
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://www.alisa-in.tech/css/hyde.css">
+        href="https://alisa-in.tech/css/hyde.css">
 
   
 
 
-  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+  <link type="text/css" rel="stylesheet" href="https://alisa-in.tech/css/blog.css">
 
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
@@ -102,7 +102,7 @@
       
         
         <div class="author-image">
-          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+          <img src="https://alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
         </div>
         
       
@@ -115,7 +115,7 @@
     <nav>
       <ul class="sidebar-nav">
         <li>
-          <a href="https://www.alisa-in.tech/">Home</a>
+          <a href="https://alisa-in.tech/">Home</a>
         </li>
         <li>
           <a href="/post/"> Posts </a>
@@ -151,7 +151,7 @@
   <p>There are two types of relational database management systems: columnar and row-based, also called: column-wise and row-wise, column store and row store, column-based and row-based, and column-oriented and row-oriented.</p>
 <p>As always, I will be explaining this concept to my nephew Rhys (pronounced Reese, thanks) who is turning six in July.  I will be explaining the two types to Rhys via a long analogy about his toys.</p>
 <p>Okay Rhys, first we want to show the benefits of a row-based database. Since the difference between row and column-based databases mostly pertains to their method of storage, we are going to think through two different ways to store your toys: by game or toy type. If you store by game, that’s row-based; by toy, that’s column-based.</p>
-<p>Let’s start with storing by game. You could store by game if every time you play with a set of toys, you put the combination of toys in a toy box when you’re done. If you played a game for which you need three stuffed dinosaurs, two Barbies, and some playdough, you store those all in the same box when you're done and retrieve them all from the same box each time you want to play again. This makes setting up for a game much easier. You may even number the boxes (blocks) so you can remember which one is which (row id). In this analogy, we have to assume infinite toys, which honestly isn’t too big of an imaginary stretch. So now you have loads of similar sized boxes with different toys in them.</p>
+<p>Let’s start with storing by game. You could store by game if every time you play with a set of toys, you put the combination of toys in a toy box when you’re done. If you played a game for which you need three stuffed dinosaurs, two Barbies, and some playdough, you store those all in the same box when you&rsquo;re done and retrieve them all from the same box each time you want to play again. This makes setting up for a game much easier. You may even number the boxes (blocks) so you can remember which one is which (row id). In this analogy, we have to assume infinite toys, which honestly isn’t too big of an imaginary stretch. So now you have loads of similar sized boxes with different toys in them.</p>
 <p>Similar to how this will make it easy for you to store and retrieve individual games, row-based databases are optimized for inserting and retrieving individual records, because the entire row is stored together. A good use case for this would be when you fill out your order information on a site; all of that data is stored all together at the same time. When your order summary email is sent, this is a retrieval of your record of data, which hopefully is sent quickly. In addition to speed though, we have to consider storage.</p>
 <p>If your mom bought you boxes of a similar size, some may have a lot of empty space, while others toys may not fit so we will have to use a second box for them. This is a waste of space and hard to keep track of; how do we know when a game will require us to go get two boxes instead of one! Therefore, although it’s quick to get our toys ready for the game, we only have so much room in our house for boxes, and we’re sometimes <a href="https://docs.aws.amazon.com/redshift/latest/dg/c_columnar_storage_disk_mem_mgmnt.html">wasting space</a></p>
 <p>Here’s another drawback: what if I asked you how many Barbie dolls you have? It would take forever for you to count them. You would have to check each box, even those that you found ultimately didn’t have any Barbies. That’s an inefficient way to get to the answer.</p>
@@ -196,7 +196,7 @@
           integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
           crossorigin="anonymous"></script>
 
-  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+  <script src="https://alisa-in.tech/js/blog.js"></script>
 
   
 <script type="application/javascript">

@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.77.0" />
 
   <title>Normal Forms for Normal People &middot; Alisa in Techland</title>
 
@@ -157,7 +157,7 @@
 <p>However, I treat the topic differently in a professional setting. Who has time to talk about normal forms when things are breaking? Who has time to explain a normal form to a stakeholder who doesn’t want to do 10 joins? Just add the column to the table!</p>
 <p>It is a contradiction that I firmly hold the following two beliefs: normal forms are one of the most important concepts of data warehousing and that normal forms are interview questions unrelated to our “real” job. I have to reconcile these two beliefs.</p>
 <h2 id="what-can-i-add-to-the-conversation-about-normal-forms">What can I add to the conversation about normal forms?</h2>
-<p>I have to sort out my contradictory feelings on normal forms. To do this, I’m going to walk through the normal forms, not for a five year old (Rhys is six now, by the way, he didn't get a gift from you), but for normal people; for people who talk to stakeholders every day; for people who don’t have infinite time to consider the impact of database design; for people who read the blog posts on this site. So, in short, very, very few people.</p>
+<p>I have to sort out my contradictory feelings on normal forms. To do this, I’m going to walk through the normal forms, not for a five year old (Rhys is six now, by the way, he didn&rsquo;t get a gift from you), but for normal people; for people who talk to stakeholders every day; for people who don’t have infinite time to consider the impact of database design; for people who read the blog posts on this site. So, in short, very, very few people.</p>
 <p>My fear in writing a post is that I will simply rewrite the Wikipedia page in a lower grade level. I don’t want to do that. I know you can read Wikipedia. But can I write a post for Mitch who wants to know the theory but only as he can apply it to his job?</p>
 <h2 id="how-can-i-memorize-the-forms">How can I memorize the forms?</h2>
 <p>You can’t, that’s crazy. Lower your ambitions in life, jeez. I can only help you remember the first three.
@@ -272,7 +272,7 @@ But let’s say we have a composite <a href="https://en.wikipedia.org/wiki/Compo
 </tbody>
 </table>
 <p>Technically, the names Mac and Cheese can be determined by (depend on) the primary key {Cat ID, Weigh in Date}. However, Mac and Cheese can also be unique determined by Cat ID (see not_first_normal_form_cat_table). So this is partial dependency; it violates 2NF.</p>
-<p>Note: In this case, we would say that the cat's name is “denormalized” on to the weight table. If there is a lot of instances of this, we may say that the database schema is “heavily denormalized.”</p>
+<p>Note: In this case, we would say that the cat&rsquo;s name is “denormalized” on to the weight table. If there is a lot of instances of this, we may say that the database schema is “heavily denormalized.”</p>
 <h3 id="what-happens-if-i-violate-2nf">What happens if I violate 2NF?</h3>
 <p>So is this really bad? Don’t people who want who use the cat table want to know which cat we are weighing? The true 2NF form would be two tables:</p>
 <p>cat_weight_fact</p>
@@ -338,7 +338,7 @@ Updating two records versus one is not that big of a deal, but data tends to gro
 <ul>
 <li>When you know the stakeholders will virtually always make this join</li>
 <li>When the join to get the additional information will be expensive for stakeholders (post on expensive joins it forthcoming)</li>
-<li>When the cat's name (the denormalized field) will rarely if ever be updated</li>
+<li>When the cat&rsquo;s name (the denormalized field) will rarely if ever be updated</li>
 </ul>
 <h2 id="third-normal-form">Third Normal Form</h2>
 <h3 id="what-is-3nf">What is 3NF?</h3>
