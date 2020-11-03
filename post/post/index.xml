@@ -6,14 +6,45 @@
     <description>Recent content in Posts on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2020 15:12:11 -0400</lastBuildDate>
+    
+	<atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
-      <title>Common Excel Functions in SQL</title>
-      <link>https://www.alisa-in.tech/post/2020-11-02-excel/</link>
-      <pubDate>Sun, 01 Nov 2020 00:12:11 -0400</pubDate>
+      <title>How many times does cat appear in the cat Wikipedia page?</title>
+      <link>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</link>
+      <pubDate>Sun, 12 Apr 2020 15:12:11 -0400</pubDate>
       
-      <guid>https://www.alisa-in.tech/post/2020-11-02-excel/</guid>
-      <description>My first job out of college was in insurance analytics. I learned a lot about insurance and a lot about Excel.</description>
+      <guid>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</guid>
+      <description>In this post, I’m going to hit the Wikipedia API to get data to put in a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data.</description>
+    </item>
+    
+    <item>
+      <title>How to practice data engineering when you&#39;re not data engineering</title>
+      <link>https://www.alisa-in.tech/post/2020-04-07-practice-data-engineering/</link>
+      <pubDate>Tue, 07 Apr 2020 15:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-04-07-practice-data-engineering/</guid>
+      <description>One of the hard parts of data engineering is that, when you’re not at work, it is hard to practice because database management systems cost money, data infrastructure takes time to set up, and there are no stakeholders asking you interesting questions.</description>
+    </item>
+    
+    <item>
+      <title>Uncool Things in Snowflake</title>
+      <link>https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/</link>
+      <pubDate>Tue, 25 Feb 2020 15:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/</guid>
+      <description>This is the third post in a series of Cool Things to do in Snowflake, but these are things that are really cool when you don’t do them; they’re Uncool Things to Do in Snowflake.</description>
+    </item>
+    
+    <item>
+      <title>Advanced Cool Things in Snowflake</title>
+      <link>https://www.alisa-in.tech/post/2020-02-21-advanced-snowflake/</link>
+      <pubDate>Fri, 21 Feb 2020 15:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-02-21-advanced-snowflake/</guid>
+      <description>This is part 2 to my blog post Cool Things in Snowflake as requested by one of my many fans.</description>
     </item>
     
     <item>
@@ -32,7 +63,7 @@
       
       <guid>https://www.alisa-in.tech/post/2019-10-12-nulls/</guid>
       <description>We have to talk about NULLs.
-This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&amp;rsquo;t, and why they are important in data warehousing.</description>
+This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&#39;t, and why they are important in data warehousing.</description>
     </item>
     
     <item>
@@ -104,7 +135,7 @@ This post won’t include anything revolutionary, but rather just a summary of w
       <pubDate>Sat, 03 Nov 2018 15:12:11 -0400</pubDate>
       
       <guid>https://www.alisa-in.tech/post/2018-11-03-data-marts/</guid>
-      <description>In this post, I will explain the concept of data marts with approachable language, but I won&amp;rsquo;t be talking to my 5 year old nephew Rhys.</description>
+      <description>In this post, I will explain the concept of data marts with approachable language, but I won&#39;t be talking to my 5 year old nephew Rhys.</description>
     </item>
     
     <item>

@@ -2,44 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Alisa in Techland</title>
-    <link>https://www.alisa-in.tech/categories/</link>
+    <link>https://alisa-in.tech/categories/</link>
     <description>Recent content in Categories on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Oct 2019 15:12:11 -0400</lastBuildDate>
+    
+	<atom:link href="https://alisa-in.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>SQL</title>
-      <link>https://www.alisa-in.tech/categories/sql/</link>
-      <pubDate>Sun, 01 Nov 2020 00:12:11 -0400</pubDate>
+      <link>https://alisa-in.tech/categories/sql/</link>
+      <pubDate>Sat, 12 Oct 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://www.alisa-in.tech/categories/sql/</guid>
+      <guid>https://alisa-in.tech/categories/sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Engineering</title>
-      <link>https://www.alisa-in.tech/categories/engineering/</link>
+      <link>https://alisa-in.tech/categories/engineering/</link>
       <pubDate>Mon, 12 Aug 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://www.alisa-in.tech/categories/engineering/</guid>
+      <guid>https://alisa-in.tech/categories/engineering/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ELI5</title>
-      <link>https://www.alisa-in.tech/categories/eli5/</link>
+      <link>https://alisa-in.tech/categories/eli5/</link>
       <pubDate>Sat, 08 Dec 2018 15:12:11 -0400</pubDate>
       
-      <guid>https://www.alisa-in.tech/categories/eli5/</guid>
+      <guid>https://alisa-in.tech/categories/eli5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WiT</title>
-      <link>https://www.alisa-in.tech/categories/wit/</link>
+      <link>https://alisa-in.tech/categories/wit/</link>
       <pubDate>Thu, 02 Aug 2018 15:12:11 -0400</pubDate>
       
-      <guid>https://www.alisa-in.tech/categories/wit/</guid>
+      <guid>https://alisa-in.tech/categories/wit/</guid>
       <description></description>
     </item>
     
