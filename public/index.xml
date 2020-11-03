@@ -6,7 +6,16 @@
     <description>Recent content on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Oct 2019 15:12:11 -0400</lastBuildDate><atom:link href="https://alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Common Excel Functions in SQL</title>
+      <link>https://alisa-in.tech/post/2020-11-02-excel/</link>
+      <pubDate>Sun, 01 Nov 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2020-11-02-excel/</guid>
+      <description>My first job out of college was in insurance analytics. I learned a lot about insurance and a lot about Excel.</description>
+    </item>
+    
     <item>
       <title>A Good Day to Delete Hard</title>
       <link>https://alisa-in.tech/post/2019-12-20-deletes/</link>
