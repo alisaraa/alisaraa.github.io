@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.77.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <title>Functions in Where Clauses &middot; Alisa in Techland</title>
 
@@ -176,12 +176,12 @@ and adoption_date &lt; current_date
 ) WHERE  DATEADD(days, 30, adoption_date) &gt; current_date
 </code></pre><p>This would at least decrease the number of records on which I performed that operation.</p>
 <p>However, this is a pretty well-known concept; other sites such as <a href="https://www.mssqltips.com/sqlservertutorial/3204/avoid-using-functions-in-where-clause/">MS SQL Tips</a> will tell you the same thing. In fact, I learned it five years ago from a textbook that was probably written twenty years ago.</p>
-<p>But, as the MS SQL Tip site says, there is another reason to be wary of functions in WHERE clauses: it prevents your ability to capitalize on indexing which is so important in performance. But I could not find in Snowflake’s <a href="https://docs.snowflake.net/manuals/user-guide/tables-clustering-keys.html">documentation</a> if this is true of clustering too. I set a cluster key on adoption_date, reclustered fully, and ran both queries from this post and honestly&hellip;they both said they only scanned 2 out of 279 (7%) of the partitions. What does this mean? This means that Snowflake <strong>might</strong> be smart enough to use the clustering key for certain functions in the where clause. Barring official documentation from them though, I can’t say that’s consistently true. Stay tuned because I&rsquo;m going to try to find this out from Snowflake support.</p>
+<p>But, as the MS SQL Tip site says, there is another reason to be wary of functions in WHERE clauses: it prevents your ability to capitalize on indexing which is so important in performance. But I could not find in Snowflake’s <a href="https://docs.snowflake.net/manuals/user-guide/tables-clustering-keys.html">documentation</a> if this is true of clustering too. I set a cluster key on adoption_date, reclustered fully, and ran both queries from this post and honestly&hellip;they both said they only scanned 2 out of 279 (7%) of the partitions. What does this mean? This means that Snowflake <strong>might</strong> be smart enough to use the clustering key for certain functions in the where clause. Barring official documentation from them though, I can’t say that’s consistently true. Stay tuned because I'm going to try to find this out from Snowflake support.</p>
 <p>TL;DR - Functions in WHERE clauses are applied to all records in a table and can therefore be expensive. Although in most databases, a function on an indexed field in the WHERE clause would prevent use of the index, Snowflake may be the exception to this for some functions.</p>
 <p><strong>update</strong> Snowflake help got back to me about my question.
 I asked &ldquo;If I use a function on the clustered key in a where clause, will the query not utilize the clustering?&rdquo;
 They responded &ldquo;Regarding a query, a function on the clustered key in a where clause will utilise the clustering key. However, there are some occurrences/scenarios where it will not be used effective/not used.&rdquo;</p>
-<p>So basically, you don&rsquo;t know if your expression will negate or lessen the impact of a clustering key, so be very careful when using it in a where clause!</p>
+<p>So basically, you don't know if your expression will negate or lessen the impact of a clustering key, so be very careful when using it in a where clause!</p>
 
 </div>
 

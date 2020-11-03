@@ -6,7 +6,11 @@
     <description>Recent content in Engineering on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Aug 2019 15:12:11 -0400</lastBuildDate><atom:link href="https://alisa-in.tech/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Aug 2019 15:12:11 -0400</lastBuildDate>
+    
+	<atom:link href="https://alisa-in.tech/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>How to Say It for Data Engineers</title>
       <link>https://alisa-in.tech/post/2019-08-12-say-it/</link>

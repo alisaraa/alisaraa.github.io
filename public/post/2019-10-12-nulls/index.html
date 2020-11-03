@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.77.0" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <title>Much Ado About NULL Things &middot; Alisa in Techland</title>
 
@@ -19,7 +19,7 @@
   <meta property="og:site_name" content="Alisa in Techland"/>
   <meta property="og:title" content="Much Ado About NULL Things"/>
   <meta property="og:description" content="We have to talk about NULLs.
-This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&rsquo;t, and why they are important in data warehousing."/>
+This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&#39;t, and why they are important in data warehousing."/>
   <meta property="og:url" content="https://alisa-in.tech/post/2019-10-12-nulls/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2019-10-12T15:12:11-0400"/>
@@ -56,7 +56,7 @@ This post won’t include anything revolutionary, but rather just a summary of w
     },
     "image": "https://alisa-in.tech/images/profile.png",
     "url": "https://alisa-in.tech/post/2019-10-12-nulls/",
-    "description": "We have to talk about NULLs.\nThis post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren\u0026rsquo;t, and why they are important in data warehousing."
+    "description": "We have to talk about NULLs.\nThis post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren't, and why they are important in data warehousing."
   }
   </script>
   
@@ -150,9 +150,9 @@ This post won’t include anything revolutionary, but rather just a summary of w
   </div>
 
   <p>We have to talk about NULLs.</p>
-<p>This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&rsquo;t, and why they are important in data warehousing. It’s based on my own experience, not anything academic.</p>
+<p>This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren't, and why they are important in data warehousing. It’s based on my own experience, not anything academic.</p>
 <h2 id="what-is-null">What is NULL?</h2>
-<p>NULL means nothing, but NULL is not “Nothing.” NULL means that “a data value does not exist in the database” (<a href="https://en.wikipedia.org/wiki/Null_(SQL)">Source</a>). The value simply isn&rsquo;t there; the value is <strong>not</strong> 0,  N/A, or False. N/A, for all its ambiguity, is a value. Resisting the temptation to create a default value for a field may be counter-intuitive, but using NULL correctly can benefit both the end user and you.</p>
+<p>NULL means nothing, but NULL is not “Nothing.” NULL means that “a data value does not exist in the database” (<a href="https://en.wikipedia.org/wiki/Null_(SQL)">Source</a>). The value simply isn't there; the value is <strong>not</strong> 0,  N/A, or False. N/A, for all its ambiguity, is a value. Resisting the temptation to create a default value for a field may be counter-intuitive, but using NULL correctly can benefit both the end user and you.</p>
 <h2 id="why-does-using-null-help-the-end-users">Why does using NULL help the end users?</h2>
 <h3 id="correct-aggregated-results">Correct Aggregated Results</h3>
 <p>Let’s say you have a table that includes both dates and names, like the following:</p>

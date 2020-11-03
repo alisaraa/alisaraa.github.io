@@ -3,37 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://alisa-in.tech/</loc>
-    <lastmod>2020-11-01T00:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://alisa-in.tech/categories/</loc>
-    <lastmod>2020-11-01T00:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://alisa-in.tech/post/2020-11-02-excel/</loc>
-    <lastmod>2020-11-01T00:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://alisa-in.tech/post/</loc>
-    <lastmod>2020-11-01T00:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://alisa-in.tech/categories/sql/</loc>
-    <lastmod>2020-11-01T00:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://alisa-in.tech/post/2019-12-20-deletes/</loc>
     <lastmod>2019-10-12T15:12:11-04:00</lastmod>
   </url>
   
   <url>
+    <loc>https://alisa-in.tech/</loc>
+    <lastmod>2019-10-12T15:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alisa-in.tech/categories/</loc>
+    <lastmod>2019-10-12T15:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://alisa-in.tech/post/2019-10-12-nulls/</loc>
+    <lastmod>2019-10-12T15:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alisa-in.tech/post/</loc>
+    <lastmod>2019-10-12T15:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alisa-in.tech/categories/sql/</loc>
     <lastmod>2019-10-12T15:12:11-04:00</lastmod>
   </url>
   

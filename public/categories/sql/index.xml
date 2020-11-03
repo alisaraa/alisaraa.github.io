@@ -6,15 +6,10 @@
     <description>Recent content in SQL on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://alisa-in.tech/categories/sql/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Common Excel Functions in SQL</title>
-      <link>https://alisa-in.tech/post/2020-11-02-excel/</link>
-      <pubDate>Sun, 01 Nov 2020 00:12:11 -0400</pubDate>
-      
-      <guid>https://alisa-in.tech/post/2020-11-02-excel/</guid>
-      <description>My first job out of college was in insurance analytics. I learned a lot about insurance and a lot about Excel.</description>
-    </item>
+    <lastBuildDate>Sat, 12 Oct 2019 15:12:11 -0400</lastBuildDate>
+    
+	<atom:link href="https://alisa-in.tech/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>A Good Day to Delete Hard</title>
@@ -32,7 +27,7 @@
       
       <guid>https://alisa-in.tech/post/2019-10-12-nulls/</guid>
       <description>We have to talk about NULLs.
-This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&amp;rsquo;t, and why they are important in data warehousing.</description>
+This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&#39;t, and why they are important in data warehousing.</description>
     </item>
     
     <item>
