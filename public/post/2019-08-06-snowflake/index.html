@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.60.1" />
+  <meta name="generator" content="Hugo 0.77.0" />
 
   <title>Cool Things in Snowflake &middot; Alisa in Techland</title>
 
@@ -13,13 +13,13 @@
   <meta property="og:locale" content="en-us"/>
 
   
-  <meta property="og:image" content="https://alisa-in.tech/images/profile.png">
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
 
   
   <meta property="og:site_name" content="Alisa in Techland"/>
   <meta property="og:title" content="Cool Things in Snowflake"/>
   <meta property="og:description" content="The title of this post would be “10 Things I Like to Use in Snowflake That You Could Google but First You’d Have to Know They Exist."/>
-  <meta property="og:url" content="https://alisa-in.tech/post/2019-08-06-snowflake/"/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2019-08-06-snowflake/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2019-08-06T15:12:11-0400"/>
   <meta property="article:modified_time" content="2019-08-06T15:12:11-0400"/>
@@ -33,8 +33,8 @@
     "@context" : "http://schema.org",
     "@type" : "Blog",
     "name": "Alisa in Techland",
-    "url" : "https://alisa-in.tech/",
-    "image": "https://alisa-in.tech/images/profile.png",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
     "description": ""
   }
   </script>
@@ -51,10 +51,10 @@
     "author": {
       "@type": "Person",
       "name": "Alisa",
-      "url": "https://alisa-in.tech/"
+      "url": "https://www.alisa-in.tech/"
     },
-    "image": "https://alisa-in.tech/images/profile.png",
-    "url": "https://alisa-in.tech/post/2019-08-06-snowflake/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2019-08-06-snowflake/",
     "description": "The title of this post would be “10 Things I Like to Use in Snowflake That You Could Google but First You’d Have to Know They Exist."
   }
   </script>
@@ -63,21 +63,21 @@
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://alisa-in.tech/css/print.css"
+        href="https://www.alisa-in.tech/css/print.css"
         media="print">
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://alisa-in.tech/css/poole.css">
+        href="https://www.alisa-in.tech/css/poole.css">
 
   <link type="text/css"
         rel="stylesheet"
-        href="https://alisa-in.tech/css/hyde.css">
+        href="https://www.alisa-in.tech/css/hyde.css">
 
   
 
 
-  <link type="text/css" rel="stylesheet" href="https://alisa-in.tech/css/blog.css">
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
 
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
@@ -102,7 +102,7 @@
       
         
         <div class="author-image">
-          <img src="https://alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
         </div>
         
       
@@ -115,7 +115,7 @@
     <nav>
       <ul class="sidebar-nav">
         <li>
-          <a href="https://alisa-in.tech/">Home</a>
+          <a href="https://www.alisa-in.tech/">Home</a>
         </li>
         <li>
           <a href="/post/"> Posts </a>
@@ -207,7 +207,7 @@ Row number- add METADATA$file_row_number to your SELECT statement <!-- raw HTML 
 FILE_FORMAT = (TYPE = CSV)
 </code></pre><p>This will create s3://mybucket/unload/cats.csv. Actually it won’t, it will create as many cat files as it wants. In order to create cats.csv and only cats.csv, use the parameter SINGLE=true. In order to refresh the cats every time the COPY runs, use the parameter OVERWRITE=true.</p>
 <p>But CSV isn’t always ideal; datasets change shape and you may want to ingest historic data which does not contain all the same columns. In this case, you can unload a table as JSON object, but you have to convert it to an object using the  <a href="https://docs.snowflake.net/mnuals/sql-reference/functions/object_construct.html">object construct function</a></p>
-<h2 id="6-use-anyvalue-when-any-value-will-do">6. Use ANY_VALUE when any value will do</h2>
+<h2 id="6-use-any_value-when-any-value-will-do">6. Use ANY_VALUE when any value will do</h2>
 <p><a href="https://docs.snowflake.net/manuals/sql-reference/functions/any_value.html">Snowflake Reference Page</a></p>
 <p>There are times in our lives, of which we are not proud, that we must aggregate a field that we truly don’t want to aggregate. For instance, let’s say you have a dataset that looks like this:</p>
 <table>
@@ -250,7 +250,7 @@ FILE_FORMAT = (TYPE = CSV)
 <pre><code>SELECT city, ANY_VALUE(zip_code) as some_zip, SUM(Number_of_cats) AS total_city_cats
 FROM  cat_city_table GROUP BY city
 </code></pre><p>This is computationally faster than a MAX(). Note though that is non deterministic, which means it will reproduce different results throughout time. Be careful with this. Speaking of which&hellip;</p>
-<h2 id="7-be-careful-with-rownumber">7. Be careful with ROW_NUMBER</h2>
+<h2 id="7-be-careful-with-row_number">7. Be careful with ROW_NUMBER</h2>
 <p><a href="https://docs.snowflake.net/manuals/sql-reference/functions/row_number.html">Snowflake Reference Page</a></p>
 <p>ROW_NUMBER() is a powerful analytical function which will break ties for you so to speak. RANK() will number the groupings of rows by the partitioned by fields for you; ROW_NUMBER() will number them but ensure there’s no duplicates. This means it will randomly (not really randomly but randomly) pick between two rows with the same field values for all the partitioned fields and the order by field. This can help you deduplicate cleanly, but the results will be non deterministic, meaning each time you run the same query you may get a different result. Since you’re letting Snowflake effectively pick your data, it’s unwise to use this feature in your ETL.</p>
 <h2 id="8-be-careful-with-nulls-but-use-them-to-your-advantage">8. Be careful with NULLs but use them to your advantage</h2>
@@ -277,14 +277,14 @@ WHERE EQUAL_NULL( cat_color,  ‘Black’)  = false
 <p><code>DESC TABLE cats</code></p>
 <p>Which will show you a list of each of the fields in the table cats, and which are part of the primary key. It’s not too hard to programmatically use this to find all primary keys in your database and check for the existence or uniqueness of the field. Declare the primary key, even if you don’t enforce them.</p>
 <p>Note that the NOT NULL constraint is enforced and should be used for columns that aren’t ever supposed to be null.</p>
-<h2 id="10-on-that-note-use-results-scan-to-get-nontable-results-into-a-table">10. On that note, use RESULTS SCAN to get non-table results into a table</h2>
+<h2 id="10-on-that-note-use-results-scan-to-get-non-table-results-into-a-table">10. On that note, use RESULTS SCAN to get non-table results into a table</h2>
 <p><a href="https://docs.snowflake.net/manuals/sql-reference/functions/result_scan.html">Snowflake Reference Page</a></p>
 <p>I know what you are thinking: DESC TABLE doesn’t return a real table. I can’t do a WHERE clause or select only a subset of columns. I’d have to ingest it into a Python or an R dataframe in order to manipulate it.</p>
 <p>Not so fast. Snowflake has a workaround for this. Immediately after doing a DESC or a SHOW command, you can run</p>
 <p><code>select * from table(result_scan(last_query_id()))</code></p>
 <p>and you will receive the results of your last query as a table, which means you can limit your columns or add a WHERE clause.</p>
 <p>I admit that it feels janky and it’s per user name, not session, which means you can get in trouble with getting the results of your query.</p>
-<h3 id="email-me-to-let-me-know-what-you-think-if-you-have-any-other-tricks-youe-picked-up-or-if-you-have-any-questions">Email me to let me know what you think, if you have any other tricks you'e picked up, or if you have any questions!</h3>
+<h3 id="email-me-to-let-me-know-what-you-think-if-you-have-any-other-tricks-youe-picked-up-or-if-you-have-any-questions">Email me to let me know what you think, if you have any other tricks you&rsquo;e picked up, or if you have any questions!</h3>
 
 </div>
 
@@ -302,7 +302,7 @@ WHERE EQUAL_NULL( cat_color,  ‘Black’)  = false
           integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
           crossorigin="anonymous"></script>
 
-  <script src="https://alisa-in.tech/js/blog.js"></script>
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
 
   
 <script type="application/javascript">
