@@ -13,7 +13,7 @@
   <meta property="og:locale" content="en-us"/>
 
   
-  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+  <meta property="og:image" content="https://www.alisa-in.techhttps://www.alisa-in.tech/images/profile.png">
 
   
   <meta property="og:site_name" content="Alisa in Techland"/>
@@ -34,7 +34,7 @@
     "@type" : "Blog",
     "name": "Alisa in Techland",
     "url" : "https://www.alisa-in.tech/",
-    "image": "https://www.alisa-in.tech/images/profile.png",
+    "image": "https://www.alisa-in.techhttps://www.alisa-in.tech/images/profile.png",
     "description": ""
   }
   </script>
@@ -53,7 +53,7 @@
       "name": "Alisa",
       "url": "https://www.alisa-in.tech/"
     },
-    "image": "https://www.alisa-in.tech/images/profile.png",
+    "image": "https://www.alisa-in.techhttps://www.alisa-in.tech/images/profile.png",
     "url": "https://www.alisa-in.tech/post/2020-11-02-excel/",
     "description": "My first job out of college was in insurance analytics. I learned a lot about insurance and a lot about Excel."
   }
@@ -102,7 +102,7 @@
       
         
         <div class="author-image">
-          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+          <img src="https://www.alisa-in.techhttps://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
         </div>
         
       
@@ -167,7 +167,7 @@ FROM cat_table;
 <p>The complexity comes in once we there are multiple IF statements to evaluate. To determine whether the cat is one of the twins, I have to allow that the cat could be either Mac or Cheese (they actually had another litter mate who we could not adopt). I also want to label them Twin1 (Mac) and Twin2 (Cheese).
 In Excel, the function is:</p>
 <p><code>=if(C2=&quot;Mac&quot;, &quot;Twin1&quot;, if(C2=&quot;Cheese&quot;, &quot;Twin2&quot;, &quot;Not Twin&quot;))</code></p>
-<p><img src="/images/is_twin.png" alt="is_twin"></p>
+<p><img src="https://www.alisa-in.tech/images/is_twin.png" alt="is_twin"></p>
 <p>Notice how in order to have more than two outcomes (True/False versus Twin1/Twin2/Not Twin), we need to embed another IF statement into the false_value. This gets unreadable really quickly.
 Luckily, in SQL you can do what&rsquo;s called a <code>case</code> statement or a <code>case when</code> statement. A <code>case</code> statement for this would be:</p>
 <pre><code>SELECT 
@@ -198,7 +198,7 @@ FROM cat_table;
 <h3 id="sumif">SUMIF</h3>
 <p>Now that we know who the twins are, we can sum only the twins' weights. In Excel, we would do:
 <code>=sumif(I2:I4,True,G2:G4)</code></p>
-<p><img src="/images/sumif.png" alt="sum_if"></p>
+<p><img src="https://www.alisa-in.tech/images/sumif.png" alt="sum_if"></p>
 <p>The twins total weight is almost 20 pounds!</p>
 <pre><code>SELECT 
     CASE 
@@ -240,7 +240,7 @@ WHERE cat_name = 'Mac' OR cat_name = 'Cheese'
 <p>If we want to count the number of female and male kittens we have, in Excel, we would do:<br>
 <code>=countif(M1:M4, &quot;Female&quot;)</code> and<br>
 <code>=countif(M1:M4, &quot;Male&quot;)</code></p>
-<p><img src="/images/countif.png" alt="sum_if"></p>
+<p><img src="https://www.alisa-in.tech/images/countif.png" alt="sum_if"></p>
 <p>Similar to the total_weight calculation above, this can be accomplished in SQL by:</p>
 <pre><code>SELECT 
     gender,
@@ -273,7 +273,7 @@ FROM cat_table
 </code></pre><p>I never use that function but maybe I&rsquo;ll remember to now.</p>
 <h2 id="substitute">SUBSTITUTE</h2>
 <p>Let&rsquo;s say we got user entered info for our cat named and they appeared like this:</p>
-<p><img src="/images/substitute.png" alt="sum_if"></p>
+<p><img src="https://www.alisa-in.tech/images/substitute.png" alt="sum_if"></p>
 <p>We would want to clean it up by removing the _, essentially replacing it with a blank string. We would do a substitute like this:<br>
 <code>=substitute(B2, &quot;_&quot;, &quot;&quot;)</code></p>
 <p>In Snowflake, we do a <a href="https://docs.snowflake.com/en/sql-reference/functions/replace.html">replace function</a>.
@@ -288,7 +288,7 @@ FROM cat_table
 </code></pre><p>It can end up being a really nasty line of code.</p>
 <h2 id="concatenate">CONCATENATE</h2>
 <p>To conCATenate in Excel (ha, get it), you use &amp;</p>
-<p><img src="/images/concat.png" alt="sum_if"></p>
+<p><img src="https://www.alisa-in.tech/images/concat.png" alt="sum_if"></p>
 <p>In Snowflake, you use || or the <a href="https://docs.snowflake.com/en/sql-reference/functions/concat.html">CONCAT function</a></p>
 <p>No matter which one you do, remember the spaces:</p>
 <pre><code>SELECT
@@ -299,10 +299,10 @@ FROM cat_table
 <p>I know often in Excel, in order to combine data from multiple tabs, people do a VLOOKUP or an HLOOKUP. In databases, a VLOOKUP is basically a JOIN. An HLOOKUP is not really a thing. I&rsquo;ll explain why.</p>
 <h3 id="vlookup">VLOOKUP</h3>
 <p>Let&rsquo;s say someone gave us the cats cuteness levels</p>
-<p><img src="/images/cute.png" alt="cute"></p>
+<p><img src="https://www.alisa-in.tech/images/cute.png" alt="cute"></p>
 <p>To find the cats cuteness level, we do a VLOOKUP on Cat ID</p>
 <p><code>=VLOOKUP(A2,Cuteness!A:B,2,True)</code></p>
-<p><img src="/images/vlookup.png" alt="vlookup"></p>
+<p><img src="https://www.alisa-in.tech/images/vlookup.png" alt="vlookup"></p>
 <p>Perfect, the cats are all top level cuteness.
 Notice that the vlookup is “on” a certain field. This is the field that the two datasets have in common; more specifically, the field that has to be equal in order for the data to be relevant for the row. To do this in databases, we join:</p>
 <pre><code>SELECT
@@ -314,10 +314,10 @@ ON cat_info.cat_id = cat_cuteness.cat_id
 <p>Notice also that I used a LEFT join. Unlike in a VLOOKUP, we can choose what to include in the final data set. Had I used INNER JOIN, any cat_info without a cat_id in cat_cuteness would not have shown up in the data set. A RIGHT join would be the reverse of this;  it would be like doing the VLOOKUP on the cat_cuteness tab.</p>
 <h3 id="hlookup">HLOOKUP</h3>
 <p>To be honest I haven&rsquo;t used Excel in so long I couldn&rsquo;t find a reason why you would need an HLOOKUP, except that someone who hates you gave you data. That&rsquo;s okay. It happens.</p>
-<p><img src="/images/hlookup.png" alt="hlookup"></p>
+<p><img src="https://www.alisa-in.tech/images/hlookup.png" alt="hlookup"></p>
 <p>Let&rsquo;s say someone gave you that. In order to get the info on to the main tab, we have to do:<br>
 <code>=hlookup(A2,'Cuteness, but someone who hates us gave it to us'!$A$1:$D$3,2,false)</code></p>
-<p><img src="/images/hlookup2.png" alt="hlookup2"></p>
+<p><img src="https://www.alisa-in.tech/images/hlookup2.png" alt="hlookup2"></p>
 <p>There is no real hlookup in databases, because in databases, all tables and entities have to be formatted in the same way (with the column names being the first row).</p>
 <p>If you can think of an example of HLOOKUP that you would be able to do in a database, let me know.</p>
 
