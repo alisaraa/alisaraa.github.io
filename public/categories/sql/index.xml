@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SQL on Alisa in Techland</title>
-    <link>https://alisa-in.tech/categories/sql/</link>
+    <link>https://www.alisa-in.tech/categories/sql/</link>
     <description>Recent content in SQL on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://alisa-in.tech/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Common Excel Functions in SQL</title>
       <link>https://www.alisa-in.tech/post/2020-11-02-excel/</link>
@@ -18,47 +18,47 @@
     
     <item>
       <title>A Good Day to Delete Hard</title>
-      <link>https://alisa-in.tech/post/2019-12-20-deletes/</link>
+      <link>https://www.alisa-in.tech/post/2019-12-20-deletes/</link>
       <pubDate>Sat, 12 Oct 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-12-20-deletes/</guid>
+      <guid>https://www.alisa-in.tech/post/2019-12-20-deletes/</guid>
       <description>Deletion method is an important data warehousing concept, one you’d ideally master before an interview.</description>
     </item>
     
     <item>
       <title>Much Ado About NULL Things</title>
-      <link>https://alisa-in.tech/post/2019-10-12-nulls/</link>
+      <link>https://www.alisa-in.tech/post/2019-10-12-nulls/</link>
       <pubDate>Sat, 12 Oct 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-10-12-nulls/</guid>
+      <guid>https://www.alisa-in.tech/post/2019-10-12-nulls/</guid>
       <description>We have to talk about NULLs.
 This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&amp;rsquo;t, and why they are important in data warehousing.</description>
     </item>
     
     <item>
       <title>CTEs versus Subqueries</title>
-      <link>https://alisa-in.tech/post/2019-10-02-ctes/</link>
+      <link>https://www.alisa-in.tech/post/2019-10-02-ctes/</link>
       <pubDate>Wed, 02 Oct 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-10-02-ctes/</guid>
+      <guid>https://www.alisa-in.tech/post/2019-10-02-ctes/</guid>
       <description>I get this question a lot: Is a subquery more performant than a CTE?</description>
     </item>
     
     <item>
       <title>Normal Forms for Normal People</title>
-      <link>https://alisa-in.tech/post/2019-09-01-normal-forms/</link>
+      <link>https://www.alisa-in.tech/post/2019-09-01-normal-forms/</link>
       <pubDate>Sun, 01 Sep 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-09-01-normal-forms/</guid>
+      <guid>https://www.alisa-in.tech/post/2019-09-01-normal-forms/</guid>
       <description>This post is for my friend Mitch, who, despite his persistent belief that he annoys me with his questions, has reminded me why it’s important that we stay hungry for theoretical knowledge even as we get caught up in our day-to-day work.</description>
     </item>
     
     <item>
       <title>Functions in Where Clauses</title>
-      <link>https://alisa-in.tech/post/2019-08-18-sql-where-clauses/</link>
+      <link>https://www.alisa-in.tech/post/2019-08-18-sql-where-clauses/</link>
       <pubDate>Sun, 18 Aug 2019 15:12:11 -0400</pubDate>
       
-      <guid>https://alisa-in.tech/post/2019-08-18-sql-where-clauses/</guid>
+      <guid>https://www.alisa-in.tech/post/2019-08-18-sql-where-clauses/</guid>
       <description>This post is part of a new series of mini-blogs I’m doing on SQL performance tuning tips.</description>
     </item>
     
