@@ -6,10 +6,15 @@
     <description>Recent content on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Oct 2019 15:12:11 -0400</lastBuildDate>
-    
-	<atom:link href="https://alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 01 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Common Excel Functions in SQL</title>
+      <link>https://alisa-in.tech/post/2020-11-02-excel/</link>
+      <pubDate>Sun, 01 Nov 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://alisa-in.tech/post/2020-11-02-excel/</guid>
+      <description>My first job out of college was in insurance analytics. I learned a lot about insurance and a lot about Excel.</description>
+    </item>
     
     <item>
       <title>A Good Day to Delete Hard</title>
@@ -27,7 +32,7 @@
       
       <guid>https://alisa-in.tech/post/2019-10-12-nulls/</guid>
       <description>We have to talk about NULLs.
-This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&#39;t, and why they are important in data warehousing.</description>
+This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&amp;rsquo;t, and why they are important in data warehousing.</description>
     </item>
     
     <item>
@@ -99,7 +104,7 @@ This post won’t include anything revolutionary, but rather just a summary of w
       <pubDate>Sat, 03 Nov 2018 15:12:11 -0400</pubDate>
       
       <guid>https://alisa-in.tech/post/2018-11-03-data-marts/</guid>
-      <description>In this post, I will explain the concept of data marts with approachable language, but I won&#39;t be talking to my 5 year old nephew Rhys.</description>
+      <description>In this post, I will explain the concept of data marts with approachable language, but I won&amp;rsquo;t be talking to my 5 year old nephew Rhys.</description>
     </item>
     
     <item>
