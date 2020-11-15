@@ -4,7 +4,7 @@ date: '2020-11-14 00:12:11 -0400'
 categories: SQL
 ---
 
-I have turned into a typical old school parent in that I find myself saying “Do what I say, not what I do.” This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts. These shortcuts help me produce a result quickly, but aren’t scalable, flexible, or readable enough for production. In this post, I’ll explain the shortcuts, why they can be dangerous, and how they can be replaced for production ready code. 
+I have turned into a typical old school parent in that I find myself saying “Do what I say, not what I do.” This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts. These shortcuts help me produce a result quickly, but aren’t scalable, flexible, or readable enough for production. In this post, I’ll explain what the shortcuts are, why they can be dangerous, and how they can be replaced for production ready code. 
 
 
 ### $1
