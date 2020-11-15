@@ -111,7 +111,7 @@ FROM cat_info
 GROUP BY 1,2,4;
 ```
 
-Hypothetically, I could have written this after being asked for average cuteness by cat, and, at the last minute, someone on the zoom said "oh we also need to see it by color." To get results quickly, I would have added cat_color last in the query and added a 4 to the group by, but this is not best practice. 
+Hypothetically, I could have written this after being asked for average cuteness by cat, and, at the last minute, someone on the Zoom said "oh we also need to see it by color." To get results quickly, I would have added cat_color last in the query and added a 4 to the group by, but this is not best practice. 
 
 A lot of people ask why they have to explicitly group by all non-aggregate fields when there is no option (in Snowflake) to not group by them. I think it's just convention to ensure the aggregation is intentional; in MySQL, you do not have to do group by all non-aggregated fields, so there is a precedent for more flexibility in aggregation that one day Snowflake may offer. In the interim, you just have to be explicit about your grouping.
 
