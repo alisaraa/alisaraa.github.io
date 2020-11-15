@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.77.0" />
+
+  <title>Things I Sometimes Do in Snowflake/SQL That You Should Not Do &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="Things I Sometimes Do in Snowflake/SQL That You Should Not Do"/>
+  <meta property="og:description" content="I have turned into a typical old school parent in that I find myself saying “Do what I say, not what I would."/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-11-14T00:12:11-0400"/>
+  <meta property="article:modified_time" content="2020-11-14T00:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Things I Sometimes Do in Snowflake\/SQL That You Should Not Do",
+    "headline": "Things I Sometimes Do in Snowflake\/SQL That You Should Not Do",
+    "datePublished": "2020-11-14T00:12:11-0400",
+    "dateModified": "2020-11-14T00:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://www.alisa-in.tech/"
+    },
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/",
+    "description": "I have turned into a typical old school parent in that I find myself saying “Do what I say, not what I would."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://www.alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Things I Sometimes Do in Snowflake/SQL That You Should Not Do</h1>
+
+  <div class="post-date">
+    <time datetime="2020-11-14T00:12:11-0400">Nov 14, 2020</time> · 5 min read
+  </div>
+
+  <p>I have turned into a typical old school parent in that I find myself saying “Do what I say, not what I would.” This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts. These shortcuts help me produce a result quickly, but aren’t scalable, flexible, or readable enough for production. In this post, I’ll explain the shortcuts, why they can be dangerous, and how they can be replaced for production ready code.</p>
+<h3 id="1">$1</h3>
+<p>In Snowflake, you can refer to columns in a WHERE clause with a reference to their ordinal position. For example:</p>
+<pre><code>SELECT * FROM cat_table
+WHERE $1 = 'Mac'
+</code></pre><p>In this case, if I know that the first column in ordinal position is cat_name, then this will give me info about Mac. This seems great, until it doesn&rsquo;t.</p>
+<p>What would happen if you added this to your ETL or analytical scripts and someone added a cat_id in the first ordinal to cat_table? Nothing. Nothing would break. Nothing would be returned. The query would just simply give no results since there is no cat_id = &lsquo;Mac&rsquo;.</p>
+<p>And that is scary.</p>
+<p>The other scary thing about $1 is that it always refers to the underlying table, not the fields listed in your SELECT statement  (as opposed to GROUP BY 1). For example:</p>
+<pre><code>SELECT 
+    cat_name,
+    cat_id
+FROM cat_table
+WHERE $1 = 'Mac'
+</code></pre><p>In this case, if cat_id is the first field in cat_table than this will translate to:</p>
+<pre><code>SELECT 
+    cat_name,
+    cat_id
+FROM cat_table
+WHERE cat_id = 'Mac'
+</code></pre><p>which will give no results.</p>
+<p>So not only is the code not scalable in the case of a DDL update, you are also forcing the reader to know that your WHERE clause refers to the underlying table, and not the columns you&rsquo;ve listed. It&rsquo;s unclear and dangerous and Mac does not like it. What more convincing do you need?</p>
+<p><img src="https://www.alisa-in.tech/images/scary_mac.png" alt="scary_mac"></p>
+
+<h3 id="division-with-">Division with /</h3>
+<p>This is a simple one: division can be scary. If you are adding a field that is a division of two or more fields, consider if the denominator can ever be zero and if so, how do you want your field to react.
+When writing the query to do some scratch work, we may write:</p>
+<pre><code>SELECT
+    color,
+    SUM(cat_cuteness) / SUM(cat_count) AS avg_cuteness 
+FROM cat_table
+GROUP BY color;
+</code></pre><p>That is okay for now, but what happens once you check in this code, go about your life, and someone upstream enters a record like this:</p>
+<table>
+<thead>
+<tr>
+<th>color</th>
+<th>cat_cuteness</th>
+<th>cat_count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Black</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Why would someone add this record? Not sure, but it will happen, trust me. As soon as it does, you will get an error to the effect of:</p>
+<p>DIVISION BY 0 NOT POSSIBLE, STOP IT. YOU WILL RIP A HOLE IN THE SPACE TIME CONTINUUM.</p>
+<p>Not sure if that&rsquo;s the exact error, but you get the point. So what&rsquo;s the workaround? <strong>Always use <a href="https://docs.snowflake.com/en/sql-reference/functions/div0.html">DIV0</a> when you want to do division that gives 0 in case of a 0 denominator, otherwise use a specific <code>CASE WHEN</code></strong>
+For instance, if I wanted avg_cuteness to zero out if there are no cats:</p>
+<pre><code>SELECT
+    color,
+    DIV0(SUM(cat_cuteness), SUM(cat_count)) AS avg_cuteness 
+FROM cat_table
+GROUP BY color;
+</code></pre><p>Otherwise, if I want a specific result in case of zero, I may do:</p>
+<pre><code>SELECT
+    color,
+    CASE 
+        WHEN cat_count = 0 
+            THEN NULL
+        ELSE DIV0(SUM(cat_cuteness), SUM(cat_count)) 
+    END AS avg_cuteness 
+FROM cat_table
+GROUP BY color;
+</code></pre><p>In either case, your code is more robust. Over time, this will decrease the number of errors you wake up to in the morning, and Itzy appreciates that:</p>
+<p><img src="https://www.alisa-in.tech/images/scary_itzy.png" alt="scary_itzy"></p>
+<h3 id="group-by-124">Group by 1,2,4</h3>
+<p>If I&rsquo;m rapidly adding to a query and trying to get a result I may end up with aggregate fields and non-aggregate fields living amongst each other, for example:</p>
+<pre><code>SELECT
+   cat_id,
+   cat_name,
+   avg(cat_cuteness),
+   cat_color
+FROM cat_info
+GROUP BY 1,2,4;
+</code></pre><p>Hypothetically, I could have written this after being asked for average cuteness by cat, and, at the last minute, someone on the zoom said &ldquo;oh we also need to see it by color.&rdquo; To get results quickly, I would have added cat_color last in the query and added a 4 to the group by, but this is not best practice.</p>
+<p>A lot of people ask why they have to explicitly group by all non-aggregate fields when there is no option (in Snowflake) to not group by them. I think it&rsquo;s just convention to ensure the aggregation is intentional; in MySQL, you do not have to do group by all non-aggregated fields, so there is a precedent for more flexibility in aggregation that one day Snowflake may offer. In the interim, you just have to be explicit about your grouping.</p>
+<p>But do it in order and with the names of columns, because this improves readability of the code:</p>
+<pre><code>SELECT
+   Cat_id,
+   Cat_name,
+   Cat_color,
+   avg(cat_cuteness)
+FROM cat_info
+GROUP BY  
+   Cat_id,
+   Cat_name,
+   Cat_color
+</code></pre><p>Notice that all non-aggregate fields appear before the aggregate field and that the group by explicitly names the non-aggregate fields.
+There is no improvement here in performance or error prevention; this is merely a matter of readability. In the future, people will read your code and if the group by uses column names, they can determine the grain of your query at a glance. Additionally, they can easily deduce the aggregate fields if they are all together at the end of the query.</p>
+<p>And this is less scary to Cheesie.</p>
+<p><img src="https://www.alisa-in.tech/images/scary_cheese.png" alt="scary_cheese"></p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -6,7 +6,16 @@
     <description>Recent content in SQL on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Things I Sometimes Do in Snowflake/SQL That You Should Not Do</title>
+      <link>https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/</link>
+      <pubDate>Sat, 14 Nov 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/</guid>
+      <description>I have turned into a typical old school parent in that I find myself saying “Do what I say, not what I would.</description>
+    </item>
+    
     <item>
       <title>Common Excel Functions in SQL</title>
       <link>https://www.alisa-in.tech/post/2020-11-02-excel/</link>
