@@ -148,7 +148,7 @@
     <time datetime="2020-11-14T00:12:11-0400">Nov 14, 2020</time> · 5 min read
   </div>
 
-  <p>I have turned into a typical old school parent in that I find myself saying “Do what I say, not what I would.” This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts. These shortcuts help me produce a result quickly, but aren’t scalable, flexible, or readable enough for production. In this post, I’ll explain the shortcuts, why they can be dangerous, and how they can be replaced for production ready code.</p>
+  <p>I have turned into a typical old school parent in that I find myself saying “Do what I say, not what I do.” This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts. These shortcuts help me produce a result quickly, but aren’t scalable, flexible, or readable enough for production. In this post, I’ll explain the shortcuts, why they can be dangerous, and how they can be replaced for production ready code.</p>
 <h3 id="1">$1</h3>
 <p>In Snowflake, you can refer to columns in a WHERE clause with a reference to their ordinal position. For example:</p>
 <pre><code>SELECT * FROM cat_table
