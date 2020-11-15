@@ -135,4 +135,4 @@ There is no improvement here in performance or error prevention; this is merely 
 And this is less scary to Cheesie. 
 
 
-<p><img src="https://www.alisa-in.tech/images/scary_cheese.png" alt="scary_cheese"></p>
+<p><img src="https://www.alisa-in.tech/images/scary_cheesie.png" alt="scary_cheese"></p>
