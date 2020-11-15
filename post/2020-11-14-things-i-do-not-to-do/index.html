@@ -231,15 +231,15 @@ GROUP BY 1,2,4;
 <p>A lot of people ask why they have to explicitly group by all non-aggregate fields when there is no option (in Snowflake) to not group by them. I think it&rsquo;s just convention to ensure the aggregation is intentional; in MySQL, you do not have to do group by all non-aggregated fields, so there is a precedent for more flexibility in aggregation that one day Snowflake may offer. In the interim, you just have to be explicit about your grouping.</p>
 <p>But do it in order and with the names of columns, because this improves readability of the code:</p>
 <pre><code>SELECT
-   Cat_id,
-   Cat_name,
-   Cat_color,
-   avg(cat_cuteness)
+   cat_id,
+   cat_name,
+   cat_color,
+   AVG(cat_cuteness)
 FROM cat_info
 GROUP BY  
-   Cat_id,
-   Cat_name,
-   Cat_color
+   cat_id,
+   cat_name,
+   cat_color
 </code></pre><p>Notice that all non-aggregate fields appear before the aggregate field and that the group by explicitly names the non-aggregate fields.
 There is no improvement here in performance or error prevention; this is merely a matter of readability. In the future, people will read your code and if the group by uses column names, they can determine the grain of your query at a glance. Additionally, they can easily deduce the aggregate fields if they are all together at the end of the query.</p>
 <p>And this is less scary to Cheesie.</p>

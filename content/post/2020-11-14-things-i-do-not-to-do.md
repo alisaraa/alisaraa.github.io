@@ -119,15 +119,15 @@ But do it in order and with the names of columns, because this improves readabil
 
 ```
 SELECT
-   Cat_id,
-   Cat_name,
-   Cat_color,
-   avg(cat_cuteness)
+   cat_id,
+   cat_name,
+   cat_color,
+   AVG(cat_cuteness)
 FROM cat_info
 GROUP BY  
-   Cat_id,
-   Cat_name,
-   Cat_color
+   cat_id,
+   cat_name,
+   cat_color
 ```
 Notice that all non-aggregate fields appear before the aggregate field and that the group by explicitly names the non-aggregate fields.
 There is no improvement here in performance or error prevention; this is merely a matter of readability. In the future, people will read your code and if the group by uses column names, they can determine the grain of your query at a glance. Additionally, they can easily deduce the aggregate fields if they are all together at the end of the query.
