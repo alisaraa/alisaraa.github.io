@@ -1,5 +1,5 @@
 ---
-title: "Table Types of Snowflake"
+title: "Table Types in Snowflake"
 date: '2020-11-20 00:12:11 -0400'
 categories: Snowflake
 ---
