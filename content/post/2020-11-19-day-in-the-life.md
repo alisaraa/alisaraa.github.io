@@ -14,7 +14,7 @@ The day of a life of a data engineer can be split into three parts (this is know
 
 ## Part 1. Wake up! There are errors.
 
-![Wake up](https://www.alisa-in.tech/images/wake_up.png)
+![Wake up](https://www.alisa-in.tech/images/wakeup.png)
 
 I don't want to imply that my calendar reflects the three parts with strict start and end times, but in general, part 1 takes place in the morning. ETL tends to run overnight or in the morning, so there is generally information about the run available when you wake up. Additionally, even if your ETL runs during the day, upstream data often populates overnight and your first morning run can be the most perilous.  Depending on your testing suite, these are the four main groups of errors you could wake up:
 * Your orchestration tool or a specific DAG indicate an error occurred
