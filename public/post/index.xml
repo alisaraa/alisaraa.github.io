@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Table Types of Snowflake</title>
+      <link>https://www.alisa-in.tech/post/2020-11-20-table-types/</link>
+      <pubDate>Fri, 20 Nov 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-11-20-table-types/</guid>
+      <description>Someone asked this question on Reddit
+ trying to build a data mart basically and most of the times it will be file source that will be transformed through ETL and eventually loaded into snowflake.</description>
+    </item>
+    
     <item>
       <title>A Day in the Life of a Data Engineer</title>
       <link>https://www.alisa-in.tech/post/2020-11-19-day-in-the-life/</link>
