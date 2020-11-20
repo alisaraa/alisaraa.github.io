@@ -197,7 +197,7 @@ to get the table from yesterday, at the end of every ETL, you can store that dat
 <p>Ultimately, you&rsquo;re going to pay the same storage anyway, and storing in a real table is easier to access and maintain. If you want to replicate the time travel attribute of 7 days, you can create a DELETE statement in your ETL as:</p>
 <p><code>DELETE FROM cat_table_history WHERE stored_timestamp = DATEADD('day', -1, CURRENT_DATE)</code></p>
 <p>I know what you&rsquo;re thinking: but then <em>this</em> table will have time travel on it and we don&rsquo;t need that. You can always turn time travel off on a specific table by doing:</p>
-<p>alter table cat_data_history set data_retention_time_in_days=0;</p>
+<p><code>alter table cat_data_history set data_retention_time_in_days=0;</code></p>
 <p>Next I&rsquo;ll write about views&hellip;</p>
 
 </div>
