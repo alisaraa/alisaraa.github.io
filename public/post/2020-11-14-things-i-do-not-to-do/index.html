@@ -18,7 +18,7 @@
   
   <meta property="og:site_name" content="Alisa in Techland"/>
   <meta property="og:title" content="Things I Sometimes Do in Snowflake/SQL That You Should Not Do"/>
-  <meta property="og:description" content="I have turned into a typical old school parent in that I find myself saying "Do what I say, not what I do."/>
+  <meta property="og:description" content="I have turned into a typical old school parent in that I find myself saying &ldquo;Do what I say, not what I do&rdquo; This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts."/>
   <meta property="og:url" content="https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/"/>
   <meta property="og:type" content="article"/>
   <meta property="article:published_time" content="2020-11-14T00:12:11-0400"/>
@@ -55,7 +55,7 @@
     },
     "image": "https://www.alisa-in.tech/images/profile.png",
     "url": "https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/",
-    "description": "I have turned into a typical old school parent in that I find myself saying "Do what I say, not what I do."
+    "description": "I have turned into a typical old school parent in that I find myself saying \u0026ldquo;Do what I say, not what I do\u0026rdquo; This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts."
   }
   </script>
   
@@ -148,7 +148,7 @@
     <time datetime="2020-11-14T00:12:11-0400">Nov 14, 2020</time> · 5 min read
   </div>
 
-  <p>I have turned into a typical old school parent in that I find myself saying "Do what I say, not what I do." This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts. These shortcuts help me produce a result quickly, but aren’t scalable, flexible, or readable enough for production. In this post, I’ll explain what the shortcuts are, why they can be dangerous, and how they can be replaced for production ready code.</p>
+  <p>I have turned into a typical old school parent in that I find myself saying &ldquo;Do what I say, not what I do&rdquo; This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts. These shortcuts help me produce a result quickly, but aren’t scalable, flexible, or readable enough for production. In this post, I’ll explain what the shortcuts are, why they can be dangerous, and how they can be replaced for production ready code.</p>
 <h3 id="1">$1</h3>
 <p>In Snowflake, you can refer to columns in a WHERE clause with a reference to their ordinal position. For example:</p>
 <pre><code>SELECT * FROM cat_table
@@ -170,8 +170,7 @@ FROM cat_table
 WHERE cat_id = 'Mac'
 </code></pre><p>which will give no results.</p>
 <p>So not only is the code not scalable in the case of a DDL update, you are also forcing the reader to know that your WHERE clause refers to the underlying table, and not the columns you&rsquo;ve listed. It&rsquo;s unclear and dangerous and Mac does not like it. What more convincing do you need?</p>
-<p><img src="https://www.alisa-in.tech/images/scary_mac.png" alt="scary_mac"></p>
-
+<!-- raw HTML omitted -->
 <h3 id="division-with-">Division with /</h3>
 <p>This is a simple one: division can be scary. If you are adding a field that is a division of two or more fields, consider if the denominator can ever be zero and if so, how do you want your field to react.
 When writing the query to do some scratch work, we may write:</p>
@@ -217,7 +216,7 @@ GROUP BY color;
 FROM cat_table
 GROUP BY color;
 </code></pre><p>In either case, your code is more robust. Over time, this will decrease the number of errors you wake up to in the morning, and Itzy appreciates that:</p>
-<p><img src="https://www.alisa-in.tech/images/scary_itzy.png" alt="scary_itzy"></p>
+<!-- raw HTML omitted -->
 <h3 id="group-by-124">Group by 1,2,4</h3>
 <p>If I&rsquo;m rapidly adding to a query and trying to get a result I may end up with aggregate fields and non-aggregate fields living amongst each other, for example:</p>
 <pre><code>SELECT
@@ -228,7 +227,7 @@ GROUP BY color;
 FROM cat_info
 GROUP BY 1,2,4;
 </code></pre><p>Hypothetically, I could have written this after being asked for average cuteness by cat, and, at the last minute, someone on the Zoom said &ldquo;oh we also need to see it by color.&rdquo; To get results quickly, I would have added cat_color last in the query and added a 4 to the group by, but this is not best practice.</p>
-<p>A lot of people ask why they have to explicitly group by all non-aggregate fields when there is no option (in Snowflake) to *not* group by them. I think it&rsquo;s just convention to ensure the aggregation is intentional; in MySQL, you do not have to do group by all non-aggregated fields, so there is a precedent for more flexibility in aggregation that one day Snowflake may offer. In the interim, you just have to be explicit about your grouping.</p>
+<p>A lot of people ask why they have to explicitly group by all non-aggregate fields when there is no option (in Snowflake) to <em>not</em> group by them. I think it&rsquo;s just convention to ensure the aggregation is intentional; in MySQL, you do not have to do group by all non-aggregated fields, so there is a precedent for more flexibility in aggregation that one day Snowflake may offer. In the interim, you just have to be explicit about your grouping.</p>
 <p>But do it in order and with the names of columns, because this improves readability of the code:</p>
 <pre><code>SELECT
    cat_id,
@@ -243,7 +242,7 @@ GROUP BY
 </code></pre><p>Notice that all non-aggregate fields appear before the aggregate field and that the group by explicitly names the non-aggregate fields.
 There is no improvement here in performance or error prevention; this is merely a matter of readability. In the future, people will read your code and if the group by uses column names, they can determine the grain of your query at a glance. Additionally, they can easily deduce the aggregate fields if they are all together at the end of the query.</p>
 <p>And this is less scary to Cheesie.</p>
-<p><img src="https://www.alisa-in.tech/images/scary_cheesie.png" alt="scary_cheese"></p>
+<!-- raw HTML omitted -->
 
 </div>
 
