@@ -6,9 +6,17 @@
     <description>Recent content on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
-    
-	<atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Day in the Life of a Data Engineer</title>
+      <link>https://www.alisa-in.tech/post/2020-11-19-day-in-the-life/</link>
+      <pubDate>Thu, 19 Nov 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-11-19-day-in-the-life/</guid>
+      <description>The point of this post isn&amp;rsquo;t because I think I&amp;rsquo;m so awesome that you will all want to know my 1-step smoothie recipe and workout regimen (the 1 step is &amp;ldquo;add fruit that is near you to a blender and hope it tastes edible&amp;rdquo; and the workout regime is a strict couch-to-fridge cardio plan); the point is to help people who work with data engineers and the salespeople who market to data engineers understand just what exactly we are looking for in business requirements, project communication, and new products.</description>
+    </item>
+
     <item>
       <title>Things I Sometimes Do in Snowflake/SQL That You Should Not Do</title>
       <link>https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/</link>
