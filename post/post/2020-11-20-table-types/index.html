@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.77.0" />
+
+  <title>Table Types of Snowflake &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="Table Types of Snowflake"/>
+  <meta property="og:description" content="Someone asked this question on Reddit
+ trying to build a data mart basically and most of the times it will be file source that will be transformed through ETL and eventually loaded into snowflake."/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2020-11-20-table-types/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-11-20T00:12:11-0400"/>
+  <meta property="article:modified_time" content="2020-11-20T00:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Table Types of Snowflake",
+    "headline": "Table Types of Snowflake",
+    "datePublished": "2020-11-20T00:12:11-0400",
+    "dateModified": "2020-11-20T00:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://www.alisa-in.tech/"
+    },
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2020-11-20-table-types/",
+    "description": "Someone asked this question on Reddit\n trying to build a data mart basically and most of the times it will be file source that will be transformed through ETL and eventually loaded into snowflake."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://www.alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Table Types of Snowflake</h1>
+
+  <div class="post-date">
+    <time datetime="2020-11-20T00:12:11-0400">Nov 20, 2020</time> · 6 min read
+  </div>
+
+  <p>Someone asked this <a href="https://www.reddit.com/r/snowflake/comments/jxou4w/snowflake_development/">question on Reddit</a></p>
+<blockquote>
+<p>trying to build a data mart basically and most of the times it will be file source that will be transformed through ETL and eventually loaded into snowflake. So after that plan will be to build some views on top of these transformed tables which will be later used for data science purposes so wanted to know how to first approach building tables on snowflake (transient, permanent) i heard from some people suggesting to use transient tables in development environment
+So was getting confused what should be used when and how and when things like time travel should be enabled
+Along with that if there are best practices for roles accesses, data security, designing of tables and views will be great</p>
+</blockquote>
+<p>I thought I could form it into a mini-post while helping my niece and nephew draw Pokemon pictures. They&rsquo;re pretty good to be honest. This is really just a summary of table types from the Snowflake reference page and a little bit of important stuff I&rsquo;ve learned from experience. Nothing revolutionary, not like Pokemon.</p>
+<h2 id="time-travel-transient-tables-and-fail-safe">Time travel, transient tables, and fail-safe</h2>
+<h3 id="what-is-time-travel">What is time travel?</h3>
+<p><a href="https://docs.snowflake.com/en/user-guide/data-time-travel.html">Snowflake reference</a></p>
+<p>Time travel is the ability to retrieve older versions of your objects up to 90 days in the past (for enterprise customers; 1 day for non-enterprise). This includes the ability to <code>undrop</code> objects (tables, schemas, databases) which has saved more lives than CPR. Since you&rsquo;re effectively storing copies of these objects, a longer time travel period will increase your storage costs. As they say, there&rsquo;s no such thing as free data. <a href="https://docs.snowflake.com/en/user-guide/data-cdp-storage-costs.html">Storage costs for Time Travel</a>
+If you don&rsquo;t want to time travel on an object, you can set the retention period to 0 days. <a href="https://docs.snowflake.com/en/sql-reference/parameters.html#label-data-retention-time-in-days">Retention period</a>, like a lot of Snowflake parameters, can be set at the account, database, schema or table level. The database or schema retention period is the default for each table made in that object; this can be overridden by a specific table retention.</p>
+<p><strong>A bit of advice:</strong> if you are doing <code>CREATE OR REPLACE</code> or <code>DROP TABLE/CREATE TABLE</code> for your tables every ETL run and you have time travel set, you will pay for time travel on each <em>iteration</em> of the table created. So let&rsquo;s say your time travel is set to 3 days and each day you <code>CREATE OR REPLACE TABLE cat_data AS SELECT * FROM cat_source;</code></p>
+<p>Even though when cat_data is created it has the same table name, Snowflake regards it as a different table. So you will pay for time travel storage like this:</p>
+<p>You will pay for 6 days of storage when really, it would be hard to reach any of it. The reason why you can hardly access it is because if you drop and recreate a table with the same name, it&rsquo;s hard to retrieve it. I&rsquo;ve struggled with it before; <a href="https://community.snowflake.com/s/question/0D50Z00008tP9OLSA0/it-appears-that-once-you-create-or-recreate-a-table-any-time-travel-for-it-previously-is-no-longer-available-no-matter-what-the-retention-policy-length-is">this</a> will help you get it back but note it&rsquo;s not trivial. In my opinion, time travel on CREATE OR REPLACE is just not worth the money. I recommend either not doing time travel for a CREATE/REPLACE <em>or</em> changing it to  TRUNCATE/INSERT</p>
+<h3 id="what-is-fail-safe">What is fail-safe?</h3>
+<p><a href="https://docs.snowflake.com/en/user-guide/data-failsafe.html">Snowflake reference</a>
+Fail-safe begins where time travel ends. Fail-safe is 7 days, no matter what, you can&rsquo;t configure it. It&rsquo;s like a week in that regard. Always 7 days. It is what it sounds like&ndash; your last resort in the event of a CATastrophe. Only Snowflake can access it, but you still pay for the storage.</p>
+<h3 id="what-is-a-transient-table">What is a transient table?</h3>
+<p><a href="https://docs.snowflake.com/en/user-guide/tables-temp-transient.html#transient-tables">Snowflake reference</a>
+A transient table is a table without fail safe! A transient table can still have time travel of up to 1 day, but it won&rsquo;t be recovered in case of a complete database failure. So I would build transient tables for any table you don&rsquo;t want more than 1 day of time travel on <strong>and</strong> you can easily re-build in case of a failure.</p>
+<p>To refer specifically to the Reddit question, if you are just developing and it&rsquo;s not yet production data, I may build transient tables, but, since I&rsquo;m lazy, I&rsquo;m more likely to set the retention period of the development database to 0 and pay for the fail safe. The reason is converting from transient to permanent isn&rsquo;t easy and the DDL is different so you&rsquo;d have to change all your DDL when moving to production.</p>
+<p>Snowflake reference pages say &ldquo;After creation, transient tables cannot be converted to any other table type,&rdquo; but in reality, you would just clone the data into a permanent table:</p>
+<p><code>CREATE OR REPLACE TABLE cat_permanent CLONE cat_transient;</code></p>
+<p>So it&rsquo;s not trivial and storage doesn&rsquo;t cost that much, so I would just set my time travel preference by database.</p>
+<h3 id="what-i-like-to-use-time-travel-for">What I like to use time travel for</h3>
+<p>I like to use time travel for:
+Automated testing</p>
+<p>For automated testing, time travel is good to see how the table looked 1 hour ago or 24 hours ago. You can track how all tables change in size over time and find trends to help you create alerts. This will give you size yesterday divided by size today:
+<code>select count(*)from cat_table at(offset =&gt; -60*60*24) /select count(*) as size_yesterday from cat_table</code></p>
+<p>Note: I wouldn&rsquo;t actually store that result in my QA dataset. I would store the count(*) at different times and then calculate the percent.</p>
+<p>Ad-hoc QA and debugging</p>
+<p>If there is an alert or even a question about &ldquo;this suddenly looks different&rdquo;, you can easily check both how a table looked an hour ago <em>and</em> how a table looked at before a certain commit.
+If you look in your history tab and find that query ID <code>catz123</code> is what updated the table last, you can check the before and after like:
+<code>select * from cat_table before(statement =&gt; 'catz123')</code></p>
+<p>I may go as far as to do this following to find what existed before that is now gone:</p>
+<pre><code>select * from cat_table before(statement =&gt; 'catz123')
+minus
+select * from cat_table after(statement =&gt; 'catz123')
+</code></pre><h3 id="what-i-dont-like-to-use-time-travel-for">What I don&rsquo;t like to use time travel for</h3>
+<p>I do not like to use time travel for retrieving historical data. If you really need historical copies, you should save them in a _history table. You have to pay for the storage either way, and storing it in a table is easy to access for stakeholders. For instance, instead of expecting stakeholders to do this:
+<code>select * from cat_table at(offset =&gt; -60*60*24)</code>
+to get the table from yesterday, at the end of every ETL, you can store that data into the cat_table_history table with a stored_timestamp column. Stakeholders can then query:</p>
+<p><code>select * from cat_table_history where stored_timestamp = DATEADD('day', -1, CURRENT_DATE)</code></p>
+<p>Ultimately, you&rsquo;re going to pay the same storage anyway, and storing in a real table is easier to access and maintain. If you want to replicate the time travel attribute of 7 days, you can create a DELETE statement in your ETL as:</p>
+<p><code>DELETE FROM cat_table_history WHERE stored_timestamp = DATEADD('day', -1, CURRENT_DATE)</code></p>
+<p>I know what you&rsquo;re thinking: but then <em>this</em> table will have time travel on it and we don&rsquo;t need that. You can always turn time travel off on a specific table by doing:</p>
+<p>alter table cat_data_history set data_retention_time_in_days=0;</p>
+<p>Next I&rsquo;ll write about views&hellip;</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
