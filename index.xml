@@ -6,8 +6,16 @@
     <description>Recent content on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Nov 2020 00:12:11 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2020 00:12:11 -0400</lastBuildDate>
     <atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Views in Snowflake</title>
+      <link>https://www.alisa-in.tech/post/2020-11-24-views/</link>
+      <pubDate>Tue, 24 Nov 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-11-24-views/</guid>
+      <description>Describing the different view types in Snowflake</description>
+    </item>
     <item>
       <title>Table Types in Snowflake</title>
       <link>https://www.alisa-in.tech/post/2020-11-20-table-types/</link>
