@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.77.0" />
+
+  <title>How to Document a Data Pipeline &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="How to Document a Data Pipeline"/>
+  <meta property="og:description" content="This is my very first guest blog, contributed by Jared Rand."/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2020-12-06-dag-viz/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-12-06T00:12:11-0400"/>
+  <meta property="article:modified_time" content="2020-12-06T00:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "How to Document a Data Pipeline",
+    "headline": "How to Document a Data Pipeline",
+    "datePublished": "2020-12-06T00:12:11-0400",
+    "dateModified": "2020-12-06T00:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://www.alisa-in.tech/"
+    },
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2020-12-06-dag-viz/",
+    "description": "This is my very first guest blog, contributed by Jared Rand."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://www.alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>How to Document a Data Pipeline</h1>
+
+  <div class="post-date">
+    <time datetime="2020-12-06T00:12:11-0400">Dec 6, 2020</time> · 4 min read
+  </div>
+
+  <p>This is my very first guest blog, contributed by Jared Rand.</p>
+<hr>
+<p>Data pipelines often grow into circuitous, undocumented messes over time. In this article, learn how to document your data pipelines and save your team from future headaches.</p>
+<h3 id="do-data-pipelines-really-need-documentation">Do Data Pipelines Really Need Documentation?</h3>
+<p>Most data scientists learn to document their code early in their careers. And surely, well-documented code can go a long way in communicating how a data pipeline functions. But many data scientists do not explicitly document the steps in a pipeline and how data flows through them.
+Here are some things that could happen if you don’t document your data pipeline.</p>
+<ul>
+<li>No one on the team understands how it all fits together. With each addition to the pipeline, it grows more convoluted.</li>
+<li>No one keeps track of what gets used by downstream consumers. With each addition to the pipeline, your outputs get more bloated.</li>
+</ul>
+<h3 id="popular-approaches-to-data-pipeline-documentation">Popular Approaches to Data Pipeline Documentation</h3>
+<p>Data pipelines are often depicted as a <a href="https://www.astronomer.io/blog/what-exactly-is-a-dag">directed acyclic graph</a> (DAG). Each step in the pipeline is a node in the graph and edges represent data flowing from one step to the next. The resulting graph is directed (data flows from one step to the next) and acyclic (the output of a step should never flow back around to become its own input).
+<img src="https://www.alisa-in.tech/images/basic_dag.svg" alt="Dag">
+<a href="https://upload.wikimedia.org/wikipedia/commons/e/ef/Tred-Gprime.svg">Image credit</a> – Basic example of a DAG
+##Common Tools Used by Data Engineers for Documentation
+Many popular packages for running data pipelines provide visualizations of your pipeline’s DAG within a management console. This is true for Spark, Airflow, and others.
+<img src="https://www.alisa-in.tech/images/job_8.png" alt="DAG visualization">
+<a href="https://databricks.com/blog/2015/06/22/understanding-your-spark-application-through-visualization.html">Image credit</a> – Spark DAG visualization
+<img src="https://www.alisa-in.tech/images/subdag_before.png" alt="DAG visualization">
+<a href="https://airflow.apache.org/docs/apache-airflow/stable/concepts.html">Image credit</a> – Apache Airflow DAG visualization
+If you’re not using one of these frameworks, you can manually create your own DAG visualizations with a tool such as Graphviz.
+##Example: Visualizing Your Data Pipeline Using Graphviz
+<a href="https://graphviz.org/">Graphviz</a> is an open source graph visualization program. To create an image of your pipeline, you can either create a text file that specifies the nodes and edges, or use the <a href="https://pypi.org/project/graphviz/">graphviz python package</a>.
+Here are a couple data pipeline visualizations I made with graphviz. I made one as an example of a terrible data pipeline that resembles something I’ve seen in real life. I made another as an example of what I thought was a good pipeline. Alisa points out in her <a href="https://skillenai.com/blog/">guest post on Skillenai</a> that my “good” pipeline is far from perfect.</p>
+<h4 id="worst-data-pipeline-ever">Worst Data Pipeline Ever</h4>
+<p>First, here is the text file I made as an input to Graphviz.</p>
+<pre><code>digraph worst_data_pipeline {
+
+  //setup
+  compound = True;
+  splines = True;
+
+  // inputs in red
+  campaigns_raw [color = red]
+  views_raw [color = red]
+  visitors_raw [color = red]
+
+  // outputs in blue
+  acquisition_report [color = blue]
+
+  // intermediates in green
+  past_visitors [color = green]
+  past_acquisition [color = green]
+
+  // subgraphs
+  subgraph etl {
+    label = &quot;etl&quot;;
+
+    subgraph prep_traffic {
+      label = &quot;prep_traffic&quot;
+
+      // get new vs returning visitors
+      views_raw -&gt; views_today [label=&quot;get_views_today&quot;]
+      {views_today, past_visitors} -&gt; new_visitors [label=&quot;todays_new_visitors&quot;]
+      {new_visitors, past_visitors, views_today} -&gt; visitors_processed [label=&quot;new_vs_returning&quot;]
+      {visitors_raw, new_visitors} -&gt; past_visitors [label=&quot;update_past_visitors&quot;]
+
+    }
+
+    subgraph acquisition_report {
+      {campaigns_raw, views_today, visitors_processed} -&gt; acquisition_today [label=&quot;get_acquisition_today&quot;]
+      {past_acquisition, acquisition_today} -&gt; acquisition_report [label=&quot;get_acquisition_report&quot;]
+      {past_acquisition, acquisition_today} -&gt; past_acquisition [label=&quot;update_past_acquisition&quot;]
+
+    }
+
+  }
+
+}
+</code></pre><p>And here is the resulting image of the data pipeline.
+<img src="https://www.alisa-in.tech/images/worst_pipeline.png" alt="Worst pipeline">
+<a href="https://github.com/chiefastro/skillenai-notebooks/blob/master/worst-data-pipeline/worst-data-pipeline.dot.png">Image credit</a> – Worst data pipeline ever</p>
+<h4 id="better-data-pipeline">Better Data Pipeline</h4>
+<p>Again, here is the text file.</p>
+<pre><code>digraph best_data_pipeline {
+
+  //setup
+  compound = True;
+  splines = True;
+
+  // inputs in red
+  campaigns_raw [color = red]
+  views_raw [color = red]
+  visitors_raw [color = red]
+  signups_raw [color = red]
+  sales_raw [color = red]
+
+  // outputs in blue
+  acquisition_report [color = blue]
+  funnel_report [color = blue]
+  customer_profiles [color = blue]
+
+  // subgraphs
+  subgraph etl {
+    label = &quot;etl&quot;;
+
+    subgraph extract {
+      label = &quot;extract&quot;
+
+      // extract columns and rows you need
+      campaigns_raw -&gt; campaigns_slice [label=&quot;extract_from_source&quot;]
+      views_raw -&gt; views_slice [label=&quot;extract_from_source&quot;]
+      visitors_raw -&gt; visitors_slice [label=&quot;extract_from_source&quot;]
+      signups_raw -&gt; signups_slice [label=&quot;extract_from_source&quot;]
+      sales_raw -&gt; sales_slice [label=&quot;extract_from_source&quot;]
+
+      // cast types and standardize nulls
+      campaigns_slice -&gt; campaigns [label=&quot;clean&quot;]
+      views_slice -&gt; views [label=&quot;clean&quot;]
+      visitors_slice -&gt; visitors [label=&quot;clean&quot;]
+      signups_slice -&gt; signups [label=&quot;clean&quot;]
+      sales_slice -&gt; sales [label=&quot;clean&quot;]
+
+    }
+
+    subgraph transform {
+      label = &quot;transform&quot;
+
+      // run core business logic
+      {campaigns, views, visitors} -&gt; acquisition_report_local [label=&quot;acquisition_report_job&quot;]
+      {views, signups, sales} -&gt; funnel_report_local [label=&quot;funnel_report_job&quot;]
+      {signups, sales} -&gt; customer_profiles_local [label=&quot;customer_profiles_job&quot;]
+
+    }
+
+    subgraph load {
+      label = &quot;load&quot;
+
+      // load results into final data store
+      acquisition_report_local -&gt; acquisition_report [label=&quot;load_to_data_store&quot;]
+      funnel_report_local -&gt; funnel_report [label=&quot;load_to_data_store&quot;]
+      customer_profiles_local -&gt; customer_profiles [label=&quot;load_to_data_store&quot;]
+
+    }
+
+  }
+
+}
+</code></pre><p>And here is the image.
+<img src="https://www.alisa-in.tech/images/better_pipeline.png" alt="Better pipeline">
+<a href="https://github.com/chiefastro/skillenai-notebooks/blob/master/worst-data-pipeline/best-data-pipeline.dot.png">Image credit</a> – A better data pipeline</p>
+<hr>
+<p><img src="https://www.alisa-in.tech/images/jrand.jpg" alt="Jared Rand">
+Jared Rand is a data scientist specializing in natural language processing. He also has an MBA and is a serial entrepreneur. He is the founder of <a href="https://skillenai.com/">https://skillenai.com/</a> and blogs at <a href="https://jrandblog.com/">https://jrandblog.com/</a>.</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

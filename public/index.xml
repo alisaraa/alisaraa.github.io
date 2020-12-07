@@ -6,14 +6,24 @@
     <description>Recent content on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Dec 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Document a Data Pipeline</title>
+      <link>https://www.alisa-in.tech/post/2020-12-06-dag-viz/</link>
+      <pubDate>Sun, 06 Dec 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-12-06-dag-viz/</guid>
+      <description>This is my very first guest blog, contributed by Jared Rand.</description>
+    </item>
+    
     <item>
       <title>Views in Snowflake</title>
       <link>https://www.alisa-in.tech/post/2020-11-24-views/</link>
       <pubDate>Tue, 24 Nov 2020 00:12:11 -0400</pubDate>
       
       <guid>https://www.alisa-in.tech/post/2020-11-24-views/</guid>
-      <description>Describing the different view types in Snowflake</description>
+      <description>Someone asked this question on Reddit
+ trying to build a data mart basically and most of the times it will be file source that will be transformed through ETL and eventually loaded into snowflake.</description>
     </item>
     
     <item>

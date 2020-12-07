@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data warehousing on Alisa in Techland</title>
+    <link>https://www.alisa-in.tech/categories/data-warehousing/</link>
+    <description>Recent content in Data warehousing on Alisa in Techland</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Dec 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/data-warehousing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Document a Data Pipeline</title>
+      <link>https://www.alisa-in.tech/post/2020-12-06-dag-viz/</link>
+      <pubDate>Sun, 06 Dec 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-12-06-dag-viz/</guid>
+      <description>This is my very first guest blog, contributed by Jared Rand.</description>
+    </item>
+    
+  </channel>
+</rss>
