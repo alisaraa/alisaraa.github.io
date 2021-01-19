@@ -145,7 +145,7 @@
   <h1>How to Document a Data Pipeline</h1>
 
   <div class="post-date">
-    <time datetime="2020-12-06T00:12:11-0400">Dec 6, 2020</time> · 4 min read
+    <time datetime="2020-12-06T00:12:11-0400">Dec 6, 2020</time> · 3 min read
   </div>
 
   <p>This is my very first guest blog, contributed by Jared Rand.</p>
@@ -161,19 +161,9 @@ Here are some things that could happen if you don’t document your data pipelin
 <h3 id="popular-approaches-to-data-pipeline-documentation">Popular Approaches to Data Pipeline Documentation</h3>
 <p>Data pipelines are often depicted as a <a href="https://www.astronomer.io/blog/what-exactly-is-a-dag">directed acyclic graph</a> (DAG). Each step in the pipeline is a node in the graph and edges represent data flowing from one step to the next. The resulting graph is directed (data flows from one step to the next) and acyclic (the output of a step should never flow back around to become its own input).
 <img src="https://www.alisa-in.tech/images/basic_dag.svg" alt="Dag">
-<a href="https://upload.wikimedia.org/wikipedia/commons/e/ef/Tred-Gprime.svg">Image credit</a> – Basic example of a DAG
-<br>
-<h4>Common Tools Used by Data Engineers for Documentation</h4>
-Many popular packages for running data pipelines provide visualizations of your pipeline’s DAG within a management console. This is true for Spark, Airflow, and others.
-<img src="https://www.alisa-in.tech/images/job_8.png" alt="DAG visualization">
-<a href="https://databricks.com/blog/2015/06/22/understanding-your-spark-application-through-visualization.html">Image credit</a> – Spark DAG visualization
-<img src="https://www.alisa-in.tech/images/subdag_before.png" alt="DAG visualization">
-<a href="https://airflow.apache.org/docs/apache-airflow/stable/concepts.html">Image credit</a> – Apache Airflow DAG visualization
-If you’re not using one of these frameworks, you can manually create your own DAG visualizations with a tool such as Graphviz.<br>
-<br>
-<h4>Example: Visualizing Your Data Pipeline Using Graphviz</h4>
-<a href="https://graphviz.org/">Graphviz</a> is an open source graph visualization program. To create an image of your pipeline, you can either create a text file that specifies the nodes and edges, or use the <a href="https://pypi.org/project/graphviz/">graphviz python package</a>.
-Here are a couple data pipeline visualizations I made with graphviz. I made one as an example of a terrible data pipeline that resembles something I’ve seen in real life. I made another as an example of what I thought was a good pipeline. Alisa points out in her <a href="https://skillenai.com/2020/12/06/how-to-improve-a-dag/">guest post on Skillenai</a> that my “good” pipeline is far from perfect.</p>
+<a href="https://upload.wikimedia.org/wikipedia/commons/e/ef/Tred-Gprime.svg">Image credit</a> – Basic example of a DAG</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h4 id="worst-data-pipeline-ever">Worst Data Pipeline Ever</h4>
 <p>First, here is the text file I made as an input to Graphviz.</p>
 <pre><code>digraph worst_data_pipeline {
@@ -302,7 +292,7 @@ Jared Rand is a data scientist specializing in natural language processing. He a
 
   <footer>
   <div class="copyright">
-    &copy; Alisa Aylward 2020 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+    &copy; Alisa Aylward 2021 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
   </div>
 </footer>
 

@@ -6,7 +6,16 @@
     <description>Recent content in Data warehousing on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Dec 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/data-warehousing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Jan 2021 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/data-warehousing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Engineering Project Idea for People Getting into Data Engineering</title>
+      <link>https://www.alisa-in.tech/post/2021-01-18-de-project/</link>
+      <pubDate>Mon, 18 Jan 2021 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2021-01-18-de-project/</guid>
+      <description>It can be difficult to make a jump between job titles.</description>
+    </item>
+    
     <item>
       <title>How to Document a Data Pipeline</title>
       <link>https://www.alisa-in.tech/post/2020-12-06-dag-viz/</link>
