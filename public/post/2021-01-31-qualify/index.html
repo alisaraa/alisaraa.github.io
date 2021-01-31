@@ -163,7 +163,7 @@
 <pre><code>CREATE OR REPLACE TABLE cat_adopted_home AS
     SELECT * FROM cats_table
     QUALIFY RANK() OVER (PARTITION BY cat_id ORDER BY cat_adopted_date DESC) = 1
-</code></pre><p>Note we are using one less query, but more importantly *we do not actually have to materialize the adoption_rank column *. This means that our table cat_adopted_home has the same fields as cats_table. This is important in case we want to do something like:</p>
+</code></pre><p>Note we are using one less query, but more importantly we do not actually have to materialize the adoption_rank column. This means that our table cat_adopted_home has the same fields as cats_table. This is important in case we want to do something like:</p>
 <pre><code>CREATE OR REPLACE TABLE old_adoption_homes AS
     SELECT * FROM cats_table
     MINUS 
