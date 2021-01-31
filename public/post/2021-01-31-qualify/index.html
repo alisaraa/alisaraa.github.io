@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.77.0" />
+
+  <title>How the Snowflake Qualify Clause Changed My Life &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="How the Snowflake Qualify Clause Changed My Life"/>
+  <meta property="og:description" content="I know what you&rsquo;re thinking: either this is a click-bait title or Alisa doesn&rsquo;t have a lot going on in her life."/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2021-01-31-qualify/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2021-01-31T00:12:11-0400"/>
+  <meta property="article:modified_time" content="2021-01-31T00:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "How the Snowflake Qualify Clause Changed My Life",
+    "headline": "How the Snowflake Qualify Clause Changed My Life",
+    "datePublished": "2021-01-31T00:12:11-0400",
+    "dateModified": "2021-01-31T00:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://www.alisa-in.tech/"
+    },
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2021-01-31-qualify/",
+    "description": "I know what you\u0026rsquo;re thinking: either this is a click-bait title or Alisa doesn\u0026rsquo;t have a lot going on in her life."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://www.alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>How the Snowflake Qualify Clause Changed My Life</h1>
+
+  <div class="post-date">
+    <time datetime="2021-01-31T00:12:11-0400">Jan 31, 2021</time> · 3 min read
+  </div>
+
+  <p>I know what you&rsquo;re thinking: either this is a click-bait title or Alisa doesn&rsquo;t have a lot going on in her life. Well, two things can be true at once. This post is about the relatively new Snowflake function <a href="https://docs.snowflake.com/en/sql-reference/constructs/qualify.html">Qualify</a>. It is basically a WHERE clause for window functions. I love it.</p>
+<p>Below is my life before and after Qualify came into it. You will notice there were dark times before, but now, life is better.</p>
+<h2 id="deduplicating-a-table-before-qualify">Deduplicating a table before Qualify</h2>
+<p>In order to deduplicate cats_table based on the most recent adoption for each cat_id, I used to have to do something like this:</p>
+<pre><code>CREATE OR REPLACE TABLE cat_adopted_home AS
+    SELECT * FROM (
+        SELECT 
+            *,
+            RANK() OVER (PARTITION BY cat_id ORDER BY cat_adopted_date DESC) AS adoption_rank
+        FROM cats_table
+) WHERE adoption_rank = 1;
+</code></pre><h2 id="deduplicating-a-table-after-qualify">Deduplicating a table after Qualify</h2>
+<pre><code>CREATE OR REPLACE TABLE cat_adopted_home AS
+    SELECT * FROM cats_table
+    QUALIFY RANK() OVER (PARTITION BY cat_id ORDER BY cat_adopted_date DESC) = 1
+</code></pre><p>Note we are using one less query, but more importantly *we do not actually have to materialize the adoption_rank column *. This means that our table cat_adopted_home has the same fields as cats_table. This is important in case we want to do something like:</p>
+<pre><code>CREATE OR REPLACE TABLE old_adoption_homes AS
+    SELECT * FROM cats_table
+    MINUS 
+    SELECT * FROM cat_adopted_home;
+</code></pre><p>Before we would have had to either list the columns (a good practice, unless you really want all the columns and don&rsquo;t want to edit 5 queries when you add a field to a table) or manually drop the column like:</p>
+<p><code>ALTER TABLE cat_adopted_home DROP COLUMN adoption_rank;</code></p>
+<p>Both methods are more code to maintain and more code that can go wrong. It&rsquo;s cleaner to use QUALIFY.</p>
+<h3 id="but-is-it-more-performant">But is it more performant?</h3>
+<p>While I could not find any Snowflake documentation on this, likely there is little to no performance improvement from using QUALIFY. This is really just a syntax change. In the backend, a QUALIFY is evaluated after a WINDOW function, which means the entire table with the WINDOW function has to be created before the QUALIFY is performed. So basically, it&rsquo;s the same thing as we were doing before, but with fewer letters.</p>
+<h2 id="finding-duplicates-before-qualify">Finding duplicates before Qualify</h2>
+<p>Before Qualify came into my life, I had to do this a lot:</p>
+<pre><code>SELECT 
+    cat_id,
+    COUNT(*) AS cat_count 
+FROM cat_table
+GROUP BY cat_id
+HAVING cat_count&gt;1;
+
+</code></pre><p>This isn&rsquo;t so bad except the only data you can get is the primary key (cat_id); nothing over than the PK and the aggregate can be in the SELECT clause (fun fact: the aggregate is optional).</p>
+<p>In order to get all the cat data to figure out what fields are causing the dupes, we have to do a temp table, subquery or CTE:</p>
+<pre><code>WITH cat_dupes AS 
+    (SELECT 
+        cat_id FROM cat_table
+    GROUP BY cat_id
+    HAVING COUNT(*) &gt;1)
+SELECT * FROM cat_table
+WHERE cat_id IN (SELECT cat_id FROM cat_dupes);
+</code></pre><h2 id="finding-duplicate-after-qualify">Finding duplicate after Qualify</h2>
+<p>Now that life is better, we can do:</p>
+<pre><code>SELECT * FROM cat_table
+QUALIFY COUNT(*) OVER (PARTITION BY cat_id) &gt; 1;
+
+</code></pre><p>Now we get all duplicates and all their information in one query! In two lines! Think of the applications!</p>
+<p>Well that&rsquo;s it for me. Back to my boring life.</p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2021 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
