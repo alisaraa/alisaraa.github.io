@@ -170,9 +170,9 @@
     SELECT * FROM cat_adopted_home;
 </code></pre><p>Before we would have had to either list the columns (a good practice, unless you really want all the columns and don&rsquo;t want to edit 5 queries when you add a field to a table) or manually drop the column like:</p>
 <p><code>ALTER TABLE cat_adopted_home DROP COLUMN adoption_rank;</code></p>
-<p>Both methods are more code to maintain and more code that can go wrong. It&rsquo;s cleaner to use QUALIFY.</p>
+<p>Both methods are more code to maintain and more code that can go wrong. It&rsquo;s cleaner to use Qualify.</p>
 <h3 id="but-is-it-more-performant">But is it more performant?</h3>
-<p>While I could not find any Snowflake documentation on this, likely there is little to no performance improvement from using QUALIFY. This is really just a syntax change. In the backend, a QUALIFY is evaluated after a WINDOW function, which means the entire table with the WINDOW function has to be created before the QUALIFY is performed. So basically, it&rsquo;s the same thing as we were doing before, but with fewer letters.</p>
+<p>While I could not find any Snowflake documentation on this, likely there is little to no performance improvement from using Qualify. This is really just a syntax change. In the backend, a Qualify is evaluated after a WINDOW function, which means the entire table with the WINDOW function has to be created before the Qualify is performed. So basically, it&rsquo;s the same thing as we were doing before, but with fewer letters.</p>
 <h2 id="finding-duplicates-before-qualify">Finding duplicates before Qualify</h2>
 <p>Before Qualify came into my life, I had to do this a lot:</p>
 <pre><code>SELECT 
