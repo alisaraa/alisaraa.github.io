@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Jan 2021 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Feb 2021 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL</title>
+      <link>https://www.alisa-in.tech/categories/sql/</link>
+      <pubDate>Fri, 19 Feb 2021 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/categories/sql/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Snowflake</title>
       <link>https://www.alisa-in.tech/categories/snowflake/</link>
@@ -22,15 +31,6 @@
       <pubDate>Mon, 18 Jan 2021 00:12:11 -0400</pubDate>
       
       <guid>https://www.alisa-in.tech/categories/data-warehousing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQL</title>
-      <link>https://www.alisa-in.tech/categories/sql/</link>
-      <pubDate>Thu, 19 Nov 2020 00:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/categories/sql/</guid>
       <description></description>
     </item>
     
