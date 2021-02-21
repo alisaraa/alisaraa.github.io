@@ -182,7 +182,7 @@ FROM cat_table
 GROUP BY cat_id
 HAVING cat_count&gt;1;
 
-</code></pre><p>This isn&rsquo;t so bad except the only data you can get is the primary key (cat_id); nothing over than the PK and the aggregate can be in the SELECT clause (fun fact: the aggregate is optional).</p>
+</code></pre><p>This isn&rsquo;t so bad except the only data you can get is the primary key (cat_id); nothing other than the PK and the aggregate can be in the SELECT clause (fun fact: the aggregate is optional).</p>
 <p>In order to get all the cat data to figure out what fields are causing the dupes, we have to do a temp table, subquery or CTE:</p>
 <pre><code>WITH cat_dupes AS 
     (SELECT 
