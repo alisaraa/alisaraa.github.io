@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Alisa in Techland</title>
-    <link>https://www.alisa-in.tech/post/</link>
-    <description>Recent content in Posts on Alisa in Techland</description>
+    <title>Snowflake on Alisa in Techland</title>
+    <link>https://www.alisa-in.tech/categories/snowflake/</link>
+    <description>Recent content in Snowflake on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Feb 2021 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>SQL Window Functions: I guess that&#39;s why they call it window pain</title>
-      <link>https://www.alisa-in.tech/post/2021-02-19-window/</link>
-      <pubDate>Fri, 19 Feb 2021 00:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2021-02-19-window/</guid>
-      <description>In this post, I will try to explain window (analytical) functions.</description>
-    </item>
-    
+    <lastBuildDate>Sun, 31 Jan 2021 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/snowflake/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How the Snowflake Qualify Clause Changed My Life</title>
       <link>https://www.alisa-in.tech/post/2021-01-31-qualify/</link>
