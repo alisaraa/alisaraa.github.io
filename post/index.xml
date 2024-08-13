@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alisa in Techland</title>
-    <link>https://www.alisa-in.tech/</link>
-    <description>Recent content on Alisa in Techland</description>
+    <title>Posts on Alisa in Techland</title>
+    <link>https://www.alisa-in.tech/post/</link>
+    <description>Recent content in Posts on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Nov 2020 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
-    <atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Aug 2024 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Select Statements in Snowflake are Having a brat Summer</title>
+      <link>https://www.alisa-in.tech/post/2024-08-12-select/</link>
+      <pubDate>Mon, 12 Aug 2024 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2024-08-12-select/</guid>
+      <description>Technically, these features were released before this summer, but I am trying hard to stay relevant here.</description>
+    </item>
+    
+    <item>
+      <title>SQL Window Functions: I guess that&#39;s why they call it window pain</title>
+      <link>https://www.alisa-in.tech/post/2021-02-19-window/</link>
+      <pubDate>Fri, 19 Feb 2021 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2021-02-19-window/</guid>
+      <description>In this post, I will try to explain window (analytical) functions.</description>
+    </item>
+    
+    <item>
+      <title>How the Snowflake Qualify Clause Changed My Life</title>
+      <link>https://www.alisa-in.tech/post/2021-01-31-qualify/</link>
+      <pubDate>Sun, 31 Jan 2021 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2021-01-31-qualify/</guid>
+      <description>I know what you&amp;rsquo;re thinking: either this is a click-bait title or Alisa doesn&amp;rsquo;t have a lot going on in her life.</description>
+    </item>
+    
+    <item>
+      <title>Data Engineering Project Idea for People Getting into Data Engineering</title>
+      <link>https://www.alisa-in.tech/post/2021-01-18-de-project/</link>
+      <pubDate>Mon, 18 Jan 2021 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2021-01-18-de-project/</guid>
+      <description>It can be difficult to make a jump between job titles.</description>
+    </item>
+    
+    <item>
+      <title>How to Document a Data Pipeline</title>
+      <link>https://www.alisa-in.tech/post/2020-12-06-dag-viz/</link>
+      <pubDate>Sun, 06 Dec 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-12-06-dag-viz/</guid>
+      <description>This is my very first guest blog, contributed by Jared Rand.</description>
+    </item>
+    
+    <item>
+      <title>Views in Snowflake</title>
+      <link>https://www.alisa-in.tech/post/2020-11-24-views/</link>
+      <pubDate>Tue, 24 Nov 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-11-24-views/</guid>
+      <description>Someone asked this question on Reddit
+ trying to build a data mart basically and most of the times it will be file source that will be transformed through ETL and eventually loaded into snowflake.</description>
+    </item>
+    
+    <item>
+      <title>Table Types in Snowflake</title>
+      <link>https://www.alisa-in.tech/post/2020-11-20-table-types/</link>
+      <pubDate>Fri, 20 Nov 2020 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2020-11-20-table-types/</guid>
+      <description>Someone asked this question on Reddit
+ trying to build a data mart basically and most of the times it will be file source that will be transformed through ETL and eventually loaded into snowflake.</description>
+    </item>
+    
     <item>
       <title>A Day in the Life of a Data Engineer</title>
       <link>https://www.alisa-in.tech/post/2020-11-19-day-in-the-life/</link>
@@ -16,15 +80,16 @@
       <guid>https://www.alisa-in.tech/post/2020-11-19-day-in-the-life/</guid>
       <description>The point of this post isn&amp;rsquo;t because I think I&amp;rsquo;m so awesome that you will all want to know my 1-step smoothie recipe and workout regimen (the 1 step is &amp;ldquo;add fruit that is near you to a blender and hope it tastes edible&amp;rdquo; and the workout regime is a strict couch-to-fridge cardio plan); the point is to help people who work with data engineers and the salespeople who market to data engineers understand just what exactly we are looking for in business requirements, project communication, and new products.</description>
     </item>
-
+    
     <item>
       <title>Things I Sometimes Do in Snowflake/SQL That You Should Not Do</title>
       <link>https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/</link>
       <pubDate>Sat, 14 Nov 2020 00:12:11 -0400</pubDate>
       
       <guid>https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/</guid>
-      <description>I have turned into a typical old school parent in that I find myself saying "Do what I say, not what I do."</description>
+      <description>I have turned into a typical old school parent in that I find myself saying &amp;ldquo;Do what I say, not what I do&amp;rdquo; This is usually when I’m sharing my screen, and under the perceived time pressure and awkwardness that comes from people watching you work, I take some SQL shortcuts.</description>
     </item>
+    
     <item>
       <title>Common Excel Functions in SQL</title>
       <link>https://www.alisa-in.tech/post/2020-11-02-excel/</link>
@@ -32,43 +97,6 @@
       
       <guid>https://www.alisa-in.tech/post/2020-11-02-excel/</guid>
       <description>My first job out of college was in insurance analytics. I learned a lot about insurance and a lot about Excel.</description>
-    </item>
-    
-
-    <item>
-      <title>How many times does cat appear in the cat Wikipedia page?</title>
-      <link>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</link>
-      <pubDate>Sun, 12 Apr 2020 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</guid>
-      <description>In this post, I’m going to hit the Wikipedia API to get data into a database because so often as data engineers our job is to hit an arbitrary API and extract, clean, and store the data.</description>
-    </item>
-    
-    <item>
-      <title>How to practice data engineering when you&#39;re not data engineering</title>
-      <link>https://www.alisa-in.tech/post/2020-04-07-practice-data-engineering/</link>
-      <pubDate>Tue, 07 Apr 2020 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2020-04-07-practice-data-engineering/</guid>
-      <description>One of the hard parts of data engineering is that, when you’re not at work, it is hard to practice because database management systems cost money, data infrastructure takes time to set up, and there are no stakeholders asking you interesting questions.</description>
-    </item>
-    
-    <item>
-      <title>Uncool Things in Snowflake</title>
-      <link>https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/</link>
-      <pubDate>Tue, 25 Feb 2020 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/</guid>
-      <description>This is the third post in a series of Cool Things to do in Snowflake, but these are things that are really cool when you don’t do them; they’re Uncool Things to Do in Snowflake.</description>
-    </item>
-    
-    <item>
-      <title>Advanced Cool Things in Snowflake</title>
-      <link>https://www.alisa-in.tech/post/2020-02-21-advanced-snowflake/</link>
-      <pubDate>Fri, 21 Feb 2020 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2020-02-21-advanced-snowflake/</guid>
-      <description>This is part 2 to my blog post Cool Things in Snowflake as requested by one of my many fans.</description>
     </item>
     
     <item>
@@ -87,7 +115,7 @@
       
       <guid>https://www.alisa-in.tech/post/2019-10-12-nulls/</guid>
       <description>We have to talk about NULLs.
-This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&#39;t, and why they are important in data warehousing.</description>
+This post won’t include anything revolutionary, but rather just a summary of what NULLs are, what they aren&amp;rsquo;t, and why they are important in data warehousing.</description>
     </item>
     
     <item>
@@ -136,33 +164,6 @@ This post won’t include anything revolutionary, but rather just a summary of w
     </item>
     
     <item>
-      <title>Genius in Tech</title>
-      <link>https://www.alisa-in.tech/post/2019-06-05-genius/</link>
-      <pubDate>Wed, 05 Jun 2019 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2019-06-05-genius/</guid>
-      <description>I just finished How Not to Be Wrong: The Power of Mathematical Thinking by Jordan Ellenberg and one particular section made me think of tech.</description>
-    </item>
-    
-    <item>
-      <title>ELI5 - Cross Products</title>
-      <link>https://www.alisa-in.tech/post/2018-12-08-eli5-cross-products/</link>
-      <pubDate>Sat, 08 Dec 2018 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2018-12-08-eli5-cross-products/</guid>
-      <description>In order to understand cross products, you have to understand joins since cross products are a type of join.</description>
-    </item>
-    
-    <item>
-      <title>ELI5 - Data Marts</title>
-      <link>https://www.alisa-in.tech/post/2018-11-03-data-marts/</link>
-      <pubDate>Sat, 03 Nov 2018 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2018-11-03-data-marts/</guid>
-      <description>In this post, I will explain the concept of data marts with approachable language, but I won&#39;t be talking to my 5 year old nephew Rhys.</description>
-    </item>
-    
-    <item>
       <title>ELI5 - Primary Keys</title>
       <link>https://www.alisa-in.tech/post/2018-08-15-pks/</link>
       <pubDate>Wed, 15 Aug 2018 15:12:11 -0400</pubDate>
@@ -181,15 +182,6 @@ This post won’t include anything revolutionary, but rather just a summary of w
     </item>
     
     <item>
-      <title>A Memory in Tech</title>
-      <link>https://www.alisa-in.tech/post/2018-08-02-memory/</link>
-      <pubDate>Thu, 02 Aug 2018 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2018-08-02-memory/</guid>
-      <description>This is a real memory from when I was in first grade, so I was 6 to 7.</description>
-    </item>
-    
-    <item>
       <title>ELI5- Slowly Changing Dimensions</title>
       <link>https://www.alisa-in.tech/post/2018-07-18-eli5-scd/</link>
       <pubDate>Wed, 18 Jul 2018 15:12:11 -0400</pubDate>
@@ -205,42 +197,6 @@ This post won’t include anything revolutionary, but rather just a summary of w
       
       <guid>https://www.alisa-in.tech/post/2019-07-03-rowbased/</guid>
       <description>There are two types of relational database management systems: columnar and row-based, also called: column-wise and row-wise, column store and row store, column-based and row-based, and column-oriented and row-oriented.</description>
-    </item>
-    
-    <item>
-      <title>Swearing in Tech</title>
-      <link>https://www.alisa-in.tech/post/2018-05-22-swearing_in_tech/</link>
-      <pubDate>Sun, 22 Apr 2018 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2018-05-22-swearing_in_tech/</guid>
-      <description>Ideally, we shouldn’t swear at work. If we lived in an ideal world though, I may not have a blog.</description>
-    </item>
-    
-    <item>
-      <title>Beer in Tech</title>
-      <link>https://www.alisa-in.tech/post/2018-04-09-beer/</link>
-      <pubDate>Mon, 09 Apr 2018 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2018-04-09-beer/</guid>
-      <description>I’m wondering if beer in tech has reached its expiration date.</description>
-    </item>
-    
-    <item>
-      <title>Names in Tech</title>
-      <link>https://www.alisa-in.tech/post/2018-04-05-name/</link>
-      <pubDate>Thu, 05 Apr 2018 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2018-04-05-name/</guid>
-      <description>Let me start by saying that I love my name. I love the way it sounds.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://www.alisa-in.tech/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.alisa-in.tech/about/</guid>
-      <description>I am Alisa (uh-lee-suh) and I am a data engineer. I have other hobbies too.</description>
     </item>
     
   </channel>
