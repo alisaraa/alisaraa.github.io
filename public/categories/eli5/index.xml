@@ -6,25 +6,7 @@
     <description>Recent content in ELI5 on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Dec 2018 15:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/eli5/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ELI5 - Cross Products</title>
-      <link>https://www.alisa-in.tech/post/2018-12-08-eli5-cross-products/</link>
-      <pubDate>Sat, 08 Dec 2018 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2018-12-08-eli5-cross-products/</guid>
-      <description>In order to understand cross products, you have to understand joins since cross products are a type of join.</description>
-    </item>
-    
-    <item>
-      <title>ELI5 - Data Marts</title>
-      <link>https://www.alisa-in.tech/post/2018-11-03-data-marts/</link>
-      <pubDate>Sat, 03 Nov 2018 15:12:11 -0400</pubDate>
-      
-      <guid>https://www.alisa-in.tech/post/2018-11-03-data-marts/</guid>
-      <description>In this post, I will explain the concept of data marts with approachable language, but I won&amp;rsquo;t be talking to my 5 year old nephew Rhys.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 15 Aug 2018 15:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/categories/eli5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ELI5 - Primary Keys</title>
       <link>https://www.alisa-in.tech/post/2018-08-15-pks/</link>
