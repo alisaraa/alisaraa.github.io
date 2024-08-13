@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.77.0" />
+
+  <title>Select Statements in Snowflake are Having a brat Summer &middot; Alisa in Techland</title>
+
+  <meta name="description" content="" />
+
+  
+  <meta property="og:locale" content="en-us"/>
+
+  
+  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
+
+  
+  <meta property="og:site_name" content="Alisa in Techland"/>
+  <meta property="og:title" content="Select Statements in Snowflake are Having a brat Summer"/>
+  <meta property="og:description" content="Technically, these features were released before this summer, but I am trying hard to stay relevant here."/>
+  <meta property="og:url" content="https://www.alisa-in.tech/post/2024-08-12-select/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2024-08-12T00:12:11-0400"/>
+  <meta property="article:modified_time" content="2024-08-12T00:12:11-0400"/>
+  <meta property="article:author" content="Alisa">
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type" : "Blog",
+    "name": "Alisa in Techland",
+    "url" : "https://www.alisa-in.tech/",
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "description": ""
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "name": "Select Statements in Snowflake are Having a brat Summer",
+    "headline": "Select Statements in Snowflake are Having a brat Summer",
+    "datePublished": "2024-08-12T00:12:11-0400",
+    "dateModified": "2024-08-12T00:12:11-0400",
+    "author": {
+      "@type": "Person",
+      "name": "Alisa",
+      "url": "https://www.alisa-in.tech/"
+    },
+    "image": "https://www.alisa-in.tech/images/profile.png",
+    "url": "https://www.alisa-in.tech/post/2024-08-12-select/",
+    "description": "Technically, these features were released before this summer, but I am trying hard to stay relevant here."
+  }
+  </script>
+  
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="https://www.alisa-in.tech/css/hyde.css">
+
+  
+
+
+  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+        </div>
+        
+      
+
+      <h1>Alisa in Techland</h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://www.alisa-in.tech/">Home</a>
+        </li>
+        <li>
+          <a href="/post/"> Posts </a>
+        </li><li>
+          <a href="/about/"> About </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+      </a>
+      
+      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1>Select Statements in Snowflake are Having a brat Summer</h1>
+
+  <div class="post-date">
+    <time datetime="2024-08-12T00:12:11-0400">Aug 12, 2024</time> · 3 min read
+  </div>
+
+  <p>Technically, these features were released before this summer, but I am trying hard to stay relevant here.</p>
+<h2 id="what-cool-new-things-can-you-do-in-a-select-statement">What cool new things can you do in a Select statement?</h2>
+<p>The <code>select</code> statement has been the same since the dawn of SQL. I don&rsquo;t know if that&rsquo;s true, but we can agree it&rsquo;s basic and simple and probably hasn&rsquo;t changed much. Until now!
+Snowflake has introduced some cool new <a href="https://docs.snowflake.com/en/sql-reference/sql/select">features</a> that you can use in your analysis, ETL or dinner discussions.</p>
+<h3 id="exclude">EXCLUDE</h3>
+<h4 id="syntax">Syntax</h4>
+<p><code>SELECT * EXCLUDE cat_id FROM cat_table</code></p>
+<p><code>SELECT * EXCLUDE cat_id, last_modified_dt FROM cat_table</code></p>
+<h4 id="good-for">Good for</h4>
+<p>Seeing all columns in a table in order except a few</p>
+<p>You may use this because you are trying to do a <code>set</code> statement, such as <code>minus</code> or <code>union all</code>, but one or two fields aren&rsquo;t important to your findings (I&rsquo;m looking right at you, <code>last_modified_dt</code>), or you may want to <code>INSERT</code> or <code>INSERT OVERWRITE</code> into another table that has all the same columns except a few</p>
+<h3 id="replace">REPLACE</h3>
+<h4 id="syntax-1">Syntax</h4>
+<p><code>SELECT * REPLACE (cat_cuteness * 100 || '%' AS cat_cuteness) FROM cat_table</code></p>
+<h4 id="good-for-1">Good for</h4>
+<p>Selecting all columns from a table in order, but slightly altering the contents of one column in place</p>
+<p>You may use this if you are trying to do a <code>set</code> operation (<code>minus</code>, <code>union all</code>, etc) on two sources and one varies slightly or if you want to do an <code>INSERT</code> or <code>INSERT OVERWRITE</code> into another table but slightly change the contents. In the example above, I am changing cat_cuteness to a percent. If there are 100 columns and cat_cuteness is ordinal 50, that <code>select</code> statement will return cat_cuteness as percent in the 50th ordinal position.</p>
+<h3 id="rename">RENAME</h3>
+<h4 id="syntax-2">Syntax</h4>
+<p><code>SELECT * RENAME breed AS cat_breed FROM cat_table</code></p>
+<h4 id="good-for-2">Good for</h4>
+<p>Renaming a column name to match or not match another table. For instance, if you want all column names to match before you do a <code>merge</code> you may make a temp table that renames any mismatched names so you don&rsquo;t have merge statements like:</p>
+<pre><code>MERGE INTO target USING source
+ON target.cat_id = source.cat_id
+WHEN MATCHED THEN UPDATE SET
+target.cat_breed = source.breed
+</code></pre><p>More likely though, you may want to intentionally change the name of the column so when you do a <code>join</code>, your two tables will have distinct column names. If <code>breed</code> exists in both tables, this will give you an error:</p>
+<pre><code>SELECT breed
+FROM cat_table
+LEFT JOIN animal_table
+ON cat_table.cat_id  = animal_table.animal_id
+</code></pre><p>While I do think you should alias in this case, if you want both fields, you will need to alias and rename:</p>
+<pre><code>SELECT 
+    cat_table.breed AS cat_breed,
+    animal_table.breed AS animal_breed,
+    COALESCE(cat_breed, animal_breed) AS breed
+FROM cat_table
+LEFT JOIN animal_table
+ON cat_table.cat_id = animal_table.animal_id
+</code></pre><p>This can be wordy if there is more than one field like this, so you may do:</p>
+<pre><code>WITH cat AS 
+(SELECT * RENAME breed AS cat_breed FROM cat_table),
+animal AS 
+(SELECT * RENAME breed AS animal_breed FROM animal_table)
+
+SELECT 
+    cat_breed, 
+    animal_breed, 
+    COALESCE(cat_breed, animal_breed) AS breed
+FROM cat
+LEFT JOIN animal
+ON cat.cat_id = animal.animal_id
+</code></pre><h3 id="ilike">ILIKE</h3>
+<h4 id="syntax-3">Syntax</h4>
+<p><code>SELECT * ILIKE 'cat%' FROM animal_table</code></p>
+<h4 id="good-for-3">Good for</h4>
+<p>When you want to select only certain columns from a table.
+I probably wouldn&rsquo;t use this for ETL, but if you are doing analysis on a wide table, it may be help you see only what it is relevant very quickly.</p>
+<h2 id="warning">Warning</h2>
+<p>You can combine these keywords into one select statement, but as we can see, this can get hard to read. In the case of ETL, you may end up writing out the columns rather than trying to save some characters.</p>
+<p><code>SELECT * EXCLUDE cat_id REPLACE (cat_cuteness * 100 || '%' AS cat_cuteness) FROM cat_table</code></p>
+
+</div>
+
+
+  </main>
+
+  <footer>
+  <div class="copyright">
+    &copy; Alisa Aylward 2024 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112486152-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
