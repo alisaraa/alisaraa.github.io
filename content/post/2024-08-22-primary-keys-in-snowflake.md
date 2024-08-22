@@ -36,7 +36,7 @@ QUALIFY COUNT(*) OVER (PARTITION BY <pk list>) > 1
 These checks may be expensive and, dependending on the cadence, may catch bugs too late for your needs, but knowing that the metadata of the constraints is available can be helpful when designing QA architecture.
 
 
-## Enforce not null constraints
+### Enforce not null constraints
 While the uniqueness of a primary key is not enforced, by default in Snowflake, all columns that make up the primary key cannot have any nulls.
 
 When primarys keys can be one or more columns, called [composite primary keys](https://www.geeksforgeeks.org/composite-key-in-sql/), you may not want to observe this constraint. However, if you insert any nulls into any primary key columns you will get the following error:

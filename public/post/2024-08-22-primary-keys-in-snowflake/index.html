@@ -1,211 +1,208 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.77.0" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.77.0" />
 
-  <title>Primary Keys in Snowflake are Very Demure, Very Mindful &middot; Alisa in Techland</title>
+    <title>Primary Keys in Snowflake are Very Demure, Very Mindful &middot; Alisa in Techland</title>
 
-  <meta name="description" content="" />
-
-  
-  <meta property="og:locale" content="en-us"/>
-
-  
-  <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
-
-  
-  <meta property="og:site_name" content="Alisa in Techland"/>
-  <meta property="og:title" content="Primary Keys in Snowflake are Very Demure, Very Mindful"/>
-  <meta property="og:description" content="All database tables should have a primary key, whether its one column or several."/>
-  <meta property="og:url" content="https://www.alisa-in.tech/post/2024-08-22-primary-keys-in-snowflake/"/>
-  <meta property="og:type" content="article"/>
-  <meta property="article:published_time" content="2024-08-22T00:12:11-0400"/>
-  <meta property="article:modified_time" content="2024-08-22T00:12:11-0400"/>
-  <meta property="article:author" content="Alisa">
-  
-  
-  
-
-  <script type="application/ld+json">
-  {
-    "@context" : "http://schema.org",
-    "@type" : "Blog",
-    "name": "Alisa in Techland",
-    "url" : "https://www.alisa-in.tech/",
-    "image": "https://www.alisa-in.tech/images/profile.png",
-    "description": ""
-  }
-  </script>
-
-  
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "name": "Primary Keys in Snowflake are Very Demure, Very Mindful",
-    "headline": "Primary Keys in Snowflake are Very Demure, Very Mindful",
-    "datePublished": "2024-08-22T00:12:11-0400",
-    "dateModified": "2024-08-22T00:12:11-0400",
-    "author": {
-      "@type": "Person",
-      "name": "Alisa",
-      "url": "https://www.alisa-in.tech/"
-    },
-    "image": "https://www.alisa-in.tech/images/profile.png",
-    "url": "https://www.alisa-in.tech/post/2024-08-22-primary-keys-in-snowflake/",
-    "description": "All database tables should have a primary key, whether its one column or several."
-  }
-  </script>
-  
+    <meta name="description" content="" />
 
 
-  <link type="text/css"
-        rel="stylesheet"
-        href="https://www.alisa-in.tech/css/print.css"
-        media="print">
-
-  <link type="text/css"
-        rel="stylesheet"
-        href="https://www.alisa-in.tech/css/poole.css">
-
-  <link type="text/css"
-        rel="stylesheet"
-        href="https://www.alisa-in.tech/css/hyde.css">
-
-  
+    <meta property="og:locale" content="en-us" />
 
 
-  <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+    <meta property="og:image" content="https://www.alisa-in.tech/images/profile.png">
 
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
 
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-        crossorigin="anonymous" />
+    <meta property="og:site_name" content="Alisa in Techland" />
+    <meta property="og:title" content="Primary Keys in Snowflake are Very Demure, Very Mindful" />
+    <meta property="og:description" content="All database tables should have a primary key, whether its one column or several." />
+    <meta property="og:url" content="https://www.alisa-in.tech/post/2024-08-22-primary-keys-in-snowflake/" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2024-08-22T00:12:11-0400" />
+    <meta property="article:modified_time" content="2024-08-22T00:12:11-0400" />
+    <meta property="article:author" content="Alisa">
 
-  <link rel="apple-touch-icon-precomposed"
-        sizes="144x144"
-        href="/apple-touch-icon-144-precomposed.png">
 
-  <link rel="shortcut icon" href="/favicon.png">
 
-  
-  </head>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Blog",
+            "name": "Alisa in Techland",
+            "url": "https://www.alisa-in.tech/",
+            "image": "https://www.alisa-in.tech/images/profile.png",
+            "description": ""
+        }
+    </script>
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "BlogPosting",
+            "name": "Primary Keys in Snowflake are Very Demure, Very Mindful",
+            "headline": "Primary Keys in Snowflake are Very Demure, Very Mindful",
+            "datePublished": "2024-08-22T00:12:11-0400",
+            "dateModified": "2024-08-22T00:12:11-0400",
+            "author": {
+                "@type": "Person",
+                "name": "Alisa",
+                "url": "https://www.alisa-in.tech/"
+            },
+            "image": "https://www.alisa-in.tech/images/profile.png",
+            "url": "https://www.alisa-in.tech/post/2024-08-22-primary-keys-in-snowflake/",
+            "description": "All database tables should have a primary key, whether its one column or several."
+        }
+    </script>
+
+
+
+    <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/print.css" media="print">
+
+    <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/poole.css">
+
+    <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/hyde.css">
+
+
+
+
+    <link type="text/css" rel="stylesheet" href="https://www.alisa-in.tech/css/blog.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+</head>
+
 <body>
-  <aside class="sidebar">
-  <div class="container">
-    <div class="sidebar-about">
-      
-        
-        <div class="author-image">
-          <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+    <aside class="sidebar">
+        <div class="container">
+            <div class="sidebar-about">
+
+
+                <div class="author-image">
+                    <img src="https://www.alisa-in.tech/images/profile.png" class="img-circle img-headshot center" alt="Profile Picture">
+                </div>
+
+
+
+                <h1>Alisa in Techland</h1>
+
+
+            </div>
+
+            <nav>
+                <ul class="sidebar-nav">
+                    <li>
+                        <a href="https://www.alisa-in.tech/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/post/"> Posts </a>
+                    </li>
+                    <li>
+                        <a href="/about/"> About </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <section class="social-icons">
+
+                <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+
+                <a href="https://github.com/alisaraa" rel="me" title="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+
+            </section>
         </div>
-        
-      
-
-      <h1>Alisa in Techland</h1>
-
-      
-    </div>
-
-    <nav>
-      <ul class="sidebar-nav">
-        <li>
-          <a href="https://www.alisa-in.tech/">Home</a>
-        </li>
-        <li>
-          <a href="/post/"> Posts </a>
-        </li><li>
-          <a href="/about/"> About </a>
-        </li>
-      </ul>
-    </nav>
-
-    <section class="social-icons">
-      
-      <a href="https://www.linkedin.com/in/alisa-aylward-266aa3a1/" rel="me" title="Linkedin">
-        <i class="fab fa-linkedin" aria-hidden="true"></i>
-      </a>
-      
-      <a href="https://github.com/alisaraa" rel="me" title="GitHub">
-        <i class="fab fa-github" aria-hidden="true"></i>
-      </a>
-      
-    </section>
-  </div>
-</aside>
+    </aside>
 
 
-  <main class="content container">
-  <div class="post">
-  <h1>Primary Keys in Snowflake are Very Demure, Very Mindful</h1>
+    <main class="content container">
+        <div class="post">
+            <h1>Primary Keys in Snowflake are Very Demure, Very Mindful</h1>
 
-  <div class="post-date">
-    <time datetime="2024-08-22T00:12:11-0400">Aug 22, 2024</time> · 2 min read
-  </div>
+            <div class="post-date">
+                <time datetime="2024-08-22T00:12:11-0400">Aug 22, 2024</time> · 2 min read
+            </div>
 
-  <p>All database tables should have a primary key, whether its one column or several. Primary keys indicate what defines a row. Without a primary key, the data cannot be understood or maintained correctly; you cannot identify duplicates or updates. So we know tables should have primary keys, but since the uniqueness of them isn&rsquo;t <a href="https://docs.snowflake.com/en/sql-reference/constraints-overview#constraints-in-get-ddl">enforced in Snowflake</a>, why should you define them in Snowflake itself?</p>
-<h2 id="why-should-you-define-primary-keys-in-snowflake-if-they-arent-enforced">Why should you define primary keys in Snowflake if they aren&rsquo;t enforced?</h2>
-<p>You should still define primary keys in a table to:</p>
-<ul>
-<li>communicate the grain of the table</li>
-<li>create dynamic SQL checks</li>
-<li>enforce not null constraints</li>
-</ul>
-<h3 id="communicate-the-grain-of-the-table">Communicate the grain of the table</h3>
-<p>Once a primary key is defined in Snowflake, anyone with access to the table can see its primayr keys by using the <code>get_ddl()</code> <a href="https://docs.snowflake.com/en/sql-reference/constraints-overview#constraints-in-get-ddl">command</a>. This helps end users understand the grain of the table they are using.</p>
-<p>If you use a data dictionary product, this metadata can often be ingested and displayed there.</p>
-<p>Also, engineers who have to make or edit a <code>merge</code> statatement benefit from the primary keys; this helps determine what they should <code>merge</code> on when we update this table.</p>
-<h3 id="create-dyanmic-sql-checks">Create dyanmic SQL checks</h3>
-<p>Primary keys can also be found with a <code>show</code> <a href="https://docs.snowflake.com/en/sql-reference/sql/show-primary-keys">command</a>.</p>
-<p>For instance, <code>show primary keys in account</code> will show you all your primary keys at once.
-This allows you to use that output to dynamically create any checks you may need, effectively replicating what Snowflake would do if primary keys were enforced.</p>
-<p>An example query could be:</p>
-<pre><code>SELECT 1 FROM table1
+            <p>All database tables should have a primary key, whether its one column or several. Primary keys indicate what defines a row. Without a primary key, the data cannot be understood or maintained correctly; you cannot identify duplicates or updates.
+                So we know tables should have primary keys, but since the uniqueness of them isn&rsquo;t <a href="https://docs.snowflake.com/en/sql-reference/constraints-overview#constraints-in-get-ddl">enforced in Snowflake</a>, why should you define
+                them in Snowflake itself?</p>
+            <h2 id="why-should-you-define-primary-keys-in-snowflake-if-they-arent-enforced">Why should you define primary keys in Snowflake if they aren&rsquo;t enforced?</h2>
+            <p>You should still define primary keys in a table to:</p>
+            <ul>
+                <li>communicate the grain of the table</li>
+                <li>create dynamic SQL checks</li>
+                <li>enforce not null constraints</li>
+            </ul>
+            <h3 id="communicate-the-grain-of-the-table">Communicate the grain of the table</h3>
+            <p>Once a primary key is defined in Snowflake, anyone with access to the table can see its primayr keys by using the <code>get_ddl()</code> <a href="https://docs.snowflake.com/en/sql-reference/constraints-overview#constraints-in-get-ddl">command</a>.
+                This helps end users understand the grain of the table they are using.</p>
+            <p>If you use a data dictionary product, this metadata can often be ingested and displayed there.</p>
+            <p>Also, engineers who have to make or edit a <code>merge</code> statatement benefit from the primary keys; this helps determine what they should <code>merge</code> on when we update this table.</p>
+            <h3 id="create-dyanmic-sql-checks">Create dyanmic SQL checks</h3>
+            <p>Primary keys can also be found with a <code>show</code> <a href="https://docs.snowflake.com/en/sql-reference/sql/show-primary-keys">command</a>.</p>
+            <p>For instance, <code>show primary keys in account</code> will show you all your primary keys at once. This allows you to use that output to dynamically create any checks you may need, effectively replicating what Snowflake would do if primary
+                keys were enforced.</p>
+            <p>An example query could be:</p>
+            <pre><code>SELECT 1 FROM table1
 QUALIFY COUNT(*) OVER (PARTITION BY &lt;pk list&gt;) &gt; 1
-</code></pre><p>These checks may be expensive and, dependending on the cadence, may catch bugs too late for your needs, but knowing that the metadata of the constraints is available can be helpful when designing QA architecture.</p>
-<h2 id="enforce-not-null-constraints">Enforce not null constraints</h2>
-<p>While the uniqueness of a primary key is not enforced, by default in Snowflake, all columns that make up the primary key cannot have any nulls.</p>
-<p>When primarys keys can be one or more columns, called <a href="https://www.geeksforgeeks.org/composite-key-in-sql/">composite primary keys</a>, you may not want to observe this constraint. However, if you insert any nulls into any primary key columns you will get the following error:</p>
-<p><code>NULL result in a non-nullable column</code></p>
-<p>If this is a composite key, and you want to remove the null constraint on that column, you can run:</p>
-<p><code>ALTER TABLE cat_table ALTER COLUMN cat_name DROP NOT NULL;</code></p>
-<p><a href="https://docs.snowflake.com/en/sql-reference/sql/alter-table-column">source</a></p>
-<p>But in reality, all cats should have names so maybe look into that data source before you run that command.</p>
+</code></pre>
+            <p>These checks may be expensive and, dependending on the cadence, may catch bugs too late for your needs, but knowing that the metadata of the constraints is available can be helpful when designing QA architecture.</p>
+            <h3 id="enforce-not-null-constraints">Enforce not null constraints</h2>
+                <p>While the uniqueness of a primary key is not enforced, by default in Snowflake, all columns that make up the primary key cannot have any nulls.</p>
+                <p>When primarys keys can be one or more columns, called <a href="https://www.geeksforgeeks.org/composite-key-in-sql/">composite primary keys</a>, you may not want to observe this constraint. However, if you insert any nulls into any primary
+                    key columns you will get the following error:</p>
+                <p><code>NULL result in a non-nullable column</code></p>
+                <p>If this is a composite key, and you want to remove the null constraint on that column, you can run:</p>
+                <p><code>ALTER TABLE cat_table ALTER COLUMN cat_name DROP NOT NULL;</code></p>
+                <p><a href="https://docs.snowflake.com/en/sql-reference/sql/alter-table-column">source</a></p>
+                <p>But in reality, all cats should have names so maybe look into that data source before you run that command.</p>
 
-</div>
-
-
-  </main>
-
-  <footer>
-  <div class="copyright">
-    &copy; Alisa Aylward 2024 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
-  </div>
-</footer>
+        </div>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
-          crossorigin="anonymous"></script>
+    </main>
 
-  <script src="https://www.alisa-in.tech/js/blog.js"></script>
+    <footer>
+        <div class="copyright">
+            &copy; Alisa Aylward 2024 · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>
+        </div>
+    </footer>
 
-  
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-112486152-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+    <script src="https://www.alisa-in.tech/js/blog.js"></script>
+
+
+    <script type="application/javascript">
+        var doNotTrack = false;
+        if (!doNotTrack) {
+            window.ga = window.ga || function() {
+                (ga.q = ga.q || []).push(arguments)
+            };
+            ga.l = +new Date;
+            ga('create', 'UA-112486152-1', 'auto');
+
+            ga('send', 'pageview');
+        }
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </body>
+
 </html>
