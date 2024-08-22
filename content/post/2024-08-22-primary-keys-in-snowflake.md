@@ -20,7 +20,7 @@ If you use a data dictionary product, this metadata can often be ingested and di
 
 Also, engineers who have to make or edit a `merge` statatement benefit from the primary keys; this helps determine what they should `merge` on when we update this table.
 
-### Create dyanmic SQL checks
+### Create dynamic SQL checks
 Primary keys can also be found with a `show` [command](https://docs.snowflake.com/en/sql-reference/sql/show-primary-keys).
 
 For instance, `show primary keys in account` will show you all your primary keys at once. 
