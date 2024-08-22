@@ -6,7 +6,16 @@
     <description>Recent content on Alisa in Techland</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Aug 2024 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Aug 2024 00:12:11 -0400</lastBuildDate><atom:link href="https://www.alisa-in.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primary Keys in Snowflake are Very Demure, Very Mindful</title>
+      <link>https://www.alisa-in.tech/post/2024-08-22-primary-keys-in-snowflake/</link>
+      <pubDate>Thu, 22 Aug 2024 00:12:11 -0400</pubDate>
+      
+      <guid>https://www.alisa-in.tech/post/2024-08-22-primary-keys-in-snowflake/</guid>
+      <description>All database tables should have a primary key, whether its one column or several.</description>
+    </item>
+    
     <item>
       <title>Select Statements in Snowflake are Having a brat Summer</title>
       <link>https://www.alisa-in.tech/post/2024-08-12-select/</link>

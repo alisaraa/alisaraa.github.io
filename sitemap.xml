@@ -4,24 +4,69 @@
   
   <url>
     <loc>https://www.alisa-in.tech/</loc>
-    <lastmod>2021-01-18T00:12:11-04:00</lastmod>
+    <lastmod>2024-08-22T00:12:11-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.alisa-in.tech/categories/</loc>
-    <lastmod>2021-01-18T00:12:11-04:00</lastmod>
+    <lastmod>2024-08-22T00:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alisa-in.tech/post/</loc>
+    <lastmod>2024-08-22T00:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alisa-in.tech/post/2024-08-22-primary-keys-in-snowflake/</loc>
+    <lastmod>2024-08-22T00:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alisa-in.tech/categories/sql/</loc>
+    <lastmod>2024-08-22T00:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alisa-in.tech/post/2024-08-12-select/</loc>
+    <lastmod>2024-08-12T00:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alisa-in.tech/post/2021-02-19-window/</loc>
+    <lastmod>2021-02-19T00:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alisa-in.tech/post/2021-01-31-qualify/</loc>
+    <lastmod>2021-01-31T00:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alisa-in.tech/categories/snowflake/</loc>
+    <lastmod>2021-01-31T00:12:11-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.alisa-in.tech/post/2021-01-18-de-project/</loc>
     <lastmod>2021-01-18T00:12:11-04:00</lastmod>
   </url>
-
+  
+  <url>
+    <loc>https://www.alisa-in.tech/categories/data-warehousing/</loc>
+    <lastmod>2021-01-18T00:12:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.alisa-in.tech/post/2020-12-06-dag-viz/</loc>
+    <lastmod>2020-12-06T00:12:11-04:00</lastmod>
+  </url>
+  
   <url>
     <loc>https://www.alisa-in.tech/post/2020-11-24-views/</loc>
     <lastmod>2020-11-24T00:12:11-04:00</lastmod>
   </url>
-
+  
   <url>
     <loc>https://www.alisa-in.tech/post/2020-11-20-table-types/</loc>
     <lastmod>2020-11-20T00:12:11-04:00</lastmod>
@@ -36,40 +81,10 @@
     <loc>https://www.alisa-in.tech/post/2020-11-14-things-i-do-not-to-do/</loc>
     <lastmod>2020-11-14T00:12:11-04:00</lastmod>
   </url>
-
+  
   <url>
     <loc>https://www.alisa-in.tech/post/2020-11-02-excel/</loc>
     <lastmod>2020-11-01T00:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2020-04-12-hitting-the-wiki-api/</loc>
-    <lastmod>2020-04-12T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/</loc>
-    <lastmod>2020-04-12T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/categories/sql/</loc>
-    <lastmod>2020-04-12T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2020-04-07-practice-data-engineering/</loc>
-    <lastmod>2020-04-07T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2020-02-25-uncool-snowflake/</loc>
-    <lastmod>2020-02-25T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2020-02-21-advanced-snowflake/</loc>
-    <lastmod>2020-02-21T15:12:11-04:00</lastmod>
   </url>
   
   <url>
@@ -113,23 +128,8 @@
   </url>
   
   <url>
-    <loc>https://www.alisa-in.tech/post/2019-06-05-genius/</loc>
-    <lastmod>2019-06-05T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.alisa-in.tech/categories/eli5/</loc>
-    <lastmod>2018-12-08T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2018-12-08-eli5-cross-products/</loc>
-    <lastmod>2018-12-08T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2018-11-03-data-marts/</loc>
-    <lastmod>2018-11-03T15:12:11-04:00</lastmod>
+    <lastmod>2018-08-15T15:12:11-04:00</lastmod>
   </url>
   
   <url>
@@ -143,16 +143,6 @@
   </url>
   
   <url>
-    <loc>https://www.alisa-in.tech/post/2018-08-02-memory/</loc>
-    <lastmod>2018-08-02T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/categories/wit/</loc>
-    <lastmod>2018-08-02T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.alisa-in.tech/post/2018-07-18-eli5-scd/</loc>
     <lastmod>2018-07-18T15:12:11-04:00</lastmod>
   </url>
@@ -160,21 +150,6 @@
   <url>
     <loc>https://www.alisa-in.tech/post/2019-07-03-rowbased/</loc>
     <lastmod>2018-07-03T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2018-05-22-swearing_in_tech/</loc>
-    <lastmod>2018-04-22T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2018-04-09-beer/</loc>
-    <lastmod>2018-04-09T15:12:11-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.alisa-in.tech/post/2018-04-05-name/</loc>
-    <lastmod>2018-04-05T15:12:11-04:00</lastmod>
   </url>
   
   <url>
